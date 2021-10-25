@@ -1,0 +1,95 @@
+.popup-passive {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.passive-inner {
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 570px;
+  max-width: 640px;
+  background-color: black;
+  border: 1px solid red;
+}
+.passive-inner .close-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.passive-inner .close-btn:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+
+.passive-inner .title {
+  height: 80px;
+  font-size: 40px;
+  font-weight: 700;
+}
+.passive-inner .image {
+  height: 230px;
+}
+.passive-inner .description {
+  height: 75px;
+  font-size: 25px;
+}
+.passive-inner .values {
+  height: 55px;
+  margin-top: 5px;
+  font-size: 23px;
+  font-weight: 500;
+}
+.values .nameOfValue {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.values .second {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.passive-inner .button-div {
+  height: 100px;
+}
+.button-div button {
+  width: 175px;
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button-div button:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+
+.button-div button:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}

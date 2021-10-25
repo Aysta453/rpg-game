@@ -12,7 +12,11 @@ const itemSchema = mongoose.Schema({
     typeOfItem: {
         type: String,
     },
-    attack: {
+    minAttack: {
+        type: Number, 
+        default: 0,
+    },
+    maxAttack: {
         type: Number, 
         default: 0,
     },

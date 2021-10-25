@@ -1,0 +1,120 @@
+.popup-inventoryItem {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inventoryItem-inner {
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 900px;
+  max-width: 640px;
+  background-color: black;
+  border: 1px solid red;
+}
+.inventoryItem-inner .close-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.inventoryItem-inner .title {
+  width: 100%;
+  height: 80px;
+  float: left;
+  font-size: 40px;
+  font-weight: 700;
+}
+.inventoryItem-inner .image {
+  width: 100%;
+  height: 220px;
+
+  float: left;
+}
+.inventoryItem-inner .typeOfItem {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  float: left;
+}
+.inventoryItem-inner .infoAboutItem {
+  width: 100%;
+  height: 295px;
+  float: left;
+}
+.infoAboutItem .title {
+  float: left;
+  height: 70px;
+  width: 100%;
+}
+.infoAboutItem .stats {
+  float: left;
+  height: 225px;
+  width: 100%;
+}
+.infoAboutItem .stats .values {
+  float: left;
+  height: 100%;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.inventoryItem-inner .sellInfo {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+
+  float: left;
+  font-size: 25px;
+}
+.inventoryItem-inner .inventoryItemButtons {
+  width: 100%;
+  height: 100px;
+  float: left;
+  background-color: red;
+}
+
+.inventoryItem-inner .inventoryItemButtons button {
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 5px;
+  width: 125px;
+  margin-top: 15px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+
+.inventoryItem-inner .inventoryItemButtons button:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+.inventoryItem-inner .inventoryItemButtons button:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}

@@ -1,0 +1,33 @@
+.cash {
+  border-top: solid red 1px;
+  border-bottom: solid red 1px;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 11rem;
+  color: red;
+  font-weight: bold;
+  background-color: rgb(9, 9, 29);
+}
+.cashItem {
+  margin-top: 1rem;
+  width: 100%;
+  height: 4rem;
+  float: left;
+}
+.cashItemName {
+  text-align: center;
+  width: 50%;
+  height: 4rem;
+  padding-top: 1rem;
+  float: left;
+  font-size: 1.2rem;
+}
+.cashItemValue {
+  text-align: center;
+  width: 50%;
+  height: 4rem;
+  padding-top: 1rem;
+  float: left;
+  font-size: 1.2rem;
+}

@@ -1,0 +1,130 @@
+.missionsView {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+.missionsView .topic {
+  border: 1px solid red;
+  text-align: center;
+  height: 70px;
+  padding-top: 15px;
+  background-color: rgb(01, 10, 10);
+}
+.missionsView .missions {
+  float: left;
+  width: 100%;
+  height: 720px;
+  padding-top: 20px;
+}
+.missions .missionView {
+  margin-top: 25px;
+  width: 400px;
+  height: 100%;
+  float: left;
+  margin-left: 45px;
+  border: 1px solid red;
+}
+.missionView .title {
+  width: 100%;
+  height: 75px;
+  text-align: center;
+  padding-top: 10px;
+  float: left;
+}
+.missionView .description {
+  height: 175px;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  float: left;
+}
+.missionView .time {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .timeValue {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .rewards {
+  height: 75px;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+  float: left;
+}
+.missionView .expPoints {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .expPointsValue {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .money {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .moneyValue {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.missionView .itemBox {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  float: left;
+  padding-left: 100px;
+}
+.itemBox .item {
+  float: left;
+  width: 200px;
+  background-color: rgb(21, 21, 70);
+  height: 141px;
+}
+
+.missionView .missionButton {
+  height: 75px;
+  width: 100%;
+  text-align: center;
+
+  float: left;
+}
+
+.missionStartButton {
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 12px 12px;
+  width: 10vw;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.missionStartButton:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}

@@ -12,19 +12,7 @@ export default function unlockingSkill(skills, typeOfSkill, numberOfSkill) {
         }else if (numberOfSkill == 5) {
             skills.active.fifthskill.isUnlocked = true;
         }else if (numberOfSkill == 6) {
-            skills.active.sixskill.isUnlocked = true;
-        }else if (numberOfSkill == 7) {
-            skills.active.sevenskill.isUnlocked = true;
-        }else if (numberOfSkill == 8) {
-            skills.active.eightskill.isUnlocked = true;
-        }else if (numberOfSkill == 9) {
-            skills.active.nineskill.isUnlocked = true;
-        }else if (numberOfSkill == 10) {
-            skills.active.tenskill.isUnlocked = true;
-        }else if (numberOfSkill == 11) {
-            skills.active.elevenskill.isUnlocked = true;
-        }else if (numberOfSkill == 12) {
-            skills.active.twelveskill.isUnlocked = true;
+            skills.active.sixskill.isUnlocked = true;W
         }
     } else if (typeOfSkill == 1) {
         if (numberOfSkill == 1) {
@@ -53,10 +41,8 @@ export default function unlockingSkill(skills, typeOfSkill, numberOfSkill) {
             skills.passive.twelveskill.isUnlocked = true;
         }
     }
-
-        
+   
     skills.availabePoints = skills.availabePoints - 1;
-
     data = skills;
     return data;
 }

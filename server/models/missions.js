@@ -18,6 +18,23 @@ const missionsSchema = mongoose.Schema({
         missionRewardExp: {
             type: Number,
         },
+        monster: {
+            monsterName: {
+                type:String,
+            },
+            monsterHealtPoints: {
+                type:Number,
+            }, 
+            monsterMinAttack: {
+                type:Number,
+            },
+            monsterMaxAttack: {
+                type:Number,
+            },
+            monsterDefense: {
+                type:Number,
+            },
+        },
     },
     secondMission: {
           missionTitle: {
@@ -35,9 +52,26 @@ const missionsSchema = mongoose.Schema({
         missionRewardExp: {
             type: Number,
         },
+        monster: {
+            monsterName: {
+                type:String,
+            },
+            monsterHealtPoints: {
+                type:Number,
+            }, 
+            monsterMinAttack: {
+                type:Number,
+            },
+            monsterMaxAttack: {
+                type:Number,
+            },
+            monsterDefense: {
+                type:Number,
+            },
+        },
     },
     thirdMission: {
-          missionTitle: {
+        missionTitle: {
             type: String,
         },
         missionDescription: {
@@ -51,6 +85,23 @@ const missionsSchema = mongoose.Schema({
         },
         missionRewardExp: {
             type: Number,
+        },
+        monster: {
+            monsterName: {
+                type: String,
+            },
+            monsterHealtPoints: {
+                type: Number,
+            },
+            monsterMinAttack: {
+                type: Number,
+            },
+            monsterMaxAttack: {
+                type: Number,
+            },
+            monsterDefense: {
+                type: Number,
+            },
         },
     },
     owner: {

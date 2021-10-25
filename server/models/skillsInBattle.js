@@ -6,16 +6,18 @@ const skillsInBattle = mongoose.Schema({
         type: String,
         require: true,
     },
-    firstskill: {
-        nameOfSkill: { type: String, },
+    firstSkill: {
+        nameOfSkill: { type: String,  },
         descriptionOfSpell: { type: String, },
         pointsOfMana: { type: Number, },
         valueOfSpell: { type: Number, },
         durationTime: { type: Number, },
         castTime: { type: Number, },
         numberOfSkill: { type: Number, },
+        isSkillAssigned: { type: Boolean, default: false },
+        
     },
-    secondskill: {
+    secondSkill: {
         nameOfSkill: { type: String, },
         descriptionOfSpell: { type: String, },
         pointsOfMana: { type: Number, },
@@ -23,8 +25,11 @@ const skillsInBattle = mongoose.Schema({
         durationTime: { type: Number, },
         castTime: { type: Number, },
         numberOfSkill: { type: Number, },
+        isSkillAssigned: { type: Boolean, default: false },
+        
+
     },
-    thirdskill: {
+    thirdSkill: {
         nameOfSkill: { type: String, },
         descriptionOfSpell: { type: String, },
         pointsOfMana: { type: Number, },
@@ -32,35 +37,8 @@ const skillsInBattle = mongoose.Schema({
         durationTime: { type: Number, },
         castTime: { type: Number, },
         numberOfSkill: { type: Number, },
-    },
-    forthskill: {
-        nameOfSkill: { type: String, },
-        descriptionOfSpell: { type: String, },
-        pointsOfMana: { type: Number, },
-        valueOfSpell: { type: Number, },
-        durationTime: { type: Number, },
-        castTime: { type: Number, },
-        numberOfSkill: { type: Number, },
-    },
-    fifthskill: {
-        nameOfSkill: { type: String, },
-        descriptionOfSpell: { type: String, },
-        pointsOfMana: { type: Number, },
-        valueOfSpell: { type: Number, },
-        durationTime: { type: Number, },
-        castTime: { type: Number, },
-        numberOfSkill: { type: Number, },
-    },
-    sixskill: {
-        nameOfSkill: { type: String, },
-        descriptionOfSpell: { type: String, },
-        pointsOfMana: { type: Number, },
-        valueOfSpell: { type: Number, },
-        durationTime: { type: Number, },
-        castTime: { type: Number, },
-        numberOfSkill: { type: Number, },
+        isSkillAssigned: { type: Boolean, default: false },
+      
     },
 });
-
-
 export default mongoose.model("SkillsInBattle", skillsInBattle);

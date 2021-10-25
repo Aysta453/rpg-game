@@ -12,6 +12,7 @@ import skillsRouter from './routes/skills.js';
 import skillsInBattleRouter from './routes/skillsInBattle.js';
 import missionsRouter from './routes/missions.js';
 import tradeRouter from './routes/trades.js';
+import inventoryRouter from './routes/inventory.js';
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/skills', skillsRouter);
 app.use('/skillsInBattle', skillsInBattleRouter);
 app.use('/missions', missionsRouter);
 app.use('/trade', tradeRouter);
+app.use('/inventory', inventoryRouter);
 
 
 

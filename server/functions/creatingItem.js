@@ -18,7 +18,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     let nameOfItem;
     let typeOfItem;
 
-    let attackValue;
+    let attackMinValue;
+    let attackMaxValue;
     let defensiveValue;
     let strengthValue;
     let dexterityValue;
@@ -39,8 +40,12 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
 
     if (ifNewCharacter == 0) {
      switch (heroClass) {
-        case "Warrior": 
-            attackValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
+         case "Warrior":
+            do {
+                attackMinValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
+                attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+            } while (attackMinValue >= attackMaxValue); 
+            attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
             defensiveValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
             strengthValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2);
             dexterityValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
@@ -48,8 +53,11 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             staminaValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
             spiritValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2);
             break;
-        case "Mage":
-            attackValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
+         case "Mage":
+            do {
+                attackMinValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+                attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
+            } while (attackMinValue >= attackMaxValue);
             defensiveValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
             strengthValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
             dexterityValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
@@ -57,8 +65,11 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             staminaValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
             spiritValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2); 
             break;
-        case "Priest":
-            attackValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+         case "Priest":
+            do {
+                attackMinValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+                attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
+            } while (attackMinValue >= attackMaxValue);
             defensiveValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
             strengthValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 1) / 2);
             dexterityValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
@@ -66,8 +77,11 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             staminaValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
             spiritValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
             break;
-        case "Hunter":
-            attackValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
+         case "Hunter":
+            do {
+                attackMinValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+                attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
+            } while (attackMinValue >= attackMaxValue);
             defensiveValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2);
             strengthValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
             dexterityValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
@@ -75,8 +89,11 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             staminaValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2) ;
             spiritValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2) ;
             break;
-        case "Berserk":
-            attackValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2);
+         case "Berserk":
+            do {
+                attackMinValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
+                attackMaxValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 4) / 2);
+            } while (attackMinValue >= attackMaxValue);
             defensiveValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 3) / 2);
             strengthValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 5) / 2);
             dexterityValue = Math.round((((Math.floor((Math.random() * 5) + 1)) * level) * 2) / 2);
@@ -88,7 +105,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     } else {
         switch (heroClass) {
         case "Warrior": 
-            attackValue = 1;
+            attackMinValue=1;
+            attackMaxValue=5;
             defensiveValue = 5;
             strengthValue = 4;
             dexterityValue = 2;
@@ -97,7 +115,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             spiritValue = 3;
             break;
         case "Mage":
-            attackValue = 5;
+            attackMinValue=1;
+            attackMaxValue=5;
             defensiveValue = 1;
             strengthValue = 1;
             dexterityValue = 2;
@@ -106,7 +125,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             spiritValue = 4; 
             break;
         case "Priest":
-            attackValue = 2;
+            attackMinValue=1;
+            attackMaxValue=5;
             defensiveValue = 2;
             strengthValue = 1;
             dexterityValue = 2;
@@ -115,7 +135,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             spiritValue = 5;
             break;
         case "Hunter":
-            attackValue = 3;
+            attackMinValue=1;
+            attackMaxValue=5;
             defensiveValue = 4;
             strengthValue = 2;
             dexterityValue = 5;
@@ -124,7 +145,8 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
             spiritValue = 3;
             break;
         case "Berserk":
-            attackValue = 4;
+            attackMinValue=1;
+            attackMaxValue=5;
             defensiveValue = 3;
             strengthValue = 5;
             dexterityValue = 2;
@@ -139,7 +161,10 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     if (typeOfItemGeneration == 5) {
         defensiveValue = 0;
     } else {
-        attackValue = 0;
+        attackMinValue = 0;
+
+        attackMaxValue = 0;
+
     }
   
 
@@ -310,14 +335,17 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     item = {
         nameOfItem: nameOfItem,   
         typeOfItem: typeOfItem,
-        attack: attackValue,               
+        minAttack:attackMinValue,
+        maxAttack:attackMaxValue,
         defensive: defensiveValue,
         strength: strengthValue,               
         dexterity: dexterityValue,
         intellect: intellectValue,               
         stamina: staminaValue,
         spirit: spiritValue,
-        cost: itemCost
+        cost: itemCost,
+        numberOfItem: variantOfItem,
+        isEmpty:false,
     };
 
     return item;

@@ -20,7 +20,6 @@ export const createNewSkillsToAccount = async (req, res) => {
         active: active,
         passive: passive
     });
- 
     try {
         await newSkills.save();
         res.status(201).json(newSkills);
@@ -44,7 +43,6 @@ export const unlockedSkill = async (req, res) => {
     const { owner, typeOfSkill, numerOfSkill } = req.body;
     let result1 = await Skills.findOne({ owner });
     let data = unlockingSkill(result1, typeOfSkill, numerOfSkill);
-
     try {
         const result1= await Skills.findOneAndUpdate({owner:owner}, data,{new:true});
         res.status(201).json(result1);
@@ -57,8 +55,8 @@ export const unlockedSkill = async (req, res) => {
 export const assignSkill = async (req, res) => {
     const { owner, numerOfSkill } = req.body;
     let result1 = await Skills.findOne({ owner });
-    let data = assigningSkill(result1,numerOfSkill);
-
+    let data = assigningSkill(result1, numerOfSkill);
+    console.log(data);
     try {
         const result1= await Skills.findOneAndUpdate({owner:owner}, data,{new:true});
         res.status(201).json(result1);

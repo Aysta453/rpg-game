@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: black;
+  color: white;
+}
+.main {
+  height: 100vh;
+  padding: 10px;
+}
+
+.leftPanel {
+  width: 400px;
+  height: 910px;
+  margin-left: 20px;
+  border: solid red 1px;
+  float: left;
+  background-color: red;
+}
+.menuitem {
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 2rem;
+}
+.menuitem p {
+  text-align: center;
+}
+.menuitem2 {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  margin-top: 40px;
+
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 15px;
+  color: darkred;
+}
+.buttonLeftMenu {
+  width: 18vw;
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonLeftMenu:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+
+.buttonLeftMenu:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+  }
+}

@@ -13,38 +13,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
+        minAttack: {
             type: Number, 
-            default: 0,
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,  
         },
         dexterity: {
             type: Number,
-            default: 0,  
         },
         intellect: {
             type: Number,
-            default: 0,  
         },
         stamina: {
             type: Number,
-            default: 0,  
         },
         spirit: {
             type: Number,
-            default: 0,   
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
     necklace: {
         nameOfItem: {
@@ -53,38 +55,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
+        minAttack: {
             type: Number, 
-            default: 0,
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,  
         },
         dexterity: {
             type: Number,
-            default: 0,  
         },
         intellect: {
             type: Number,
-            default: 0,  
         },
         stamina: {
             type: Number,
-            default: 0,  
         },
         spirit: {
             type: Number,
-            default: 0,   
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
     armor: {
         nameOfItem: {
@@ -93,38 +97,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
+        minAttack: {
             type: Number, 
-            default: 0,
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,  
         },
         dexterity: {
             type: Number,
-            default: 0,  
         },
         intellect: {
             type: Number,
-            default: 0,  
         },
         stamina: {
             type: Number,
-            default: 0,  
         },
         spirit: {
             type: Number,
-            default: 0,   
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
     pants: {
         nameOfItem: {
@@ -133,38 +139,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
+        minAttack: {
             type: Number, 
-            default: 0,
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,  
         },
         dexterity: {
             type: Number,
-            default: 0,  
         },
         intellect: {
             type: Number,
-            default: 0,  
         },
         stamina: {
             type: Number,
-            default: 0,  
         },
         spirit: {
             type: Number,
-            default: 0,   
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
     boots: {
         nameOfItem: {
@@ -173,38 +181,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
+        minAttack: {
             type: Number, 
-            default: 0,
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,  
         },
         dexterity: {
             type: Number,
-            default: 0,  
         },
         intellect: {
             type: Number,
-            default: 0,  
         },
         stamina: {
             type: Number,
-            default: 0,  
         },
         spirit: {
             type: Number,
-            default: 0,   
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
     weapon: {
         nameOfItem: {
@@ -213,38 +223,40 @@ const itemInUseSchema = mongoose.Schema({
         typeOfItem: {
             type: String,
         },
-        attack: {
-            type: Number,
-            default: 0,
+        minAttack: {
+            type: Number, 
+        },
+        maxAttack: {
+            type: Number, 
         },
         defensive: {
             type: Number,
-            default: 0,
         },
         strength: {
             type: Number,
-            default: 0,
         },
         dexterity: {
             type: Number,
-            default: 0,
         },
         intellect: {
             type: Number,
-            default: 0,
         },
         stamina: {
             type: Number,
-            default: 0,
         },
         spirit: {
             type: Number,
-            default: 0,
         },
         cost: {
+            type:Number,
+        },
+        isEmpty: {
+            type: Boolean,
+            default: false,
+        },
+        numberOfItem: {
             type: Number,
-            default: 0,
-        }
+        },  
     },
 });
 

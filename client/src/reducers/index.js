@@ -1,0 +1,16 @@
+import { combineReducers } from 'redux';
+
+import auth from './auth.js';
+import hero from './hero.js';
+import stats from './stats.js';
+import item from './item.js';
+import itemInUse from './itemInUse.js';
+import skills from './skills.js';
+import missions from './missions.js';
+import trades from './trades.js';
+import game from './game.js';
+import skillsToBattle from './skillsToBattle.js';
+import playerGame from './playerGame.js';
+import inventory from './inventory.js';
+
+export const reducers = combineReducers({auth,hero,stats,item,itemInUse,skills,missions,trades,game,skillsToBattle,playerGame,inventory});

@@ -1,0 +1,531 @@
+.characterView {
+  background-color: rgb(9, 9, 29);
+  height: 100%;
+  width: 100%;
+}
+.characterView .FirstBox {
+  float: left;
+  height: 426px;
+  width: 700px;
+  border: 1px solid red;
+}
+.FirstBox .left {
+  float: left;
+  width: 200px;
+  height: 100%;
+  background-color: rgb(21, 21, 70);
+}
+
+.FirstBox .middle {
+  float: left;
+  width: 298px;
+  height: 100%;
+}
+
+.FirstBox .middle .avatar {
+  color: red;
+  height: 100%;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.FirstBox .middle .avatar .infoNick {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 282px;
+}
+.FirstBox .middle .avatar .info {
+  margin-top: 2px;
+  font-size: 20px;
+}
+.FirstBox .middle .avatar .infoExp {
+  background-color: green;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.FirstBox .right {
+  float: left;
+  width: 200px;
+  background-color: rgb(21, 21, 70);
+  height: 100%;
+}
+.itemInUse {
+  height: 141px;
+  width: 199px;
+  float: left;
+  border: 1px solid red;
+}
+.itemInUse .imageSkill {
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+.itemInUse .active-btn {
+  display: unset;
+  position: relative;
+  top: -144px;
+  left: 168px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  padding-top: 2px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 3;
+}
+
+.characterView .secondBox {
+  clear: both;
+  background-color: rgb(21, 21, 65);
+  border: 1px solid red;
+  margin-top: 65px;
+  float: left;
+  height: 375px;
+  width: 600px;
+  display: inline;
+}
+.secondBox .stat {
+  text-align: center;
+  width: 100%;
+  height: 75px;
+  float: left;
+}
+.secondBox .stat .nameBox {
+  float: left;
+  height: 100%;
+  width: 198px;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.secondBox .stat .nameBox .name {
+  position: relative;
+  display: inline-block;
+}
+
+.secondBox .stat .nameBox .name .tooltip {
+  visibility: hidden;
+  min-width: 300px;
+  width: auto;
+  max-width: 500px;
+  border: 1px solid red;
+  background-color: rgb(21, 21, 65);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: -50%;
+
+  transition: opacity 0.3s;
+
+  overflow-wrap: break-word;
+}
+.secondBox .stat .nameBox .name:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.secondBox .stat .statValue {
+  padding-top: 13px;
+  float: left;
+  height: 100%;
+  width: 200px;
+  font-size: 25px;
+}
+.secondBox .stat .statButton {
+  float: left;
+  height: 100%;
+  width: 200px;
+}
+
+.secondBox .stat .statButton .statisticButton {
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 5px;
+  width: 125px;
+  margin-top: 15px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+
+.secondBox .stat .statButton .statisticButton:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+.secondBox .stat .statButton .statisticButton:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}
+
+.secondBox .stat .statButton .statisticButton .tooltipStatButt {
+  visibility: hidden;
+  width: 200px;
+  height: 50px;
+  border: 1px solid red;
+  background-color: rgb(21, 21, 65);
+  color: red;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 30%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 20px;
+  overflow-wrap: break-word;
+}
+
+.secondBox .stat .statButton .statisticButton:hover .tooltipStatButt {
+  visibility: visible;
+  opacity: 1;
+}
+
+.characterView .forthBox {
+  border: 1px solid red;
+  float: right;
+  background-color: rgb(21, 21, 65);
+  height: 375px;
+  width: 780px;
+  margin-top: 65px;
+}
+.forthBox .statExtended {
+  color: red;
+  text-align: center;
+  width: 389px;
+  height: 75px;
+  float: left;
+}
+
+.forthBox .statExtended .statName {
+  padding-top: 1rem;
+
+  float: left;
+  width: 60%;
+  height: 100%;
+}
+.forthBox .statExtended .statValue {
+  padding-top: 1rem;
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+
+.thirdBox {
+  background-color: rgb(21, 21, 65);
+  float: right;
+  height: 425px;
+  width: 602px;
+  border: 1px solid red;
+}
+.thirdBox .inventoryItem {
+  height: 141px;
+  width: 200px;
+  color: red;
+  float: left;
+  display: inline;
+  text-align: center;
+
+  border: red solid 1px;
+  background-color: darkslategray;
+}
+.inventoryItem .imageItem {
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  right: 2px;
+  z-index: 1;
+}
+.inventoryItem .itemInventory-btn {
+  display: unset;
+  position: relative;
+  top: -144px;
+  left: 83px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  padding-top: 2px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 3;
+}
+
+.characterView .forthBoxDealer {
+  border: 1px solid red;
+  float: left;
+  background-color: rgb(21, 21, 65);
+  height: 375px;
+  width: 720px;
+  margin-top: 65px;
+}
+.forthBoxDealer .statExtended {
+  color: red;
+  text-align: center;
+  width: 350px;
+  height: 75px;
+  float: left;
+}
+
+.forthBoxDealer .statExtended .statName {
+  padding-top: 1rem;
+  float: left;
+  width: 60%;
+  height: 100%;
+}
+.forthBoxDealer .statExtended .statValue {
+  padding-top: 1rem;
+  float: left;
+  width: 40%;
+  height: 100%;
+}
+.characterView .dealerView {
+  margin-top: 65px;
+  width: 620px;
+  height: 375px;
+  float: right;
+  border: solid red 1px;
+}
+
+.dealerView .dealerViewChange {
+  width: 100%;
+  height: 75px;
+  float: left;
+  border: solid red 1px;
+  text-align: center;
+}
+.dealerViewItems {
+  width: 100%;
+  height: 300px;
+  float: left;
+  border: solid red 1px;
+  text-align: center;
+}
+
+.buttonDealerChange {
+  width: 10vw;
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.buttonDealerChange:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+.buttonDealerChange:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}
+
+.buttonDealerChange .tooltipButtonDealerChange {
+  visibility: hidden;
+  width: 150px;
+  height: 25px;
+  border: 1px solid red;
+  background-color: rgb(21, 21, 65);
+  color: red;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 30%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  overflow-wrap: break-word;
+}
+
+.buttonDealerChange:hover .tooltipButtonDealerChange {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dealerViewItem {
+  height: 141px;
+  width: 200px;
+  float: left;
+  border: solid red 1px;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 4px;
+}
+
+.dealerViewItem .imageDealerItem {
+  position: relative;
+  display: inline-block;
+  top: 0px;
+  right: 2px;
+  z-index: 1;
+}
+.dealerViewItem .itemDealer-btn {
+  display: unset;
+  position: relative;
+  top: -144px;
+  left: 84px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  padding-top: 2px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 3;
+}
+
+.popup-itemDealer {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.itemDealer-inner {
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 900px;
+  max-width: 640px;
+  background-color: black;
+  border: 1px solid red;
+}
+.itemDealer-inner .close-btn {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background: crimson;
+  color: white;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.itemDealer-inner .title {
+  width: 100%;
+  height: 80px;
+  float: left;
+  font-size: 40px;
+  font-weight: 700;
+}
+.itemDealer-inner .image {
+  width: 100%;
+  height: 220px;
+
+  float: left;
+}
+.inventoryItem-inner .typeOfItem {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  float: left;
+}
+.itemDealer-inner .infoAboutItem {
+  width: 100%;
+  height: 295px;
+  float: left;
+}
+.infoAboutItem .title {
+  float: left;
+  height: 70px;
+  width: 100%;
+}
+.infoAboutItem .stats {
+  float: left;
+  height: 225px;
+  width: 100%;
+}
+.infoAboutItem .stats .values {
+  float: left;
+  height: 100%;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.itemDealer-inner .sellInfo {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+
+  float: left;
+  font-size: 25px;
+}
+.itemDealer-inner .itemDealerButtons {
+  width: 100%;
+  height: 100px;
+  float: left;
+  background-color: red;
+}
+
+.itemDealer-inner .itemDealerButtons button {
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 5px;
+  width: 125px;
+  margin-top: 15px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+
+.itemDealer-inner .itemDealerButtons button:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+.itemDealer-inner .itemDealerButtons button:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}

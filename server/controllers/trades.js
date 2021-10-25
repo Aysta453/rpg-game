@@ -17,14 +17,6 @@ export const createAllTradeItems = async (req, res) => {
     let forth = creatingItem(heroClass, level, 1, 0, 0);
     let fifth = creatingItem(heroClass, level, 1, 0, 0);
     let sixth = creatingItem(heroClass, level, 1, 0, 0);
-    let seventh = creatingItem(heroClass, level, 1, 0, 0);
-    let eigth = creatingItem(heroClass, level, 1, 0, 0);
-    let ninth = creatingItem(heroClass, level, 1, 0, 0);
-    let tenth = creatingItem(heroClass, level, 1, 0, 0);
-    let eleventh = creatingItem(heroClass, level, 1, 0, 0);
-    let twelfth = creatingItem(heroClass, level, 1, 0, 0);
-    let thirteenth = creatingItem(heroClass, level, 1, 0, 0);
-    let fourteenth = creatingItem(heroClass, level, 1, 0, 0);
     
     
     let newTrade = new Trade();
@@ -38,14 +30,6 @@ export const createAllTradeItems = async (req, res) => {
             forthItemForSell: forth,
             fifthItemForSell: fifth,
             sixthItemForSell: sixth,
-            seventhItemForSell: seventh,
-            eigthItemForSell: eigth,
-            ninthItemForSell: ninth,
-            tenthItemForSell: tenth,
-            eleventhItemForSell: eleventh,
-            twelfthItemForSell: twelfth,
-            thirteenthItemForSell: thirteenth,
-            fourteenthItemForSell: fourteenth,
         },
     });
       
@@ -77,15 +61,6 @@ export const updateAllTradeItems = async (req, res) => {
     let forth = creatingItem(heroClass, level, 1, 0, 0);
     let fifth = creatingItem(heroClass, level, 1, 0, 0);
     let sixth = creatingItem(heroClass, level, 1, 0, 0);
-    let seventh = creatingItem(heroClass, level, 1, 0, 0);
-    let eigth = creatingItem(heroClass, level, 1, 0, 0);
-    let ninth = creatingItem(heroClass, level, 1, 0, 0);
-    let tenth = creatingItem(heroClass, level, 1, 0, 0);
-    let eleventh = creatingItem(heroClass, level, 1, 0, 0);
-    let twelfth = creatingItem(heroClass, level, 1, 0, 0);
-    let thirteenth = creatingItem(heroClass, level, 1, 0, 0);
-    let fourteenth = creatingItem(heroClass, level, 1, 0, 0);
-
     let { data } = {};
 
     data = {
@@ -96,14 +71,6 @@ export const updateAllTradeItems = async (req, res) => {
             forthItemForSell: forth,
             fifthItemForSell: fifth,
             sixthItemForSell: sixth,
-            seventhItemForSell: seventh,
-            eigthItemForSell: eigth,
-            ninthItemForSell: ninth,
-            tenthItemForSell: tenth,
-            eleventhItemForSell: eleventh,
-            twelfthItemForSell: twelfth,
-            thirteenthItemForSell: thirteenth,
-            fourteenthItemForSell: fourteenth,
         },
     };
       

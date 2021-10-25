@@ -14,38 +14,40 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
+            },  
         },
         secondItemForSell: {
             nameOfItem: {
@@ -54,38 +56,40 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
+            },  
         },
         thirdItemForSell: {
             nameOfItem: {
@@ -94,38 +98,40 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
+            },  
         },
         forthItemForSell: {
             nameOfItem: {
@@ -134,38 +140,40 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
+            },  
         },
         fifthItemForSell: {
             nameOfItem: {
@@ -174,38 +182,40 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
+            },  
         },
         sixthItemForSell: {
             nameOfItem: {
@@ -214,360 +224,41 @@ const tradeSchema = mongoose.Schema({
             typeOfItem: {
                 type: String,
             },
-            attack: {
+            minAttack: {
                 type: Number, 
-                default: 0,
+            },
+            maxAttack: {
+                type: Number, 
             },
             defensive: {
                 type: Number,
-                default: 0,
             },
             strength: {
                 type: Number,
-                default: 0,  
             },
             dexterity: {
                 type: Number,
-                default: 0,  
             },
             intellect: {
                 type: Number,
-                default: 0,  
             },
             stamina: {
                 type: Number,
-                default: 0,  
             },
             spirit: {
                 type: Number,
-                default: 0,   
             },
             cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: false,
+            },
+            numberOfItem: {
                 type: Number,
-                default: 0,
-            }
-        },
-        seventhItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        eigthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        ninthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        tenthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        eleventhItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        twelfthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        thirteenthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        fourteenthItemForSell: {
-            nameOfItem: {
-                type: String,
-            },
-            typeOfItem: {
-                type: String,
-            },
-            attack: {
-                type: Number, 
-                default: 0,
-            },
-            defensive: {
-                type: Number,
-                default: 0,
-            },
-            strength: {
-                type: Number,
-                default: 0,  
-            },
-            dexterity: {
-                type: Number,
-                default: 0,  
-            },
-            intellect: {
-                type: Number,
-                default: 0,  
-            },
-            stamina: {
-                type: Number,
-                default: 0,  
-            },
-            spirit: {
-                type: Number,
-                default: 0,   
-            },
-            cost: {
-                type: Number,
-                default: 0,
-            }
-        },
-        
+            },  
+        },   
     },
 });
 

@@ -15,9 +15,9 @@ export const createMissions = async (req, res) => {
 
     const { owner } = req.body;
      
-    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1);
-    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1);
-    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1);
+    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,1);
+    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,2);
+    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,3);
 
     let newMissions = new Missions();
 
@@ -49,10 +49,13 @@ export const newMissions = async (req, res) => {
 
     const { owner,level } = req.body;
     const result = await Missions.findOne({ owner });
+    console.log(owner);
+    console.log(level);
+    console.log(result);
 
-    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level);
-    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level);
-    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level);
+    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,1);
+    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,2);
+    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,3);
 
     let { newMissions } = {};
 

@@ -1,0 +1,140 @@
+.dungeonsView {
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+}
+.dungeonsViewTopic {
+  border: 1px solid red;
+  text-align: center;
+  height: 10vh;
+  padding-top: 1.5rem;
+}
+.dungeons {
+  float: left;
+  border: 1px solid red;
+  width: 100%;
+  height: 78vh;
+  padding: 0.5rem;
+}
+.dungeonView {
+  width: 40vh;
+  height: 100%;
+  float: left;
+  margin-left: 2.5rem;
+  border: 1px solid red;
+}
+.dungeonTitle {
+  width: 100%;
+  height: 10vh;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonDescription {
+  height: 20vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonTime {
+  height: 5vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonTimeValue {
+  height: 5vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewards {
+  height: 10vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
+  float: left;
+}
+.dungeonRewardsPoints {
+  height: 7vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewardsPointsValue {
+  height: 7vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewardsMoney {
+  height: 7vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewardsMoneyValue {
+  height: 7vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewardsItem {
+  height: 10vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 2rem;
+  float: left;
+}
+.dungeonRewardsItemValue {
+  height: 10vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonRewardsItemValue1 {
+  border: 1px solid red;
+  height: 8vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 1.5rem;
+  float: left;
+}
+.dungeonOptions {
+  border: 1px solid red;
+  height: 7vh;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonOptionJoin {
+  background-color: red;
+  border: 1px solid red;
+  height: 5vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
+.dungeonOptionInvite {
+  background-color: red;
+  border: 1px solid black;
+  height: 5vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+}
