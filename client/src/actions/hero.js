@@ -29,6 +29,14 @@ export const decreasegold = (formData) => async (dispatch) => {
     console.log(error);
   }
 };
+export const increasegold = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.increaseGold(formData);
+    dispatch({ type: HERO_GOLD_DE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const addrewardsaftermission = (formData) => async (dispatch) => {
   try {
     const { data } = await api.addRewardsAfterMission(formData);

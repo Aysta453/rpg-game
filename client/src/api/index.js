@@ -19,6 +19,8 @@ export const createNewHero = (formData) => API.post('/hero/createNewHero', formD
 export const getInfoAboutHero = (formData) => API.post(`/hero`, formData);
 
 export const decreaseGold = (formData) => API.post(`/hero/decgold`, formData);
+export const increaseGold = (formData) => API.post(`/hero/incgold`, formData);
+
 export const addRewardsAfterMission = (formData) => API.post(`/hero/addRewardsAfterMission`, formData);
 
 

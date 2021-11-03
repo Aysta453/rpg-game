@@ -8,24 +8,29 @@ import CharacterStatistic from "./characterStatistic/CharacterStatistic";
 import CharStatExtended from './charStatExtended/CharStatExtended';
 
 import {increasestatstrength,increasestatdexterity,increasestatintellect,increasestatstamina,increasestatspirit} from '../../../../actions/stats';
-import { decreasegold,inc} from '../../../../actions/hero';
+import { decreasegold,inc, increasegold} from '../../../../actions/hero';
 import { getallitems,deletethisitem,assignitemtoinventory,deleteandassignitem } from '../../../../actions/item';
 import { changeiteminuse } from '../../../../actions/itemInUse';
 import { deleitemfrominventory, getinventory,changeitemininventory } from '../../../../actions/inventory';
 
 
 import './characterView.css';
+import playerGameValues from '../../../../functions/playerGameValues';
+import { setPlayerValues } from '../../../../actions/playerGame';
 
 const CharacterView = (user) => {
     const stats = useSelector(state => state.stats);
+    const hero = useSelector(state => state.hero);
     const itemInUse = useSelector(state => state.itemInUse);
     const inventory = useSelector(state => state.inventory);
-
+    const skills = useSelector(state => state.skills);
+    let playerStats = playerGameValues(hero, itemInUse, stats,skills.passive);
    
     const dispatch = useDispatch();
 
-   const handleSubmit = (a, b) => {
-        switch (a) {
+    const handleSubmit = (a, b) => {
+        if (hero.gold > b) {
+               switch (a) {
             case 1:
                 dispatch(increasestatstrength({owner:user.user}));
                 break;
@@ -43,6 +48,8 @@ const CharacterView = (user) => {
                 break;
         }
         dispatch(decreasegold({ owner: user.user, amountOfGold: b }));
+        }
+     
     };
 
 
@@ -51,14 +58,12 @@ const CharacterView = (user) => {
     const sellThisItem = (slotNumber, item) => {
         let cost = item.cost;
         dispatch(deleitemfrominventory({ owner: user.user, itemNumber: slotNumber }));
-        dispatch(decreasegold({ owner: user.user, amountOfGold: cost }));
+        dispatch(increasegold({ owner: user.user, amountOfGold: cost }));
         
     }
 
 
     const handleChangeItemIntoUse = (slotNumber,item) => {
-        console.log(slotNumber);
-        console.log(item);
         let typeOfItem = item.typeOfItem;
         let itemToInventory = {};
         switch (typeOfItem) {
@@ -81,18 +86,17 @@ const CharacterView = (user) => {
                 itemToInventory = itemInUse.weapon;
                 break;
         };
-        console.log('check');
-        console.log(itemToInventory);
         dispatch(changeitemininventory({ owner: user.user, itemNumber: slotNumber, item: itemToInventory }));
         dispatch(changeiteminuse({ owner: user.user, item: item }));
-    
-
-    
     };
 
     useEffect(() => {
         dispatch(getinventory({ owner: user.user }));
+ 
     }, [dispatch]);
+    useEffect(() => {
+               dispatch(setPlayerValues(playerStats));
+    })
                     
 
 
@@ -134,16 +138,7 @@ const CharacterView = (user) => {
                     <CharacterStatistic typeOfStat={5} handleSubmit={handleSubmit} value={stats.spirit} user={user} />
                 </div>
                 <div className='forthBox'>
-                    <CharStatExtended type={1} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={2} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={3} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={4} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={5} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={6} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={7} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={8} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={9} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={10} items={itemInUse} stats={stats} />
+                    <CharStatExtended />
                 </div>   
             </div>
         </>

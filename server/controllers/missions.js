@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 import Missions from '../models/missions.js';
+import Hero from '../models/hero.js';
 
 
 import createMission from '../functions/createMission.js'
@@ -15,9 +16,13 @@ export const createMissions = async (req, res) => {
 
     const { owner } = req.body;
      
-    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,1);
-    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,2);
-    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,3);
+    const resultHero = await Hero.findOne({ owner });
+    let heroClass = resultHero.heroClass;
+  
+
+    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,1,heroClass);
+    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,2,heroClass);
+    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),1,3,heroClass);
 
     let newMissions = new Missions();
 
@@ -49,17 +54,17 @@ export const newMissions = async (req, res) => {
 
     const { owner,level } = req.body;
     const result = await Missions.findOne({ owner });
-    console.log(owner);
-    console.log(level);
-    console.log(result);
+    const resultHero = await Hero.findOne({ owner });
+    let heroClass = resultHero.heroClass;
+  
 
-    let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,1);
-    let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,2);
-    let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,3);
+     let mission1=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,1,heroClass);
+     let mission2=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,2,heroClass);
+     let mission3=createMission(Math.floor((Math.random() * 10)+1),Math.floor((Math.random() * 10)+1),level,3,heroClass);
 
-    let { newMissions } = {};
+     let { newMissions } = {};
 
-    newMissions =( {
+     newMissions =( {
         firstMission:mission1,
         secondMission:mission2,
         thirdMission:mission3,
@@ -67,7 +72,7 @@ export const newMissions = async (req, res) => {
     });
        
     try {
-             const result1= await Missions.findByIdAndUpdate(result._id, newMissions, { new: true });
+           const result1= await Missions.findByIdAndUpdate(result._id, newMissions, { new: true });
         res.status(201).json(result1);
     } catch (error) {
         res.status(409).json({ message: error.message });

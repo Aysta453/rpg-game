@@ -2,43 +2,43 @@ export default function unlockingSkill(skills, typeOfSkill, numberOfSkill) {
     let { data } = {};
     if (typeOfSkill == 0) {
         if (numberOfSkill == 1) {
-            skills.active.firstskill.isUnlocked = true;
+            skills.active.firstSkill.isUnlocked = true;
         } else if (numberOfSkill == 2) {
-            skills.active.secondskill.isUnlocked = true;
+            skills.active.secondSkill.isUnlocked = true;
         }else if (numberOfSkill == 3) {
-            skills.active.thirdskill.isUnlocked = true;
+            skills.active.thirdSkill.isUnlocked = true;
         }else if (numberOfSkill == 4) {
-            skills.active.forthskill.isUnlocked = true;
+            skills.active.forthSkill.isUnlocked = true;
         }else if (numberOfSkill == 5) {
-            skills.active.fifthskill.isUnlocked = true;
+            skills.active.fifthSkill.isUnlocked = true;
         }else if (numberOfSkill == 6) {
-            skills.active.sixskill.isUnlocked = true;W
+            skills.active.sixthSkill.isUnlocked = true;W
         }
     } else if (typeOfSkill == 1) {
         if (numberOfSkill == 1) {
-            skills.passive.firstskill.isUnlocked = true;
+            skills.passive.firstSkill.isUnlocked = true;
         } else if (numberOfSkill == 2) {
-            skills.passive.secondskill.isUnlocked = true;
+            skills.passive.secondSkill.isUnlocked = true;
         }else if (numberOfSkill == 3) {
-            skills.passive.thirdskill.isUnlocked = true;
+            skills.passive.thirdSkill.isUnlocked = true;
         }else if (numberOfSkill == 4) {
-            skills.passive.forthskill.isUnlocked = true;
+            skills.passive.forthSkill.isUnlocked = true;
         }else if (numberOfSkill == 5) {
-            skills.passive.fifthskill.isUnlocked = true;
+            skills.passive.fifthSkill.isUnlocked = true;
         }else if (numberOfSkill == 6) {
-            skills.passive.sixskill.isUnlocked = true;
+            skills.passive.sixthSkill.isUnlocked = true;
         }else if (numberOfSkill == 7) {
-            skills.passive.sevenskill.isUnlocked = true;
+            skills.passive.seventhSkill.isUnlocked = true;
         }else if (numberOfSkill == 8) {
-            skills.passive.eightskill.isUnlocked = true;
+            skills.passive.eighthSkill.isUnlocked = true;
         }else if (numberOfSkill == 9) {
-            skills.passive.nineskill.isUnlocked = true;
+            skills.passive.ninthSkill.isUnlocked = true;
         }else if (numberOfSkill == 10) {
-            skills.passive.tenskill.isUnlocked = true;
+            skills.passive.tenthSkill.isUnlocked = true;
         }else if (numberOfSkill == 11) {
-            skills.passive.elevenskill.isUnlocked = true;
+            skills.passive.eleventhSkill.isUnlocked = true;
         }else if (numberOfSkill == 12) {
-            skills.passive.twelveskill.isUnlocked = true;
+            skills.passive.twelfthSkill.isUnlocked = true;
         }
     }
    

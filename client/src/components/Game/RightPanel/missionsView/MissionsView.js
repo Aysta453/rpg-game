@@ -13,7 +13,8 @@ const MissionsView = ({ setWindowOfElements ,setButtons }) => {
     const hero = useSelector(state => state.hero);
     const stats = useSelector(state => state.stats);
     const itemInUse = useSelector(state => state.itemInUse);
-    let data = playerGameValues(hero, itemInUse, stats);
+    const skills = useSelector(state => state.skills);
+    let data = playerGameValues(hero, itemInUse, stats,skills.passive);
 
  
     const submitClick = (a,b) => {
@@ -27,9 +28,9 @@ const MissionsView = ({ setWindowOfElements ,setButtons }) => {
         <div className='missionsView'>
             <div className='topic'><h1>Tablica Ogłoszeń</h1></div>
             <div className='missions'>
-                <MissionView submitClick={submitClick} setButtons={setButtons} setWindowOfElements={setWindowOfElements} mission={missions.firstMission}/>
-                <MissionView submitClick={submitClick} setButtons={setButtons} setWindowOfElements={setWindowOfElements} mission={missions.secondMission}/>
-                <MissionView submitClick={submitClick} setButtons={setButtons} setWindowOfElements={setWindowOfElements} mission={missions.thirdMission}/>
+                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.firstMission}/>
+                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.secondMission}/>
+                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.thirdMission}/>
               
             </div>
             </div>

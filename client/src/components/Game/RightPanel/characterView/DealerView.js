@@ -4,20 +4,21 @@ import CharacterAvatar from "./characterAvatar/CharacterAvatar";
 import CharacterItemInUse from './characterAvatar/CharacterItemInUse';
 
 import CharacterInventoryItem from './characterInventoryItem/CharacterInventoryItem';
-import CharacterStatistic from "./characterStatistic/CharacterStatistic";
+
 import CharStatExtended from './charStatExtended/CharStatExtended';
 
-import {increasestatstrength,increasestatdexterity,increasestatintellect,increasestatstamina,increasestatspirit} from '../../../../actions/stats';
 import { decreasegold } from '../../../../actions/hero';
 
 import { getinventory,assignitemtoinventory,deleitemfrominventory,changeitemininventory } from '../../../../actions/inventory.js';
-import { getallitems, deletethisitem, createnewitem} from '../../../../actions/item.js';
+
 import {updatealltradeitems,updateonetradeitems } from '../../../../actions/trades.js';
 
 
 import { changeiteminuse } from '../../../../actions/itemInUse';
 import './characterView.css';
 import DealerViewItem from './dealerViewItem/DealerViewItem';
+import playerGameValues from '../../../../functions/playerGameValues';
+import { setPlayerValues } from '../../../../actions/playerGame';
 
 
 
@@ -25,13 +26,13 @@ import DealerViewItem from './dealerViewItem/DealerViewItem';
 const DealerView = (user) => {
 
     const itemInUse = useSelector(state => state.itemInUse);
-    const item = useSelector(state => state.item);
+
     const hero = useSelector(state => state.hero);
     const trades = useSelector(state => state.trades);
     const inventory = useSelector(state => state.inventory);
     const stats = useSelector(state => state.stats);
-
-    
+    const skills = useSelector(state => state.skills);
+    let playerStats = playerGameValues(hero, itemInUse, stats,skills.passive);
     const dispatch = useDispatch();
     
     const getNewTradeItems = () => {
@@ -106,6 +107,9 @@ const DealerView = (user) => {
      dispatch(getinventory({ owner: user.user }));
       
     }, [dispatch]);
+    useEffect(() => {
+               dispatch(setPlayerValues(playerStats));
+    })
    
 
     return(<>
@@ -137,16 +141,8 @@ const DealerView = (user) => {
                      <CharacterInventoryItem size={1} slotNumber={9} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.ninthItem.isEmpty} specyficItem={inventory.ninthItem} />
             </div>
             <div className='forthBoxDealer'>
-                    <CharStatExtended type={1} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={2} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={3} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={4} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={5} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={6} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={7} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={8} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={9} items={itemInUse} stats={stats} />
-                    <CharStatExtended type={10} items={itemInUse} stats={stats} />
+                  
+                    <CharStatExtended  />
             </div>   
 
             <div className='dealerView'>

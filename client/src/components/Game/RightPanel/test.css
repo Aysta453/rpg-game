@@ -1,0 +1,24 @@
+.progress-div {
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 50px;
+  background-color: rgb(233, 233, 233);
+}
+
+.progress {
+  background-color: rgb(62, 122, 235);
+  height: 50px;
+
+  transition: 1s linear;
+}
+.progress-div-time {
+  position: relative;
+  height: 50px;
+  width: 1300px;
+  margin-left: 50px;
+  float: left;
+  font-size: 20px;
+  top: -50px;
+  padding-top: 5px;
+  color: red;
+}

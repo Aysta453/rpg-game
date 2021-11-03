@@ -51,10 +51,10 @@ export const increaseGold = async (req, res) => {
     const { owner, amountOfGold } = req.body;
     
     const result = await Hero.findOne({ owner:owner });
-    const updateStre = { gold: result.gold + amountOfGold };
+    const updateGold = { gold: result.gold + amountOfGold };
 
     try {
-         const result1= await Hero.findByIdAndUpdate(result._id, updateStre, { new: true });
+         const result1= await Hero.findByIdAndUpdate(result._id, updateGold, { new: true });
         
         res.status(201).json(result1);
     } catch (error) {

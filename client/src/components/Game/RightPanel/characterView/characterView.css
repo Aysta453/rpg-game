@@ -38,12 +38,27 @@
   margin-top: 2px;
   font-size: 20px;
 }
-.FirstBox .middle .avatar .infoExp {
-  background-color: green;
+.FirstBox .middle .avatar .progressExp-div {
+  background-color: rgb(82, 177, 95);
+
+  height: 30px;
+}
+
+.FirstBox .middle .avatar .progressExp {
+  background-color: rgb(16, 100, 37);
+  height: 30px;
+
   margin-top: 5px;
   font-size: 20px;
 }
 
+.FirstBox .middle .avatar .expInfo {
+  color: red;
+  position: relative;
+  top: -30px;
+  font-weight: 800;
+  font-size: 20px;
+}
 .FirstBox .right {
   float: left;
   width: 200px;
@@ -206,26 +221,47 @@
   width: 780px;
   margin-top: 65px;
 }
-.forthBox .statExtended {
+.forthBox .statsExtended {
   color: red;
   text-align: center;
-  width: 389px;
-  height: 75px;
+  width: 780px;
+  height: 375px;
   float: left;
+  font-weight: 400;
+  font-size: 20px;
 }
 
-.forthBox .statExtended .statName {
-  padding-top: 1rem;
-
+.forthBox .statsExtended .statExtended {
+  padding-top: 5px;
+  float: left;
+  width: 390px;
+  height: 62.5px;
+}
+.forthBox .statsExtended .statExtended .nameOfStat {
+  height: 100%;
   float: left;
   width: 60%;
-  height: 100%;
 }
-.forthBox .statExtended .statValue {
-  padding-top: 1rem;
+.forthBox .statsExtended .statExtended .valueOfStat {
+  height: 100%;
   float: left;
   width: 40%;
+}
+.forthBox .statsExtended .statExtended2 {
+  padding-top: 5px;
+  float: left;
+  width: 100%;
+  height: 62.5px;
+}
+.forthBox .statsExtended .statExtended2 .nameOfStat {
   height: 100%;
+  float: left;
+  width: 60%;
+}
+.forthBox .statsExtended .statExtended2 .valueOfStat {
+  height: 100%;
+  float: left;
+  width: 40%;
 }
 
 .thirdBox {
@@ -244,7 +280,7 @@
   text-align: center;
 
   border: red solid 1px;
-  background-color: darkslategray;
+  background-color: rgba(21, 21, 65, 255);
 }
 .inventoryItem .imageItem {
   position: relative;
@@ -278,28 +314,26 @@
   float: left;
   background-color: rgb(21, 21, 65);
   height: 375px;
-  width: 720px;
+  width: 770px;
   margin-top: 65px;
-}
-.forthBoxDealer .statExtended {
-  color: red;
   text-align: center;
-  width: 350px;
-  height: 75px;
-  float: left;
+  color: red;
 }
-
-.forthBoxDealer .statExtended .statName {
-  padding-top: 1rem;
+.forthBoxDealer .statsExtended .statExtended {
+  padding-top: 10px;
+  float: left;
+  width: 380px;
+  height: 62.5px;
+}
+.forthBoxDealer .statsExtended .statExtended .nameOfStat {
+  height: 100%;
   float: left;
   width: 60%;
-  height: 100%;
 }
-.forthBoxDealer .statExtended .statValue {
-  padding-top: 1rem;
+.forthBoxDealer .statsExtended .statExtended .valueOfStat {
+  height: 100%;
   float: left;
   width: 40%;
-  height: 100%;
 }
 .characterView .dealerView {
   margin-top: 65px;
@@ -314,6 +348,8 @@
   height: 75px;
   float: left;
   border: solid red 1px;
+  background-color: rgb(21, 21, 65);
+
   text-align: center;
 }
 .dealerViewItems {
@@ -327,14 +363,15 @@
 .buttonDealerChange {
   width: 10vw;
   background-color: rgb(9, 9, 29);
+
   color: red;
   border: 1px solid red;
-  padding: 2px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 19px;
+  margin: 16px 6px;
   transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
@@ -380,6 +417,7 @@
   text-align: center;
   margin-top: 5px;
   margin-left: 4px;
+  background-color: rgb(21, 21, 65);
 }
 
 .dealerViewItem .imageDealerItem {

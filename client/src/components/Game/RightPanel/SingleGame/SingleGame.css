@@ -37,17 +37,59 @@
 }
 .singleGameView .Player .HitPoints {
   border: 1px solid red;
-  width: 400px;
-  height: 50px;
+  width: 402px;
+  height: 52px;
   float: left;
   text-align: center;
 }
+.progressPlayerHealthPoints-div {
+  height: 50px;
+  background-color: rgb(233, 233, 233);
+}
+
+.progressPlayerHealthPoints {
+  background-color: rgb(62, 122, 235);
+  height: 50px;
+  transition: 1s linear;
+}
+.progress-div-playerHealthPoints {
+  position: relative;
+  height: 50px;
+  width: 400px;
+  float: left;
+  font-size: 20px;
+  left: 0px;
+  top: -40px;
+  color: yellow;
+  z-index: 2;
+}
 .singleGameView .Player .ManaPoints {
   border: 1px solid red;
-  width: 400px;
-  height: 50px;
+  width: 402px;
+  height: 52px;
   float: left;
   text-align: center;
+}
+.progressPlayerManaPoints-div {
+  height: 50px;
+  background-color: rgb(233, 233, 233);
+}
+
+.progressPlayerManaPoints {
+  background-color: rgb(62, 122, 235);
+  height: 50px;
+  transition: 1s linear;
+}
+.progress-div-playerManaPoints {
+  position: relative;
+  height: 50px;
+  width: 400px;
+  float: left;
+  font-size: 20px;
+  left: 0px;
+  top: -40px;
+  color: yellow;
+  z-index: 2;
 }
 .singleGameView .Player .Mode {
   padding-left: 2px;
@@ -59,7 +101,6 @@
 }
 .singleGameView .Player .Mode .First {
   float: left;
-
   width: 149px;
   height: 100%;
 }
@@ -93,33 +134,34 @@
   height: 100px;
   border: 1px solid red;
 }
-.singleGameView .Player .Skills .First {
-  float: left;
-
-  width: 149px;
-  height: 100%;
-}
-.singleGameView .Player .Skills .Second {
+.singleGameView .Player .Skills .Skill {
   float: left;
   width: 149px;
   height: 100%;
 }
-.singleGameView .Player .Skills .Third {
-  float: left;
-  width: 149px;
-  height: 100%;
-}
-.singleGameView .Player .Skills .First .Child {
+.singleGameView .Player .Skills .Skill .Content {
   width: 100%;
   height: 100%;
 }
-.singleGameView .Player .Skills .Second .Child {
+.skillButton {
+  background-color: rgb(9, 9, 29);
+  color: yellow;
+  border: 1px solid red;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
   width: 100%;
   height: 100%;
+  cursor: pointer;
+  position: relative;
 }
-.singleGameView .Player .Skills .Third .Child {
-  width: 100%;
-  height: 100%;
+.skillButton:hover {
+  background-color: red;
+  color: rgb(9, 9, 29);
+}
+.skillButton:disabled {
+  background-color: white;
+  color: rgb(9, 9, 29);
 }
 
 .singleGameView .Enemy {
@@ -153,11 +195,31 @@
 }
 .singleGameView .Enemy .HitPoints {
   border: 1px solid green;
-  width: 400px;
-  height: 50px;
+  width: 402px;
+  height: 52px;
   float: left;
 }
+.progressMonsterHealthPoints-div {
+  height: 50px;
+  background-color: rgb(233, 233, 233);
+}
 
+.progressMonsterHealthPoints {
+  background-color: rgb(62, 122, 235);
+  height: 50px;
+  transition: 1s linear;
+}
+.progress-div-monsterManaPoints {
+  position: relative;
+  height: 50px;
+  width: 400px;
+  float: left;
+  font-size: 20px;
+  left: 0px;
+  top: -40px;
+  color: yellow;
+  z-index: 2;
+}
 /* win Popup*/
 .popup-win {
   z-index: 7;
@@ -189,33 +251,32 @@
   float: left;
   font-size: 40px;
   font-weight: 700;
-  background-color: yellow;
 }
 
 .win-inner .description {
   width: 100%;
   height: 250px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
   float: left;
+}
+.win-inner .description .gold {
+  color: rgba(124, 126, 42, 0.7);
 }
 .win-inner .rewards {
   width: 100%;
   height: 330px;
   float: left;
-  background-color: green;
 }
 .win-inner .rewards .title {
   float: left;
   height: 70px;
   width: 100%;
-  background-color: blue;
 }
 .rewards .money {
   float: left;
   height: 50px;
   width: 100%;
-  background-color: red;
 }
 .rewards .money {
   float: left;
@@ -230,29 +291,28 @@
   width: 100%;
   font-size: 25px;
   font-weight: 500;
-  background-color: white;
 }
 
 .rewards .itemBox {
   width: 100%;
   height: 160px;
-  background-color: purple;
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   float: left;
 }
-.itemBox .item {
+.win-inner .rewards .itemBox .item {
   width: 200px;
+  background-color: rgb(21, 21, 70);
   height: 141px;
-  background-color: red;
 }
+
 .win-inner .submitButtonBox {
   width: 100%;
   height: 75px;
   float: left;
-  background-color: red;
 }
 
 .win-inner .submitButtonBox button {
@@ -302,8 +362,8 @@
   position: fixed;
   padding: 32px;
   width: 100%;
-  height: 470px;
-  max-width: 500px;
+  height: 500px;
+  max-width: 550px;
   background-color: black;
   border: 1px solid red;
 }
@@ -314,22 +374,23 @@
   float: left;
   font-size: 40px;
   font-weight: 700;
-  background-color: red;
 }
 
 .lose-inner .description {
   width: 100%;
   height: 250px;
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 25px;
+  font-weight: 400;
   float: left;
+}
+.lose-inner .description .gold {
+  color: rgba(124, 126, 42, 0.7);
 }
 
 .lose-inner .submitButtonBox {
   width: 100%;
   height: 75px;
   float: left;
-  background-color: red;
 }
 
 .lose-inner .submitButtonBox button {
@@ -352,9 +413,61 @@
   background-color: red;
   color: rgb(9, 9, 29);
 }
-.lose-inner .submitButtonBox button:disabled {
-  background: #dddddd;
-  color: rgb(9, 9, 29);
-  cursor: no-drop;
-}
 /* lose Popup*/
+
+/* */
+.combatDiv {
+  margin: 0;
+  text-align: center;
+  color: blue;
+  background-color: red;
+  width: 200px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+  top: -250px;
+  left: 100px;
+}
+.combatDivText {
+  position: relative;
+  top: -40px;
+  font-size: 22px;
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 4s;
+}
+.showingTime {
+  position: relative;
+  top: -200px;
+  height: 25px;
+  z-index: 1;
+  border: 1px solid black;
+}
+.progressSkillTime-div {
+  height: 25px;
+  background-color: rgb(233, 233, 233);
+}
+
+.progressSkillTime {
+  background-color: rgb(62, 122, 235);
+  height: 25px;
+  transition: 1s linear;
+}
+@keyframes example {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    top: -60px;
+  }
+  50% {
+    top: -60px;
+  }
+  75% {
+    top: -60px;
+  }
+  100% {
+    opacity: 0;
+  }
+}

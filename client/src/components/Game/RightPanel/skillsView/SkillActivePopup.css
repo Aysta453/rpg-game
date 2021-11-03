@@ -45,6 +45,9 @@
 }
 .active-inner .image {
   height: 230px;
+  background-color: rgba(21, 21, 65, 255);
+  width: 311px;
+  margin-left: 132px;
 }
 .active-inner .description {
   height: 100px;
@@ -55,6 +58,8 @@
   margin-top: 5px;
   font-size: 23px;
   font-weight: 500;
+  background-color: rgb(32, 50, 98);
+  border: 1px solid red;
 }
 .values .nameOfValue {
   width: 50%;
@@ -69,11 +74,14 @@
 .active-inner .buttons-div-assign {
   height: 130px;
   margin-top: 10px;
+  background-color: rgb(32, 50, 98);
   border: 1px solid red;
 }
 .buttons-div-assign .info {
   height: 40px;
   font-size: 25px;
+  border-bottom: 1px solid red;
+  background-color: rgba(21, 21, 65, 255);
   font-weight: 500;
 }
 .buttons-div-assign .buttons {

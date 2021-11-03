@@ -18,6 +18,48 @@ const missionsSchema = mongoose.Schema({
         missionRewardExp: {
             type: Number,
         },
+        item: {
+            nameOfItem: {
+                type: String,
+            },
+            typeOfItem: {
+                type: String,
+            },
+            minAttack: {
+                type: Number, 
+            },
+            maxAttack: {
+                type: Number, 
+            },
+            defensive: {
+                type: Number,
+            },
+            strength: {
+                type: Number,
+            },
+            dexterity: {
+                type: Number,
+            },
+            intellect: {
+                type: Number,
+            },
+            stamina: {
+                type: Number,
+            },
+            spirit: {
+                type: Number,
+            },
+            cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: true,
+            },
+            numberOfItem: {
+                type: Number,
+            },  
+        },
         monster: {
             monsterName: {
                 type:String,
@@ -34,6 +76,12 @@ const missionsSchema = mongoose.Schema({
             monsterDefense: {
                 type:Number,
             },
+            monsterLevel:{
+                type:Number,
+            },
+            monsterNumber: {
+                type:Number,
+            }
         },
     },
     secondMission: {
@@ -52,6 +100,48 @@ const missionsSchema = mongoose.Schema({
         missionRewardExp: {
             type: Number,
         },
+        item: {
+            nameOfItem: {
+                type: String,
+            },
+            typeOfItem: {
+                type: String,
+            },
+            minAttack: {
+                type: Number, 
+            },
+            maxAttack: {
+                type: Number, 
+            },
+            defensive: {
+                type: Number,
+            },
+            strength: {
+                type: Number,
+            },
+            dexterity: {
+                type: Number,
+            },
+            intellect: {
+                type: Number,
+            },
+            stamina: {
+                type: Number,
+            },
+            spirit: {
+                type: Number,
+            },
+            cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: true,
+            },
+            numberOfItem: {
+                type: Number,
+            },  
+        },
         monster: {
             monsterName: {
                 type:String,
@@ -68,6 +158,12 @@ const missionsSchema = mongoose.Schema({
             monsterDefense: {
                 type:Number,
             },
+            monsterLevel:{
+                type:Number,
+            },
+            monsterNumber: {
+                type:Number,
+            }
         },
     },
     thirdMission: {
@@ -86,6 +182,48 @@ const missionsSchema = mongoose.Schema({
         missionRewardExp: {
             type: Number,
         },
+        item: {
+            nameOfItem: {
+                type: String,
+            },
+            typeOfItem: {
+                type: String,
+            },
+            minAttack: {
+                type: Number, 
+            },
+            maxAttack: {
+                type: Number, 
+            },
+            defensive: {
+                type: Number,
+            },
+            strength: {
+                type: Number,
+            },
+            dexterity: {
+                type: Number,
+            },
+            intellect: {
+                type: Number,
+            },
+            stamina: {
+                type: Number,
+            },
+            spirit: {
+                type: Number,
+            },
+            cost: {
+                type:Number,
+            },
+            isEmpty: {
+                type: Boolean,
+                default: true,
+            },
+            numberOfItem: {
+                type: Number,
+            },  
+        },
         monster: {
             monsterName: {
                 type: String,
@@ -102,6 +240,12 @@ const missionsSchema = mongoose.Schema({
             monsterDefense: {
                 type: Number,
             },
+            monsterLevel:{
+                type:Number,
+            },
+            monsterNumber: {
+                type:Number,
+            }
         },
     },
     owner: {

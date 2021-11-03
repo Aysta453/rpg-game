@@ -10,6 +10,7 @@ export const FETCH = 'FETCH';
 export const LIKE = 'LIKE';
 
 export const HERO_GOLD_DE = 'HERO_GOLD_DE';
+export const HERO_GOLD_INC = 'HERO_GOLD_INC';
 
 export const STATS_STR_IN = 'STATS_STR_IN';
 export const STATS_DEX_IN = 'STATS_DEX_IN';

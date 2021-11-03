@@ -13,22 +13,6 @@ export default function assignOneTradeItemToShop(oldShop, newItem, possitionOfIt
             oldShop.items.fifthItemForSell = newItem;
     }else if(possitionOfItem === 6){
             oldShop.items.sixthItemForSell = newItem;
-    }else if(possitionOfItem === 7){
-            oldShop.items.seventhItemForSell = newItem;
-    }else if(possitionOfItem === 8){
-            oldShop.items.eigthItemForSell = newItem;
-    }else if(possitionOfItem === 9){
-            oldShop.items.ninthItemForSell = newItem;
-    }else if(possitionOfItem === 10){
-            oldShop.items.tenthItemForSell = newItem;
-    }else if(possitionOfItem === 11){
-            oldShop.items.eleventhItemForSell = newItem;
-    }else if(possitionOfItem === 12){
-            oldShop.items.twelfthItemForSell = newItem;
-    }else if(possitionOfItem === 13){
-            oldShop.items.thirteenthItemForSell = newItem;
-    }else if(possitionOfItem === 14){
-            oldShop.items.fourteenthItemForSell = newItem;
     }
     data = oldShop;
 

@@ -35,7 +35,7 @@ const CharacterStatistic = ({value,handleSubmit,typeOfStat}) => {
             break;
         case 5:
                nameOfStat = 'Szczęście';
-            descriptionOfStat= 'Mentalność zwiększa wszystkie wartości w szczególności cios krytyczny.';
+            descriptionOfStat= 'Szczeście zwiększa wszystkie statystyki oprócz obrony, ';
             break;
         default:
             break;

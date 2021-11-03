@@ -30,7 +30,7 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
             });
         }
     }, [time]);
-    console.log(width,progress);
+    console.log(game);
     return(<>
         <div className="singleGameWaitingView">
             <div className="title">
@@ -40,13 +40,13 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
                 {game.missionDescription}
             </div>
             <div className="time">
-                <div className="progress-div" style={{ width: width }}>
-                      
+                <div className="progress-div" style={{ width: width }}>                     
                     <div style={{ width: `${timeBar}px` }} className="progress"/>
-                 
-                  
                 </div>
-                 {time}/{game.missionTime}
+                <div className="progress-div-time">
+                    {time}/{game.missionTime}
+                </div>
+                 
             </div>
             <div className="stopBoxButton">
                 <button onClick={()=>{cancelingMission()}}>przerwij</button>

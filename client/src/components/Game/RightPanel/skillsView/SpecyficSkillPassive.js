@@ -10,7 +10,8 @@ const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeL
     let number = skill.numberOfSkill;
  
     let image = showingPassiveImageSkill(hero.heroClass, size, number);
-       console.log(image);
+
+    console.log(skill);
     const showPopup = () => {
         setPopupValueset(!popupValue);
     }

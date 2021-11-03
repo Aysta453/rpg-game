@@ -11,219 +11,111 @@ const skillsSchema = mongoose.Schema({
         default: 2,
     },
     active: {
-        firstskill: {
-            nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        firstSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false, },
+            isUnlocked: {type: Boolean,default: false,},
+
         },
-        secondskill: {
-             nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        secondSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false, },
+            isUnlocked: {type: Boolean,default: false,},
         },
-        thirdskill: {
-             nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        thirdSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false, },
+            isUnlocked: {type: Boolean,default: false,},
         },
-        forthskill: {
-              nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        forthSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false, },
+            isUnlocked: {type: Boolean,default: false,},
         },
-        fifthskill: {
-             nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        fifthSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false, },
+            isUnlocked: {type: Boolean,default: false,},
         },
-        sixskill: {
-             nameOfSkill: {
-                type: String,
-            },
-            descriptionOfSpell: {
-                type: String,
-            },
-            pointsOfMana: {
-                type: Number,
-                default: 0,
-            },
-            valueOfSpell: {
-                type: Number,
-                default: 0,
-            },
-            durationTime: {
-                type: Number,
-                default: 0,
-            },
-            castTime: {
-                type: Number,
-                default: 0,
-            },
-            isAssigned: {
-                type: Boolean,
-                default: false,
-            },
-            isUnlocked: {
-                type: Boolean,
-                default: false,
-            },
-            numberOfSkill: {
-                type:Number,
-            },
+        sixthSkill: {
+            nameOfSkill: { type: String,  },
+            descriptionOfSpell: { type: String, },
+            pointsOfMana: { type: Number, },
+            valueOfSpell: { type: Number, },
+            durationTime: { type: Number, },
+            castTime: { type: Number, },
+            recastTime:{type:Number,},
+            numberOfSkill: { type: Number, },
+            typeOfSkill: { type: Number, },
+            targetOfBonusValue:{type:Number,},
+            countOfDots: { type: Number, },
+            dotValue:{type:Number,},
+            isAssigned: {type: Boolean,default: false,},
+            isUnlocked: {type: Boolean,default: false,},
         },
     },
     passive: {
-        firstskill: {
+        firstSkill: {
             nameOfSkill: {
                 type: String,
             },
@@ -242,7 +134,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        secondskill: {
+        secondSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -261,7 +153,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        thirdskill: {
+        thirdSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -280,7 +172,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        forthskill: {
+        forthSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -299,7 +191,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        fifthskill: {
+        fifthSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -318,7 +210,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        sixskill: {
+        sixthSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -337,7 +229,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        sevenskill: {
+        seventhSkill: {
               nameOfSkill: {
                 type: String,
             },
@@ -356,7 +248,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        eightskill: {
+        eighthSkill: {
                nameOfSkill: {
                 type: String,
             },
@@ -375,7 +267,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-         nineskill: {
+         ninthSkill: {
                nameOfSkill: {
                 type: String,
             },
@@ -394,7 +286,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        tenskill: {
+        tenthSkill: {
           nameOfSkill: {
                 type: String,
             },
@@ -413,7 +305,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        elevenskill: {
+        eleventhSkill: {
                nameOfSkill: {
                 type: String,
             },
@@ -432,7 +324,7 @@ const skillsSchema = mongoose.Schema({
                 type:Number,
             },
         },
-        twelveskill: {
+        twelfthSkill: {
              nameOfSkill: {
                 type: String,
             },

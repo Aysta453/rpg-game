@@ -69,12 +69,12 @@ const SkillsView = () => {
                             <h2>Umiejętności Aktywne</h2>
                         </div>
                         <div className='Elements'>                               
-                            <SpecyficSkillActive levelOfSkill={1}  handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.firstskill} typeOfSkill={0} />
-                            <SpecyficSkillActive levelOfSkill={11} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.secondskill} typeOfSkill={0} />
-                            <SpecyficSkillActive levelOfSkill={21} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.thirdskill} typeOfSkill={0} />
-                            <SpecyficSkillActive levelOfSkill={31} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.forthskill} typeOfSkill={0}  />
-                            <SpecyficSkillActive levelOfSkill={41} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.fifthskill} typeOfSkill={0}  />
-                            <SpecyficSkillActive levelOfSkill={51} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.sixskill } typeOfSkill={0}  />
+                            <SpecyficSkillActive levelOfSkill={1}  handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.firstSkill} typeOfSkill={0} />
+                            <SpecyficSkillActive levelOfSkill={11} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.secondSkill} typeOfSkill={0} />
+                            <SpecyficSkillActive levelOfSkill={21} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.thirdSkill} typeOfSkill={0} />
+                            <SpecyficSkillActive levelOfSkill={31} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.forthSkill} typeOfSkill={0}  />
+                            <SpecyficSkillActive levelOfSkill={41} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.fifthSkill} typeOfSkill={0}  />
+                            <SpecyficSkillActive levelOfSkill={51} handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.sixthSkill } typeOfSkill={0}  />
                         </div>
                     </div>
                     <div className='Passive'>
@@ -82,19 +82,19 @@ const SkillsView = () => {
                             <h2>Umiejętności Pasywne</h2>
                         </div>
                         <div className='Elements'>
-                            <SpecyficSkillPassive levelOfSkill={1} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.firstskill} typeOfSkill={1} numberOfSkill={1}/>
-                            <SpecyficSkillPassive levelOfSkill={11} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.thirdskill }typeOfSkill={1}  numberOfSkill={3}/>
-                            <SpecyficSkillPassive levelOfSkill={21}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.fifthskill }typeOfSkill={1}  numberOfSkill={5}/>
-                            <SpecyficSkillPassive levelOfSkill={31} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.sevenskill } typeOfSkill={1} numberOfSkill={7}/>
-                            <SpecyficSkillPassive levelOfSkill={41} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.nineskill } typeOfSkill={1} numberOfSkill={9}/>
-                            <SpecyficSkillPassive levelOfSkill={51} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.elevenskill } typeOfSkill={1} numberOfSkill={11}/>
+                            <SpecyficSkillPassive levelOfSkill={1} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.firstSkill} typeOfSkill={1} numberOfSkill={1}/>
+                            <SpecyficSkillPassive levelOfSkill={11} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.thirdSkill }typeOfSkill={1}  numberOfSkill={3}/>
+                            <SpecyficSkillPassive levelOfSkill={21}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.fifthSkill }typeOfSkill={1}  numberOfSkill={5}/>
+                            <SpecyficSkillPassive levelOfSkill={31} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.seventhSkill } typeOfSkill={1} numberOfSkill={7}/>
+                            <SpecyficSkillPassive levelOfSkill={41} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.ninthSkill } typeOfSkill={1} numberOfSkill={9}/>
+                            <SpecyficSkillPassive levelOfSkill={51} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.eleventhSkill } typeOfSkill={1} numberOfSkill={11}/>
                             
-                            <SpecyficSkillPassive levelOfSkill={1} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.secondskill} typeOfSkill={1} numberOfSkill={2} />
-                            <SpecyficSkillPassive levelOfSkill={11} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.forthskill }typeOfSkill={1}  numberOfSkill={4}/>
-                            <SpecyficSkillPassive levelOfSkill={21}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.sixskill} typeOfSkill={1}  numberOfSkill={6}/>
-                            <SpecyficSkillPassive levelOfSkill={31} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.eightskill } typeOfSkill={1} numberOfSkill={8}/>
-                            <SpecyficSkillPassive levelOfSkill={41}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.tenskill } typeOfSkill={1}  numberOfSkill={10}/>
-                            <SpecyficSkillPassive levelOfSkill={51}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.twelveskill } typeOfSkill={1}  numberOfSkill={12}/>
+                            <SpecyficSkillPassive levelOfSkill={1} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.secondSkill} typeOfSkill={1} numberOfSkill={2} />
+                            <SpecyficSkillPassive levelOfSkill={11} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.forthSkill }typeOfSkill={1}  numberOfSkill={4}/>
+                            <SpecyficSkillPassive levelOfSkill={21}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.sixthSkill} typeOfSkill={1}  numberOfSkill={6}/>
+                            <SpecyficSkillPassive levelOfSkill={31} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.eighthSkill } typeOfSkill={1} numberOfSkill={8}/>
+                            <SpecyficSkillPassive levelOfSkill={41}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.tenthSkill } typeOfSkill={1}  numberOfSkill={10}/>
+                            <SpecyficSkillPassive levelOfSkill={51}size={0}  handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.twelfthSkill } typeOfSkill={1}  numberOfSkill={12}/>
                         </div>
                     </div>
                 </div>

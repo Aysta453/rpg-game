@@ -13,12 +13,12 @@ import {getalltradeitems } from '../../actions/trades';
 import {getheroskillstobattle } from '../../actions/skillsInBattle';
 import { getinventory } from '../../actions/inventory';
 
+import playerGameValues from '../../functions/playerGameValues';
+
 const Game = () => {
     const dispatch = useDispatch();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
     const currentOwner = user?.result?._id;
-
-    
 
 
     const [windowOfElements, setWindowOfElements] = useState(0);
@@ -28,7 +28,7 @@ const Game = () => {
             console.log(buttonsControl);
         setButtonsControl(!buttonsControl);
     }
-    console.log(buttonsControl);
+
         useEffect(() => {   
         dispatch(getinfoabouthero({ owner: currentOwner }));
         dispatch(getinfoaboutstats({ owner: currentOwner }));
@@ -37,9 +37,11 @@ const Game = () => {
         dispatch(showmissions({ owner: currentOwner }));
         dispatch(getalltradeitems({ owner: currentOwner }));
         dispatch(getheroskillstobattle({ owner: currentOwner }));
-        dispatch(getinventory({ owner: currentOwner }));
+            dispatch(getinventory({ owner: currentOwner }));
 
+        
         }, [dispatch]);
+
     
     return (
         <div className='main'>
