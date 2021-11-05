@@ -16,7 +16,7 @@ const SingleGamePopupLose = ({ valueOfPopup, setButtons, setWindowOfElements, ch
             <div className="lose-inner">
                 <div className="title">Porażka</div>
                 <div className="description">
-                    <p>Zostałeś sromotnie pokonany w trakcie wykonywania misji <span className="gold">{game.missionTitle}</span>przez potwora <span className="gold">{game.monster.monsterName}</span>.</p>
+                    <p>Zostałeś sromotnie pokonany w trakcie wykonywania misji <span className="gold"> {game.missionTitle} </span> przez potwora <span className="gold"> {game.monster.monsterName}</span>.</p>
                     <p>Wyostrz umysł, pomyśl nad strategią i spróbuj jeszcze raz!</p>
                     <p>Powodzenia bohaterze!</p>
                 </div>

@@ -1,10 +1,11 @@
 .rightPanel {
+  margin-top: 10px;
   margin-right: 10px;
   width: 1440px;
   height: 910px;
   gap: 2em;
-  background-color: rgb(9, 9, 29);
-  border: 1px solid red;
+  background-color: #181818;
+  border: 1px solid rgba(128, 0, 0, 0.22);
   float: right;
   padding: 1em;
   resize: both;

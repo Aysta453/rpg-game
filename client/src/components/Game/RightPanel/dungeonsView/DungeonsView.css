@@ -5,136 +5,207 @@
   padding: 1rem;
 }
 .dungeonsViewTopic {
-  border: 1px solid red;
   text-align: center;
-  height: 10vh;
-  padding-top: 1.5rem;
+  padding-top: 8px;
+  height: 80px;
+  width: auto;
+  font-size: 55px;
+  font-weight: 300;
+  text-shadow: 2px 2px rgb(148, 0, 38);
+  background-color: rgba(255, 0, 68, 0.03);
+  color: rgb(255, 0, 68);
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 36px;
 }
 .dungeons {
   float: left;
-  border: 1px solid red;
   width: 100%;
-  height: 78vh;
+  height:750px;
   padding: 0.5rem;
 }
 .dungeonView {
-  width: 40vh;
-  height: 100%;
+  width: 400px;
+  height: 700px;
   float: left;
-  margin-left: 2.5rem;
-  border: 1px solid red;
+  margin-left: 2.45rem;
+  margin-right: 0.30rem;
+  border: 1px solid rgba(255, 0, 68, 0.4);
+  background-color: rgba(255, 0, 68, 0.04);
 }
 .dungeonTitle {
   width: 100%;
-  height: 10vh;
+  height: 75px;
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 10px;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 34px;
+  text-transform: uppercase;
+  color: rgb(255, 77, 124);
 }
 .dungeonDescription {
-  height: 20vh;
+  height: 175px;
   width: 100%;
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 10px;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.85);
 }
 .dungeonTime {
-  height: 5vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: rgba(102, 208, 246, 0.8);
 }
 .dungeonTimeValue {
-  height: 5vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgba(102, 208, 246, 0.8);
 }
-.dungeonRewards {
-  height: 10vh;
-  width: 100%;
-  text-align: center;
-  padding-top: 2rem;
-  float: left;
-}
+
 .dungeonRewardsPoints {
-  height: 7vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: rgb(185, 119, 246);
+  font-size: 20px;
 }
 .dungeonRewardsPointsValue {
-  height: 7vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: rgb(185, 119, 246);
+  font-size: 20px;
 }
 .dungeonRewardsMoney {
-  height: 7vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #fff264 ;
+  font-size: 20px;
 }
 .dungeonRewardsMoneyValue {
-  height: 7vh;
+  height: 50px;
   width: 50%;
   text-align: center;
   padding-top: 0.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #fff264 ;
+  font-size: 20px;
 }
 .dungeonRewardsItem {
-  height: 10vh;
+  height: 50px;
   width: 50%;
   text-align: center;
-  padding-top: 2rem;
+  padding-top: 4.5rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #57ff87;
+  font-size: 20px;
+
 }
 .dungeonRewardsItemValue {
-  height: 10vh;
+  height: 70px;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 0.5rem;
+  padding-top: 5rem;
   float: left;
+
 }
 .dungeonRewardsItemValue1 {
-  border: 1px solid red;
-  height: 8vh;
-  width: 50%;
+  border: 1px solid rgba(255, 0, 68, 0.4);
+  background-color: rgba(255, 0, 68, 0.04);
+  height: 98px;
+  width: 139px;
   text-align: center;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   float: left;
 }
 .dungeonOptions {
-  border: 1px solid red;
-  height: 7vh;
+
+  height: 70px;
   width: 100%;
   text-align: center;
   padding: 2rem;
-  padding-top: 0.5rem;
-  float: left;
-}
-.dungeonOptionJoin {
-  background-color: red;
-  border: 1px solid red;
-  height: 5vh;
-  width: 50%;
-  text-align: center;
-  padding-top: 0.5rem;
+  padding-top:6rem;
   float: left;
 }
 .dungeonOptionInvite {
-  background-color: red;
-  border: 1px solid black;
-  height: 5vh;
-  width: 50%;
+  background-color: rgba(255, 213, 0, 0.04);
+  color: rgb(255, 213, 0);
+  border: 1px solid rgba(255, 213, 0, 0.7);
   text-align: center;
-  padding-top: 0.5rem;
-  float: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px 15px;
+  width: 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  position: relative;
+}
+.dungeonOptionInvite:hover{
+  background-color: rgba(255, 213, 0, 0.15);
+  color: rgb(255, 209, 0);
+  border: 1px solid rgba(255, 213, 0, 1);
+}
+
+.dungeonOptionJoin {
+  border: 1px solid rgba(255, 28, 90, 0.65);
+  color: rgb(255, 28, 90);
+  background-color: rgba(255, 28, 90, 0.04);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px 15px;
+
+  width: 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+.dungeonOptionJoin:hover {
+  border: 1px solid rgba(255, 28, 90, 1);
+  color: rgba(255, 28, 90, 1);
+  background-color: rgba(255, 28, 90, 0.15);
 }

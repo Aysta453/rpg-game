@@ -44,18 +44,18 @@ const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemI
                 <div className="image"><img src={`/images/eq${image}.png`}/></div>
                 <div className="typeOfItem">{specyficItem.typeOfItem}</div>
                 <div className="infoAboutItem">
-                    <div className="title">
+                    <div className="undertitle">
                         Statystyki
                     </div>
                     <div className="stats">
                         <div className="values">
-                            <p>Obrażenia: {specyficItem.minAttack} - {specyficItem.maxAttack}</p>
-                            <p>Obrona: {specyficItem.defensive}</p>
-                            <p>Siła: {specyficItem.strength}</p>
-                            <p>Zręczność: {specyficItem.dexterity}</p>
-                            <p>Inteligencja: {specyficItem.intellect}</p>
-                            <p>Wytrzymałość: {specyficItem.stamina}</p>
-                            <p>Duch: {specyficItem.spirit}</p>
+                            <p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {specyficItem.minAttack} - {specyficItem.maxAttack}</p>
+                            <p className={"def"}><span className={"defd"}>Obrona:</span> {specyficItem.defensive}</p>
+                            <p className={"str"}><span className={"strd"}>Siła:</span> {specyficItem.strength}</p>
+                            <p className={"agl"}><span className={"agld"}>Zręczność:</span> {specyficItem.dexterity}</p>
+                            <p className={"int"}><span className={"intd"}>Inteligencja:</span> {specyficItem.intellect}</p>
+                            <p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {specyficItem.stamina}</p>
+                            <p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {specyficItem.spirit}</p>
                         </div>
                     </div>  
                  </div>
@@ -63,8 +63,8 @@ const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemI
                     Możliwa sprzedaż za: {specyficItem.cost} złota
                      </div>
                  <div className="inventoryItemButtons">
-                     <button onClick={()=>{changingButton(slotNumber,specyficItem)}}> Załóź</button>
-                     <button onClick={()=>{sellingButton(slotNumber,specyficItem)}}> Sprzedaj</button>
+                     <button id={"puton"} onClick={()=>{changingButton(slotNumber,specyficItem)}}> Załóź</button>
+                     <button id={"sell"} onClick={()=>{sellingButton(slotNumber,specyficItem)}}> Sprzedaj</button>
                  </div>
             </div>
          </div>

@@ -1,14 +1,15 @@
 import React from 'react';
+var i = 1;
 
+const CashItem = ({value,name,id}) => {
 
-const CashItem = ({value,name}) => {
-    
     return(<>
             <div className='cashItem'>
-            <div className='cashItemName'>{name}<h3></h3></div>
-            <div className='cashItemValue'>{value}<h3></h3></div>
+            <div className='cashItemName' id={id}>{name}</div>
+            <div className='cashItemValue' id={id}>{value}</div>
             </div>
         </>
+
     );
 
 

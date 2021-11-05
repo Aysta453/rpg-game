@@ -11,7 +11,7 @@ const CharStatExtended = () => {
                 <div className="valueOfStat">{playerGame.healthPoints}</div>
                </div>
                <div className='statExtended'>
-                   <div className="nameOfStat">Punkty Many</div>
+                   <div className="nameOfStat">Punkty many</div>
                    <div className="valueOfStat">{playerGame.manaPoints}</div>
               </div>
                <div className='statExtended'>

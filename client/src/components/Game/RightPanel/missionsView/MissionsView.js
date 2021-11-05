@@ -26,7 +26,7 @@ const MissionsView = ({ setWindowOfElements ,setButtons }) => {
     }, [])
     return(<>
         <div className='missionsView'>
-            <div className='topic'><h1>Tablica Ogłoszeń</h1></div>
+            <div className='topic'>Tablica Ogłoszeń</div>
             <div className='missions'>
                 <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.firstMission}/>
                 <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.secondMission}/>

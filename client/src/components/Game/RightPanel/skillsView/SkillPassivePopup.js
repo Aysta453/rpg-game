@@ -28,7 +28,7 @@ const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup
                 </div>
                 <div className="description">{skill.descriptionOfSpell}</div>
                 <div className="button-div">
-                    {statementToUnlock ? (  <button onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>): (  <button disabled onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>)}
+                    {statementToUnlock ? (  <button className={'unlock'} onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'} disabled onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>)}
                   
                 </div>
                   

@@ -13,7 +13,7 @@ const CharacterItemInUse = ({ itemRightNow,size }) => {
     return (
         <div className='itemInUse'>
             <img className="imageSkill" src={`/images/eq${image}.png`}/>
-            <button className="active-btn" onClick={() => { showPopup() }}>+</button>
+            <button className="active-btn" onClick={() => { showPopup() }}>i</button>
             <CharacterItemInUsePopup size={0} valueOfPopup={popupValue} itemInUse={itemRightNow} showPopup={showPopup}/>
         </div>
     );

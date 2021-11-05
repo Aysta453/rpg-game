@@ -26,9 +26,9 @@ const CharacterAvatar = () => {
     }
     return(<>
             <div className='avatar'>
-                <div className='infoNick'><h3>{hero.nick}</h3></div>
-                <div className='info'><h3>{heroClassPolish}</h3></div>
-            <div className='info'><h3>Poziom {hero.level}</h3></div>
+                <div className='infoNick'>{hero.nick}</div>
+                <div className='klasa'>{heroClassPolish}</div>
+            <div className='info'>Poziom {hero.level}</div>
             
                 <div className="progressExp-div" style={{ width: widthBarExp }}>
                       

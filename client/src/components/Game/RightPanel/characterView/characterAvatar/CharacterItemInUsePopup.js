@@ -13,18 +13,18 @@ const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup, size }) =
                 <div className="image"><img src={`/images/eq${image}.png`}/></div>
                 <div className="typeOfItem">{itemInUse.typeOfItem}</div>
                 <div className="infoAboutItem">
-                    <div className="title">
+                    <div className="undertitle">
                         Statystyki
                     </div>
                     <div className="stats">
                         <div className="values">
-                            <p>Obrażenia: {itemInUse.minAttack} - {itemInUse.maxAttack}</p>
-                            <p>Obrona: {itemInUse.defense}</p>
-                            <p>Siła: {itemInUse.strength}</p>
-                            <p>Zręczność: {itemInUse.dexterity}</p>
-                            <p>Inteligencja: {itemInUse.intellect}</p>
-                            <p>Wytrzymałość: {itemInUse.stamina}</p>
-                            <p>Szczęście: {itemInUse.spirit}</p>
+                            <p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {itemInUse.minAttack} - {itemInUse.maxAttack}</p>
+                            <p className={"def"}><span className={"defd"}>Obrona:</span> {itemInUse.defensive}</p>
+                            <p className={"str"}><span className={"strd"}>Siła:</span> {itemInUse.strength}</p>
+                            <p className={"agl"}><span className={"agld"}>Zręczność:</span> {itemInUse.dexterity}</p>
+                            <p className={"int"}><span className={"intd"}>Inteligencja:</span> {itemInUse.intellect}</p>
+                            <p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {itemInUse.stamina}</p>
+                            <p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {itemInUse.spirit}</p>
                         </div>
                     </div>
                 <div className="sellInfo">

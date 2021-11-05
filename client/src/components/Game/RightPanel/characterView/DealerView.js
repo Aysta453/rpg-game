@@ -16,6 +16,7 @@ import {updatealltradeitems,updateonetradeitems } from '../../../../actions/trad
 
 import { changeiteminuse } from '../../../../actions/itemInUse';
 import './characterView.css';
+import './dealerViewItem/dealerViewItems.css';
 import DealerViewItem from './dealerViewItem/DealerViewItem';
 import playerGameValues from '../../../../functions/playerGameValues';
 import { setPlayerValues } from '../../../../actions/playerGame';

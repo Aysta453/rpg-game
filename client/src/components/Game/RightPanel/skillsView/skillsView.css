@@ -1,28 +1,32 @@
 .skillsView {
-  color: red;
+
   height: 100%;
   width: 100%;
   padding: 1rem;
 }
 .skillsView .BattleContener {
   width: 100%;
-  border: 1px solid red;
   height: 138px;
   padding: 1rem;
   float: left;
 }
 .BattleContener .Name {
   width: 50%;
-  border: 1px solid red;
+  border: 1px solid rgba(0, 255, 139, 0.3);
   height: 100%;
-  background-color: rgb(21, 21, 65);
-  padding-top: 2.5vh;
+  background-color: rgba(86, 191, 255, 0.03);
+  padding-top: 36px;
   text-align: center;
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 27px;
+  color: #00ff8b;
 }
 .BattleContener .Skills {
   width: 50%;
-  border: 1px solid red;
+  border: 1px solid rgba(0, 255, 139, 0.3);
+  border-left: 0;
   height: 100%;
   padding: 8px;
   text-align: center;
@@ -32,9 +36,9 @@
 }
 .BattleContener .Skills .Skill {
   width: 122px;
-  border: 1px solid red;
   height: 87px;
-  background-color: rgb(21, 21, 65);
+  background-color: rgba(0, 255, 139, 0.03);
+  border: 1px solid rgba(0, 255, 139, 0.3);
   padding: 2px;
   text-align: center;
   float: left;
@@ -44,64 +48,74 @@
 .BattleContener .Skills .Skill .imageSkill {
   position: relative;
   display: inline-block;
-  top: -5px;
-  right: 10px;
+  top: -2px;
+  right: 16px;
   z-index: 1;
 }
 .BattleContener .Skills .Skill .active-btn {
   display: unset;
   position: relative;
-  top: -93px;
-  left: -47px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  padding-top: 2px;
-  background: red;
-  color: white;
-  font-weight: bold;
-  border: none;
+  top: -92px;
+  left: 46px;
   outline: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 30px;
   z-index: 3;
+  background-color: rgb(0, 61, 34);
+  border: 1px solid rgba(0, 255, 139, 0.5);
+  color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+.BattleContener .Skills .Skill .active-btn:hover {
+  background-color: rgb(0, 82, 46);
+  border: 1px solid rgba(0, 255, 139, 1);
+  color: rgb(255, 255, 255);
 }
 
 .skillsView .skillsContener {
   margin-top: 10px;
   width: 100%;
-  border: 1px solid red;
-  height: 75vh;
-
+  border: 1px solid rgba(86, 191, 255, 0.2);
+  height: 700px;
   padding: 1rem;
   float: left;
+  font-family: 'Montserrat', sans-serif;
 }
 .skillsContener .Points {
-  margin-top: 10px;
   width: 100%;
-  border: 1px solid red;
-  height: 7vh;
-  background-color: rgb(21, 21, 65);
-  padding: 1rem;
+
+  padding-top: 4px;
+  padding-bottom: 9px;
   float: left;
   text-align: center;
+  font-weight: 200;
+  font-size: 26px;
+  color: rgba(87, 234, 255, 1);
+}
+.ptk{
+  font-weight: 600;
 }
 .skillsContener .ContenerLevels {
   margin-top: 10px;
   width: 100%;
-  border: 1px solid red;
-  height: 10vh;
+  height: 120px;
   float: left;
   text-align: center;
 }
 .ContenerLevels .LevelsTitle {
   width: 100%;
-  border: 1px solid red;
-  height: 6vh;
-  background-color: rgb(21, 21, 65);
-  padding: 0.5rem;
+  border: 1px solid rgba(86, 191, 255, 0.25);
+  height: 60px;
+  background-color: rgba(86, 191, 255, 0.03);
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  padding-top: 12px;
   text-align: center;
 }
 .ContenerLevels .LevelsElements {
@@ -112,36 +126,43 @@
 }
 
 .skillsContenerLevelsElement {
-  width: 10%;
+  width: 16.5%;
   height: 100%;
-  margin-left: 42px;
-  margin-right: 45px;
-  padding: 0.3rem;
+
+  padding-top: 22px;
+  padding-bottom: 8px;
   float: left;
   text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: whitesmoke;
+  text-transform: uppercase;
 }
 
 .skillsContener .Active {
   margin-top: 10px;
   width: 100%;
-  border: 1px solid red;
-  height: 27%;
+  height: 175px;
   float: left;
   text-align: center;
 }
 
 .Active .Title {
   width: 100%;
-  border: 1px solid red;
-  height: 6vh;
-  background-color: rgb(21, 21, 65);
-  padding: 0.5rem;
+  border: 1px solid rgba(86, 191, 255, 0.25);
+  height: 60px;
+  background-color: rgba(86, 191, 255, 0.03);
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  padding-top: 13px;
   text-align: center;
+
 }
 .Active .Elements {
   width: 100%;
-  height: 18.8vh;
+margin-top: 7px;
 
   float: left;
   text-align: center;
@@ -152,7 +173,7 @@
   margin-right: 49px;
   width: 122px;
   height: 87px;
-  background-color: rgb(21, 21, 65);
+  background-color: rgba(0, 152, 255, 0.03);
   padding: 0.3rem;
   float: left;
   text-align: center;
@@ -161,53 +182,56 @@
   position: relative;
   display: inline-block;
   top: -5px;
-  right: 10px;
+  right: 16px;
   z-index: 1;
 }
 .Active .Elements .Element .active-btn {
   display: unset;
   position: relative;
-  top: -93px;
-  left: -47px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  padding-top: 2px;
-  background: red;
-  color: white;
-  font-weight: bold;
-  border: none;
+  top: -92px;
+  left: 46px;
   outline: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 30px;
   z-index: 3;
+  background: rgba(0, 57, 70, 0.89);
+  border: 1px solid rgba(0, 208, 255, 0.5);
+  color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 .Active .Elements .Element .active-btn:hover {
-  background-color: red;
-  color: rgb(9, 9, 29);
+  background: rgb(0, 89, 112);
+  border: 1px solid rgba(0, 208, 255, 1);
+  color: rgb(255, 255, 255);
 }
 
 .skillsContener .Passive {
-  margin-top: 10px;
+  margin-top: 15px;
   width: 100%;
-  border: 1px solid red;
   height: 40%;
   float: left;
   text-align: center;
 }
 .Passive .Title {
   width: 100%;
-  border: 1px solid red;
-  height: 6vh;
-  background-color: rgb(21, 21, 65);
-  padding: 0.5rem;
+  border: 1px solid rgba(86, 191, 255, 0.25);
+  height: 60px;
+  background-color: rgba(86, 191, 255, 0.03);
+
   float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+ padding-top: 13px;
   text-align: center;
 }
 .Passive .Elements {
   width: 100%;
-  height: 18.8vh;
+  margin-top: 10px;
 
   float: left;
   text-align: center;
@@ -220,7 +244,8 @@
   margin-right: 49px;
   width: 122px;
   height: 87px;
-  background-color: rgb(21, 21, 65);
+  background-color: rgba(0, 152, 255, 0.03);
+
   padding: 0.3rem;
   float: left;
   text-align: center;
@@ -229,29 +254,28 @@
   position: relative;
   display: inline-block;
   top: -5px;
-  right: 10px;
+  right: 16px;
   z-index: 1;
 }
 .Passive .Elements .Element .passive-btn {
   display: unset;
   position: relative;
-  top: -93px;
-  left: -47px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  padding-top: 2px;
-  background: red;
-  color: white;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 30px;
+  top: -92px;
+  left: 46px;
   z-index: 3;
+  background: rgba(0, 57, 70, 0.89);
+  border: 1px solid rgba(0, 208, 255, 0.5);
+  color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 .Passive .Elements .Element .passive-btn:hover {
-  background-color: red;
-  color: rgb(9, 9, 29);
+  background: rgb(0, 89, 112);
+  border: 1px solid rgba(0, 208, 255, 1);
+  color: rgb(255, 255, 255);
 }

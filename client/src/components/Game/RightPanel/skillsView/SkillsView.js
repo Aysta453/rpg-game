@@ -37,7 +37,7 @@ const SkillsView = () => {
             <div className='skillsView'>
                 <div className='BattleContener'>
                    <div className='Name'>
-                        <h2>Umiejętności wykorzystywane w walce</h2>
+                        Umiejętności wykorzystywane w walce
                     </div>
                     <div className='Skills'>
                         <SkillUsingInBattle  handleChangeAssign2={handleChangeAssign2 }  skill={skillsToBattle.firstSkill} position={1} />
@@ -49,11 +49,11 @@ const SkillsView = () => {
                 </div>
                 <div className='skillsContener'>
                     <div className='Points'>
-                        <h2>Możliwe punkty do przydzielenia:{skills.availabePoints}</h2>
+                        Możliwe punkty do przydzielenia: <span className={"ptk"}> {skills.availabePoints}</span>
                     </div>
                     <div className='ContenerLevels'>
                         <div className='LevelsTitle'>
-                            <h2>Poziomiologia</h2>
+                            Poziomiologia
                         </div>
                         <div className='LevelsElements'>
                             <SkillLevelElement text={"1"}/>
@@ -66,7 +66,7 @@ const SkillsView = () => {
                     </div>
                     <div className='Active'>
                         <div className='Title'>
-                            <h2>Umiejętności Aktywne</h2>
+                            Umiejętności Aktywne
                         </div>
                         <div className='Elements'>                               
                             <SpecyficSkillActive levelOfSkill={1}  handleChangeLock={handleChangeLock} handleChangeAssign={handleChangeAssign} availablePoints={skills.availabePoints} skill={skills.active.firstSkill} typeOfSkill={0} />
@@ -79,7 +79,7 @@ const SkillsView = () => {
                     </div>
                     <div className='Passive'>
                         <div className='Title'>
-                            <h2>Umiejętności Pasywne</h2>
+                            Umiejętności Pasywne
                         </div>
                         <div className='Elements'>
                             <SpecyficSkillPassive levelOfSkill={1} size={0} handleChangeLock={handleChangeLock} availablePoints={skills.availabePoints} skill={skills.passive.firstSkill} typeOfSkill={1} numberOfSkill={1}/>
