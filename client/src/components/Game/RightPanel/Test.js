@@ -6,10 +6,16 @@ const Test = () => {
     let width = 500;
     const [color, setColor] = useState("blue");
     const [timeBar, setTimeBar] = useState(0);
-    let progress = width / 5;
     
     const [secondValue, setSecondValue] = useState(0);
 
+    const [firstSkill, setFirstSkill] = useState({
+        castTime: 5000,
+        durationTime: 0,
+        recastTime: 20000,
+    });
+
+    let progress = width / (firstSkill.castTime/1000);
     const [timeSkillBar, setTimeSkillBar] = useState(0);
      const sleep = (ms) => {
          return new Promise(resolve => setTimeout(resolve, ms));
@@ -18,7 +24,22 @@ const Test = () => {
     const showingDiv = () => {
         setTestValue(!testValue);
     };
-
+    useEffect(() => {
+        if (secondValue === 1) {
+            setColor("red");
+            progress = width / (firstSkill.durationTime / 1000);
+            setTimeSkillBar(setInterval(() => {
+                setTimeBar(timeBar => timeBar + progress);
+            }, 1 * 1000));
+        }
+         if (secondValue === 2) {
+            setColor("green");
+            progress = width / (firstSkill.recastTime / 1000);
+            setTimeSkillBar(setInterval(() => {
+                setTimeBar(timeBar => timeBar + progress);
+            }, 1 * 1000));
+        }
+    },[secondValue]);
     
     useEffect(() => {
        if(testValue == true){     
@@ -28,60 +49,48 @@ const Test = () => {
         }
     }, [testValue]);
 
-
     useEffect(() => {
-
-        if (secondValue === 1) {
-            setColor("green");
-            sleep(100).then(() => {
-                 
-                progress = width / 10;
-                setTimeSkillBar(setInterval(() => {
-                    setTimeBar(timeBar => timeBar + progress);
-                }, 1 * 1000));
-            });
-        }
-        
-        if (secondValue === 2) {
-            setColor("red");
-            sleep(100).then(() => {
-                 
-                progress = width / 10;
-                setTimeSkillBar(setInterval(() => {
-                    setTimeBar(timeBar => timeBar + progress);
-                }, 1 * 1000));
-            });
-        }
-           
-    }, [secondValue]);
-    
-    
-    useEffect(() => {
-        if (timeBar === (width)) {
+        if (timeBar == width && secondValue == 0) {
             sleep(1000).then(() => {
                 clearInterval(timeSkillBar);
                 setTimeBar(0);
-                setSecondValue(2);
-            })   
+                if (firstSkill.durationTime !== 0 && secondValue ==0) {
+                    setSecondValue(1);
+                } else {
+                    setSecondValue(2);
+                }
+            });      
         }
-      
-       
-    }, [timeBar]);
-    
-    useEffect(() => {
-        if (timeBar === (width) && (secondValue === 2)) {
-            clearInterval(timeSkillBar);
+                if (timeBar == width && secondValue == 1) {
+            sleep(1000).then(() => {
+                clearInterval(timeSkillBar);
                 setTimeBar(0);
-                setSecondValue(3);
+                if (firstSkill.durationTime !== 0 && secondValue ==1) {
+                    setSecondValue(2);
+                } else {
+                    setSecondValue(3);
+                }
+            });      
         }
-    },[timeBar,secondValue])
-
-    useEffect(() => {
-        if (secondValue === 3 && timeBar === 0) {
-            showingDiv();
+                if (timeBar == width && secondValue == 2) {
+             sleep(1000).then(() => {
+                clearInterval(timeSkillBar);
+                setTimeBar(0);
+                showingDiv();
+                setColor("blue");
+                setSecondValue(0);
+            });      
         }
-    }, [secondValue, timeBar]);
-
+        if (timeBar == width && secondValue==3) {
+            sleep(1000).then(() => {
+                clearInterval(timeSkillBar);
+                setTimeBar(0);
+                showingDiv();
+                setColor("blue");
+                setSecondValue(0);
+            });      
+        }
+    },[timeBar])
    
     return (
         <div>
