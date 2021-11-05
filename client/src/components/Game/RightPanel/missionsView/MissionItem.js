@@ -12,18 +12,18 @@ const MissionItem = ({ valueOfPopup, missionItem, showPopup, size }) => {
                 <div className="image"><img src={`/images/eq${image}.png`}/></div>
                 <div className="typeOfItem">{missionItem.typeOfItem}</div>
                 <div className="infoAboutItem">
-                    <div className="title">
+                    <div className="undertitle">
                         Statystyki
                     </div>
                     <div className="stats">
                         <div className="values">
-                            <p>Obrażenia: {missionItem.minAttack} - {missionItem.maxAttack}</p>
-                            <p>Obrona: {missionItem.defense}</p>
-                            <p>Siła: {missionItem.strength}</p>
-                            <p>Zręczność: {missionItem.dexterity}</p>
-                            <p>Inteligencja: {missionItem.intellect}</p>
-                            <p>Wytrzymałość: {missionItem.stamina}</p>
-                            <p>Szczęście: {missionItem.spirit}</p>
+                            <p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {missionItem.minAttack} - {missionItem.maxAttack}</p>
+                            <p className={"def"}><span className={"defd"}>Obrona:</span> {missionItem.defensive}</p>
+                            <p className={"str"}><span className={"strd"}>Siła:</span> {missionItem.strength}</p>
+                            <p className={"agl"}><span className={"agld"}>Zręczność:</span> {missionItem.dexterity}</p>
+                            <p className={"int"}><span className={"intd"}>Inteligencja:</span> {missionItem.intellect}</p>
+                            <p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {missionItem.stamina}</p>
+                            <p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {missionItem.spirit}</p>
                         </div>
                     </div>
                 <div className="sellInfo">

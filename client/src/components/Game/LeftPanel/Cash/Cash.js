@@ -12,8 +12,8 @@ const Cash = () => {
     return (<>
         <div className='cash'>
            
-            <CashItem value={hero.gold} name={"Złoto"}/>
-            <CashItem value={hero.diamond} name={'Diamenty'}/>
+            <CashItem value={hero.gold}  name={"ZŁOTO"} id={'zloto'}/>
+            <CashItem value={hero.diamond} name={'DIAMENTY'} id={'diamenty'}/>
            
         </div>
             

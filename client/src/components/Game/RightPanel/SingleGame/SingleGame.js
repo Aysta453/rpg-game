@@ -327,7 +327,7 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                     
                     </div>
                      <div className="progress-div-playerHealthPoints">
-                    {hpPlayer}/{playerStats.healthPoints}
+                    {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
                 </div>
                   
                 </div>
@@ -337,7 +337,7 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                     
                     </div>
                      <div className="progress-div-playerManaPoints">
-                     {manaPlayer}/{playerStats.manaPoints}
+                     {parseInt(manaPlayer)}/{parseInt(playerStats.manaPoints)}
                 </div>
                    
                 </div>
@@ -387,7 +387,7 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                         <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
                     </div>
                     <div className="progress-div-monsterManaPoints">
-                        {hpEnemy}/{game.monster.monsterHealtPoints}
+                        {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
                     </div>
                     <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
                 </div>

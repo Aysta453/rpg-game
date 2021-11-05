@@ -62,16 +62,16 @@ const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, h
                 <div className="description">{skill.descriptionOfSpell}</div>
                 <div className="values">
                     <div className="nameOfValue">
-                        <p>Wartość umiejętności</p>
-                        <p>Wartość punktów many</p>
-                        <p>Czas castowania</p>
-                        <p>Czas trwania </p>
+                        <p className={'umj'}>Wartość umiejętności</p>
+                        <p className={'man'}>Wartość punktów many</p>
+                        <p className={'cst'}>Czas castowania</p>
+                        <p className={'tim'}>Czas trwania </p>
                     </div>
                     <div className="second">
-                        <p>{skill.valueOfSpell}</p>
-                        <p>{skill.pointsOfMana}</p>
-                        <p>{skill.castTime}</p>
-                        <p>{skill.durationTime}</p>
+                        <p className={'umj'}>{skill.valueOfSpell}</p>
+                        <p className={'man'}>{skill.pointsOfMana}</p>
+                        <p className={'cst'}>{skill.castTime}</p>
+                        <p  className={'tim'}>{skill.durationTime}</p>
                     </div>
                 </div>
                 <div className="buttons-div-assign">
@@ -79,13 +79,13 @@ const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, h
                     Przypisz umiejętność do miejsca:
                     </div>
                     <div className="buttons">
-                    {statementToAssign1 ? (  <button onClick={() => {assigningButton(1,skill2)}}>1</button>): (  <button disabled onClick={() => {assigningButton(1,skill2)}}>1</button>)}
-                    {statementToAssign2 ? (  <button onClick={() => {assigningButton(2,skill2)}}>2</button>): (  <button disabled onClick={() => {assigningButton(2,skill2)}}>2</button>)}
-                    {statementToAssign3 ? (  <button onClick={() => {assigningButton(3,skill2)}}>3</button>): (  <button disabled onClick={() => {assigningButton(3,skill2)}}>3</button>)}
+                    {statementToAssign1 ? (  <button className={'a1'} onClick={() => {assigningButton(1,skill2)}}>1</button>): (  <button className={'a1'} disabled onClick={() => {assigningButton(1,skill2)}}>1</button>)}
+                    {statementToAssign2 ? (  <button className={'a2'} onClick={() => {assigningButton(2,skill2)}}>2</button>): (  <button className={'a2'} disabled onClick={() => {assigningButton(2,skill2)}}>2</button>)}
+                    {statementToAssign3 ? (  <button className={'a3'} onClick={() => {assigningButton(3,skill2)}}>3</button>): (  <button className={'a3'} disabled onClick={() => {assigningButton(3,skill2)}}>3</button>)}
                     </div>
                 </div>
                 <div className="button-div-unlock">
-                    {statementToUnlock ? (  <button onClick={() => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>): (  <button disabled onClick={() => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>)}
+                    {statementToUnlock ? (  <button className={'unlock'} onClick={()  => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'}  disabled onClick={() => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>)}
                 </div>
             </div>
          </div>

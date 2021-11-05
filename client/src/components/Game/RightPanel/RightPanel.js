@@ -17,6 +17,7 @@ import playerGameValues from '../../../functions/playerGameValues';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPlayerValues } from '../../../actions/playerGame';
 import Test from './Test.js';
+import MultiPlayerView from "./MultiPlayer/MultiPlayerView";
 
 //
 //               
@@ -33,7 +34,9 @@ const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons })
                 {windowOfElements === 7 && <SinglePlayerGameView setButtons={setButtons} setWindowOfElements={setWindowOfElements}/>}
                 {windowOfElements === 6 && <> tu bedzie logout </>}
                 {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements}/> }
+                {windowOfElements === 90 && <MultiPlayerView /> }
                 {windowOfElements === 20 && <Test/> }
+
                
             </div>
     );

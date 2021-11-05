@@ -34,12 +34,12 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
                     
                 </div>
                 <div className="rewards">
-                    <div className="title">Wynagrodzenie:</div>
+                    <div className="title">Wynagrodzenie</div>
                     <div className="money">
-                    Złoto : {game.missionRewardGold}
+                        Złoto: <span className={"moni"}>{game.missionRewardGold}</span>
                     </div>
                     <div className="expoints">
-                    Punkty doświadczenia : {game.missionRewardExp}
+                        Punkty doświadczenia: <span className={"xp"}>{game.missionRewardExp}</span>
                     </div>
                     <div className="itemBox">
                     {isItemAsReward ? (<div className="item"></div>) :

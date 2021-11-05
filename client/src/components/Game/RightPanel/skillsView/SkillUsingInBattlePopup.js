@@ -19,22 +19,23 @@ const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeA
                     <img src="/images/2.png"/>
                 </div>
                 <div className="description">{skill.descriptionOfSpell}</div>
+
                 <div className="values">
                     <div className="nameOfValue">
-                        <p>Wartość umiejętności</p>
-                        <p>Wartość punktów many</p>
-                        <p>Czas castowania</p>
-                        <p>Czas trwania </p>
+                        <p className={'umj'}>Wartość umiejętności</p>
+                        <p className={'man'}>Wartość punktów many</p>
+                        <p className={'cst'}>Czas castowania</p>
+                        <p className={'tim'}>Czas trwania </p>
                     </div>
                     <div className="second">
-                        <p>{skill.valueOfSpell}</p>
-                        <p>{skill.pointsOfMana}</p>
-                        <p>{skill.castTime}</p>
-                        <p>{skill.durationTime}</p>
+                        <p className={'umj'}>{skill.valueOfSpell}</p>
+                        <p className={'man'}>{skill.pointsOfMana}</p>
+                        <p className={'cst'}>{skill.castTime}</p>
+                        <p  className={'tim'}>{skill.durationTime}</p>
                     </div>
                 </div>
                 <div className="button-div-unlock">
-                    {true ? (  <button onClick={() => {  operation(position,skill.numberOfSkill)}}>Wypisz </button>): (  <button disabled onClick={() => {  }}>Wypisz</button>)}
+                    {true ? (  <button className={'wypisz'} onClick={() => {  operation(position,skill.numberOfSkill)}}>Wypisz </button>): (  <button  disabled onClick={() => {  }}>Wypisz</button>)}
                 </div>
             </div>
          </div>

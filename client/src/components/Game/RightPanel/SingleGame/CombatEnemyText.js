@@ -2,6 +2,13 @@ import React from 'react'
 
 const CombatEnemyText = ({ value, id }) => {
     let check = value;
+    let isnum = value;
+    parseInt(isnum);
+    if(isNaN(isnum) === false ){
+    value=isnum;
+    }
+
+
     if (value === 0) {
         check = false;
     } else {

@@ -36,22 +36,21 @@ const MissionView = ({mission, setWindowOfElements,setButtons,size}) => {
     }
     return(<>
         <div className='missionView'>
-            <div className='title'><h2>{setMission.missionTitle}</h2></div>
-            <div className='description'><h3>{setMission.missionDescription}</h3></div>
-            <div className='time'>Czas Podróży</div>
-            <div className='timeValue'>{setMission.missionTime} s</div>
-            <div className='rewards'>Nagrody</div>
+            <div className='title'>{setMission.missionTitle}</div>
+            <div className='description'>{setMission.missionDescription}</div>
+
             <div className='expPoints'>Doświadczenie</div>
-            <div className='expPointsValue'>{setMission.missionRewardExp} Doświadczenia</div>
+            <div className='expPointsValue'>{setMission.missionRewardExp} XP</div>
             <div className='money'>Waluta</div>
             <div className='moneyValue'>{setMission.missionRewardGold} Złota</div>
-
+            <div className='time'>Czas Podróży</div>
+            <div className='timeValue'>{setMission.missionTime} s</div>
             <div className='itemBox'>
                 {isItemAssigmentToMission ? (<div className="item"></div>) :
                     (
                         <div className="item">
                               <img className="imageSkill" src={`/images/eq${image}.png`}/>
-                                <button className="active-btn" onClick={() => { showPopup() }}>+</button>
+                                <button className="active-btn" onClick={() => { showPopup() }}>i</button>
                                 <MissionItem size={0} valueOfPopup={popupValue} missionItem={mission.item} showPopup={showPopup}/>
                         </div>
                     )
