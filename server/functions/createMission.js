@@ -7,10 +7,18 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
     let timeOfMission;
     let goldOfMission;
     let experienceOfMission;
-    let nameOfMissions = ['name1', 'name2', 'name3', 'name4', 'name5', 'name6', 'name7', 'name8', 'name9', 'name10'];
-    let descriptionOfMissions = ['name1', 'name2', 'name3', 'name4', 'name5', 'name6', 'name7', 'name8', 'name9', 'name10'];
-    let nameOfMonsters = ['name1', 'name2', 'name3', 'name4', 'name5', 'name6', 'name7', 'name8', 'name9', 'name10'];
-    let timeOfMissions = [30, 60, 120, 150, 180, 240, 300, 450, 520, 600];
+    let nameOfMissions = ['Mroczny Las', 'Ludowe Pustkowie', 'Zakazane Bagno', 'Królewskie Przedmieścia', 'Wielki Targ', 'Las RavenHood', 'Szmaragdowa Wieża', 'Lodowa Góra', 'Lochy'];
+    let descriptionOfMissions = ['Kupiec przemierzajacy mroczny las został napadniety przez dużego zielonego orka. Została wystawiona wysoka nagroda. Podejmiesz się wyprawy do mrocznego Lasu?',
+        'Książęca wyprawa do sąsiedniego kraju została przerwana przez koczującego potwora na lodowym pustkowiu. Nagroda jest spora. Na pewno przyda Ci się gruby ubiór oraz coś ciepłego do picia. To jak, ruszasz?',
+        'Wieśniacy są napadani przez głodnego orka w niewielkiej wiosce Landerwood. A jak dobrze wiemy, głodny ork to zły ork. Czas ruszać.',
+        'Po małej sprzeczce z królem, jeden z jego zabójców postanowił działać na swoją rękę i terroryzuje przedmieścia. Czy chciałbyś należycie go oduczyć złych manier? Król słono płaci.',
+        'W mieście krąży plotka o grasującym Johnym, który ostatnio zabardzo rozwinął skrzydła na miejscowym targu. Pasuje mu dać nauczkę by nie przywłaszczał swoich rzeczy.',
+        'W okolicznym lesie zaczął szaleć jakiś Robin Chłód czy jakoś tak i okrada bogatych. Podobno rozdaje biednym, ale znając jego siedzi w barze i chwali się jaki to bogaty. Czeka na wizytę.',
+        'W szmaragdowym mieście, w szmaragdowej wieży, królewna piękna w opresji długo czeka... Jakoś tak to szło, historia piękna ale czy prawdziwa? Sprawdź, na coś się przydasz.',
+        'W dalekich górach jest stara legenda, że wielki lodowy smok śpi na ogromnym skarbu. Sprawdzisz to czy to tylko plotki?',
+        'W podmiejskich lochach zaczął grasować wielki czarny jak smoła smok. Coraz więcej osadników jest przerażona, że zostanie pożarta i uciekają smoka. Król błaga Cię o pomoc. Pewien szewczyk kombinuje coś z magiczną owcą. Pokonasz smoka po swojemu czy się boisz?'];
+    let nameOfMonsters = ['Zielony Ork', 'Lodowy Ork', 'Bagnisty Ork', 'Królewski Zabójca', 'Johny Lepkie Rączki', 'Leśny Łotrzyk', 'Szmaragdowy Smok', 'Lodowy Smok', 'Czarny Smok'];
+    let timeOfMissions = [30, 60, 120, 150, 180, 240, 300, 450, 520,600];
 
     let nameOfMonster;
     let monsterHealtPoints;
@@ -75,18 +83,8 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
             nameOfMonster = nameOfMonsters[8];
             monsterNumber = 8;
             break;
-        case 10:
-            
-            nameOfMission = nameOfMissions[9];
-            descriptionOfMission = descriptionOfMissions[9];
-            nameOfMonster = nameOfMonsters[9];
-            monsterNumber = 9;
-            break;
         default:
-            nameOfMission = nameOfMissions[0];
-            descriptionOfMission = descriptionOfMissions[0];
-            nameOfMonster = nameOfMonsters[0];
-            monsterNumber = 0;
+           
             break;
     };
 
@@ -130,7 +128,6 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
             timeOfMission = timeOfMissions[9];
             break;
         default:
-            timeOfMission = timeOfMissions[0];
             break;
     };
 

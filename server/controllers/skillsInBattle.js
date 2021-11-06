@@ -36,7 +36,7 @@ export const updateSkillsInBattle = async (req, res) => {
     const { owner, position, skill,numberOfSkill} = req.body;
 
     let result = await SkillsInBattle.findOne({ owner });
-    let data = assignSkillToBattle(result, skill, position,numberOfSkill);
+    let data = assignSkillToBattle(result, skill, position);
     try {
         const result1 = await SkillsInBattle.findOneAndUpdate({ owner: owner }, data, { new: true });
         res.status(201).json(result1);

@@ -12,7 +12,7 @@ export default function unlockingSkill(skills, typeOfSkill, numberOfSkill) {
         }else if (numberOfSkill == 5) {
             skills.active.fifthSkill.isUnlocked = true;
         }else if (numberOfSkill == 6) {
-            skills.active.sixthSkill.isUnlocked = true;W
+            skills.active.sixthSkill.isUnlocked = true;
         }
     } else if (typeOfSkill == 1) {
         if (numberOfSkill == 1) {

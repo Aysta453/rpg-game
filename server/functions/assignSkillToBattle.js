@@ -1,16 +1,24 @@
-export default function assignSkillToBattle(skillsInBattle, skill, position,numberOfSkill) {
+export default function assignSkillToBattle(skillsInBattle, skill, position) {
     let { data } = {};
+
     let { tempSkill } = {};
-          tempSkill = {
-            castTime: skill.castTime,
-            descriptionOfSpell: skill.descriptionOfSpell,
-            durationTime: skill.durationTime,
-            nameOfSkill: skill.nameOfSkill,
-            pointsOfMana: skill.pointsOfMana,
-            valueOfSpell: skill.valueOfSpell,
-            isSkillAssigned: true,
-            numberOfSkill:numberOfSkill,
-        };
+
+    tempSkill = {          
+        nameOfSkill: skill.nameOfSkill,
+        descriptionOfSkill: skill.descriptionOfSkill,
+        pointsOfMana: skill.pointsOfMana,
+        valueOfSkill: skill.valueOfSkill,
+        durationTime: skill.durationTime,
+        castTime: skill.castTime,
+        recastTime: skill.recastTime,
+        numberOfSkill: skill.numberOfSkill,
+        typeOfSkill: skill.typeOfSkill,
+        targetOfSkill: skill.targetOfSkill,
+        countOfDots: skill.countOfDots,
+        dotValue:skill.dotValue,
+        isSkillAssigned: true,
+    };
+    
     if (position == 1) {
         skillsInBattle.firstSkill = tempSkill;
     }else if (position == 2) {
@@ -20,5 +28,6 @@ export default function assignSkillToBattle(skillsInBattle, skill, position,numb
     }
 
     data = skillsInBattle;
+
     return data;
 }

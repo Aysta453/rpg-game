@@ -174,42 +174,42 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
         itemCost = itemCost * 10;
     }
     
-    let nameOfItemsMagesHeads = ['head1', 'head2', 'head3'];
-    let nameOfItemsMagesNecklaces = ['necklace1', 'necklace2', 'necklace3'];
-    let nameOfItemsMagesChests = ['chest1', 'chest2', 'chest3'];
-    let nameOfItemsMagesPantses = ['pants1', 'pants2', 'pants3'];
-    let nameOfItemsMagesBoots = ['boots1', 'boots2', 'boots3'];
-    let nameOfItemsMagesWeapons = ['weapon1', 'weapon2', 'weapon3'];
+    let nameOfItemsMagesHeads = ['Czapka Inteligencji', 'Czapka Ognia', 'Czapka Lodu'];
+    let nameOfItemsMagesNecklaces = ['Naszyjnik Ognia', 'Naszyjnik Lodu', 'Naszyjnik Inteligencji'];
+    let nameOfItemsMagesChests = ['Szata Lodu', 'Szata Inteligencji', 'Szata Ognia'];
+    let nameOfItemsMagesPantses = ['Spodnie Lodu', 'Spodnie Inteligencji', 'Spodnie Ognia'];
+    let nameOfItemsMagesBoots = ['Buty Inteligencji', 'Buty Lodu', 'Buty Ognia'];
+    let nameOfItemsMagesWeapons = ['Róźdzka Inteligencji', 'Róźdzka Ognia', 'Róźdzka Lodu'];
 
-    let nameOfItemsPriestsHeads = ['head1', 'head2', 'head3'];
-    let nameOfItemsPriestsNecklaces = ['necklace1', 'necklace2', 'necklace3'];
-    let nameOfItemsPriestsChests = ['chest1', 'chest2', 'chest3'];
-    let nameOfItemsPriestsPantses =['pants1', 'pants2', 'pants3'];
-    let nameOfItemsPriestsBoots = ['boots1', 'boots2', 'boots3'];
-    let nameOfItemsPriestsWeapons = ['weapon1', 'weapon2', 'weapon3'];
+    let nameOfItemsPriestsHeads = ['Czapka Światła', 'Czapka Modlitwy', 'Czapka Mądrości'];
+    let nameOfItemsPriestsNecklaces = ['Naszyjnik Światła', 'Naszyjnik Mądrości', 'Naszyjnik Modlitwy'];
+    let nameOfItemsPriestsChests = ['Szata Mądrości', 'Szata Modlitwy', 'Szata Światła'];
+    let nameOfItemsPriestsPantses =['Spodnie Mądrości', 'Spodnie Światła', 'Spodnie Modlitwy'];
+    let nameOfItemsPriestsBoots = ['Buty Mądrości', 'Buty Modlitwy', 'Buty Światła'];
+    let nameOfItemsPriestsWeapons = ['Kostur Światła', 'Kostur Modlitwy', 'Kostur Mądrości'];
    
-    let nameOfItemsWarriorsHeads = ['head1', 'head2', 'head3'];
-    let nameOfItemsWarriorsNecklaces = ['necklace1', 'necklace2', 'necklace3'];
-    let nameOfItemsWarriorsChests = ['chest1', 'chest2', 'chest3'];
-    let nameOfItemsWarriorsPantses =['pants1', 'pants2', 'pants3'];
-    let nameOfItemsWarriorsBoots = ['boots1', 'boots2', 'boots3'];
-    let nameOfItemsWarriorsWeapons = ['weapon1', 'weapon2', 'weapon3'];
+    let nameOfItemsWarriorsHeads = ['Łuskowy Hełm', 'Miedziany Hełm', 'Stalowy Hełm'];
+    let nameOfItemsWarriorsNecklaces = ['Łuskowy Naszyjnik', 'Miedziany Naszyjnik', 'Stalowy Naszyjnik'];
+    let nameOfItemsWarriorsChests = ['Stalowa Zbroja', 'Łuskowa Zbroja', 'Miedziana Zbroja'];
+    let nameOfItemsWarriorsPantses =['Miedziane Spodnie', 'Stalowe Spodnie', 'Łuskowe Spodnie'];
+    let nameOfItemsWarriorsBoots = ['Miedziane Buty', 'Stalowe Buty', 'Łuskowe Buty'];
+    let nameOfItemsWarriorsWeapons = ['Miedziany Miecz', 'Stalowy Miecz', 'Łuskowy Miecz'];
     
     
-    let nameOfItemsHuntersHeads = ['hhead1', 'hhead2', 'hhead3'];
-    let nameOfItemsHuntersNecklaces = ['hnecklace1', 'hnecklace2', 'hnecklace3'];
-    let nameOfItemsHuntersChests = ['hchest1', 'hchest2', 'hchest3'];
-    let nameOfItemsHuntersPantses =['hpants1', 'hpants2', 'hpants3'];
-    let nameOfItemsHuntersBoots = ['hboots1', 'hboots2', 'hboots3'];
-    let nameOfItemsHuntersWeapons =['hweapon1', 'hweapon2', 'hweapon3'];
+    let nameOfItemsHuntersHeads = ['Sokoli Kapelusz', 'Kapelusz Sprytu', 'Cienisty Kapelusz'];
+    let nameOfItemsHuntersNecklaces = ['Cienisty Naszyjnik', 'Sokoli Naszyjnik', 'Naszyjnik Sprytu'];
+    let nameOfItemsHuntersChests = ['Sokoli Kaftan', 'Kaftan Sprytu', 'Cienisty Kaftan'];
+    let nameOfItemsHuntersPantses =['Cieniste Spodnie', 'Sokole Spodnie', 'Spodnie Sprytu'];
+    let nameOfItemsHuntersBoots = ['Cieniste Buty', 'Sokole Buty', 'Buty Sprytu'];
+    let nameOfItemsHuntersWeapons =['Cienisty Łuk', 'Łuk Sprytu', 'Sokoli Łuk'];
     
     
-    let nameOfItemsBerserksHeads = ['head1', 'head2', 'head3'];
-    let nameOfItemsBerserksNecklaces = ['necklace1', 'necklace2', 'necklace3'];
-    let nameOfItemsBerserksChests = ['chest1', 'chest2', 'chest3'];
-    let nameOfItemsBerserksPantses =['pants1', 'pants2', 'pants3'];
-    let nameOfItemsBerserksBoots = ['boots1', 'boots2', 'boots3'];
-    let nameOfItemsBerserksWeapons = ['weapon1', 'weapon2', 'weapon3'];
+    let nameOfItemsBerserksHeads = ['Hełm Wściekłości', 'Hełm Szału', 'Krwisty Hełm'];
+    let nameOfItemsBerserksNecklaces = ['Naszyjnik Szału', 'Naszyjnik Wściekłości', 'Naszyjnik Gniewu'];
+    let nameOfItemsBerserksChests = ['Zbroja Wściekłości', 'Krwista Zbroja', 'Zbroja Szału'];
+    let nameOfItemsBerserksPantses =['Krwiste Spodnie', 'Spodnie Szału', 'Spodnie Wściekłości'];
+    let nameOfItemsBerserksBoots = ['Buty Szału', 'Buty Wściekłości', 'Krwiste Buty'];
+    let nameOfItemsBerserksWeapons = ['Krwisty Topór', 'Topór Szału', 'Topór Wściekłości'];
     
 
     let typeOfItems = ['head', 'necklace','chest','pants','boots','weapon'];
