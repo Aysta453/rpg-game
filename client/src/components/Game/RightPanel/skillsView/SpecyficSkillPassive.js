@@ -6,21 +6,21 @@ import SkillPassivePopup from './SkillPassivePopup.js';
 
 const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeLock,typeOfSkill,size}) => {
     const hero = useSelector(state => state.hero);
-    const [popupValue, setPopupValueset] = useState(false);
-    let number = skill.numberOfSkill;
- 
-    let image = showingPassiveImageSkill(hero.heroClass, size, number);
 
-    console.log(skill);
+    const [popupValue, setPopupValueset] = useState(false);
+
+    let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+
     const showPopup = () => {
         setPopupValueset(!popupValue);
     }
-    
-      let statementToUnlock;
+
+    let statementToUnlock;
+
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
         statementToUnlock = true;
     } else {
-          statementToUnlock = false;
+        statementToUnlock = false;
     }
 
     return (

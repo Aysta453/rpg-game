@@ -1,5 +1,4 @@
 .skillsView {
-
   height: 100%;
   width: 100%;
   padding: 1rem;
@@ -18,7 +17,7 @@
   padding-top: 36px;
   text-align: center;
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 27px;
   color: #00ff8b;
@@ -49,7 +48,7 @@
   position: relative;
   display: inline-block;
   top: -2px;
-  right: 16px;
+  right: 2px;
   z-index: 1;
 }
 .BattleContener .Skills .Skill .active-btn {
@@ -67,7 +66,7 @@
   border-radius: 3px;
   cursor: pointer;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 .BattleContener .Skills .Skill .active-btn:hover {
@@ -83,7 +82,7 @@
   height: 700px;
   padding: 1rem;
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .skillsContener .Points {
   width: 100%;
@@ -96,7 +95,7 @@
   font-size: 26px;
   color: rgba(87, 234, 255, 1);
 }
-.ptk{
+.ptk {
   font-weight: 600;
 }
 .skillsContener .ContenerLevels {
@@ -112,7 +111,7 @@
   height: 60px;
   background-color: rgba(86, 191, 255, 0.03);
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: 200;
   padding-top: 12px;
@@ -153,16 +152,15 @@
   height: 60px;
   background-color: rgba(86, 191, 255, 0.03);
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: 200;
   padding-top: 13px;
   text-align: center;
-
 }
 .Active .Elements {
   width: 100%;
-margin-top: 7px;
+  margin-top: 7px;
 
   float: left;
   text-align: center;
@@ -181,8 +179,8 @@ margin-top: 7px;
 .Active .Elements .Element .imageSkill {
   position: relative;
   display: inline-block;
-  top: -5px;
-  right: 16px;
+  top: -2px;
+  right: 2px;
   z-index: 1;
 }
 .Active .Elements .Element .active-btn {
@@ -200,7 +198,7 @@ margin-top: 7px;
   border-radius: 3px;
   cursor: pointer;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 .Active .Elements .Element .active-btn:hover {
@@ -223,10 +221,10 @@ margin-top: 7px;
   background-color: rgba(86, 191, 255, 0.03);
 
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
   font-weight: 200;
- padding-top: 13px;
+  padding-top: 13px;
   text-align: center;
 }
 .Passive .Elements {
@@ -271,7 +269,7 @@ margin-top: 7px;
   border-radius: 3px;
   cursor: pointer;
   font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 .Passive .Elements .Element .passive-btn:hover {

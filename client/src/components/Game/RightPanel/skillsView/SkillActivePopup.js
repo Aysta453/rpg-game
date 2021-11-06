@@ -1,21 +1,36 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
+import showingActiveImageSkill from '../../../../functions/showingActiveImageSkill';
 import './SkillActivePopup.css';
-const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, handleChangeLock, typeOfSkill, levelOfSkill, availablePoints }) => {
+
+const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAssign, handleChangeLock, typeOfSkill, levelOfSkill, availablePoints }) => {
+    
     const hero = useSelector(state => state.hero);
     const skillsToBattle = useSelector(state => state.skillsToBattle);
+
+      let image = showingActiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+
+
     let statementToUnlock;
+
     let statementToAssign1;
     let statementToAssign2;
     let statementToAssign3;
-    let  skill2  = {
-        castTime: skill.castTime,
-        descriptionOfSpell: skill.descriptionOfSpell,
-        durationTime: skill.durationTime,
+
+    let skill2 = {
         nameOfSkill: skill.nameOfSkill,
-        pointsOfMana: skill.pointsOfMana,
-        valueOfSpell: skill.valueOfSpell,
-        numberOfSkill:skill.numberOfSkill,
+        descriptionOfSkill: skill.descriptionOfSkill,
+        pointsOfMana:  skill.pointsOfMana,
+        valueOfSkill:  skill.valueOfSkill,
+        durationTime:  skill.durationTime,
+        castTime:  skill.castTime,
+        recastTime: skill.recastTime,
+        numberOfSkill:  skill.numberOfSkill,
+        typeOfSkill:  skill.typeOfSkill,
+        targetOfSkill: skill.targetOfSkill,
+        countOfDots:  skill.countOfDots,
+        dotValue: skill.dotValue,
+ 
     };
 
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
@@ -43,8 +58,8 @@ const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, h
     }
 
 
-    const unlockingButton = (a, b) => {
-        handleChangeLock(a, b);
+    const unlockingButton = (typeOfSkill,numberOfSkill) => {
+        handleChangeLock(typeOfSkill, numberOfSkill);
         showPopup();
     }
     const assigningButton = (position,newSkill) => {
@@ -57,9 +72,9 @@ const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, h
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{skill.nameOfSkill}</div>
                 <div className="image">
-                    <img src="/images/2.png"/>
+                    <img src={`/images/${image}.png`}/>
                 </div>
-                <div className="description">{skill.descriptionOfSpell}</div>
+                <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="values">
                     <div className="nameOfValue">
                         <p className={'umj'}>Wartość umiejętności</p>
@@ -68,7 +83,7 @@ const SkillActivePopup = ({ valueOfPopup, showPopup,skill, handleChangeAssign, h
                         <p className={'tim'}>Czas trwania </p>
                     </div>
                     <div className="second">
-                        <p className={'umj'}>{skill.valueOfSpell}</p>
+                        <p className={'umj'}>{skill.valueOfSkill}</p>
                         <p className={'man'}>{skill.pointsOfMana}</p>
                         <p className={'cst'}>{skill.castTime}</p>
                         <p  className={'tim'}>{skill.durationTime}</p>

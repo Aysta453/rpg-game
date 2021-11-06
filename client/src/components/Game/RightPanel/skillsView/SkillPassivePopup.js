@@ -5,19 +5,22 @@ import './SkillPassivePopup.css';
 const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup,skill,handleChangeLock,typeOfSkill,size}) => {
 
     const hero = useSelector(state => state.hero);
-    const operation = (a,b) => {
-        handleChangeLock(a, b);
+
+    const operationToUnlock = (typeOfSkill,numberOfSkill) => {
+        handleChangeLock(typeOfSkill, numberOfSkill);
         showPopup();
     };
-    let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill); 
+
+    let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+    
     let statementToUnlock;
+
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
         statementToUnlock = true;
     } else {
           statementToUnlock = false;
     }
 
-    
     return (valueOfPopup) ? (
          <div className="popup-passive">
             <div className="passive-inner">
@@ -26,9 +29,9 @@ const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup
                 <div className="image">
                     <img src={`/images/${image}.png`} alt=""/>
                 </div>
-                <div className="description">{skill.descriptionOfSpell}</div>
+                <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="button-div">
-                    {statementToUnlock ? (  <button className={'unlock'} onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'} disabled onClick={() => { operation(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>)}
+                    {statementToUnlock ? (  <button className={'unlock'} onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'} disabled onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>)}
                   
                 </div>
                   

@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import showingActiveImageSkill from '../../../../functions/showingActiveImageSkill';
 import './SkillUsingInBattlePopup.css';
 
-const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeAssign2,position}) => {
-    console.log(position);
-    const operation = (a,b) => {
-        console.log(a);
-        console.log(b);
-        handleChangeAssign2(a,b);
+const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeAssign2,position ,size}) => {
+
+    const hero = useSelector(state => state.hero)
+
+
+
+    let image = showingActiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+
+
+
+    const operationToUnAssignSkillToBattle = (positionOfSkill,numberOfSkill) => {
+        handleChangeAssign2(positionOfSkill,numberOfSkill);
         showPopup();
     };
 
@@ -16,10 +24,9 @@ const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeA
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{skill.nameOfSkill}</div>
                 <div className="image">
-                    <img src="/images/2.png"/>
+                    <img src={`/images/${image}.png`}/>
                 </div>
-                <div className="description">{skill.descriptionOfSpell}</div>
-
+                <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="values">
                     <div className="nameOfValue">
                         <p className={'umj'}>Wartość umiejętności</p>
@@ -28,14 +35,14 @@ const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeA
                         <p className={'tim'}>Czas trwania </p>
                     </div>
                     <div className="second">
-                        <p className={'umj'}>{skill.valueOfSpell}</p>
+                        <p className={'umj'}>{skill.valueOfSkill}</p>
                         <p className={'man'}>{skill.pointsOfMana}</p>
                         <p className={'cst'}>{skill.castTime}</p>
                         <p  className={'tim'}>{skill.durationTime}</p>
                     </div>
                 </div>
                 <div className="button-div-unlock">
-                    {true ? (  <button className={'wypisz'} onClick={() => {  operation(position,skill.numberOfSkill)}}>Wypisz </button>): (  <button  disabled onClick={() => {  }}>Wypisz</button>)}
+                    {true ? (  <button className={'wypisz'} onClick={() => {  operationToUnAssignSkillToBattle(position,skill.numberOfSkill)}}>Wypisz </button>): (  <button  disabled onClick={() => {  }}>Wypisz</button>)}
                 </div>
             </div>
          </div>

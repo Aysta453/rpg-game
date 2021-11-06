@@ -1,199 +1,198 @@
 .popup-itemInUse {
-    z-index: 7;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
 }
 
 .itemInUse-inner {
-    position: fixed;
-    padding: 32px;
-    width: 100%;
-    height: 800px;
-    max-width: 640px;
-    background-color: #0b0b0b;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 780px;
+  max-width: 640px;
+  background-color: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .itemInUse-inner .close-btn {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    padding: 8px 11px;
-    background: rgba(220, 20, 60, 0.12);
-    border: 1px solid rgba(220, 20, 60, 0.85);
-    color: rgba(255, 255, 255, 1);
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background: rgba(220, 20, 60, 0.12);
+  border: 1px solid rgba(220, 20, 60, 0.85);
+  color: rgba(255, 255, 255, 1);
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .itemInUse-inner .title {
-    width: 100%;
-    float: left;
-    font-size: 56px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    position: relative;
-    top: -15px;
+  width: 100%;
+  float: left;
+  font-size: 56px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  top: -15px;
 }
 
 .itemInUse-inner .undertitle {
-    width: 100%;
-    height: 40px;
-    float: left;
-    margin-bottom: 13px;
-    margin-top: 10px;
-    font-size: 34px;
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    color: #f5f5f5;
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-bottom: 13px;
+  margin-top: 10px;
+  font-size: 34px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  color: #f5f5f5;
 }
 
 .itemInUse-inner .image {
-    margin-left: 132px;
-    width: 311px;
-    height: 220px;
-    background-color: rgba(255, 255, 255, 0.08);
-    float: left;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-left: 132px;
+  width: 311px;
+  height: 220px;
+  background-color: rgba(255, 255, 255, 0.08);
+  float: left;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .itemInUse-inner .typeOfItem {
-    width: 100%;
-    height: 60px;
-    font-size: 28px;
-    padding-top: 5px;
-    font-weight: 100;
-    color: rgba(232, 232, 232, 0.95);
-    float: left;
+  width: 100%;
+  height: 60px;
+  font-size: 28px;
+  padding-top: 5px;
+  font-weight: 100;
+  color: rgba(232, 232, 232, 0.95);
+  float: left;
 }
 
 .itemInUse-inner .infoAboutItem {
-    width: 100%;
-    height: 310px;
-    float: left;
-
+  width: 100%;
+  height: 300px;
+  float: left;
 }
 
 .itemInUse-inner .infoAboutItem .title {
-    float: left;
-    height: 60px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.55);
+  float: left;
+  height: 60px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
 }
 
 .itemInUse-inner .infoAboutItem .stats {
-    float: left;
-    height: 248px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-
+  padding-top: 7px;
+  float: left;
+  height: 230px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .itemInUse-inner .infoAboutItem .stats .values {
-    float: left;
-    height: 100%;
-    width: 100%;
-    font-size: 26px;
-    font-weight: 300;
-    font-family: 'Montserrat', sans-serif;
-
-
+  float: left;
+  height: 100%;
+  width: 100%;
+  font-size: 26px;
+  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
 }
 .dmg {
-    margin-top: 5px;
-    color: #ff45dc;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  margin-top: 5px;
+  color: #ff45dc;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
-p{
-    margin-bottom: 2px;
+p {
+  margin-bottom: 2px;
 }
 .dmgd {
-    font-weight: 300;
+  font-weight: 300;
 }
 .stm {
-    color: #5cef56;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  color: #5cef56;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .stmd {
-    font-weight: 300;
-}.str {
-    color: #ff4747;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+.str {
+  color: #ff4747;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .strd {
-    font-weight: 300;
-}.def {
-    color: #01f6a0;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+.def {
+  color: #01f6a0;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .defd {
-    font-weight: 300;
+  font-weight: 300;
 }
 .agl {
-    color: #d29eff;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  color: #d29eff;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .agld {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .int {
-    color: #77b3ff;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  color: #77b3ff;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .intd {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .luk {
-    color: #ffdc61;
-    font-size: 26px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  color: #ffdc61;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .lukd {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .itemInUse-inner .sellInfo {
-    margin-top: 30px;
-    width: 100%;
-    height: 50px;
-    float: left;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
+  float: left;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
 }
