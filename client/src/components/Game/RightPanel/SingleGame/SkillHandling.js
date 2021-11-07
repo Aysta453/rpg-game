@@ -5,10 +5,14 @@ import showingActiveImageSkill from '../../../../functions/showingActiveImageSki
 const SkillHandling = ({numberOfSkill, handlingSkillButtons, buttonValue, setButtonValue, skillNumber,a, manaRegen, skill, setManaPlayer, manaPlayer, setHpPlayer, hpEnemy, hpPlayer, setHpEnemy, sleep, rek, playerStats, setPlayerStats }) => {
 
     const hero = useSelector(state => state.hero)
+  const casting = "rgba(199,162,4,0.9)";
+  const duration = "rgba(199,4,4,0.9)";
+  const cooldown = "rgba(85,85,85,0.9)";
 
 const [testValue, setTestValue] = useState(false);
-    let width = 500;
-    const [color, setColor] = useState("blue");
+    let width = 120;
+    const [color, setColor] = useState(casting);
+    const [backgroundColor, setBackgroundColor] = useState(casting);
     const [timeBar, setTimeBar] = useState(0);
     
     const [secondValue, setSecondValue] = useState(0);
@@ -27,14 +31,16 @@ const [testValue, setTestValue] = useState(false);
     };
     useEffect(() => {
         if (secondValue === 1) {
-            setColor("red");
+            setColor(duration);
+            setBackgroundColor("");
             progress = parseInt(width / (firstSkill.durationTime/1000));
             setTimeSkillBar(setInterval(() => {
                 setTimeBar(timeBar => timeBar - progress);
             }, 1 * 1000));
         }
          if (secondValue === 2) {
-            setColor("green");
+            setColor(cooldown);
+             setBackgroundColor("");
             progress = parseInt(width / (firstSkill.recastTime/1000));
             setTimeSkillBar(setInterval(() => {
                 setTimeBar(timeBar => timeBar + progress);
@@ -80,7 +86,8 @@ const [testValue, setTestValue] = useState(false);
                 clearInterval(timeSkillBar);
                 setTimeBar(0);
                 showingDiv();
-                setColor("blue");
+                setColor(casting);
+                 setBackgroundColor("");
                 setSecondValue(0);
             });      
         }
@@ -89,7 +96,8 @@ const [testValue, setTestValue] = useState(false);
                 clearInterval(timeSkillBar);
                 setTimeBar(0);
                 showingDiv();
-                setColor("blue");
+                setColor(casting);
+                setBackgroundColor("");
                 setSecondValue(0);
             });      
         }
@@ -308,8 +316,8 @@ const [testValue, setTestValue] = useState(false);
             
         <div>
             {testValue ? (
-            <div >
-                <div className="progress-div" style={{ width: width }}>                     
+            <div className={`showingTime bar${skillNumber}`}>
+                <div className={`progress-div p${skillNumber}`}  style={{ width: width }}>
                     <div style={{ width: `${timeBar}px`,backgroundColor:color    }}  className="progress"/>
                 </div>
                  </div>  

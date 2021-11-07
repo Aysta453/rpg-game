@@ -39,7 +39,7 @@
     padding-bottom: 11px;
     float: right;
     width: 270px;
-    background-color: #100c04;
+    background-color: rgba(79, 65, 9, 0.4);
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -280,8 +280,8 @@
     width: 520px;
     float: left;
     height: 285px;
-    background-color: black;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgb(24, 24, 24);
+    border: 1px solid rgb(35, 52, 58);
 }
 
 .multiContener .playerViewBattleController .playerValues {
@@ -324,7 +324,7 @@
     left: -45px;
     top: -40px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     color: #151515;
 
     z-index: 2;
@@ -335,7 +335,7 @@
     margin-right: 30px;
     border: 1px solid black;
     height: 50px;
-    background-color: rgba(75, 214, 255, 0.65);
+    background-color: rgba(75, 214, 255, 0.8);
     float: right;
 }
 
@@ -344,7 +344,7 @@
 .playerValues
 .manaPoints-div
 .progressPlayerManaPoints {
-    background-color: rgba(75, 214, 255, 0.8);
+    background-color: rgba(75, 214, 255, 0.95);
     height: 48px;
     transition: 1s linear;
 
@@ -364,7 +364,7 @@
     left: -45px;
     top: -40px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     color: #151515;
 
     z-index: 2;
@@ -499,13 +499,14 @@
     opacity: 0;
     height: 100px;
     width: 300px;
-    top: -125px;
-    left: -50px;
+    top: -120px;
+    left: -100px;
     background-color: yellow;
     border: 1px solid black;
     color: red;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    z-index: 4;
 }
 
 .multiContener

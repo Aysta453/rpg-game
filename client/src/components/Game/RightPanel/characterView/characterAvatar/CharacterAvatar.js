@@ -32,7 +32,8 @@ const CharacterAvatar = () => {
     }
     return(<>
         <div className='avatar' >
-           
+            <img src={`${image}`}  className="imageSkill"/>
+            <div className={'background'}>
                 <div className='infoNick'>{hero.nick}</div>
                 <div className='klasa'>{heroClassPolish}</div>
             <div className='info'>Poziom {hero.level}</div>
@@ -46,7 +47,7 @@ const CharacterAvatar = () => {
             <div className="expInfo">
                 {hero.expStart} / {hero.expStop}
             </div>
-             <img src={`${image}`}  className="imageSkill"/>
+            </div>
             </div>
         </>
     );
