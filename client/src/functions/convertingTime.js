@@ -4,8 +4,8 @@ export default function convertingTime(time){
         let minutes;
         let seconds;
         if (tempTime >=60 ) {
-            minutes =  Math.floor(tempTime / 60);
-            seconds =  Math.floor(tempTime % minutes);
+            minutes = Math.floor(tempTime / 60);
+            seconds = Math.floor(tempTime - (60*minutes));
            
             if (seconds >= 10) {
                 newTime = minutes + ':' + seconds;

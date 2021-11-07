@@ -29,7 +29,7 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
     
     switch (firstValue) {
         case 1:
-            nameOfMission = nameOfMissions[firstValue];
+            nameOfMission = nameOfMissions[0];
             descriptionOfMission = descriptionOfMissions[0];
             nameOfMonster = nameOfMonsters[0];
             monsterNumber = 0;

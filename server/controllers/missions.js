@@ -20,9 +20,9 @@ export const createMissions = async (req, res) => {
     let heroClass = resultHero.heroClass;
   
 
-    let mission1=createMission(Math.floor((Math.random() * 9)),Math.floor((Math.random() * 10)+1),1,1,heroClass);
-    let mission2=createMission(Math.floor((Math.random() * 9)),Math.floor((Math.random() * 10)+1),1,2,heroClass);
-    let mission3=createMission(Math.floor((Math.random() * 9)),Math.floor((Math.random() * 10)+1),1,3,heroClass);
+    let mission1=createMission(Math.floor((Math.random() * 9)+1),Math.floor((Math.random() * 10)+1),1,1,heroClass);
+    let mission2=createMission(Math.floor((Math.random() * 9)+1),Math.floor((Math.random() * 10)+1),1,2,heroClass);
+    let mission3=createMission(Math.floor((Math.random() * 9)+1),Math.floor((Math.random() * 10)+1),1,3,heroClass);
 
     let newMissions = new Missions();
 

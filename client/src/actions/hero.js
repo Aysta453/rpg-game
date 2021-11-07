@@ -1,4 +1,4 @@
-import { CREATE, HERO_FETCH,HERO_GOLD_DE,HERO_AFTER_MISSION } from '../constants/actionTypes';
+import { CREATE, HERO_FETCH,HERO_GOLD_DE,HERO_AFTER_MISSION,HERO_DIAMOND_DE,HERO_DIAMOND_INC } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -33,6 +33,22 @@ export const increasegold = (formData) => async (dispatch) => {
   try {
     const { data } = await api.increaseGold(formData);
     dispatch({ type: HERO_GOLD_DE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const decreasediamond = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.decreaseDiamond(formData);
+    dispatch({ type: HERO_DIAMOND_DE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const increasediamond = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.increaseDiamond(formData);
+    dispatch({ type: HERO_DIAMOND_INC, payload: data });
   } catch (error) {
     console.log(error);
   }

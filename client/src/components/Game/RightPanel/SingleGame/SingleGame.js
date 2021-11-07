@@ -9,16 +9,158 @@ import SkillHandling from './SkillHandling';
 const SingleGame = ({ setButtons, setWindowOfElements }) => {
 
     const game = useSelector(state => state.game);
+    const hero = useSelector(state => state.hero);
     const playerGame = useSelector(state => state.playerGame);
+    const skillsToBattle = useSelector(state => state.skillsToBattle);
 
-  
+    const [firstButton, setFirstButton] = useState(true);
+    const [secondButton, setSecondButton] = useState(true);
+    const [thirdButton, setThirdButton] = useState(true);
+         const sleep = (ms) => {
+         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const handlingSkillButtons = (numberOfSkill, time) => {
+        console.log(numberOfSkill);
+        console.log(time);
+        switch (numberOfSkill) {
+            case 1:
+                setFirstButton(!firstButton);
+                if (secondButton === true && thirdButton === true) {
+                    setSecondButton(secondButton =>!secondButton);
+                    setThirdButton(thirdButton =>!thirdButton);
+                    sleep(time).then(() => {
+                        setSecondButton(secondButton =>!secondButton);
+                        setThirdButton(thirdButton =>!thirdButton);
+                    })
+                } else if (secondButton === true) {
+                    setSecondButton(secondButton =>!secondButton);
+                    sleep(time).then(() => {
+                        setSecondButton(secondButton =>!secondButton);
+                    })     
+                } else if (thirdButton === true) {
+                    setThirdButton(thirdButton =>!thirdButton);
+                    sleep(time).then(() => {
+                        setThirdButton(thirdButton =>!thirdButton);
+                    })
+                }
+                break;
+            case 2:
+                console.log('yes');
+                setSecondButton(!secondButton);
+                if (firstButton === true && thirdButton === true) {
+                    setFirstButton(firstButton =>!firstButton);
+                    setThirdButton(thirdButton =>!thirdButton);
+                    console.log('yes1');
+                    sleep(time).then(() => {
+                               console.log('yes2');
+                        setFirstButton(firstButton =>!firstButton);
+                        setThirdButton(thirdButton=>!thirdButton);
+                    })
+                } else if (secondButton === true) {
+                setFirstButton(firstButton =>!firstButton);
+                    sleep(time).then(() => {
+                setFirstButton(firstButton =>!firstButton);
+                    })     
+                } else if (thirdButton === true) {
+                    setThirdButton(thirdButton =>!thirdButton);
+                    sleep(time).then(() => {
+                        setThirdButton(thirdButton =>!thirdButton);
+                    })
+                }
+                break;
+            case 3:
+                setThirdButton(!thirdButton);
+                if (secondButton === true && firstButton === true) {
+                    setSecondButton(secondButton =>!secondButton);
+                    setFirstButton(firstButton =>!firstButton);
+                    sleep(time).then(() => {
+                        setSecondButton(secondButton =>!secondButton);
+                        setFirstButton(firstButton =>!firstButton);
+                    })
+                } else if (secondButton === true) {
+                    setSecondButton(secondButton =>!secondButton);
+                    sleep(time).then(() => {
+                        setSecondButton(secondButton =>!secondButton);
+                    })     
+                } else if (firstButton === true) {
+                    setFirstButton(firstButton =>!firstButton);
+                    sleep(time).then(() => {
+                        setFirstButton(firstButton =>!firstButton);
+                    })
+                }
+                break;
+            default:
+                break;
+        }   
+    }
+
+    let playerImage;
+    let monsterImage;
+
+    switch (hero.heroClass) {
+        case 'Mage':
+            playerImage = '/images/charactersAvatars/1.png';
+            break;
+        case 'Priest':
+            playerImage = '/images/charactersAvatars/4.png';
+            break;
+        case 'Warrior':
+
+            playerImage = '/images/charactersAvatars/2.png';
+            break;
+        case 'Berserk':
+
+            playerImage = '/images/charactersAvatars/5.png';
+            break;
+        case 'Hunter':
+
+            playerImage = '../images/charactersAvatars/3.png';
+            break;
+        default:
+            break;
+    }
+      switch (game.monster.monsterNumber) {
+        case 0:
+            monsterImage = '/images/monstersAvatars/1.png';
+            break;
+        case 1:
+            monsterImage = '/images/monstersAvatars/2.png';
+            break;
+        case 2:
+            monsterImage = '/images/monstersAvatars/3.png';
+            break;
+        case 3:
+            monsterImage = '/images/monstersAvatars/4.png';
+            break;
+        case 4:
+            monsterImage = '/images/monstersAvatars/5.png';
+            break;
+        case 5:
+            monsterImage = '/images/monstersAvatars/6.png';
+            break;
+        case 6:
+            monsterImage = '/images/monstersAvatars/7.png';
+            break;
+        case 7:
+            monsterImage = '/images/monstersAvatars/8.png';
+            break;
+        case 8:
+            monsterImage = '/images/monstersAvatars/9.png';
+            break;
+        default:
+            break;
+    }
+
     //players main Stats
     const [playerStats, setPlayerStats] = useState(playerGame);
     const [enemyStats, setEnemyStats] = useState(game.monster);
-    console.log(game);
+
     //players temporary Stats
-    const [hpEnemy, setHpEnemy] = useState(game.monster.monsterHealtPoints);
-    const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
+    //const [hpEnemy, setHpEnemy] = useState(game.monster.monsterHealtPoints);
+    const [hpEnemy, setHpEnemy] = useState(3000);
+    //const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
+    const [hpPlayer, setHpPlayer] = useState(3000);
     const [manaPlayer, setManaPlayer] = useState(playerGame.manaPoints);
 
     //intervals 
@@ -33,115 +175,18 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
     const [playerManaBar, setPlayerManaBar] = useState(0);
     const [monsterHpBar, setMonsterHpBar] = useState(0);
 
+    const [playerBattleHpBar, setPlayerBattleHpBar] = useState();
+    const [playerBattleMpBar, setPlayerBattleMpBar] = useState();
+
     const [valueOfSomething, setValueOfSomething] = useState(0);
     
     const a = (d) => {
         setValueOfSomething(d);
     }
       
-    const [firstSkill, setFirstSkill] = useState({
+    let widthOfMainHealthPointsBar = 300;
+    let widthOfBattleContenerBars = 200;
 
-        // //static
-        // nameOfSkill: 'nameOfSkill',
-        // descriptionOfSpell: 'description',
-        // isUnlocked: true,
-        // isAsiggned: true,
-        // castTime: 2000,
-        // valueOfCostMana:50,
-        // timeToCastAgain: 5000,
-        // valueOfSpell: 0.20,
-        // typeOfSkill: 0,
-        // //attack
-        // countOfDots: 3,
-        // dotValue: 0.2,
-        // //bonus
-        // targetOfBonus: 'mp',
-        // //heal
-        valueOfCostMana: 50,
-        valueOfSpell: 0.20,
-        castTime: 2000,
-        timeOfWork: 5000,
-        timeToCastAgain: 5000,
-        typeofSkill: 0,
-        //attack
-        countOfDots: 3,
-        dotValue: 0.2,
-        isSkillAsigned:true,
-        //bonus
-        targetOfBonusValue: 'healthPoints',
-        //heal
-        
-    });
-        const [secondSkill, setSecondSkill] = useState({
-        // //static
-        // nameOfSkill: 'nameOfSkill',
-        // descriptionOfSpell: 'description',
-        // isUnlocked: true,
-        // isAsiggned: true,
-        // castTime: 2000,
-        // valueOfCostMana:50,
-        // timeToCastAgain: 5000,
-        // valueOfSpell: 0.20,
-        // typeOfSkill: 0,
-        // //attack
-        // countOfDots: 3,
-        // dotValue: 0.2,
-        // //bonus
- 
-        // //heal
-        valueOfCostMana: 10,
-        valueOfSpell: 0.20,
-        castTime: 2000,
-        timeOfWork: 5000,
-        timeToCastAgain: 1000,
-        typeofSkill: 1,
-        //attack
-        countOfDots: 3,
-        dotValue: 0.2,
-        isSkillAsigned: true,
-        targetOfBonus: 'hp',
-        //bonus
-        targetOfBonusValue: 'healthPoints',
-        //heal
-        
-    });
-        const [thirdSkill, setThirdSkill] = useState({
-        // //static
-        // nameOfSkill: 'nameOfSkill',
-        // descriptionOfSpell: 'description',
-        // isUnlocked: true,
-        // isAsiggned: true,
-        // castTime: 2000,
-        // valueOfCostMana:50,
-        // timeToCastAgain: 5000,
-        // valueOfSpell: 0.20,
-        // typeOfSkill: 0,
-        // //attack
-        // countOfDots: 3,
-        // dotValue: 0.2,
-        // //bonus
- 
-        // //heal
-        valueOfCostMana: 10,
-        valueOfSpell: 0.20,
-        castTime: 2000,
-        timeOfWork: 5000,
-        timeToCastAgain: 1000,
-        typeofSkill: 1,
-        //attack
-        countOfDots: 3,
-        dotValue: 0.2,
-        isSkillAsigned: true,
-        targetOfBonus: 'hp',
-        //bonus
-        targetOfBonusValue: 'healthPoints',
-        //heal
-        
-    });
-
-
-    console.log(playerStats);
-    let width = 400;
     const changePopup = (number) => {
         if (number == 0) {
             setLosePopup(!losePopup);
@@ -225,10 +270,6 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
             setManaPlayer(manaPlayer => manaPlayer + 1);
         }, 1 * 2000));
     }
-     const sleep = (ms) => {
-         return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    
 
     const rek = (delay, numberOfAttack, valueOfDotValue) => {
         if (numberOfAttack > 0) {
@@ -241,31 +282,38 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
     };
 
     useEffect(() => {
-        let changeBarHpPlayer = (hpPlayer / playerStats.healthPoints) * width;
-        if (changeBarHpPlayer > width) {
-            changeBarHpPlayer = width;
+        let changeBarHpPlayer = (hpPlayer / playerStats.healthPoints) * widthOfMainHealthPointsBar;
+        let changeBattleHealthBarPlayer = (hpPlayer / playerStats.healthPoints) * widthOfBattleContenerBars;
+        if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
+            changeBarHpPlayer = widthOfMainHealthPointsBar;
+            changeBattleHealthBarPlayer = widthOfBattleContenerBars;
          }else if (changeBarHpPlayer <= 0) {
             changeBarHpPlayer = 0;
+            changeBattleHealthBarPlayer = 0;
             }
-        
+        setPlayerBattleHpBar(changeBattleHealthBarPlayer);
         setPlayerHpBar(changeBarHpPlayer);
     }, [hpPlayer]);
 
     useEffect(() => {
-        let changeManaBarPlayer = (manaPlayer / playerStats.manaPoints) * width;
-        if (changeManaBarPlayer > width) {
-            changeManaBarPlayer = width;
+        let changeManaBarPlayer = (manaPlayer / playerStats.manaPoints) * widthOfMainHealthPointsBar;
+        let changeBattleManaBarPlayer = (manaPlayer / playerStats.manaPoints) * widthOfBattleContenerBars;
+
+        if (changeManaBarPlayer > widthOfMainHealthPointsBar) {
+            changeManaBarPlayer = widthOfMainHealthPointsBar;
+            changeBattleManaBarPlayer = widthOfBattleContenerBars;
           }else if (changeManaBarPlayer <= 0) {
             changeManaBarPlayer = 0;
+            changeBattleManaBarPlayer = 0;
             }
-           
+        setPlayerBattleMpBar(changeBattleManaBarPlayer);
         setPlayerManaBar(changeManaBarPlayer);
     }, [manaPlayer]);
 
         useEffect(() => {
-        let changeBarHpMonster = (hpEnemy / enemyStats.monsterHealtPoints) * width;
-        if (changeBarHpMonster > width) {
-            changeBarHpMonster = width;
+        let changeBarHpMonster = (hpEnemy / enemyStats.monsterHealtPoints) * widthOfMainHealthPointsBar;
+        if (changeBarHpMonster > widthOfMainHealthPointsBar) {
+            changeBarHpMonster = widthOfMainHealthPointsBar;
             }else if (changeBarHpMonster <= 0) {
             changeBarHpMonster = 0;
             }
@@ -314,54 +362,56 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
             <SingleGamePopupWin valueOfPopup={winPopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
             <div className="player">
                 <div className="avatar">
+                    <img alt='' src={`${playerImage}`}/>
                     <div className="nick">
-                        {game.monster.monsterName}
+                        {hero.nick}
                     </div>
                     <div className="level">
-                        Level
+                        Poziom {hero.level}
                     </div>                    
                 </div>
                 <div className="healthPoints">
-                    <div className="progressMonsterHealthPoints-div" style={{ width: `${298}px` }}>
-                        <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
+                    <div className="progressMonsterHealthPoints-div" style={{ width: `${widthOfMainHealthPointsBar}px` }}>
+                        <div style={{ width: `${playerHpBar}px` }} className="progressMonsterHealthPoints" />
                     </div>
                     <div className="progress-div-monsterHealthPointsText">
-                    {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
+                    {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
                     </div>
                 </div>
             </div>
             <div className="enemy">
                 <div className="avatar">
+                 <img alt='' src={`${monsterImage}`}/>
                     <div className="nick">
                         {game.monster.monsterName}
                     </div>
                     <div className="level">
-                        Level
+                        Poziom {game.monster.monsterLevel}
                     </div>                    
                 </div>
                 <div className="healthPoints">
-                    <div className="progressMonsterHealthPoints-div" style={{ width: `${298}px` }}>
+                    <div className="progressMonsterHealthPoints-div" style={{ width: `${widthOfMainHealthPointsBar}px` }}>
                         <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
                     </div>
                     <div className="progress-div-monsterHealthPointsText">
-                    {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
+                    {parseInt(hpEnemy)}/{parseInt( game.monster.monsterHealtPoints)}
                     </div>
                 </div>
             </div>
             <div className="playerViewBattleController">
                 <div className="playerValues">
-                    <div className="healtPoints-div"  style={{ width: `${200}px` }} >
-                        <div style={{ width: `${150}px` }} className="progressPlayerHealthPoints" />
+                    <div className="healtPoints-div"  style={{ width: `${widthOfBattleContenerBars}px` }} >
+                        <div style={{ width: `${playerBattleHpBar}px` }} className="progressPlayerHealthPoints" />
 
                     <div className="progress-div-playerHealthPointsText">
-                        60/700
+                         {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
                     </div>
                     </div>
-                   <div className="manaPoints-div"  style={{ width: `${200}px` }} >
-                        <div style={{ width: `${150}px` }} className="progressPlayerManaPoints" />
+                   <div className="manaPoints-div"  style={{ width: `${widthOfBattleContenerBars}px` }} >
+                        <div style={{ width: `${playerBattleMpBar}px` }} className="progressPlayerManaPoints" />
 
                     <div className="progress-div-playerManaPointsText">
-                        60/700
+                        {parseInt(manaPlayer)}/{parseInt(playerStats.manaPoints)}
                     </div>
                     </div>
 
@@ -369,111 +419,32 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                 <div className="actions">
                     <div className="attackModes">
                         <div className="mode atk1">
-                            1
+                            <button onClick={() => {changeTime(1250,0.5);}}>tryb szybki ale słabe ataki</button>
                         </div>
                           <div className="mode atk2">
-                            2
+                            <button onClick={() => {changeTime(2500,1);}}>tryb normalny oraz normalne ataki</button>
                         </div>
                           <div className="mode atk3">
-                            3
+                             <button onClick={() => { changeTime(3750,1.5); }}>tryb wolny ale ataki mocniejsze</button>
                         </div>
                     </div>
                     <div className="skills">
-                        <div className="skill skill1">
-                                                     
-                            <div className="skillTooltip">
-                                <p className={"nametool"}>nazwa skilla</p>
-                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
-                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
-                            </div>
-
-                        </div>
-                         <div className="skill skill2">
-                                                        
-                            <div className="skillTooltip">
-                                <p className={"nametool"}>nazwa skilla</p>
-                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
-                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
-                            </div>
-
-                        </div>
-                         <div className="skill skill3">
-                                                        
-                            <div className="skillTooltip">
-                                <p className={"nametool"}>nazwa skilla</p>
-                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
-                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
-                            </div>
-
-                        </div>
+                        <SkillHandling numberOfSkill={1} handlingSkillButtons={handlingSkillButtons} buttonValue={firstButton} setButtonValue={setFirstButton} skillNumber={'skill1'} a={a} skill={skillsToBattle.firstSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
+                                setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
+                                sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
+                                <SkillHandling numberOfSkill={2} handlingSkillButtons={handlingSkillButtons} buttonValue={secondButton} setButtonValue={setSecondButton} skillNumber={'skill2'} skill={skillsToBattle.secondSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
+                                setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
+                                sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
+                                <SkillHandling numberOfSkill={3} handlingSkillButtons={handlingSkillButtons} buttonValue={thirdButton} setButtonValue={setThirdButton} skillNumber={'skill3'} skill={skillsToBattle.thirdSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
+                                setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
+                                sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>     
+                      
                     </div>
                 </div>
             </div>
-        </div>
-         <div className="Player">
-                <div className="Avatar">
-                    <div className="nick">
-                        Nick
-                    </div>
-                    <div className="level">
-                        Level
-                    </div>
-                </div>
-                <div className="HitPoints">
-                     <div className="progressPlayerHealthPoints-div" style={{ width: width }}>                     
-                        <div style={{ width: `${playerHpBar}px` }} className="progressPlayerHealthPoints" />
-                    
-                    </div>
-                     <div className="progress-div-playerHealthPoints">
-                    {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
-                </div>
-                  
-                </div>
-                <div className="ManaPoints">
-                    <div className="progressPlayerManaPoints-div" style={{ width: width }}>                     
-                        <div style={{ width: `${playerManaBar}px` }} className="progressPlayerManaPoints" />
-                    
-                    </div>
-                     <div className="progress-div-playerManaPoints">
-                     {parseInt(manaPlayer)}/{parseInt(playerStats.manaPoints)}
-                </div>
-                   
-                </div>
-
-            </div>
-        <div className="Mode">
-                    <div className="First">
-                        <div className="Child">
-                            <button onClick={() => {changeTime(1500,0.5);}}>tryb szybki ale słabe ataki</button>
-                        </div>
-                    </div>
-                    <div className="Second">
-                        <div className="Child">
-                            <button onClick={() => {changeTime(2500,1);}}>tryb normalny oraz normalne ataki</button>
-                        </div>
-                    </div>
-                    <div className="Third">
-                        <div className="Child">
-                            <button onClick={() => { changeTime(4000,1.5); }}>tryb wolny ale ataki mocniejsze</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="Skills">
-                    <SkillHandling a={a} skill={firstSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
-                    setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
-                    sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
-                    <SkillHandling skill={secondSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
-                    setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
-                    sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
-                    <SkillHandling skill={thirdSkill} setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
-                    setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer} setHpPlayer={setHpPlayer}
-                    sleep={sleep} rek={rek} playerStats={playerStats} setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>     
-                </div>
-                <button onClick={() => {
-                        setButtons();
-                    }}>stop</button>
+        </div>    
         </>
     );
 };
 
-export default SingleGame; 
+export default SingleGame;

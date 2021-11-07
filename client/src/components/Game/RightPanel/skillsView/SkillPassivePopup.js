@@ -14,13 +14,26 @@ const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup
     let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
     
     let statementToUnlock;
+    let statementToUnlockText;
+    let widthUnlockButton;
 
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
         statementToUnlock = true;
+   statementToUnlockText = 'Odblokuj';
+        widthUnlockButton = '200px';
     } else {
-          statementToUnlock = false;
+        if (skill.isUnlocked === true) {
+     
+            statementToUnlockText = 'Odblokowano';
+            widthUnlockButton = '300px';
+            
+        } else {
+            statementToUnlockText = 'Zablokowane';
+            widthUnlockButton = '300px';
+        }
+        statementToUnlock = false;
+         
     }
-
     return (valueOfPopup) ? (
          <div className="popup-passive">
             <div className="passive-inner">
@@ -31,7 +44,7 @@ const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup
                 </div>
                 <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="button-div">
-                    {statementToUnlock ? (  <button className={'unlock'} onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'} disabled onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>Odblokuj</button>)}
+                    {statementToUnlock ? (  <button className={'unlock'} style={{ width: widthUnlockButton }} onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>{statementToUnlockText}</button>): (  <button className={'unlock'} style={{ width: widthUnlockButton }} disabled onClick={() => { operationToUnlock(typeOfSkill, skill.numberOfSkill) }}>{statementToUnlockText}</button>)}
                   
                 </div>
                   

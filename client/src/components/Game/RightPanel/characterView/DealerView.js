@@ -7,7 +7,7 @@ import CharacterInventoryItem from './characterInventoryItem/CharacterInventoryI
 
 import CharStatExtended from './charStatExtended/CharStatExtended';
 
-import { decreasegold } from '../../../../actions/hero';
+import { decreasediamond, decreasegold } from '../../../../actions/hero';
 
 import { getinventory,assignitemtoinventory,deleitemfrominventory,changeitemininventory } from '../../../../actions/inventory.js';
 
@@ -37,7 +37,7 @@ const DealerView = (user) => {
     const dispatch = useDispatch();
     
     const getNewTradeItems = () => {
-
+        dispatch(decreasediamond({owner:user.user,amountOfDiamonds:1}))
         dispatch(updatealltradeitems({ owner:user.user, heroClass:hero.heroClass, level:hero.level }));
     }
     const buyItem = (item,positionOfTradeItem) => {
@@ -70,6 +70,13 @@ const DealerView = (user) => {
         dispatch(deleitemfrominventory({ owner: user.user, itemNumber: slotNumber }));
         dispatch(decreasegold({ owner: user.user, amountOfGold: cost }));
         
+    }
+    let statementToChangeItems;
+    if (hero.diamond > 0) {
+        statementToChangeItems = true;
+
+    } else {
+        statementToChangeItems = false;
     }
 
 
@@ -111,7 +118,7 @@ const DealerView = (user) => {
     useEffect(() => {
                dispatch(setPlayerValues(playerStats));
     })
-   
+    
 
     return(<>
         <div className='characterView'>
@@ -148,13 +155,26 @@ const DealerView = (user) => {
 
             <div className='dealerView'>
                 <div className='dealerViewChange'>
-                    <button className='buttonDealerChange' type="button" onClick={() => (getNewTradeItems(hero.owner,hero.heroClass,hero.level))}>Zmień Towar
+                    {statementToChangeItems ? ( <button className='buttonDealerChange' type="button" onClick={() => {
+                        getNewTradeItems(hero.owner, hero.heroClass, hero.level);
+                    }
+                    }>Zmień Towar
                     <div className="tooltipButtonDealerChange">
                          <p>Koszt: 1 Diament</p>      
                         </div>
                     </button>
-                </div>
-                    
+                
+                ):(<button className='buttonDealerChange' disabled type="button" onClick={() => {
+                        getNewTradeItems(hero.owner, hero.heroClass, hero.level);
+                        dispatch(decreasediamond({owner:hero.owner,amountOfDiamonds:1}))
+                    }
+                    }>Zmień Towar
+                    <div className="tooltipButtonDealerChange">
+                         <p>Brak środków</p>      
+                        </div>
+                    </button>)}
+                   
+                   </div> 
                 <div className='dealerViewItems'>
                     <DealerViewItem hero={hero} size={1}  dealerItem={trades.items.firstItemForSell}  buyItem={buyItem} positionOfItem={1} />
                     <DealerViewItem hero={hero} size={1} dealerItem={trades.items.secondItemForSell}  buyItem={buyItem} positionOfItem={2} />

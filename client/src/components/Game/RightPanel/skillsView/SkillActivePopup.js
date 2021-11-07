@@ -16,6 +16,7 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
 
     let statementToUnlock;
     let statementToUnlockText;
+    let widthUnlockButton;
 
     let statementToAssign1;
     let statementToAssign2;
@@ -40,11 +41,20 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
         statementToUnlock = true;
         statementToUnlockText = 'Odblokuj';
+        widthUnlockButton = '200px';
     } else {
         if (skill.isUnlocked === true) {
-           statementToUnlockText = 'Odblokowano';
+            if (skill.isAssigned === true) {
+                statementToUnlockText = 'Przypisano';
+              widthUnlockButton = '250px';
+            } else {
+                statementToUnlockText = 'Odblokowano';
+              widthUnlockButton = '300px';
+            }
+            
         } else {
-            statementToUnlockText = 'Brak warunków';
+            statementToUnlockText = 'Zablokowane';
+              widthUnlockButton = '300px';
         }
         statementToUnlock = false;
          
@@ -58,6 +68,7 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
 
     if (skill.isUnlocked === true && skill.isAssigned === false && skillsToBattle.secondSkill.isSkillAssigned=== false) {
         statementToAssign2 = true;
+        
     } else {
         statementToAssign2 = false;
     }
@@ -135,7 +146,7 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
                     </div>
                 </div>
                 <div className="button-div-unlock">
-                    {statementToUnlock ? (  <button className={'unlock'} onClick={()  => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>): (  <button className={'unlock'}  disabled onClick={() => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>Odblokuj</button>)}
+                    {statementToUnlock ? (<button style={{ width: widthUnlockButton }} className={'unlock'} onClick={()  => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>{statementToUnlockText}</button>): (  <button className={'unlock'} style={{ width: widthUnlockButton }}  disabled onClick={() => { unlockingButton(typeOfSkill,skill.numberOfSkill) }}>{statementToUnlockText}</button>)}
                 </div>
             </div>
          </div>

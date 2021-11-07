@@ -11,15 +11,15 @@
   border: 1px solid rgba(0, 149, 255, 0.2);
   clear: both;
   padding-left: 55px;
-  padding-top: 25px;
+  padding-top: 80px;
 }
 
 .singleGameView .player .avatar {
   border: 1px solid rgba(0, 183, 255, 0.3);
   width: 300px;
-  height: 425px;
+  height: 390px;
   margin-left: 50px;
-  padding-top: 325px;
+  padding-top: 20px;
   float: left;
   clear: both;
 }
@@ -32,6 +32,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 26px;
+  margin-top: 10px;
 }
 .singleGameView .player .avatar .level {
   height: 50px;
@@ -83,16 +84,16 @@
   height: 650px;
   border: 1px solid rgba(255, 0, 0, 0.45);
   padding-left: 55px;
-  padding-top: 25px;
+  padding-top: 80px;
   background-color: rgba(255, 0, 0, 0.04);
 }
 
 .singleGameView .enemy .avatar {
   border: 1px solid red;
   width: 300px;
-  height: 425px;
+  height: 390px;
   margin-left: 50px;
-  padding-top: 325px;
+  padding-top: 20px;
   float: left;
   clear: both;
 }
@@ -105,6 +106,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 26px;
+  margin-top: 10px;
 }
 
 .singleGameView .enemy .avatar .level {
@@ -358,11 +360,74 @@
 
 .singleGameView .playerViewBattleController .actions .skills .skill {
   margin-left: 7.5%;
-  height: 85px;
-  width: 120px;
+  height: 87px;
+  width: 122px;
   float: left;
+  background-color: transparent;
+}
+.singleGameView .playerViewBattleController .actions .skills .skill button {
+  background-color: transparent;
+  border: none;
 }
 
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .skills
+  .skill
+  .progress-div {
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 50px;
+  background-color: rgb(233, 233, 233);
+}
+
+.singleGameView .playerViewBattleController .actions .skills .skill .progress {
+  background-color: rgb(62, 122, 235);
+  height: 50px;
+
+  transition: 1s linear;
+}
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .skills
+  .skill
+  .progress-div-time {
+  position: relative;
+  height: 50px;
+  width: 1300px;
+  margin-left: 50px;
+  float: left;
+  font-size: 20px;
+  top: -50px;
+  padding-top: 5px;
+  color: red;
+}
+
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .skills
+  .skill
+  button
+  .imageSkill {
+  background-color: transparent;
+  display: inline-block;
+  z-index: 1;
+}
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .skills
+  .skill
+  button:disabled
+  .imageSkill {
+  background-color: transparent;
+  display: inline-block;
+  z-index: 1;
+  filter: grayscale(50%);
+}
 .singleGameView
   .playerViewBattleController
   .actions
@@ -374,7 +439,7 @@
   opacity: 0;
   height: 100px;
   width: 300px;
-  top: -125px;
+  top: -300px;
   left: -50px;
   background-color: yellow;
   border: 1px solid black;

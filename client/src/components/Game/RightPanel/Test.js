@@ -11,7 +11,7 @@ const Test = () => {
 
     const [firstSkill, setFirstSkill] = useState({
         castTime: 5000,
-        durationTime: 0,
+        durationTime: 2000,
         recastTime: 20000,
     });
 
@@ -29,7 +29,7 @@ const Test = () => {
             setColor("red");
             progress = width / (firstSkill.durationTime / 1000);
             setTimeSkillBar(setInterval(() => {
-                setTimeBar(timeBar => timeBar + progress);
+                setTimeBar(timeBar => timeBar - progress);
             }, 1 * 1000));
         }
          if (secondValue === 2) {
@@ -53,15 +53,17 @@ const Test = () => {
         if (timeBar == width && secondValue == 0) {
             sleep(1000).then(() => {
                 clearInterval(timeSkillBar);
-                setTimeBar(0);
-                if (firstSkill.durationTime !== 0 && secondValue ==0) {
+
+                if (firstSkill.durationTime !== 0 && secondValue == 0) {
+                    setTimeBar(width);
                     setSecondValue(1);
                 } else {
+                    setTimeBar(0);
                     setSecondValue(2);
                 }
             });      
         }
-                if (timeBar == width && secondValue == 1) {
+                if (timeBar == 0 && secondValue == 1) {
             sleep(1000).then(() => {
                 clearInterval(timeSkillBar);
                 setTimeBar(0);

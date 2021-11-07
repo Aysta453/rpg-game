@@ -61,6 +61,36 @@ export const increaseGold = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+export const decreaseDiamonds = async (req, res) => {
+    const { owner,amountOfDiamonds} = req.body;
+
+   const result = await Hero.findOne({ owner:owner });
+    const updateDiamonds = { diamond: result.diamond - amountOfDiamonds };
+
+
+    try {
+        const result1= await Hero.findByIdAndUpdate(result._id, updateDiamonds, { new: true });
+        
+        res.status(201).json(result1);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
+export const increaseDiamonds = async (req, res) => {
+    const { owner,amountOfDiamonds} = req.body;
+
+   const result = await Hero.findOne({ owner:owner });
+    const updateDiamonds = { diamond: result.diamond + amountOfDiamonds };
+
+
+    try {
+        const result1= await Hero.findByIdAndUpdate(result._id, updateDiamonds, { new: true });
+        
+        res.status(201).json(result1);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
 
 
 //Increase Hero's info after Completed Mission
