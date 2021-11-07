@@ -46,49 +46,52 @@
 
 .FirstBox .middle .avatar .infoNick {
   font-size: 33px;
-  margin-top: 283px;
+  padding-top: 7px;
   font-weight: 600 !important;
   font-family: "Montserrat", sans-serif;
   z-index: 5;
+  border-top: 2px solid rgba(255, 0, 0, 0.15);
+}
+.FirstBox .middle .avatar .background {
+  background-color: rgba(255, 0, 0, 0.04);
   position: relative;
+  top:-5px;
+height: 158px;
+
 }
 .FirstBox .middle .avatar .info {
   margin-top: 3px;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 400;
+  padding-bottom: 5px;
   font-family: "Montserrat", sans-serif;
   color: rgba(201, 255, 161, 0.9);
   z-index: 2;
-  position: relative;
 }
 .FirstBox .middle .avatar .klasa {
-  position: relative;
   margin-top: 3px;
   font-size: 24px;
+  padding-bottom: 3px;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
   z-index: 3;
   color: #f6ecf4;
 }
 .FirstBox .middle .avatar .imageSkill {
-  position: relative;
-  display: inline-block;
-  top: -440px;
-  right: 0px;
   z-index: 1;
 }
 
 .FirstBox .middle .avatar .progressExp-div {
   background-color: rgba(0, 255, 138, 0.2);
-  height: 30px;
+  height: 32px;
   position: relative;
-  top: -1px;
+  top: -2px;
   left: -1px;
   z-index: 5;
 }
 
 .FirstBox .middle .avatar .progressExp {
-  height: 30px;
+  height: 32px;
   margin-top: 5px;
   font-size: 20px;
   background-color: rgba(0, 255, 138, 0.17);
@@ -97,13 +100,13 @@
 }
 
 .FirstBox .middle .avatar .expInfo {
-  color: rgba(240, 240, 240, 0.87);
+  color: rgba(240, 240, 240, 0.90);
   position: relative;
-  top: -29px;
+  top: -31px;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 21px;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   z-index: 3;
 }
 
