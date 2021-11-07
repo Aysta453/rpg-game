@@ -45,8 +45,6 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
     let chanceOnHit;
     let regHp;
     let regMp;
-    console.log('test');
-    console.log(passsiveSkills.firstSkill);
 
     switch (hero.heroClass) {
         case 'Mage':
@@ -136,9 +134,9 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             minAttack = Math.floor(((strength) + ((spirit) / 10)) * (itemsInUse.weapon.minAttack * 4) / 10);
             maxAttack = Math.floor(((strength) + ((spirit) / 10)) * (itemsInUse.weapon.maxAttack * 4) / 10);
             bpatt1min = passsiveSkills.eighthSkill.isUnlocked ? (minAttack * passsiveSkills.eighthSkill.valueOfSkill) : (0);
-            bpatt1min = passsiveSkills.eighthSkill.isUnlocked ? (maxAttack * passsiveSkills.eighthSkill.valueOfSkill) : (0);
+            bpatt1max = passsiveSkills.eighthSkill.isUnlocked ? (maxAttack * passsiveSkills.eighthSkill.valueOfSkill) : (0);
             minAttack = Math.floor(minAttack + bpatt1min);
-            minAttack = Math.floor(maxAttack + bpatt1max);
+            maxAttack = Math.floor(maxAttack + bpatt1max);
 
             break;
         case 'Hunter':
@@ -232,7 +230,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             bpatt1max = passsiveSkills.seventhSkill.isUnlocked ? (maxAttack * passsiveSkills.seventhSkill.valueOfSkill) : (0);
              
             minAttack = Math.floor(minAttack + bpatt1min );
-            minAttack = Math.floor(maxAttack + bpatt1max );
+            maxAttack = Math.floor(maxAttack + bpatt1max );
  break;
         case 'Berserk':
             bp1= (passsiveSkills.firstSkill.isUnlocked) ? (stats.strength * passsiveSkills.firstSkill.valueOfSkill) : (0);
@@ -269,18 +267,23 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             healthPoints = Math.floor(((stamina + (spirit / 10)) * 4) / 2);
             bp10 = passsiveSkills.tenthSkill.isUnlocked ? (healthPoints* passsiveSkills.tenthSkill.valueOfSkill): (0);
             healthPoints = Math.floor(healthPoints + bp10);
-
+            console.log('berek');
+            console.log(itemsInUse.weapon.minAttack);
+            console.log(itemsInUse.weapon.maxAttack);
             minAttack = Math.floor((strength+ (spirit / 10)) * (itemsInUse.weapon.minAttack * 5) / 10);
             maxAttack = Math.floor((strength + (spirit / 10)) * (itemsInUse.weapon.maxAttack * 5) / 10);
 
             bpatt1min = passsiveSkills.seventhSkill.isUnlocked ? (minAttack* passsiveSkills.seventhSkill.valueOfSkill): (0);
-            bpatt1max = passsiveSkills.seventhSkill.isUnlocked ? (maxAttack* passsiveSkills.seventhSkill.valueOfSkill): (0);
+            bpatt1max = passsiveSkills.seventhSkill.isUnlocked ? (maxAttack * passsiveSkills.seventhSkill.valueOfSkill) : (0);
+
             bpatt2min = passsiveSkills.ninthSkill.isUnlocked ? (minAttack* passsiveSkills.ninthSkill.valueOfSkill): (0);
             bpatt2max = passsiveSkills.ninthSkill.isUnlocked ? (maxAttack * passsiveSkills.ninthSkill.valueOfSkill) : (0);
+
             bpatt3min = passsiveSkills.twelfthSkill.isUnlocked ? (minAttack* passsiveSkills.twelfthSkill.valueOfSkill): (0);
             bpatt3max = passsiveSkills.twelfthSkill.isUnlocked ? (maxAttack * passsiveSkills.twelfthSkill.valueOfSkill) : (0);
+
             minAttack = Math.floor(minAttack + bpatt1min + bpatt2min + bpatt3min);
-            minAttack = Math.floor(maxAttack + bpatt1max + bpatt2max + bpatt3max);
+            maxAttack = Math.floor(maxAttack + bpatt1max + bpatt2max + bpatt3max);
             break;
         default:
             break;

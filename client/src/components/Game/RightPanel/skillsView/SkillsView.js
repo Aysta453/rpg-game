@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import SkillUsingInBattle from './SkillUsingInBattle.js';
@@ -6,16 +6,20 @@ import SkillLevelElement from './SkillLevelElement.js';
 import SpecyficSkillActive from './SpecyficSkillActive.js';
 import SpecyficSkillPassive from './SpecyficSkillPassive.js';
 
+import { setPlayerValues } from '../../../../actions/playerGame.js';
 import { unlockedskill, assignskill } from '../../../../actions/skills';
 import { updateskillsinbattle, updateskillsinbattle2 } from '../../../../actions/skillsInBattle';
 
 import './skillsView.css';
+import playerGameValues from '../../../../functions/playerGameValues.js';
 
 const SkillsView = () => {
     const skills = useSelector(state => state.skills);
     const hero = useSelector(state => state.hero);
     const skillsToBattle = useSelector(state => state.skillsToBattle);
-
+    const stats = useSelector(state => state.stats);
+    const itemInUse = useSelector(state => state.itemInUse);
+    let playerStats = playerGameValues(hero, itemInUse, stats, skills.passive);
     
     const dispatch = useDispatch();
  
@@ -34,6 +38,9 @@ const SkillsView = () => {
         dispatch(assignskill({ owner: hero.owner, numerOfSkill: numberOfSkill }));
 
     };
+    useEffect(() => {
+      dispatch(setPlayerValues(playerStats));
+    },[]);
    
     return (
         <>    

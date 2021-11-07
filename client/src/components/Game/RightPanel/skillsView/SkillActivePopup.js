@@ -1,17 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+import convertingStaticTime from '../../../../functions/convertingStaticTime';
 import showingActiveImageSkill from '../../../../functions/showingActiveImageSkill';
+import showingValueOfSkill from '../../../../functions/showingValueOfSkill';
 import './SkillActivePopup.css';
 
 const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAssign, handleChangeLock, typeOfSkill, levelOfSkill, availablePoints }) => {
     
     const hero = useSelector(state => state.hero);
     const skillsToBattle = useSelector(state => state.skillsToBattle);
+    const playerGame = useSelector(state => state.playerGame);
 
       let image = showingActiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
 
 
     let statementToUnlock;
+    let statementToUnlockText;
 
     let statementToAssign1;
     let statementToAssign2;
@@ -35,8 +39,15 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
 
     if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
         statementToUnlock = true;
+        statementToUnlockText = 'Odblokuj';
     } else {
+        if (skill.isUnlocked === true) {
+           statementToUnlockText = 'Odblokowano';
+        } else {
+            statementToUnlockText = 'Brak warunków';
+        }
         statementToUnlock = false;
+         
     }
    
     if (skill.isUnlocked === true && skill.isAssigned === false && skillsToBattle.firstSkill.isSkillAssigned=== false) {
@@ -66,6 +77,7 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
         handleChangeAssign(newSkill.numberOfSkill,position,newSkill);
         showPopup();
     }
+    console.log(skill);
     return (valueOfPopup) ? (
         <div className="popup-active">
             <div className="active-inner">
@@ -77,16 +89,39 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
                 <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="values">
                     <div className="nameOfValue">
-                        <p className={'umj'}>Wartość umiejętności</p>
-                        <p className={'man'}>Wartość punktów many</p>
-                        <p className={'cst'}>Czas castowania</p>
-                        <p className={'tim'}>Czas trwania </p>
+                        {(skill.typeOfSkill === 0 || skill.typeOfSkill === 2) ? (
+                            <>
+                                <p className={'umj'}>Wartość umiejętności</p>
+                                <p className={'man'}>Koszt punktów many</p>
+                                <p className={'cst'}>Czas castowania</p>
+                                <p className={'tim'}>Czas ponownego użycia</p>
+                            </>
+                        ) : (
+                            <>
+                                <p className={'umj'}>Czas trwania </p>
+                                <p className={'man'}>Koszt punktów many</p>
+                                <p className={'cst'}>Czas castowania</p>
+                                <p className={'tim'}>Czas do ponownego użycia </p>
+                            </>
+                        )}
                     </div>
                     <div className="second">
-                        <p className={'umj'}>{skill.valueOfSkill}</p>
-                        <p className={'man'}>{skill.pointsOfMana}</p>
-                        <p className={'cst'}>{skill.castTime}</p>
-                        <p  className={'tim'}>{skill.durationTime}</p>
+                          {(skill.typeOfSkill === 0 || skill.typeOfSkill === 2) ? (
+                            <>
+                                <p className={'umj'}>{showingValueOfSkill(playerGame.minAttack,playerGame.maxAttack,playerGame.bonusToSpecialAttack,skill.valueOfSkill)}</p>
+                                <p className={'man'}>{skill.pointsOfMana}</p>
+                                <p className={'cst'}>{convertingStaticTime(skill.castTime)}</p>
+                                <p  className={'tim'}>{convertingStaticTime(skill.recastTime)}</p> 
+                            </>
+                        ) : (
+                            <>
+                                <p className={'umj'}>{convertingStaticTime(skill.durationTime)}</p>
+                                <p className={'man'}>{skill.pointsOfMana}</p>
+                                <p className={'cst'}>{convertingStaticTime(skill.castTime)}</p>
+                                <p  className={'tim'}>{convertingStaticTime(skill.recastTime)}</p>  
+                            </>
+                        )}
+
                     </div>
                 </div>
                 <div className="buttons-div-assign">

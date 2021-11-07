@@ -73,7 +73,7 @@
 .FirstBox .middle .avatar .imageSkill {
   position: relative;
   display: inline-block;
-  top: -450px;
+  top: -440px;
   right: 0px;
   z-index: 1;
 }

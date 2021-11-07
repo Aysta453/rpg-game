@@ -1,181 +1,178 @@
 .popup-skillBattle {
-    z-index: 7;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .skillBattle-inner {
-    position: fixed;
-    padding: 32px;
-    width: 100%;
-    height: 685px;
-    max-width: 640px;
-    background-color: rgb(0, 5, 0);
-    border: 1px solid rgba(0, 255, 139, 0.6);
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 740px;
+  max-width: 670px;
+  background-color: rgb(0, 5, 0);
+  border: 1px solid rgba(0, 255, 139, 0.6);
 }
 
 .skillBattle-inner .close-btn {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    padding: 8px 11px;
-    background: rgba(220, 20, 60, 0.12);
-    border: 1px solid rgba(220, 20, 60, 0.85);
-    color: rgba(255, 255, 255, 1);
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  padding: 8px 11px;
+  background: rgba(220, 20, 60, 0.12);
+  border: 1px solid rgba(220, 20, 60, 0.85);
+  color: rgba(255, 255, 255, 1);
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .skillBattle-inner .close-btn:hover {
-    background: rgba(220, 20, 60, 0.3);
-    border: 1px solid rgb(255, 0, 51);
-    color: rgba(255, 255, 255, 1);
+  background: rgba(220, 20, 60, 0.3);
+  border: 1px solid rgb(255, 0, 51);
+  color: rgba(255, 255, 255, 1);
 }
 
 .skillBattle-inner .title {
-    width: 100%;
-    float: left;
-    font-size: 56px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    position: relative;
-    top: -15px;
+  width: 100%;
+  float: left;
+  font-size: 45px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  top: -15px;
 }
 
 .skillBattle-inner .image {
-    height: 230px;
+  height: 230px;
 }
 
 .skillBattle-inner .description {
-    width: 100%;
-    height: 40px;
-    float: left;
-    margin-top: 68px;
-    font-size: 26px;
-    font-weight: 200;
-    font-family: 'Montserrat', sans-serif;
-    color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-top: 68px;
+  margin-bottom: 60px;
+  font-size: 26px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .skillBattle-inner .values {
-    height: 125px;
+  height: 125px;
 
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 .values .nameOfValue {
-    width: 50%;
-    height: 100%;
-    float: left;
-    margin-bottom: 70px;
-    margin-top: 23px;
-    margin-left: 65px;
-
-
+  width: 50%;
+  height: 100%;
+  float: left;
+  margin-bottom: 70px;
+  margin-top: 23px;
+  margin-left: 65px;
 }
 
 .values .second {
-    width: 35% !important;
-    height: 100%;
-    float: left;
-    margin-bottom: 70px;
-    margin-top: 23px;
-    font-weight: 700;
-
+  width: 35% !important;
+  height: 100%;
+  float: left;
+  margin-bottom: 70px;
+  margin-top: 23px;
+  font-weight: 700;
 }
 
 .umj {
-    color: #00eaa1;
-    margin-bottom: 10px;
+  color: #00eaa1;
+  margin-bottom: 10px;
 }
 
 .man {
-    color: #00edff;
-    margin-bottom: 10px;
+  color: #00edff;
+  margin-bottom: 10px;
 }
 
 .cst {
-    color: #dc8bff;
-    margin-bottom: 10px;
+  color: #dc8bff;
+  margin-bottom: 10px;
 }
 
 .tim {
-    color: #fffe66;
-    margin-bottom: 0px;
+  color: #fffe66;
+  margin-bottom: 0px;
 }
 
 .buttons button {
-    width: 100px;
-    margin-left: 25px;
-    margin-right: 25px;
-    background-color: rgb(9, 9, 29);
-    color: red;
-    border: 1px solid red;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 25px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+  width: 100px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background-color: rgb(9, 9, 29);
+  color: red;
+  border: 1px solid red;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .buttons button:hover {
-    background-color: red;
-    color: rgb(9, 9, 29);
+  background-color: red;
+  color: rgb(9, 9, 29);
 }
 
 .buttons button:disabled {
-    background: #dddddd;
-    color: rgb(9, 9, 29);
-    cursor: no-drop;
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
 }
 
 .skillBattle-inner .button-div-unlock {
-    margin-top: 10px;
-    height: 75px;
+  margin-top: 10px;
+  height: 75px;
 }
 
 .button-div-unlock .wypisz {
-    background-color: rgba(0, 255, 187, 0.08) !important;
-    color: rgb(0, 255, 187) !important;
-    border: 1px solid rgba(0, 255, 187, 0.6) !important;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
+  background-color: rgba(0, 255, 187, 0.08) !important;
+  color: rgb(0, 255, 187) !important;
+  border: 1px solid rgba(0, 255, 187, 0.6) !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
 
-    width: 155px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    position: relative;
+  width: 155px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  position: relative;
 }
 
 .button-div-unlock .wypisz:hover {
-    background-color: rgba(0, 255, 187, 0.2) !important;
-    color: rgb(0, 255, 186) !important;
-    border: 1px solid rgba(0, 255, 187, 1) !important;
+  background-color: rgba(0, 255, 187, 0.2) !important;
+  color: rgb(0, 255, 186) !important;
+  border: 1px solid rgba(0, 255, 187, 1) !important;
 }
 
 .button-div-unlock button:disabled {
-    background: #dddddd;
-    color: rgb(9, 9, 29);
-    cursor: no-drop;
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
 }

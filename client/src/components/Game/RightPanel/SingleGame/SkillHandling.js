@@ -161,7 +161,7 @@ const SkillHandling = ({a, manaRegen,skill,setManaPlayer,manaPlayer,setHpPlayer,
             //heal
             case 2:
                 switch (skill.targetOfBonusValue) {
-                    case 'regenHp':
+                    case 'restoreHealthPoints':
                         setPressButton(false);
                         let valueOfHeal = Math.floor((((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)) + playerStats.bonusToSpecialAttack) * skill.valueOfSpell);
                         sleep(skill.castTime).then(() => {
@@ -176,7 +176,7 @@ const SkillHandling = ({a, manaRegen,skill,setManaPlayer,manaPlayer,setHpPlayer,
                             });
                         });
                         break;
-                    case 'regenMp':
+                    case 'restoreManaPoints':
                         setPressButton(false);
                         let valueOfMana = Math.floor((((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)) + playerStats.bonusToSpecialAttack) * skill.valueOfSpell);
                         sleep(skill.castTime).then(() => {

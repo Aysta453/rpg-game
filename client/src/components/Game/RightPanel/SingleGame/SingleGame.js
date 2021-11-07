@@ -306,13 +306,111 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
     }, [hpPlayer, hpEnemy]);
 
 
-
+ // <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
 
     return(<>
         <div className="singleGameView">
             <SingleGamePopupLose valueOfPopup={losePopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
             <SingleGamePopupWin valueOfPopup={winPopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
-            <div className="Player">
+            <div className="player">
+                <div className="avatar">
+                    <div className="nick">
+                        {game.monster.monsterName}
+                    </div>
+                    <div className="level">
+                        Level
+                    </div>                    
+                </div>
+                <div className="healthPoints">
+                    <div className="progressMonsterHealthPoints-div" style={{ width: `${298}px` }}>
+                        <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
+                    </div>
+                    <div className="progress-div-monsterHealthPointsText">
+                    {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
+                    </div>
+                </div>
+            </div>
+            <div className="enemy">
+                <div className="avatar">
+                    <div className="nick">
+                        {game.monster.monsterName}
+                    </div>
+                    <div className="level">
+                        Level
+                    </div>                    
+                </div>
+                <div className="healthPoints">
+                    <div className="progressMonsterHealthPoints-div" style={{ width: `${298}px` }}>
+                        <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
+                    </div>
+                    <div className="progress-div-monsterHealthPointsText">
+                    {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
+                    </div>
+                </div>
+            </div>
+            <div className="playerViewBattleController">
+                <div className="playerValues">
+                    <div className="healtPoints-div"  style={{ width: `${200}px` }} >
+                        <div style={{ width: `${150}px` }} className="progressPlayerHealthPoints" />
+
+                    <div className="progress-div-playerHealthPointsText">
+                        60/700
+                    </div>
+                    </div>
+                   <div className="manaPoints-div"  style={{ width: `${200}px` }} >
+                        <div style={{ width: `${150}px` }} className="progressPlayerManaPoints" />
+
+                    <div className="progress-div-playerManaPointsText">
+                        60/700
+                    </div>
+                    </div>
+
+                </div>
+                <div className="actions">
+                    <div className="attackModes">
+                        <div className="mode atk1">
+                            1
+                        </div>
+                          <div className="mode atk2">
+                            2
+                        </div>
+                          <div className="mode atk3">
+                            3
+                        </div>
+                    </div>
+                    <div className="skills">
+                        <div className="skill skill1">
+                                                     
+                            <div className="skillTooltip">
+                                <p className={"nametool"}>nazwa skilla</p>
+                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
+                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
+                            </div>
+
+                        </div>
+                         <div className="skill skill2">
+                                                        
+                            <div className="skillTooltip">
+                                <p className={"nametool"}>nazwa skilla</p>
+                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
+                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
+                            </div>
+
+                        </div>
+                         <div className="skill skill3">
+                                                        
+                            <div className="skillTooltip">
+                                <p className={"nametool"}>nazwa skilla</p>
+                                <p className={"costtool"}>koszt many: <span className={"pcosttool"}>(wartosc)</span></p>
+                                <p className={"worftool"}>wartość umiejetnosci: <span className={"pworftool"}>(dmg)</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div className="Player">
                 <div className="Avatar">
                     <div className="nick">
                         Nick
@@ -341,7 +439,9 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                 </div>
                    
                 </div>
-                <div className="Mode">
+
+            </div>
+        <div className="Mode">
                     <div className="First">
                         <div className="Child">
                             <button onClick={() => {changeTime(1500,0.5);}}>tryb szybki ale słabe ataki</button>
@@ -372,27 +472,6 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
                 <button onClick={() => {
                         setButtons();
                     }}>stop</button>
-            </div>
-            <div className="Enemy">
-                <div className="Avatar">
-                    <div className="nick">
-                        {game.monster.monsterName}
-                    </div>
-                    <div className="level">
-                        Level
-                    </div>                    
-                </div>
-                <div className="HitPoints">
-                    <div className="progressMonsterHealthPoints-div" style={{ width: width }}>                     
-                        <div style={{ width: `${monsterHpBar}px` }} className="progressMonsterHealthPoints" />
-                    </div>
-                    <div className="progress-div-monsterManaPoints">
-                        {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
-                    </div>
-                    <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
-                </div>
-            </div>
-        </div>
         </>
     );
 };

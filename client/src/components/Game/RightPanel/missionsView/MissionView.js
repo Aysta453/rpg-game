@@ -4,6 +4,8 @@ import './MissionsView.css'
 import { setMissionValue } from '../../../../actions/game.js';
 import showingEquipmentImage from '../../../../functions/showingEquipmentImage';
 import MissionItem from './MissionItem';
+import convertingStaticTime from '../../../../functions/convertingStaticTime';
+import convertingTime from '../../../../functions/convertingTime';
 const MissionView = ({mission, setWindowOfElements,setButtons,size}) => {
     const dispatch = useDispatch();
     const [popupValue, setPopupValueset] = useState(false);
@@ -44,7 +46,7 @@ const MissionView = ({mission, setWindowOfElements,setButtons,size}) => {
             <div className='money'>Waluta</div>
             <div className='moneyValue'>{setMission.missionRewardGold} Złota</div>
             <div className='time'>Czas Podróży</div>
-            <div className='timeValue'>{setMission.missionTime} s</div>
+            <div className='timeValue'> {convertingTime(setMission.missionTime)}</div>
             <div className='itemBox'>
                 {isItemAssigmentToMission ? (<div className="item"></div>) :
                     (

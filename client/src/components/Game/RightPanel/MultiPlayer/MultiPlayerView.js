@@ -112,7 +112,7 @@ const MultiPlayerView = () => {
                     <div className="progress-div-monsterHealthPointsText">
                         60/700
                     </div>
-        
+                    
             </div>
             </div>
             <div className="playerViewBattleController">

@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
+import convertingTime from '../../../../functions/convertingTime';
 import './SinglePlayerGameView.css';
 const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
     const game = useSelector(state => state.game);
-    const [time, setTime] = useState(0);
+    const [time, setTime] = useState(game.missionTime);
     const [timeBar, setTimeBar] = useState(0);
     let width = 1300;
     let progress = width / game.missionTime;
@@ -19,12 +20,12 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
     useEffect(() => {
         setInterval(() => {
               setTimeBar(timeBar => timeBar + progress);
-            setTime(time => time + 1);
+            setTime(time => time - 1);
           
         }, 1 * 1000);
     }, []);
     useEffect(() => {
-        if (time == game.missionTime) {
+        if (time == 0) {
             sleep(1000).then(() => {
                 setWindowOfElements(10);
             });
@@ -44,7 +45,7 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
                     <div style={{ width: `${timeBar}px` }} className="progress"/>
                 </div>
                 <div className="progress-div-time">
-                    {time}/{game.missionTime}
+                    {convertingTime(time)} / {convertingTime(game.missionTime)}
                 </div>
                  
             </div>
