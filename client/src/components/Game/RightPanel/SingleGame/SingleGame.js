@@ -157,10 +157,10 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
     const [enemyStats, setEnemyStats] = useState(game.monster);
 
     //players temporary Stats
-    //const [hpEnemy, setHpEnemy] = useState(game.monster.monsterHealtPoints);
-    const [hpEnemy, setHpEnemy] = useState(3000);
-    //const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
-    const [hpPlayer, setHpPlayer] = useState(3000);
+    const [hpEnemy, setHpEnemy] = useState(game.monster.monsterHealtPoints);
+    //const [hpEnemy, setHpEnemy] = useState(3000);
+    const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
+  //  const [hpPlayer, setHpPlayer] = useState(3000);
     const [manaPlayer, setManaPlayer] = useState(playerGame.manaPoints);
 
     //intervals 

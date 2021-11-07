@@ -118,7 +118,7 @@ const [testValue, setTestValue] = useState(false);
         if (manaPlayer == playerStats.manaPoints) {
             manaRegen();
         }
-         clearInterval(timeSkillBar);
+        clearInterval(timeSkillBar);
         showingDiv();
 
         switch (skill.typeOfSkill) {
@@ -127,8 +127,7 @@ const [testValue, setTestValue] = useState(false);
                 handlingSkillButtons(numberOfSkill, skill.castTime);
                 let damage = Math.floor((((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)) + playerStats.bonusToSpecialAttack) * skill.valueOfSkill);
                 setTimeout(() => {
-                    setHpEnemy(hpEnemy => hpEnemy - damage);
-                    
+                    setHpEnemy(hpEnemy => hpEnemy - damage);          
                 }, 1 * skill.castTime);
                 
                 sleep(skill.recastTime).then(() => {

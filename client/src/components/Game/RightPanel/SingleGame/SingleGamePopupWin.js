@@ -1,19 +1,28 @@
 
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
 import showingEquipmentImage from '../../../../functions/showingEquipmentImage';
+import {addrewardsaftermission } from '../../../../actions/hero';
+import { newmissions } from '../../../../actions/missions';
+import { assignitemtoinventory } from '../../../../actions/inventory';
+
 
 const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,changePopup}) => {
     const game = useSelector(state => state.game);
     const hero = useSelector(state => state.hero);
+    const dispatch = useDispatch();
+        let isItemAsReward = game.item.isEmpty;
     
     const handleSubmit = () => {
+        dispatch(addrewardsaftermission({ owner: hero.owner, amountOfGold: game.missionRewardGold, Exp: game.missionRewardExp }));
+        dispatch(newmissions({ owner: hero.owner, level: hero.level }));
+        dispatch(assignitemtoinventory({ owner: hero.owner, item: game.item }));
         setButtons();
         changePopup(1);
         setWindowOfElements(1);
     }
 
-    let isItemAsReward = game.item.isEmpty;
+
 
 
     let image;
