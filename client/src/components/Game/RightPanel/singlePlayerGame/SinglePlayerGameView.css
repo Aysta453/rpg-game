@@ -1,57 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap');
+
 .singleGameWaitingView {
   width: 100%;
   height: 100%;
   text-align: center;
-  border: 1px solid red;
+  border: 1px solid rgba(117, 0, 150, 0.5);
 }
 .singleGameWaitingView .title {
   float: left;
-  height: 100px;
   width: 100%;
-  font-size: large;
-  background-color: rgb(21, 21, 65);
+  font-size: 55px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  background-color: rgba(117, 0, 150, 0.10);
+  font-family: 'Amita', cursive;
+  font-weight: 700;
+text-transform: capitalize;
 }
 .singleGameWaitingView .description {
   float: left;
   width: 100%;
-  height: 575px;
+  height: 551px;
   font-size: 200%;
+  font-family: 'Amita', cursive;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  background-color: rgba(33, 33, 33, 0.1);
 }
 .singleGameWaitingView .time {
   float: left;
   height: 100px;
   width: 100%;
-
+  background-color: rgba(33, 33, 33, 0.1);
   color: yellow;
 }
 .singleGameWaitingView .stopBoxButton {
   height: 75px;
   width: 100%;
-  background-color: rgb(21, 21, 65);
+  background-color: rgba(117, 0, 150, 0.09);
   float: left;
 }
 
-.progress-div {
+.singleGameWaitingView .stopBoxButton button{
+  background-color: rgba(255, 0, 221, 0.03);
+  color: rgba(255, 0, 221, 0.8);
+  border: 1px solid rgba(255, 0, 221, 0.5);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+  padding: 10px 10px;
+  width: 120px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  position: relative;
+  top:12px;
+}
+.singleGameWaitingView .stopBoxButton button:hover{
+  background-color: rgba(255, 0, 221, 0.2);
+  color: rgba(255, 0, 221, 1);
+  border: 1px solid rgba(255, 0, 221, 1);
+}
+.progress-div-wait {
   margin-top: 40px;
   margin-left: 50px;
   width: 50px;
-  background-color: rgb(233, 233, 233);
+  background-color: rgba(0, 0, 0, 0.27);
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
-.progress {
-  background-color: rgb(62, 122, 235);
+.progresswait {
+  background: linear-gradient(90deg, rgba(179, 75, 255, 0.1), rgba(161, 0, 255, 0.8));
+  animation: progress-animation 3s linear infinite;
   height: 50px;
 
   transition: 1s linear;
 }
-.progress-div-time {
+
+.progress-div-time-wait {
   position: relative;
   height: 50px;
   width: 1300px;
   margin-left: 50px;
   float: left;
-  font-size: 20px;
-  top: -50px;
+  font-size: 30px;
+  top: -58px;
   padding-top: 5px;
-  color: red;
+  color: #ffffff;
+  font-family: 'Amita', cursive;
+  font-weight: 700;
 }
