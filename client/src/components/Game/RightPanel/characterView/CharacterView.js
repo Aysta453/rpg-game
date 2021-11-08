@@ -73,7 +73,7 @@ const CharacterView = (user) => {
             case 'necklace':
                 itemToInventory = itemInUse.necklace;
                 break;
-            case 'armor':
+            case 'chest':
                 itemToInventory = itemInUse.armor;
                 break;
             case 'pants':

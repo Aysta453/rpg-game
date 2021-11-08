@@ -55,9 +55,8 @@
 .FirstBox .middle .avatar .background {
   background-color: rgba(255, 0, 0, 0.04);
   position: relative;
-  top:-5px;
-height: 158px;
-
+  top: -5px;
+  height: 158px;
 }
 .FirstBox .middle .avatar .info {
   margin-top: 3px;
@@ -100,7 +99,7 @@ height: 158px;
 }
 
 .FirstBox .middle .avatar .expInfo {
-  color: rgba(240, 240, 240, 0.90);
+  color: rgba(240, 240, 240, 0.9);
   position: relative;
   top: -31px;
   font-weight: 400;
@@ -190,7 +189,7 @@ height: 158px;
   border-radius: 6px;
   padding: 5px 10px;
   position: absolute;
-  z-index: 1;
+  z-index: 6;
   bottom: 150%;
   left: -50%;
   font-family: "Montserrat", sans-serif;

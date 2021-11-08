@@ -314,7 +314,7 @@ const [testValue, setTestValue] = useState(false);
                             </div>
 
             
-        <div>
+ 
             {testValue ? (
             <div className={`showingTime bar${skillNumber}`}>
                 <div className={`progress-div p${skillNumber}`}  style={{ width: width }}>
@@ -323,7 +323,7 @@ const [testValue, setTestValue] = useState(false);
                  </div>  
             ):("")}
         </div>
-        </div>
+
         
         
     ) : (<div className={`skill ${skillNumber}`}>

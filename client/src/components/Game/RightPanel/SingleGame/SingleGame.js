@@ -276,7 +276,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                 let hit = Math.random() * 100 + 1;
                 if (hit <= playerGame.chanceOnHit) {
                     let critHit = Math.random() * 100 + 1;
-                    let damage = Math.floor(((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack) - enemyStats.monsterDefense) * attackMode);
+                    let damage = Math.floor(((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack) - Math.ceil(enemyStats.monsterDefense/10)) * attackMode);
                     if (damage > 0) {
                         if (critHit <= playerGame.chanceOnHit) {
                             damage = damage * 1.5;
@@ -440,7 +440,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             <div className="level">
                                 Poziom {game.monster.monsterLevel}
                         </div>
-                          <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
+                          {/* <CombatEnemyText value={valueOfSomething} id={Math.random()}/> */}
                         </div>
                     </div>
                     <div className="healthPoints">

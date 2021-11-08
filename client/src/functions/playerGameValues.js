@@ -289,6 +289,15 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             break;
     }
 
+
+    function logCalc(base, x) {
+	var a = Math.log(x);
+    var b = Math.log(base);
+  
+    return a / b;
+}
+
+
     data = {
         healthPoints:healthPoints,
         manaPoints:manaPoints,
@@ -296,10 +305,10 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
         maxAttack:maxAttack,
         bonusToSpecialAttack:bonusToSpecialAttack,
         defensePoints:defensePoints,
-        chanceOnDodge:chanceOnDodge,
-        chanceOnBlock:chanceOnBlock,
-        chanceOnCritHit:chanceOnCritHit,
-        chanceOnHit: chanceOnHit,
+        chanceOnDodge:logCalc(1.29,chanceOnDodge),
+        chanceOnBlock:logCalc(1.25,chanceOnBlock),
+        chanceOnCritHit:logCalc(1.2,chanceOnCritHit),
+        chanceOnHit: logCalc(1.05,chanceOnHit),
         regMp: regMp,
         regHp:regHp,
     }

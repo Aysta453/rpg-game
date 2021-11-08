@@ -18,7 +18,7 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
         'W dalekich górach jest stara legenda, że wielki lodowy smok śpi na ogromnym skarbu. Sprawdzisz to czy to tylko plotki?',
         'W podmiejskich lochach zaczął grasować wielki czarny jak smoła smok. Coraz więcej osadników jest przerażona, że zostanie pożarta i uciekają smoka. Król błaga Cię o pomoc. Pewien szewczyk kombinuje coś z magiczną owcą. Pokonasz smoka po swojemu czy się boisz?'];
     let nameOfMonsters = ['Zielony Ork', 'Lodowy Ork', 'Bagnisty Ork', 'Królewski Zabójca', 'Johny Lepkie Rączki', 'Leśny Łotrzyk', 'Szmaragdowy Smok', 'Lodowy Smok', 'Czarny Smok'];
-    let timeOfMissions = [30, 60, 120, 150, 180, 240, 300, 450, 520,600];
+    let timeOfMissions = [10, 20, 30, 40, 50, 60, 70, 90, 100,120];
 
     let nameOfMonster;
     let monsterHealtPoints;
@@ -130,12 +130,18 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
         default:
             break;
     };
+function logCalc(base, x) {
+	var a = Math.log(x);
+    var b = Math.log(base);
+  
+    return a / b;
+}
 
     goldOfMission = ((secondValue * level) * 2) * Math.floor((Math.random() * 10) + 1);  
     experienceOfMission = ((secondValue * level) * 3) * Math.floor((Math.random() * 10) + 1);
 
     monsterHealtPoints = ((dificultMode * level) * 20) * Math.floor((Math.random() * 10) + 1);
-    monsterDefense = ((dificultMode * level) * 2) * Math.floor((Math.random() * 8) + 1);
+    monsterDefense =Math.floor(logCalc(1.30,((dificultMode * level) * 1) * Math.floor((Math.random() * 8) + 1)));
     do {
         monsterMinAttack = ((dificultMode * level) * 1) * Math.floor((Math.random() * 2) + 1);
         monsterMaxAttack = ((dificultMode * level) * 2) * Math.floor((Math.random() * 2) + 1);
