@@ -41,10 +41,10 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
                 {game.missionDescription}
             </div>
             <div className="time">
-                <div className="progress-div" style={{ width: width }}>                     
-                    <div style={{ width: `${timeBar}px` }} className="progress"/>
+                <div className="progress-div-wait" style={{ width: width }}>
+                    <div style={{ width: `${timeBar}px` }} className="progresswait"/>
                 </div>
-                <div className="progress-div-time">
+                <div className="progress-div-time-wait">
                     {convertingTime(time)} / {convertingTime(game.missionTime)}
                 </div>
                  

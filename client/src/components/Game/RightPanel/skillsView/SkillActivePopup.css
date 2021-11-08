@@ -81,20 +81,20 @@
 }
 
 .values .nameOfValue {
-  width: 50%;
+  width: 55%;
   height: 100%;
   float: left;
-  margin-bottom: 50px;
-  margin-top: 23px;
-  margin-left: 65px;
+  margin-bottom: 60px;
+  margin-top: 12px;
+  margin-left: 45px;
 }
 
 .values .second {
   width: 35% !important;
   height: 100%;
   float: left;
-  margin-bottom: 50px;
-  margin-top: 23px;
+  margin-bottom: 60px;
+  margin-top: 12px;
   font-weight: 700;
 }
 
