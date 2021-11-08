@@ -18,9 +18,9 @@ const [testValue, setTestValue] = useState(false);
     const [secondValue, setSecondValue] = useState(0);
 
     const [firstSkill, setFirstSkill] = useState({
-        castTime: skill.castTime,
-        durationTime: skill.durationTime,
-        recastTime: skill.recastTime,
+        castTime: (skill.castTime -1000),
+        durationTime:(skill.durationTime-1000),
+        recastTime: (skill.recastTime-1000),
     });
 
     let progress = parseInt(width / (firstSkill.castTime/1000));
@@ -41,7 +41,7 @@ const [testValue, setTestValue] = useState(false);
          if (secondValue === 2) {
             setColor(cooldown);
              setBackgroundColor("");
-            progress = parseInt(width / (firstSkill.recastTime/1000));
+            progress = parseInt(width / ((skill.recastTime-2000)/1000));
             setTimeSkillBar(setInterval(() => {
                 setTimeBar(timeBar => timeBar + progress);
             }, 1 * 1000));
@@ -61,7 +61,7 @@ const [testValue, setTestValue] = useState(false);
             sleep(1000).then(() => {
                 clearInterval(timeSkillBar);
 
-                if (firstSkill.durationTime !== 0 && secondValue == 0) {
+                if (skill.durationTime !== 0 && secondValue == 0) {
                     setTimeBar(width);
                     setSecondValue(1);
                 } else {
@@ -71,10 +71,10 @@ const [testValue, setTestValue] = useState(false);
             });      
         }
                 if (timeBar <= 0 && secondValue == 1) {
-            sleep(1000).then(() => {
+            sleep(500).then(() => {
                 clearInterval(timeSkillBar);
                 setTimeBar(0);
-                if (firstSkill.durationTime !== 0 && secondValue ==1) {
+                if (skill.durationTime !== 0 && secondValue ==1) {
                     setSecondValue(2);
                 } else {
                     setSecondValue(3);
@@ -82,7 +82,7 @@ const [testValue, setTestValue] = useState(false);
             });      
         }
                 if (timeBar >= width && secondValue == 2) {
-             sleep(1000).then(() => {
+             sleep(500).then(() => {
                 clearInterval(timeSkillBar);
                 setTimeBar(0);
                 showingDiv();

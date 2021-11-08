@@ -4,6 +4,7 @@ import './SingleGame.css';
 import SingleGamePopupLose from './SingleGamePopupLose';
 import SingleGamePopupWin from './SingleGamePopupWin';
 import SkillHandling from './SkillHandling';
+import CombatEnemyText from './CombatEnemyText';
 
 const SingleGame = ({setButtons, setWindowOfElements}) => {
 
@@ -19,9 +20,52 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
+    const [firstModeButton, setFirstModeButton] = useState(true);
+    const [secondModeButton, setSecondModeButton] = useState(false);
+    const [thirdModeButton, setThirdModeButton] = useState(true);
+
+
+    const handleModeButtons = (numberOfMode) => {
+        switch (numberOfMode) {
+            case 1:
+                setFirstModeButton(firstModeButton => false);
+                setSecondModeButton(secondModeButton => false);
+                setThirdModeButton(thirdModeButton => false);
+
+                sleep(4000).then(() => {
+                    setSecondModeButton(secondModeButton => true);
+                    setThirdModeButton(thirdModeButton => true);
+
+                })    
+                break;
+            case 2:
+                setFirstModeButton(firstModeButton => false);
+                setSecondModeButton(secondModeButton => false);
+                setThirdModeButton(thirdModeButton => false);
+
+                sleep(4000).then(() => {
+                    setFirstModeButton(firstModeButton => true);
+                    setThirdModeButton(thirdModeButton => true);
+
+                })   
+
+                break;
+            case 3:
+                setFirstModeButton(firstModeButton => false);
+                setSecondModeButton(secondModeButton => false);
+                setThirdModeButton(thirdModeButton => false);
+
+                sleep(4000).then(() => {
+                    setFirstModeButton(firstModeButton => true);
+                    setSecondModeButton(secondModeButton => true);
+
+                })   
+                break;
+            default:
+                break;
+        }
+    }
     const handlingSkillButtons = (numberOfSkill, time) => {
-        console.log(numberOfSkill);
-        console.log(time);
         switch (numberOfSkill) {
             case 1:
                 setFirstButton(!firstButton);
@@ -273,9 +317,12 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
     const rek = (delay, numberOfAttack, valueOfDotValue) => {
         if (numberOfAttack > 0) {
             sleep(delay).then(() => {
-                setHpEnemy(hpEnemy => hpEnemy - valueOfDotValue);
+                if (hpEnemy >= 0) {
+                      setHpEnemy(hpEnemy => hpEnemy - valueOfDotValue);
                 a(valueOfDotValue);
                 rek(delay, numberOfAttack - 1, valueOfDotValue);
+                }
+              
             });
         }
     };
@@ -352,7 +399,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
     }, [hpPlayer, hpEnemy]);
 
 
-    // <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
+
 
     return (<>
             <div className="singleGameView">
@@ -383,7 +430,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     </div>
                 </div>
                 <div className="enemy">
-                    <div className="avatar">
+                <div className="avatar">
+                       
                         <img alt='' src={`${monsterImage}`}/>
                         <div className='background'>
                             <div className="nick">
@@ -391,7 +439,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             </div>
                             <div className="level">
                                 Poziom {game.monster.monsterLevel}
-                            </div>
+                        </div>
+                          <CombatEnemyText value={valueOfSomething} id={Math.random()}/>
                         </div>
                     </div>
                     <div className="healthPoints">
@@ -425,22 +474,14 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     <div className="actions">
                         <div className="attackModes">
                             <div className="mode atk1">
-                                <button onClick={() => {
-                                    changeTime(1250, 0.5);
-                                }}>tryb szybki ale słabe ataki
-                                </button>
+                                {firstModeButton ? (<button onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>): (<button disabled onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>)}
                             </div>
-                            <div className="mode atk2">
-                                <button onClick={() => {
-                                    changeTime(2500, 1);
-                                }}>tryb normalny oraz normalne ataki
-                                </button>
+                        <div className="mode atk2">
+                            
+                                {secondModeButton ? (<button onClick={() => { handleModeButtons(2); changeTime(2500, 1); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>): (<button disabled onClick={() => { handleModeButtons(2); changeTime(2500, 0.5); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>)}
                             </div>
-                            <div className="mode atk3">
-                                <button onClick={() => {
-                                    changeTime(3750, 1.5);
-                                }}>tryb wolny ale ataki mocniejsze
-                                </button>
+                        <div className="mode atk3">                          
+                                {thirdModeButton ? (<button onClick={() => { handleModeButtons(3); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>): (<button disabled onClick={() => { handleModeButtons(3); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>)}
                             </div>
                         </div>
                         <div className="skills">
