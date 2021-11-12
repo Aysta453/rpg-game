@@ -35,7 +35,7 @@ const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons })
                 {windowOfElements === 6 && <> tu bedzie logout </>}
                 {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements}/> }
                 {windowOfElements === 90 && <MultiPlayerView /> }
-                {windowOfElements === 20 && <Test/> }
+                {windowOfElements === 80 && <Test/> }
 
                
             </div>

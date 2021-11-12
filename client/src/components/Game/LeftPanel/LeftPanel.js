@@ -37,6 +37,7 @@ const LeftPanel=({setWindowOfElements,setUser,user,buttonsControl})=>{
             <MenuItem buttonsControl={buttonsControl} setWindowOfElements={setWindowOfElements} page={4} text={"Tablica ogłoszeń"}/>
             <MenuItem buttonsControl={buttonsControl} setWindowOfElements={setWindowOfElements} page={5} text={"Tablica z wyprawami"} />
             <MenuItem buttonsControl={buttonsControl} setWindowOfElements={setWindowOfElements} page={90} text={"Multi"} />
+            <MenuItem buttonsControl={buttonsControl} setWindowOfElements={setWindowOfElements} page={80} text={"TEST"} />
             <MenuItemLogout buttonsControl={buttonsControl} logout={logout} text={"Wyloguj"}/>
         </div>
         </>
