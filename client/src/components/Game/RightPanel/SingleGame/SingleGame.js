@@ -5,6 +5,10 @@ import SingleGamePopupLose from './SingleGamePopupLose';
 import SingleGamePopupWin from './SingleGamePopupWin';
 import SkillHandling from './SkillHandling';
 import CombatEnemyText from './CombatEnemyText';
+import CombatPlayerAttackText from './CombatPlayerAttackText';
+import CombatEnemySkillText from './CombatEnemySkillText';
+import CombatSkillBonusText from './CombatSkillBonusText';
+import CombatPlayerHealText from './CombatPlayerHealText';
 
 const SingleGame = ({setButtons, setWindowOfElements}) => {
 
@@ -197,6 +201,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
 
     //players main Stats
     const [playerStats, setPlayerStats] = useState(playerGame);
+    // eslint-disable-next-line
     const [enemyStats, setEnemyStats] = useState(game.monster);
 
     //players temporary Stats
@@ -210,51 +215,151 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
     const [intervalPlayerDamage, setIntervalPlayerDamage] = useState(0);
     const [intervalEnemyDamage, setIntervalEnemyDamage] = useState(0);
     const [intervalPlayerMana, setIntervalPlayerMana] = useState(0);
+    const [intervalPlayerHealth, setIntervalPlayerHealth] = useState(0);
+    const [intervalPlayerHealthID, setIntervalPlayerHealthID] = useState(false);
+    
     //end windows
     const [winPopup, setWinPopup] = useState(false);
     const [losePopup, setLosePopup] = useState(false);
     //bars 
     const [playerHpBar, setPlayerHpBar] = useState(0);
+    // eslint-disable-next-line
     const [playerManaBar, setPlayerManaBar] = useState(0);
     const [monsterHpBar, setMonsterHpBar] = useState(0);
 
     const [playerBattleHpBar, setPlayerBattleHpBar] = useState();
     const [playerBattleMpBar, setPlayerBattleMpBar] = useState();
+    const [attackMode, setAttackMode] = useState(2500);
 
-    const [valueOfSomething, setValueOfSomething] = useState(0);
+    const [valueOfNormalEnemyAttackText, setValueOfNormalEnemyAttackText] = useState(0);
+    const [enemyAttackCounter,setEnemyAttackCounter]=useState(0);
+    const [normalAttackEnemyID, setNormalAttackEnemyID] = useState();
+    const [typeOfNormalEnemyAttack, setTypeOfNormalEnemyAttack] = useState(0);
 
-    const a = (d) => {
-        setValueOfSomething(d);
+
+    const [valueOfNormalPlayerAttackText, setValueOfNormalPlayerAttackText] = useState(0);
+    const [playerAttackCounter,setPlayerAttackCounter]=useState(0);
+    const [normalAttackPlayerID, setNormalAttackPlayerID] = useState();
+    const [typeOfNormalPlayerAttack, setTypeOfNormalPlayerAttack] = useState(0);
+
+
+    const [valueSkillDamageEnemyText, setValueSkillDamageEnemyText] = useState(0);
+    const [enemySkillDamageCounter,setEnemySkillDamageCounter]=useState(0);
+    const [enemySkillDamageID, setEnemySkillDamageID] = useState();
+
+
+    const [valueOfBonusSkillText, setValueOfBonusSkillText] = useState(0);
+    const [bonusSkillTextCounter,setBonusSkillTextCounter]=useState(0);
+    const [bonusSkillID, setBonusSkillID] = useState();
+
+
+    const [valueOfNormalPlayerHealText, setValueOfNormalPlayerHealText] = useState(0);
+    const [playerHealCounter,SetPlayerHealCounter]=useState(0);
+    const [normalHealPlayerID, setNormalHealPlayerID] = useState();
+    const [typeOfNormalPlayerHeal, setTypeOfNormalPlayerHeal] = useState(0);
+
+    const functionNormalEnemyAttack = (damage, type) => {
+        setEnemyAttackCounter(enemyAttackCounter => enemyAttackCounter + 1);
+        setValueOfNormalEnemyAttackText(damage);
+        setTypeOfNormalEnemyAttack(type);
+    }
+
+    const functionSkillBonusText = (value) => {
+        setBonusSkillTextCounter(bonusSkillTextCounter => bonusSkillTextCounter + 1);
+        setValueOfBonusSkillText(value);
+    }
+    
+    const functionNormalPlayerAttack = (damage,type) => {
+        setPlayerAttackCounter(playerAttackCounter => playerAttackCounter + 1);
+        setValueOfNormalPlayerAttackText(damage);
+        setTypeOfNormalPlayerAttack(type);
+    }
+    const functionSkillDamageEnemyAttack = (damage)=> {
+        setEnemySkillDamageCounter(enemySkillDamageCounter => enemySkillDamageCounter + 1);
+        setValueSkillDamageEnemyText(damage);
+    }
+
+        const functionNormalPlayerHeal = (heal,type) => {
+        SetPlayerHealCounter(playerAttackCounter => playerAttackCounter + 1);
+        setValueOfNormalPlayerHealText(heal);
+        setTypeOfNormalPlayerHeal(type);
     }
 
     let widthOfMainHealthPointsBar = 300;
     let widthOfBattleContenerBars = 200;
 
     const changePopup = (number) => {
-        if (number == 0) {
+        if (number === 0) {
             setLosePopup(!losePopup);
         } else {
             setWinPopup(!winPopup);
         }
     }
 
+      const changeTime = (time, attackMode) => {
+        clearInterval(intervalEnemyDamage);
+        attackEnemy(time, attackMode);
 
+    }
+
+    const manaRegen = () => {
+        setIntervalPlayerMana(setInterval(() => {
+            setManaPlayer(manaPlayer => manaPlayer + playerStats.regMp);
+        }, 1 * 1000));
+    }
+
+    const healthRegen = () => {
+        setIntervalPlayerHealth(setInterval(() => {
+            setHpPlayer(hpPlayer => hpPlayer + playerStats.regHp);
+        }, 1 * 1000));
+            
+    }
+    const damageOverTime = (delay, numberOfAttack, valueOfDotValue) => {
+        if (numberOfAttack > 0) {
+            sleep(delay).then(() => {
+                if (hpEnemy >= 0) {
+                    setHpEnemy(hpEnemy => hpEnemy - valueOfDotValue);
+                    functionSkillDamageEnemyAttack(Math.floor(valueOfDotValue));
+                    damageOverTime(delay, numberOfAttack - 1, valueOfDotValue);
+                }    
+            });
+        }
+    };
+        const healOverTime = (delay, numberOfHealing, valueOfHotValue) => {
+        if (numberOfHealing > 0) {
+            sleep(delay).then(() => {
+                if (hpEnemy >= 0) {
+                    setHpPlayer(hpEnemy => hpEnemy + valueOfHotValue);
+                    functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
+                    damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
+                }    
+            });
+        }
+    };
+
+
+    
     const attackPlayer = () => {
         setIntervalPlayerDamage(setInterval(() => {
 
                 let hit = Math.random() * 100 + 1;
                 if (hit <= playerStats.chanceOnDodge) {
-                    console.log('monster missed');
-
+ 
+                       functionNormalPlayerAttack(0,3);
                     if (hit <= playerStats.chanceOnBlock) {
                         console.log('player blocked attack')
-
+                       functionNormalPlayerAttack(0,2);
                     } else {
                         let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints);
                         if (damage > 0) {
                             setHpPlayer(hpPlayer => hpPlayer - damage);
-
+                       
+                            
+                            functionNormalPlayerAttack(damage, 1);
+                        
+                            
                         } else {
+                        functionNormalPlayerAttack(0,4);
                             console.log('damage reduced by armor');
                         }
                     }
@@ -262,12 +367,17 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints);
                     if (damage > 0) {
                         setHpPlayer(hpPlayer => hpPlayer - damage);
+                          functionNormalPlayerAttack(damage,1);
+                                            
                     } else {
                         console.log('damage reduced by armor');
+                        functionNormalPlayerAttack(0,4);
                     }
                 }
             }
             , 1 * 2500));
+        
+      
     }
 
     const attackEnemy = (time, attackMode) => {
@@ -276,58 +386,71 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                 let hit = Math.random() * 100 + 1;
                 if (hit <= playerGame.chanceOnHit) {
                     let critHit = Math.random() * 100 + 1;
-                    let damage = Math.floor(((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack) - Math.ceil(enemyStats.monsterDefense/10)) * attackMode);
+                    let damage = Math.floor(((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)
+                        - Math.ceil(enemyStats.monsterDefense / 10)) * attackMode);
                     if (damage > 0) {
                         if (critHit <= playerGame.chanceOnHit) {
                             damage = damage * 1.5;
                             setHpEnemy(hpEnemy => hpEnemy - damage);
-                            a(damage);
-                            console.log('player crit hit', damage)
+                            
+
+                            functionNormalEnemyAttack(damage,1);
                         } else {
                             setHpEnemy(hpEnemy => hpEnemy - damage);
-                            a(damage);
-                            console.log('player normal hit', damage)
+                            functionNormalEnemyAttack(damage, 0);
                         }
-
                     } else {
-                        console.log('monster blocked');
-                        a('block');
+                        functionNormalEnemyAttack(0,2);
                     }
                 } else {
-                    console.log('player missed')
-                    a('miss');
+                    functionNormalEnemyAttack(0,3);
                 }
             }
             , 1 * time));
 
     }
 
-    const changeTime = (time, attackMode) => {
-        clearInterval(intervalEnemyDamage);
-        attackEnemy(time, attackMode);
 
-    }
 
-    const manaRegen = () => {
-        setIntervalPlayerMana(setInterval(() => {
-            setManaPlayer(manaPlayer => manaPlayer + 1);
-        }, 1 * 2000));
-    }
 
-    const rek = (delay, numberOfAttack, valueOfDotValue) => {
-        if (numberOfAttack > 0) {
-            sleep(delay).then(() => {
-                if (hpEnemy >= 0) {
-                      setHpEnemy(hpEnemy => hpEnemy - valueOfDotValue);
-                a(valueOfDotValue);
-                rek(delay, numberOfAttack - 1, valueOfDotValue);
-                }
-              
-            });
-        }
-    };
 
     useEffect(() => {
+        setNormalAttackEnemyID(Math.random());
+    }, [enemyAttackCounter]);
+
+    useEffect(() => {
+        setBonusSkillID(Math.random());
+    }, [bonusSkillTextCounter]);
+
+        useEffect(() => {
+        setNormalAttackPlayerID(Math.random());
+    }, [playerAttackCounter]);
+
+    useEffect(() => {
+        setEnemySkillDamageID(Math.random());
+    }, [enemySkillDamageCounter]);
+
+        useEffect(() => {
+        setNormalHealPlayerID(Math.random());
+    }, [playerHealCounter]);
+
+
+    useEffect(() => {
+        if (hpPlayer < playerStats.healthPoints && intervalPlayerHealthID === false) {
+            healthRegen();
+            setIntervalPlayerHealthID(!intervalPlayerHealthID);
+        }
+        
+        if (hpPlayer >= playerStats.healthPoints && intervalPlayerHealthID === true) {
+            clearInterval(intervalPlayerHealth);
+            setIntervalPlayerHealthID(!intervalPlayerHealthID);
+        }
+    },[hpPlayer,intervalPlayerHealthID])
+    
+  
+    useEffect(() => {
+        
+     
         let changeBarHpPlayer = (hpPlayer / playerStats.healthPoints) * widthOfMainHealthPointsBar;
         let changeBattleHealthBarPlayer = (hpPlayer / playerStats.healthPoints) * widthOfBattleContenerBars;
         if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
@@ -339,6 +462,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         }
         setPlayerBattleHpBar(changeBattleHealthBarPlayer);
         setPlayerHpBar(changeBarHpPlayer);
+        // eslint-disable-next-line
     }, [hpPlayer]);
 
     useEffect(() => {
@@ -354,6 +478,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         }
         setPlayerBattleMpBar(changeBattleManaBarPlayer);
         setPlayerManaBar(changeManaBarPlayer);
+        // eslint-disable-next-line
     }, [manaPlayer]);
 
     useEffect(() => {
@@ -365,37 +490,44 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         }
 
         setMonsterHpBar(changeBarHpMonster);
+        // eslint-disable-next-line
     }, [hpEnemy]);
 
     useEffect(() => {
         attackEnemy(2500, 1);
         attackPlayer();
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         if (manaPlayer >= playerStats.manaPoints) {
             clearInterval(intervalPlayerMana);
         }
+        // eslint-disable-next-line
     }, [manaPlayer]);
 
+    
 
     useEffect(() => {
-        if (hpPlayer <= 0) {
-            setValueOfSomething(0);
+        if (hpPlayer <= 0 && hpEnemy>0) {
             clearInterval(intervalPlayerDamage);
             clearInterval(intervalEnemyDamage);
+            clearInterval(intervalPlayerHealth);
+            clearInterval(intervalPlayerMana);
             sleep(2000).then(() => {
-                setLosePopup(true);
+             setLosePopup(true);
+                
             });
-        }
-        if (hpEnemy <= 0) {
-            setValueOfSomething(0);
+        }else if (hpEnemy <= 0 && hpPlayer>0)  {
             clearInterval(intervalEnemyDamage);
             clearInterval(intervalPlayerDamage);
+                        clearInterval(intervalPlayerHealth);
+            clearInterval(intervalPlayerMana);
             sleep(2000).then(() => {
                 setWinPopup(true);
             });
         }
+        // eslint-disable-next-line
     }, [hpPlayer, hpEnemy]);
 
 
@@ -416,7 +548,10 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             </div>
                             <div className="level">
                                 Poziom {hero.level}
-                            </div>
+                        </div>
+                        <CombatPlayerAttackText value={valueOfNormalPlayerAttackText} id={normalAttackPlayerID} type={typeOfNormalPlayerAttack}/>
+                        <CombatPlayerHealText value={valueOfNormalPlayerHealText} id={normalHealPlayerID} type={typeOfNormalPlayerHeal}/>
+                        <CombatSkillBonusText value={valueOfBonusSkillText} id={bonusSkillID}/>
                         </div>
                     </div>
                     <div className="healthPoints">
@@ -440,7 +575,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             <div className="level">
                                 Poziom {game.monster.monsterLevel}
                         </div>
-                          {/* <CombatEnemyText value={valueOfSomething} id={Math.random()}/> */}
+                        <CombatEnemyText value={valueOfNormalEnemyAttackText} id={normalAttackEnemyID} type={typeOfNormalEnemyAttack} attackMode={attackMode}/>
+                        <CombatEnemySkillText value={valueSkillDamageEnemyText} id={enemySkillDamageID}/>
                         </div>
                     </div>
                     <div className="healthPoints">
@@ -474,41 +610,55 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     <div className="actions">
                         <div className="attackModes">
                             <div className="mode atk1">
-                                {firstModeButton ? (<button onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>): (<button disabled onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>)}
+                            {firstModeButton ? (<button onClick={() => { handleModeButtons(1); setAttackMode(attackMode => attackMode = 1250); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>): (<button disabled onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>)}
+                             <div className="attackTooltip">
+                                <p className={"nametool"}>Tryb Wolny</p>
+                                <p className={"costtool"}>Szybkość ataku: <span className={"pcosttool"}>1.35s</span></p>
+                                <p className={"worftool"}>Wartość ataków: <span className={"pworftool"}>{Math.floor(playerGame.minAttack/2)}-{Math.floor(playerGame.maxAttack/2)}</span></p>
                             </div>
-                        <div className="mode atk2">
-                            
-                                {secondModeButton ? (<button onClick={() => { handleModeButtons(2); changeTime(2500, 1); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>): (<button disabled onClick={() => { handleModeButtons(2); changeTime(2500, 0.5); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>)}
                             </div>
-                        <div className="mode atk3">                          
-                                {thirdModeButton ? (<button onClick={() => { handleModeButtons(3); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>): (<button disabled onClick={() => { handleModeButtons(3); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>)}
+                            <div className="mode atk2">
+                                {secondModeButton ? (<button onClick={() => { handleModeButtons(2);setAttackMode(attackMode => attackMode = 2500); changeTime(2500, 1); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>): (<button disabled onClick={() => { handleModeButtons(2); changeTime(2500, 0.5); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>)}
+                            <div className="attackTooltip">
+                                <p className={"nametool"}>Tryb Wolny</p>
+                                <p className={"costtool"}>Szybkość ataku: <span className={"pcosttool"}>2.5s</span></p>
+                                <p className={"worftool"}>Wartość ataków: <span className={"pworftool"}>{Math.floor(playerGame.minAttack)}-{Math.floor(playerGame.maxAttack)}</span></p>
                             </div>
+                        </div>
+                            <div className="mode atk3">                          
+                                {thirdModeButton ? (<button onClick={() => { handleModeButtons(3); setAttackMode(attackMode => attackMode = 3750); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>): (<button disabled onClick={() => { handleModeButtons(3); changeTime(3750, 1.5); }}><img className="imageMode" alt="" src="/images/modes/3.png"/></button>)}
+                            <div className="attackTooltip">
+                                <p className={"nametool"}>Tryb Wolny</p>
+                                <p className={"costtool"}>Szybkość ataku: <span className={"pcosttool"}>3.75s</span></p>
+                                <p className={"worftool"}>Wartość ataków: <span className={"pworftool"}>{Math.floor(playerGame.minAttack*1.5)}-{Math.floor(playerGame.maxAttack*1.5)}</span></p>
+                            </div>
+                        </div>
                         </div>
                         <div className="skills">
                             <SkillHandling numberOfSkill={1} handlingSkillButtons={handlingSkillButtons}
                                            buttonValue={firstButton} setButtonValue={setFirstButton}
-                                           skillNumber={'skill1'} a={a} skill={skillsToBattle.firstSkill}
+                                           skillNumber={'skill1'} skill={skillsToBattle.firstSkill}
                                            setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
-                                           setHpPlayer={setHpPlayer}
-                                           sleep={sleep} rek={rek} playerStats={playerStats}
-                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
+                                           setHpPlayer={setHpPlayer} functionNormalPlayerHeal={functionNormalPlayerHeal}
+                                           sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
+                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen} functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}  functionSkillBonusText={functionSkillBonusText}  />
                             <SkillHandling numberOfSkill={2} handlingSkillButtons={handlingSkillButtons}
                                            buttonValue={secondButton} setButtonValue={setSecondButton}
                                            skillNumber={'skill2'} skill={skillsToBattle.secondSkill}
                                            setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
-                                           setHpPlayer={setHpPlayer}
-                                           sleep={sleep} rek={rek} playerStats={playerStats}
-                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
+                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal}
+                                           sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
+                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen} functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}  functionSkillBonusText={functionSkillBonusText}/>
                             <SkillHandling numberOfSkill={3} handlingSkillButtons={handlingSkillButtons}
                                            buttonValue={thirdButton} setButtonValue={setThirdButton}
                                            skillNumber={'skill3'} skill={skillsToBattle.thirdSkill}
                                            setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
-                                           setHpPlayer={setHpPlayer}
-                                           sleep={sleep} rek={rek} playerStats={playerStats}
-                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen}/>
+                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal}
+                                           sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
+                                           setPlayerStats={setPlayerStats} manaRegen={manaRegen} functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack} functionSkillBonusText={functionSkillBonusText} />
 
                         </div>
                     </div>

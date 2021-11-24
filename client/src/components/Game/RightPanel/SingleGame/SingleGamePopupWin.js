@@ -2,21 +2,40 @@
 import React from 'react'
 import { useSelector ,useDispatch} from 'react-redux';
 import showingEquipmentImage from '../../../../functions/showingEquipmentImage';
-import {addrewardsaftermission } from '../../../../actions/hero';
+import {addrewardsaftermission,increasediamond } from '../../../../actions/hero';
 import { newmissions } from '../../../../actions/missions';
 import { assignitemtoinventory } from '../../../../actions/inventory';
+import { addnewavailablepoint } from '../../../../actions/skills';
 
 
 const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,changePopup}) => {
     const game = useSelector(state => state.game);
     const hero = useSelector(state => state.hero);
     const dispatch = useDispatch();
-        let isItemAsReward = game.item.isEmpty;
+    let isItemAsReward = game.item.isEmpty;
+    let diamondReward = 0;
+    let diamondChance = Math.random() * 100 + 1;
+    if (diamondChance <= 10) {
+        diamondReward = 1;
+    }
+    console.log(diamondChance);
     
     const handleSubmit = () => {
+        let exp = hero.expStart + game.missionRewardExp;
+        if ((exp >= hero.expStop) && ((hero.level+1)%6===0)) {
+            dispatch(addnewavailablepoint({ owner: hero.owner }));
+        } else {
+            
+        }
+        if (diamondReward > 0) {
+            dispatch(increasediamond({ owner: hero.owner, amountOfDiamonds: diamondReward }));
+        } else {
+            
+        }
         dispatch(addrewardsaftermission({ owner: hero.owner, amountOfGold: game.missionRewardGold, Exp: game.missionRewardExp }));
         dispatch(newmissions({ owner: hero.owner, level: hero.level }));
         dispatch(assignitemtoinventory({ owner: hero.owner, item: game.item }));
+
         setButtons();
         changePopup(1);
         setWindowOfElements(1);
@@ -26,7 +45,7 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
 
 
     let image;
-    if (isItemAsReward == false) {
+    if (isItemAsReward === false) {
          image = showingEquipmentImage(hero.heroClass, game.item.typeOfItem, 1, game.item.numberOfItem);
     }
     
@@ -47,6 +66,8 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
                     <div className="money">
                         Złoto: <span className={"moni"}>{game.missionRewardGold}</span>
                     </div>
+                    {diamondReward>0 ?(  <div className="diamonds">Diamenty: <span className={"diam"}>{diamondReward}</span></div>):('')}
+                                      
                     <div className="expoints">
                         Punkty doświadczenia: <span className={"xp"}>{game.missionRewardExp}</span>
                     </div>
@@ -54,7 +75,7 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
                     {isItemAsReward ? (<div className="item"></div>) :
                     (
                         <div className="item">
-                              <img className="imageSkill" src={`/images/eq${image}.png`}/>
+                              <img className="imageSkill" src={`/images/eq${image}.png`} alt=""/>
                         </div>
                     )
                 }

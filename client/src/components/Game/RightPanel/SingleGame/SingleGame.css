@@ -327,15 +327,33 @@
   background-color: rgba(255, 0, 0, 0.2);
   border: 1px solid rgba(255, 0, 0, 0.4);
 }
+.atk1 .attackTooltip {
+  background-color: #391c1c !important;
+  border: 1px solid #743232 !important;
+  color: #ffffff !important;
+  text-align: center;
+}
 
 .atk2 {
   background-color: rgba(255, 128, 0, 0.2);
   border: 1px solid rgba(255, 128, 0, 0.4);
 }
+.atk2 .attackTooltip {
+  background-color: #392c1c !important;
+  border: 1px solid #745732 !important;
+  color: #ffffff !important;
+  text-align: center;
+}
 
 .atk3 {
   background-color: rgba(43, 120, 114, 0.2);
   border: 1px solid rgba(43, 120, 114, 0.4);
+}
+.atk3 .attackTooltip {
+  background-color: #1c3639 !important;
+  border: 1px solid #326a74 !important;
+  color: #ffffff !important;
+  text-align: center;
 }
 
 .skill1 {
@@ -512,6 +530,36 @@
   visibility: visible;
   opacity: 1;
 }
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .attackModes
+  .mode
+  .attackTooltip {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  height: 100px;
+  width: 300px;
+  top: -210px;
+  left: -100px;
+  background-color: yellow;
+  border: 1px solid black;
+  color: red;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  z-index: 4;
+}
+
+.singleGameView
+  .playerViewBattleController
+  .actions
+  .attackModes
+  .mode:hover
+  .attackTooltip {
+  visibility: visible;
+  opacity: 1;
+}
 
 /* win Popup*/
 .popup-win {
@@ -532,7 +580,7 @@
   position: fixed;
   padding: 32px;
   width: 100%;
-  height: 800px;
+  max-height: 850px;
   max-width: 500px;
   background-color: rgb(0, 2, 2);
   border: 1px solid rgba(44, 225, 91, 0.8);
@@ -585,6 +633,22 @@
   color: #fff264;
 }
 .moni {
+  font-weight: 600;
+}
+.rewards .diamonds {
+  float: left;
+  height: 50px;
+  width: 100%;
+}
+.rewards .diamonds {
+  float: left;
+  height: 45px;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 300;
+  color: #80f0ff !important;
+}
+.diam {
   font-weight: 600;
 }
 
@@ -732,27 +796,7 @@
 /* lose Popup*/
 
 /* */
-.combatDiv {
-  margin: 0;
-  text-align: center;
-  color: blue;
-  background-color: red;
-  width: 200px;
-  height: 50px;
-  position: relative;
-  z-index: 1;
-  top: -250px;
-  left: 100px;
-}
-.combatDivText {
-  position: relative;
-  top: -40px;
-  font-size: 22px;
-  z-index: 1;
-  opacity: 0;
-  animation-name: example;
-  animation-duration: 1s;
-}
+
 .singleGameView
   .playerViewBattleController
   .actions
@@ -881,19 +925,60 @@
   height: 20px !important;
 }
 
+.combatDivEnemyNormalAttack {
+  margin: 0;
+  text-align: center;
+  width: 300px;
+  position: relative;
+  font-size: 65px;
+  z-index: 1;
+
+  top: -150px;
+}
+
+.combatDivEnemyNormalAttack .combatTextFast {
+  position: relative;
+  top: -150px;
+
+  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.combatDivEnemyNormalAttack .combatTextNormal {
+  position: relative;
+  top: -150px;
+  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2.4s;
+}
+
+.combatDivEnemyNormalAttack .combatTextHard {
+  position: relative;
+  top: -150px;
+  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 3.6s;
+}
+
 @keyframes example {
   0% {
-    transform: scale(0) translateY(0%);
-    opacity: 0;
+    opacity: 1;
   }
   10% {
-    opacity: 1;
+    top: -150px;
   }
-  90% {
-    opacity: 1;
-    transform: scale(2) translateY(-50%);
+  30% {
+    top: -300px;
   }
   100% {
+    top: -300px;
+
     opacity: 0;
   }
 }

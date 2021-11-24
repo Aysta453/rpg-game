@@ -1,27 +1,123 @@
 import React from 'react'
 
-const CombatEnemyText = ({ value, id }) => {
-    let check = value;
-    let isnum = value;
-    parseInt(isnum);
-    if(isNaN(isnum) === false ){
-    value=isnum;
-    }
-
-
-    if (value === 0) {
+import './SingleGame.css';
+const CombatEnemyText = ({ value, id,attackMode,type}) => {
+        let check;
+    if (value === 0 && (type===1 || type===0)) {
         check = false;
     } else {
         check = true;
     }
+   
+    let typeOfText;
+    let text;
+    let colorOfText;
+    switch (attackMode) {
+        case 1250:
+            switch (type) {
+                //normal attack
+                case 0:
+                    text = '-'+value;
+                    colorOfText = 'white';  
+                    typeOfText = 'Fast';
+                    break;
+                //crit attack
+                case 1:
+                    text = '-'+value;
+                    colorOfText = '#D61801';
+                    typeOfText = 'Fast';
+                    break;
+                //block
+                case 2:
+                    text = 'blok';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Fast';
+                    break;
+                //miss
+                case 3:
+                    text = 'unik';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Fast';
+                    break;
+                default:
+                    break;
+                
+            }
+            break;
+        case 2500:
+            switch (type) {
+                //normal attack
+                case 0:
+                    text = '-'+value;
+                    colorOfText = 'white';  
+                    typeOfText = 'Normal';
+                    break;
+                //crit attack
+                case 1:
+                    text = '-'+value;
+                    colorOfText = '#D61801';
+                    typeOfText = 'Normal';
+                    break;
+                //block
+                case 2:
+                    text = 'blok';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Normal';
+                    break;
+                //miss
+                case 3:
+                    text = 'unik';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Normal';
+                    break;
+                default:
+                    break;
+                
+            }
+            break;
+        case 3750:
+            switch (type) {
+                //normal attack
+                case 0:
+                    text = '-'+value;
+                    colorOfText = 'white';  
+                    typeOfText = 'Hard';
+                    break;
+                //crit attack
+                case 1:
+                    text = '-'+value;
+                    colorOfText = '#D61801';
+                    typeOfText = 'Hard';
+                    break;
+                //block
+                case 2:
+                    text = 'blok';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Hard';
+                    break;
+                //miss
+                case 3:
+                    text = 'unik';
+                    colorOfText = '#FDAF08';
+                    typeOfText = 'Hard';
+                    break;
+                default:
+                    break;
+                
+            }
+            break;
+        default:
+            break;
+    }
+
 
     return (
-        <div className="combatDiv">
-          {check ?(<div key={id} className="combatDivText">
-                Hello World {value}</div>):('')}
-           
+        <div className="combatDivEnemyNormalAttack">
+         {check ? (<div key={id} style={{color:colorOfText}} className={`combatText${typeOfText}`}> {text}</div>):('')}
+         
         </div>
     )
 }
 
 export default CombatEnemyText
+
