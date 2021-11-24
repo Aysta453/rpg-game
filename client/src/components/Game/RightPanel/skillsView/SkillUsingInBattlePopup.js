@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
 import convertingStaticTime from '../../../../functions/convertingStaticTime';
 import showingActiveImageSkill from '../../../../functions/showingActiveImageSkill';
@@ -26,7 +26,7 @@ const SkillUsingInBattlePopup = ({ valueOfPopup, showPopup, skill, handleChangeA
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{skill.nameOfSkill}</div>
                 <div className="image">
-                    <img src={`/images/${image}.png`}/>
+                    <img src={`/images/${image}.png`} alt=""/>
                 </div>
                 <div className="description">{skill.descriptionOfSkill}</div>
                <div className="values">

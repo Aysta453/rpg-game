@@ -42,6 +42,8 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/mage/small/12';
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -82,7 +84,11 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/mage/big/12';
                             break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;
@@ -126,6 +132,8 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/priest/small/12';
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -166,7 +174,11 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/priest/big/12';
                             break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;
@@ -210,6 +222,8 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/berserk/small/12';
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -250,7 +264,11 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/berserk/big/12';
                             break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;
@@ -294,6 +312,8 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/hunter/small/12';
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -334,7 +354,11 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/hunter/big/12';
                             break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;
@@ -378,6 +402,8 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/warrior/small/12';
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -418,7 +444,11 @@ export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) 
                         case 12:
                             url = 'skills/passive/warrior/big/12';
                             break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;

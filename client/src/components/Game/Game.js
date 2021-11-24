@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {useDispatch,useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import './index.css';
 import RightPanel from './RightPanel/RightPanel.js';
 import LeftPanel from './LeftPanel/LeftPanel.js';
@@ -13,8 +13,6 @@ import {getalltradeitems } from '../../actions/trades';
 import {getheroskillstobattle } from '../../actions/skillsInBattle';
 import { getinventory } from '../../actions/inventory';
 
-import playerGameValues from '../../functions/playerGameValues';
-
 const Game = () => {
     const dispatch = useDispatch();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -25,7 +23,6 @@ const Game = () => {
     const [buttonsControl, setButtonsControl] = useState(false);
 
     const setButtons = () => {
-            console.log(buttonsControl);
         setButtonsControl(!buttonsControl);
     }
 
@@ -39,7 +36,7 @@ const Game = () => {
         dispatch(getheroskillstobattle({ owner: currentOwner }));
             dispatch(getinventory({ owner: currentOwner }));
 
-        
+        // eslint-disable-next-line
         }, [dispatch]);
 
     

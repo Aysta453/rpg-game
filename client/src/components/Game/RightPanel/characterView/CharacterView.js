@@ -8,8 +8,8 @@ import CharacterStatistic from "./characterStatistic/CharacterStatistic";
 import CharStatExtended from './charStatExtended/CharStatExtended';
 
 import {increasestatstrength,increasestatdexterity,increasestatintellect,increasestatstamina,increasestatspirit} from '../../../../actions/stats';
-import { decreasegold,inc, increasegold} from '../../../../actions/hero';
-import { getallitems,deletethisitem,assignitemtoinventory,deleteandassignitem } from '../../../../actions/item';
+import { decreasegold, increasegold} from '../../../../actions/hero';
+
 import { changeiteminuse } from '../../../../actions/itemInUse';
 import { deleitemfrominventory, getinventory,changeitemininventory } from '../../../../actions/inventory';
 
@@ -25,7 +25,6 @@ const CharacterView = (user) => {
     const inventory = useSelector(state => state.inventory);
     const skills = useSelector(state => state.skills);
     let playerStats = playerGameValues(hero, itemInUse, stats,skills.passive);
-   
     const dispatch = useDispatch();
 
     const handleSubmit = (a, b) => {
@@ -45,7 +44,9 @@ const CharacterView = (user) => {
                 break;
             case 5:
                 dispatch(increasestatspirit({owner:user.user}));     
-                break;
+                       break;
+                   default:
+                       break;
         }
         dispatch(decreasegold({ owner: user.user, amountOfGold: b }));
         }
@@ -73,7 +74,7 @@ const CharacterView = (user) => {
             case 'necklace':
                 itemToInventory = itemInUse.necklace;
                 break;
-            case 'chest':
+            case 'armor':
                 itemToInventory = itemInUse.armor;
                 break;
             case 'pants':
@@ -85,6 +86,8 @@ const CharacterView = (user) => {
             case 'weapon':
                 itemToInventory = itemInUse.weapon;
                 break;
+            default:
+                break;
         };
         dispatch(changeitemininventory({ owner: user.user, itemNumber: slotNumber, item: itemToInventory }));
         dispatch(changeiteminuse({ owner: user.user, item: item }));
@@ -92,7 +95,7 @@ const CharacterView = (user) => {
 
     useEffect(() => {
         dispatch(getinventory({ owner: user.user }));
- 
+    // eslint-disable-next-line
     }, [dispatch]);
     useEffect(() => {
                dispatch(setPlayerValues(playerStats));

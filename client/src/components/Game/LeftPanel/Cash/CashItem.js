@@ -1,5 +1,4 @@
 import React from 'react';
-var i = 1;
 
 const CashItem = ({value,name,id}) => {
 

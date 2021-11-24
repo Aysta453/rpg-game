@@ -15,14 +15,6 @@ const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeL
         setPopupValueset(!popupValue);
     }
 
-    let statementToUnlock;
-
-    if ((hero.level >= levelOfSkill) && (availablePoints > 0) && (skill.isUnlocked === false)) {
-        statementToUnlock = true;
-    } else {
-        statementToUnlock = false;
-    }
-
     return (
         <>
             <div className='Element'>

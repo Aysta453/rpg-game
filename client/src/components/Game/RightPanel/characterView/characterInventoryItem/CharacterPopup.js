@@ -22,7 +22,7 @@ const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemI
         case 'necklace':
             typeOfItem = 'Naszyjnik';
             break;
-        case 'chest':
+        case 'armor':
             typeOfItem = 'Zbroja';
             break;
         case 'pants':
@@ -42,7 +42,7 @@ const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemI
             <div className="inventoryItem-inner">
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{specyficItem.nameOfItem}</div>
-                <div className="image"><img src={`/images/eq${image}.png`}/></div>
+                <div className="image"><img src={`/images/eq${image}.png`} alt=""/></div>
                 <div className="typeOfItem">{typeOfItem}</div>
                 <div className="infoAboutItem">
                     <div className="undertitle">

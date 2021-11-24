@@ -54,6 +54,7 @@ export const getHeroSkills = (formData) => API.post(`/skills/getHeroSkills`, for
 export const createNewSkillsToAccount = (formData) => API.post(`/skills/createNewSkillsToAccount`, formData);
 export const unlockedSkill = (formData) => API.post(`/skills/unlockedSkill`, formData);
 export const assignSkill = (formData) => API.post(`/skills/assignSkill`, formData);
+export const addNewAvailablePoint = (formData) => API.post(`/skills/addNewAvailablePoint`, formData);
 
 export const createMissions = (formData) => API.post(`/missions/createMissions`, formData);
 export const showMissions = (formData) => API.post(`/missions/showMissions`, formData);

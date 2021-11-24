@@ -1,4 +1,4 @@
-import { FETCH_O_INVENTORY,DELETE_ITEM,CREATE_ITEM,ASSIGN_ITEM_TO_INVENTORY , DELETE_AND_ASSIGN_ITEM_TO_INVENTORY} from '../constants/actionTypes';
+import { FETCH_O_INVENTORY,DELETE_ITEM,CREATE_ITEM , DELETE_AND_ASSIGN_ITEM_TO_INVENTORY} from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 

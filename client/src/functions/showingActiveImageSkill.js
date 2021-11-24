@@ -23,7 +23,9 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/mage/small/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -45,9 +47,13 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/mage/big/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
+                default:
+                            break;
             }
             break;
         case 'Priest':
@@ -71,7 +77,9 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/priest/small/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -93,9 +101,13 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/priest/big/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
+                default:
+                            break;
             }
             break;
         case 'Berserk':
@@ -119,7 +131,9 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/berserk/small/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -141,9 +155,13 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/berserk/big/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
+                default:
+                            break;
             }
             break;
         case 'Hunter':
@@ -167,7 +185,9 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/hunter/small/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -189,9 +209,13 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/hunter/big/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
+                default:
+                            break;
             }
             break;
         case 'Warrior':
@@ -215,7 +239,9 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/warrior/small/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
@@ -237,8 +263,12 @@ export default function showingActiveImageSkill (heroClass,size,numberOfSkill) {
                                 break;
                         case 6:
                             url = 'skills/active/warrior/big/6';
-                                break;
+                            break;
+                        default:
+                            break;
                     }
+                    break;
+                default:
                     break;
             }
             break;

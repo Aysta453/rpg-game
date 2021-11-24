@@ -102,6 +102,8 @@ const DealerView = (user) => {
             case 'weapon':
                 itemToInventory = itemInUse.weapon;
                 break;
+            default:
+                break;
         };
         dispatch(changeitemininventory({ owner: user.user, itemNumber: slotNumber, item: itemToInventory }));
         dispatch(changeiteminuse({ owner: user.user, item: item }));
@@ -112,8 +114,9 @@ const DealerView = (user) => {
 
 
     useEffect(() => {
+        
      dispatch(getinventory({ owner: user.user }));
-      
+      // eslint-disable-next-line
     }, [dispatch]);
     useEffect(() => {
                dispatch(setPlayerValues(playerStats));

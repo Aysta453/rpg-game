@@ -95,7 +95,7 @@ const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAss
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{skill.nameOfSkill}</div>
                 <div className="image">
-                    <img src={`/images/${image}.png`}/>
+                    <img src={`/images/${image}.png`} alt=""/>
                 </div>
                 <div className="description">{skill.descriptionOfSkill}</div>
                 <div className="values">

@@ -29,10 +29,12 @@ const CharacterAvatar = () => {
             heroClassPolish = 'Łucznik';
             image = '../images/charactersAvatars/3.png';
             break;
+        default:
+            break;
     }
     return(<>
         <div className='avatar' >
-            <img src={`${image}`}  className="imageSkill"/>
+            <img src={`${image}`} alt="" className="imageSkill"/>
             <div className={'background'}>
                 <div className='infoNick'>{hero.nick}</div>
                 <div className='klasa'>{heroClassPolish}</div>

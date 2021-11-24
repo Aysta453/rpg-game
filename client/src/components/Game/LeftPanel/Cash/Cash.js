@@ -1,12 +1,11 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import CashItem from './CashItem.js';
 
-import { useDispatch,useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import './cash.css';
 
 
 const Cash = () => {
-    const dispatch = useDispatch();
      const hero = useSelector(state => state.hero);
     
     return (<>

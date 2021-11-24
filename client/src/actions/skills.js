@@ -1,4 +1,4 @@
-import {FETCH_SKILLS,CREATE_SKILLS,ASSIGN_SKILLS,UNLOCK_SKILLS } from '../constants/actionTypes';
+import {FETCH_SKILLS,CREATE_SKILLS,ASSIGN_SKILLS,UNLOCK_SKILLS,ADD_POINT} from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
@@ -31,8 +31,18 @@ export const assignskill = (formData) => async (dispatch) => {
   console.log(formData);
   try {
     const { data } = await api.assignSkill(formData);
-    console.log(data);
+
     dispatch({ type: ASSIGN_SKILLS, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addnewavailablepoint = (formData) => async (dispatch) => {
+  try {
+    const { data } = await api.addNewAvailablePoint(formData);
+
+    dispatch({ type: ADD_POINT, payload: data });
   } catch (error) {
     console.log(error);
   }

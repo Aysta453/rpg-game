@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import SkillUsingInBattle from './SkillUsingInBattle.js';
@@ -39,9 +40,9 @@ const SkillsView = () => {
 
     };
     useEffect(() => {
-      dispatch(setPlayerValues(playerStats));
+        dispatch(setPlayerValues(playerStats));
+        // eslint-disable-next-line
     },[]);
-   
     return (
         <>    
             <div className='skillsView'>

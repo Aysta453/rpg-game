@@ -7,12 +7,6 @@ const DealerViewItem = ({ dealerItem, getNewTradeItem, positionOfItem, hero ,buy
     const showPopup = () => {
         setPopupValueset(!popupValue);
     }
-    let statementToBuy;
-    if (hero.gold >= dealerItem.cost) {
-        statementToBuy = true;
-    } else {
-        statementToBuy = false;
-    }
 
     return (<>
         <div className="dealerViewItem">

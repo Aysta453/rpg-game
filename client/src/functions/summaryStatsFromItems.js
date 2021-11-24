@@ -20,6 +20,8 @@ export default function summaryStatsFromItems(itemsInUse,type) {
         case 6://defensive
             valueOfItemsSummary= itemsInUse.head.defensive +itemsInUse.necklace.defensive +itemsInUse.armor.defensive +itemsInUse.pants.defensive +itemsInUse.boots.defensive +itemsInUse.weapon.defensive;
             break;
+        default:
+            break;
     }
     return valueOfItemsSummary;
 }

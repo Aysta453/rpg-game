@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import convertingTime from '../../../../functions/convertingTime';
 import './SinglePlayerGameView.css';
 const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
@@ -23,15 +23,16 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
             setTime(time => time - 1);
           
         }, 1 * 1000);
+
     }, []);
     useEffect(() => {
-        if (time == 0) {
+        if (time === 0) {
             sleep(1000).then(() => {
                 setWindowOfElements(10);
             });
         }
+ 
     }, [time]);
-    console.log(game);
     return(<>
         <div className="singleGameWaitingView">
             <div className="title">

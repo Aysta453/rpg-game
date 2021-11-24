@@ -12,9 +12,9 @@ const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOf
         showPopup();
     };
     let statementToBuy;
-    if ((inventory.firstItem.isEmpty == false && inventory.secondItem.isEmpty == false && inventory.thirdItem.isEmpty == false && inventory.forthItem.isEmpty == false &&
-        inventory.fifthItem.isEmpty == false && inventory.sixthItem.isEmpty == false && inventory.seventhItem.isEmpty == false && inventory.eigthItem.isEmpty == false &&
-        inventory.ninthItem.isEmpty == false ) || (hero.gold <= 0)|| (hero.gold < specyficItem.cost)) {
+    if ((inventory.firstItem.isEmpty === false && inventory.secondItem.isEmpty === false && inventory.thirdItem.isEmpty === false && inventory.forthItem.isEmpty === false &&
+        inventory.fifthItem.isEmpty === false && inventory.sixthItem.isEmpty === false && inventory.seventhItem.isEmpty === false && inventory.eigthItem.isEmpty === false &&
+        inventory.ninthItem.isEmpty === false ) || (hero.gold <= 0)|| (hero.gold < specyficItem.cost)) {
         statementToBuy = false;
     } else {
         statementToBuy =true;
@@ -29,7 +29,7 @@ const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOf
         case 'necklace':
             typeOfItem = 'Naszyjnik';
             break;
-        case 'chest':
+        case 'armor':
             typeOfItem = 'Zbroja';
             break;
         case 'pants':
@@ -52,7 +52,7 @@ const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOf
                      showPopup();
                  }}>X</button>
                 <div className="title">{specyficItem.nameOfItem}</div>
-                 <div className="image"><img src={`/images/eq${image}.png`} /></div>
+                 <div className="image"><img src={`/images/eq${image}.png`} alt=""/></div>
                 <div className="typeOfItem">{typeOfItem}</div>
                 <div className="infoAboutItem">
                     <div className="undertitle">

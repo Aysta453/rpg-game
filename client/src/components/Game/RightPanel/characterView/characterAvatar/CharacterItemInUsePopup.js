@@ -17,7 +17,7 @@ const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup, size }) =
         case 'necklace':
             typeOfItem = 'Naszyjnik';
             break;
-        case 'chest':
+        case 'armor':
             typeOfItem = 'Zbroja';
             break;
         case 'pants':
@@ -38,7 +38,7 @@ const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup, size }) =
             <div className="itemInUse-inner">
                 <button className="close-btn" onClick={() => { showPopup() }}>X</button>
                 <div className="title">{itemInUse.nameOfItem}</div>
-                <div className="image"><img src={`/images/eq${image}.png`}/></div>
+                <div className="image"><img src={`/images/eq${image}.png`} alt=""/></div>
                 <div className="typeOfItem">{typeOfItem}</div>
                 <div className="infoAboutItem">
                     <div className="undertitle">
