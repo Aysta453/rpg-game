@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 import Hero from '../models/hero.js';
-
+import { addNewAvailablePoint } from './skills.js';
 const router = express.Router();
 
 //creating New Hero
@@ -101,6 +101,7 @@ export const addRewardsAfterMission = async (req, res) => {
     let checkExp = result.expStart + Exp; 
     let update = {}; 
     if (checkExp >= result.expStop) {
+
         checkExp = checkExp - result.expStop; 
         update = {
             gold: result.gold + amountOfGold,

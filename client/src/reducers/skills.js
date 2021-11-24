@@ -1,4 +1,4 @@
-import { FETCH_SKILLS,CREATE_SKILLS,UNLOCK_SKILLS,ASSIGN_SKILLS} from '../constants/actionTypes';
+import { FETCH_SKILLS,CREATE_SKILLS,UNLOCK_SKILLS,ASSIGN_SKILLS,ADD_POINT} from '../constants/actionTypes';
 
 export default (skills = [], action) => {
   switch (action.type) {
@@ -9,6 +9,8 @@ export default (skills = [], action) => {
      case ASSIGN_SKILLS:
       return action.payload;
      case FETCH_SKILLS:
+      return action.payload;
+    case ADD_POINT:
       return action.payload;
     default:
       return skills;

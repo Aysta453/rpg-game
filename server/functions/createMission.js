@@ -130,21 +130,15 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
         default:
             break;
     };
-function logCalc(base, x) {
-	var a = Math.log(x);
-    var b = Math.log(base);
-  
-    return a / b;
-}
 
     goldOfMission = ((secondValue * level) * 2) * Math.floor((Math.random() * 10) + 1);  
     experienceOfMission = ((secondValue * level) * 3) * Math.floor((Math.random() * 10) + 1);
 
-    monsterHealtPoints = ((dificultMode * level) * 20) * Math.floor((Math.random() * 10) + 1);
-    monsterDefense =Math.floor(logCalc(1.30,((dificultMode * level) * 1) * Math.floor((Math.random() * 8) + 1)));
+    monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * 10) + 6);
+    monsterDefense =Math.floor(((dificultMode * level)) * Math.floor((Math.random() * 5) + 1));
     do {
-        monsterMinAttack = ((dificultMode * level) * 1) * Math.floor((Math.random() * 2) + 1);
-        monsterMaxAttack = ((dificultMode * level) * 2) * Math.floor((Math.random() * 2) + 1);
+        monsterMinAttack = ((dificultMode * level)) * Math.floor((Math.random() * 5) + 4);
+        monsterMaxAttack = ((dificultMode * level)) * Math.floor((Math.random() * 5) + 4);
     }while (monsterMinAttack>= monsterMaxAttack)
 
     let { dataOfItem } = {};
@@ -152,7 +146,6 @@ function logCalc(base, x) {
     if (chanceOnItem <= 20) {
         let itemInMission = creatingItem(heroClass, level, 0, 0, 0);
         dataOfItem = itemInMission;
-        
     } else {
         dataOfItem = {
             isEmpty: true,

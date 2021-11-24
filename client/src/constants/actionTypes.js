@@ -1,6 +1,8 @@
 export const CREATE = 'CREATE';
 export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';
+export const ERROR_HANDLE = 'ERROR_HANDLE';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 export const FETCH_ALL = 'FETCH_ALL';
 export const HERO_FETCH = 'HERO_FETCH';
@@ -36,7 +38,7 @@ export const CREATE_O_ITEMS = 'CREATE_O_ITEMS';
 export const ASSIGN_SKILLS = 'ASSIGN_SKILLS';
 export const UNLOCK_SKILLS = 'UNLOCK_SKILLS';
 export const HERO_AFTER_MISSION = 'HERO_AFTER_MISSION';
-
+export const ADD_POINT = 'ADD_POINT';
 export const CREATE_MISSIONS = 'CREATE_MISSIONS';
 export const SHOW_MISSIONS = 'SHOW_MISSIONS';
 export const NEW_MISSIONS = 'NEW_MISSIONS';

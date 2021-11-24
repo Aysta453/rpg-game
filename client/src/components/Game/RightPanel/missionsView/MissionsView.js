@@ -23,14 +23,15 @@ const MissionsView = ({ setWindowOfElements ,setButtons }) => {
     }
     useEffect(() => {
         dispatch(setPlayerValues(data));
+        // eslint-disable-next-line
     }, [])
     return(<>
         <div className='missionsView'>
             <div className='topic'>Tablica Ogłoszeń</div>
             <div className='missions'>
-                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.firstMission}/>
-                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.secondMission}/>
-                <MissionView submitClick={submitClick} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.thirdMission}/>
+                <MissionView submitClick={submitClick} missionType={1} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.firstMission}/>
+                <MissionView submitClick={submitClick} missionType={2} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.secondMission}/>
+                <MissionView submitClick={submitClick} missionType={3} setButtons={setButtons} size={1} setWindowOfElements={setWindowOfElements} mission={missions.thirdMission}/>
               
             </div>
             </div>
