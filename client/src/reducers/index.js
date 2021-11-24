@@ -12,5 +12,6 @@ import game from './game.js';
 import skillsToBattle from './skillsToBattle.js';
 import playerGame from './playerGame.js';
 import inventory from './inventory.js';
+import error from './error.js';
 
-export const reducers = combineReducers({auth,hero,stats,item,itemInUse,skills,missions,trades,game,skillsToBattle,playerGame,inventory});
+export const reducers = combineReducers({auth,hero,stats,item,itemInUse,skills,missions,trades,game,skillsToBattle,playerGame,inventory,error});
