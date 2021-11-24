@@ -1,6 +1,8 @@
-import { AUTH } from '../constants/actionTypes';
+import { AUTH,ERROR_HANDLE } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
+
+
 
 export const signin = (formData,history) => async (dispatch) => {
     try {
@@ -8,6 +10,7 @@ export const signin = (formData,history) => async (dispatch) => {
         dispatch({ type: AUTH, data });
         history.push('/home');
     } catch (error) {
+        dispatch({ type: ERROR_HANDLE, payload:error.response.data  });
         console.log(error);
     }
 }
@@ -34,6 +37,7 @@ export const signup = (formData,history) => async (dispatch) => {
         history.push('/home');
 
     } catch (error) {
+         dispatch({ type: ERROR_HANDLE, payload:error.response.data  });
         console.log(error);
     }
 }

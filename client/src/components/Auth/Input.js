@@ -1,7 +1,7 @@
 import React from 'react';
 import './auth.css';
 
-const Input = ({name,handleChange,label,type}) => {
+const Input = ({name,handleChange,label,type ,value}) => {
     return (
         <>
             <div className='authElementInput'>
@@ -9,7 +9,7 @@ const Input = ({name,handleChange,label,type}) => {
                      <h3>{label}</h3> 
                 </div>
                 <div className='authElementInputInput'>
-                    <input name={name}  onChange={handleChange} variant="outlined" required type={type} />
+                    <input name={name} value={value} onChange={handleChange} variant="outlined" required type={type} />
                 </div>
             </div>
         </>

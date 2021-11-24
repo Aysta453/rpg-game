@@ -1,81 +1,304 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+
 .auth {
   width: 100%;
   height: 100%;
+  border: 1px solid rgba(128, 0, 0, 0.22);
 
-  border: 1px solid red;
   float: left;
   padding: 10px;
 }
+
 .authTitle {
   width: 100%;
-  height: 15vh;
-  padding: 5vh;
+  height: 150px;
+  padding: 35px;
+  font-size: 45px;
+  font-weight: 700;
   border: 1px solid red;
-  background-color: rgb(9, 9, 29);
+  background-color: darkred;
   text-align: center;
-  color: red;
+  color: #f3a712;
 }
 .authForm {
   width: 100%;
-  height: 80vh;
-  padding: 5vh;
+  height: 750px;
+  padding: 20px;
   text-align: center;
-  color: red;
 }
-.authContent {
-  display: inline-block;
-  width: 45vw;
-  height: 50vh;
-
+.authClassContent {
+  background-color: #181818;
+  float: left;
+  width: 700px;
+  height: 450px;
   border: 1px solid red;
-  text-align: center;
-  color: red;
+  position: relative;
+  top: 120px;
+  left: 100px;
+  visibility: visible;
+  opacity: 1;
 }
-.authContentTitle {
-  padding-top: 3vh;
-  display: inline-block;
-  width: 45vw;
-  height: 10vh;
+.authClassContent .title {
+  width: 100%;
+  height: 75px;
   background-color: rgb(9, 9, 29);
   border: 1px solid red;
+  background-color: darkred;
+  text-align: center;
+  color: #f3a712;
+  float: left;
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.authClassContent .avatar {
+  margin-left: 15px;
+  float: left;
+
+  width: 301px;
+  height: 266px;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(148, 0, 0, 0.72);
+}
+.authClassContent .avatar .imageAvatar {
+  position: relative;
+}
+.authClassContent .right {
+  float: left;
+  width: 350px;
+  height: 266px;
+
+  margin-left: 20px;
+}
+.authClassContent .right .heroClass {
+  float: left;
+  width: 350px;
+  height: 60px;
+  color: #f3a712;
+  font-size: 28px;
+  font-weight: 400;
+  padding-top: 8px;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(148, 0, 0, 0.72);
+}
+.authClassContent .right .heroDescription {
+  margin-top: 5px;
+  padding-top: 10px;
+  font-size: 25px;
+  font-weight: 300;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(148, 0, 0, 0.72);
+  float: left;
+  width: 350px;
+  color: #f3a712;
+  height: 200px;
+}
+.authClassContent .buttons {
+  margin-top: 2px;
+  padding-top: 20px;
+  float: left;
+  width: 100%;
+  height: 90px;
+  background-color: #181818;
+}
+.authContent {
+  background-color: #181818;
+  float: left;
+  width: 700px;
+  border: 1px solid red;
   text-align: center;
   color: red;
+  top: 120px;
+  position: relative;
 }
+.logItems {
+  margin-top: 5px;
+}
+.authContentTitle {
+  display: inline-block;
+  width: 700px;
+  height: 75px;
+  border: 1px solid red;
+  background-color: darkred;
+  text-align: center;
+  color: #f3a712;
+  font-size: 35px;
+  font-weight: 600;
+  padding-top: 8px;
+}
+
 .authElementInput {
   width: 100%;
-  height: 6vh;
-
+  height: 72px;
   float: left;
+  color: #f3a712;
+  font-size: 22px;
 }
+
 .authElementInputName {
   float: left;
   padding-top: 10px;
   width: 50%;
-  height: 5vh;
+  height: 72px;
 }
 .authElementInputInput {
   padding-top: 12px;
   text-align: center;
   display: inline-block;
   width: 50%;
-  height: 6vh;
+  height: 72px;
 }
-
-.buttonAuth {
-  background-color: rgb(9, 9, 29);
-  color: red;
-  border: 1px solid red;
+.authElementInput input {
+  font-size: 20px;
+}
+.main .authForm .authClassContent .buttons .previousButton {
+  background-color: #1c1c1c;
+  color: #f3a712;
+  border: 2px solid #050505;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.main .authForm .authClassContent .buttons .nextButton {
+  background-color: #1c1c1c;
+  color: #f3a712;
+  border: 2px solid #050505;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 150px;
+
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.main .authForm .authClassContent .buttons .previousButton:hover {
+  color: #000000;
+  background-color: rgba(250, 173, 18, 0.95);
+}
+.main .authForm .authClassContent .buttons .nextButton:hover {
+  color: #000000;
+  background-color: rgba(250, 173, 18, 0.95);
+}
+
+.buttonAuth {
+  background-color: #1c1c1c;
+  color: #f3a712;
+  border: 2px solid #050505;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+
   transition-duration: 0.4s;
   cursor: pointer;
 }
 
 .buttonAuth:hover {
-  background-color: red;
-  color: rgb(9, 9, 29);
+  color: #000000;
+  background-color: rgba(250, 173, 18, 0.95);
+}
+
+.popup-error {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-inner {
+  position: fixed;
+  padding: 32px;
+  width: 100%;
+  height: 400px;
+  max-width: 500px;
+  border: 1px solid red;
+  background-color: #181818;
+}
+
+.error-inner .title {
+  border: 1px solid red;
+  background-color: darkred;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+  top: -15px;
+  color: #f3a712;
+}
+
+.error-inner .description {
+  color: #f3a712;
+  width: 100%;
+  text-align: center;
+  height: 120px;
+  float: left;
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+}
+.error-inner .button-div {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-top: 68px;
+  font-size: 26px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+}
+.error-inner .button-div button {
+  width: 175px;
+  background-color: #1c1c1c;
+  color: #f3a712;
+  border: 2px solid #050505;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+.error-inner .button-div button:hover {
+  color: #000000;
+  background-color: rgba(250, 173, 18, 0.95);
 }
