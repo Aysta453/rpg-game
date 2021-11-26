@@ -3,7 +3,6 @@ import { useSelector} from 'react-redux';
 
 const CharStatExtended = () => {
     const playerGame = useSelector(state => state.playerGame);
-    console.log(playerGame);
     return (<>
           <div className='statsExtended'>
               <div className='statExtended'>

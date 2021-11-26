@@ -93,14 +93,14 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                 }
                 break;
             case 2:
-                console.log('yes');
+   
                 setSecondButton(!secondButton);
                 if (firstButton === true && thirdButton === true) {
                     setFirstButton(firstButton => !firstButton);
                     setThirdButton(thirdButton => !thirdButton);
-                    console.log('yes1');
+              
                     sleep(time).then(() => {
-                        console.log('yes2');
+                    
                         setFirstButton(firstButton => !firstButton);
                         setThirdButton(thirdButton => !thirdButton);
                     })
@@ -612,7 +612,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             <div className="mode atk1">
                             {firstModeButton ? (<button onClick={() => { handleModeButtons(1); setAttackMode(attackMode => attackMode = 1250); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>): (<button disabled onClick={() => { handleModeButtons(1); changeTime(1250, 0.5); }}><img className="imageMode" alt="" src="/images/modes/1.png"/></button>)}
                              <div className="attackTooltip">
-                                <p className={"nametool"}>Tryb Wolny</p>
+                                <p className={"nametool"}>Tryb Szybki</p>
                                 <p className={"costtool"}>Szybkość ataku: <span className={"pcosttool"}>1.35s</span></p>
                                 <p className={"worftool"}>Wartość ataków: <span className={"pworftool"}>{Math.floor(playerGame.minAttack/2)}-{Math.floor(playerGame.maxAttack/2)}</span></p>
                             </div>
@@ -620,7 +620,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                             <div className="mode atk2">
                                 {secondModeButton ? (<button onClick={() => { handleModeButtons(2);setAttackMode(attackMode => attackMode = 2500); changeTime(2500, 1); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>): (<button disabled onClick={() => { handleModeButtons(2); changeTime(2500, 0.5); }}><img className="imageMode" alt="" src="/images/modes/2.png"/></button>)}
                             <div className="attackTooltip">
-                                <p className={"nametool"}>Tryb Wolny</p>
+                                <p className={"nametool"}>Tryb Normalny</p>
                                 <p className={"costtool"}>Szybkość ataku: <span className={"pcosttool"}>2.5s</span></p>
                                 <p className={"worftool"}>Wartość ataków: <span className={"pworftool"}>{Math.floor(playerGame.minAttack)}-{Math.floor(playerGame.maxAttack)}</span></p>
                             </div>

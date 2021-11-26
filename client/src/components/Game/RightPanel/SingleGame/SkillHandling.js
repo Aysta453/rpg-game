@@ -133,7 +133,7 @@ const SkillHandling = ({numberOfSkill,healOverTime,functionNormalPlayerHeal, fun
             //attack      
             case 0:
                 handlingSkillButtons(numberOfSkill, skill.castTime);
-                let damage = Math.floor((((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)) + (playerStats.bonusToSpecialAttack* skill.valueOfSkill)));
+                let damage = Math.floor((((Math.random() * ((playerStats.maxAttack+(playerStats.bonusToSpecialAttack* skill.valueOfSkill)) - playerStats.minAttack+(playerStats.bonusToSpecialAttack* skill.valueOfSkill)) + 1) + playerStats.minAttack+(playerStats.bonusToSpecialAttack* skill.valueOfSkill))));
                 setTimeout(() => {
 
                     setHpEnemy(hpEnemy => hpEnemy - damage);
@@ -318,7 +318,7 @@ const SkillHandling = ({numberOfSkill,healOverTime,functionNormalPlayerHeal, fun
 
     const showValueOfSkillFunction =(playerStats,skill)=> {
         let value;
-        console.log(skill.typeOfSkill);
+
         switch (skill.typeOfSkill) {
             case 0:
                 value = Math.floor(( playerStats.minAttack) + (playerStats.bonusToSpecialAttack* skill.valueOfSkill)) +' - '+Math.floor(( playerStats.maxAttack) + (playerStats.bonusToSpecialAttack* skill.valueOfSkill)) ;

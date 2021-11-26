@@ -10,7 +10,7 @@ const router = express.Router();
 
 export const createAllTradeItems = async (req, res) => {
     const { owner, level, heroClass} = req.body;
-    console.log(owner);
+
     let first = creatingItem(heroClass, level, 1, 0, 0);
     let second = creatingItem(heroClass, level, 1, 0, 0);
     let third = creatingItem(heroClass, level, 1, 0, 0);
@@ -54,7 +54,6 @@ export const getAllTradeItems = async (req, res) => {
 
 export const updateAllTradeItems = async (req, res) => {
     const { owner, level, heroClass} = req.body;
-    console.log(owner + " " + heroClass + " " + level);
     let first = creatingItem(heroClass, level, 1, 0, 0);
     let second = creatingItem(heroClass, level, 1, 0, 0);
     let third = creatingItem(heroClass, level, 1, 0, 0);
@@ -77,7 +76,7 @@ export const updateAllTradeItems = async (req, res) => {
     try {
         const result = await Trade.findOneAndUpdate({ owner: owner },data,{new:true});
         res.status(201).json(result);
-        console.log(result);
+
     } catch (error) {
         console.log(error);
         res.status(409).json({ message: error.message });

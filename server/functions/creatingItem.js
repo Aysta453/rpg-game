@@ -45,7 +45,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
                 attackMinValue =Math.round(((Math.random() * 3) + 1) * (level * 1));
                 attackMaxValue =Math.round(((Math.random() * 3) + 1) * (level * 3));
             } while (attackMinValue >= attackMaxValue); 
-             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level * 5));
+             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level /2));
              strengthValue = Math.round(((Math.random() * 3) + 1) * (level * 3));
              dexterityValue = Math.round(((Math.random() * 3) + 1) * (level * 2));
              intellectValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
@@ -57,7 +57,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
                 attackMinValue =Math.round(((Math.random() * 3) + 1) * (level * 3));
                 attackMaxValue =Math.round(((Math.random() * 3) + 1) * (level * 6));
             } while (attackMinValue >= attackMaxValue); 
-             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
+             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level /5));
              strengthValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
              dexterityValue = Math.round(((Math.random() * 3) + 1) * (level * 2));
              intellectValue = Math.round(((Math.random() * 3) + 1) * (level * 5));
@@ -69,7 +69,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
                attackMinValue =Math.round(((Math.random() * 3) + 1) * (level * 2));
                 attackMaxValue =Math.round(((Math.random() * 3) + 1) * (level * 4));
             } while (attackMinValue >= attackMaxValue); 
-             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
+             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level /5));
              strengthValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
              dexterityValue = Math.round(((Math.random() * 3) + 1) * (level * 2));
              intellectValue = Math.round(((Math.random() * 3) + 1) * (level * 5));
@@ -81,7 +81,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
                attackMinValue =Math.round(((Math.random() * 3) + 1) * (level * 3));
                 attackMaxValue =Math.round(((Math.random() * 3) + 1) * (level * 5));
             } while (attackMinValue >= attackMaxValue); 
-             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level * 3));
+             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level/3));
              strengthValue = Math.round(((Math.random() * 3) + 1) * (level * 3));
              dexterityValue = Math.round(((Math.random() * 3) + 1) * (level * 5));
              intellectValue = Math.round(((Math.random() * 3) + 1) * (level * 3));
@@ -93,7 +93,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
                 attackMinValue =Math.round(((Math.random() * 3) + 1) * (level * 2));
                 attackMaxValue =Math.round(((Math.random() * 3) + 1) * (level * 5));
             } while (attackMinValue >= attackMaxValue); 
-             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level * 3));
+             defensiveValue = Math.round(((Math.random() * 3) + 1) * (level /2));
              strengthValue = Math.round(((Math.random() * 3) + 1) * (level * 5));
              dexterityValue = Math.round(((Math.random() * 3) + 1) * (level * 1));
              intellectValue = Math.round(((Math.random() * 3) + 1) * (level * 2));
@@ -104,54 +104,54 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     } else {
         switch (heroClass) {
         case "Warrior": 
-            attackMinValue=1;
-            attackMaxValue=5;
+            attackMinValue=2;
+            attackMaxValue=8;
             defensiveValue = 5;
-            strengthValue = 4;
-            dexterityValue = 2;
-            intellectValue = 1;
-            staminaValue = 5;
-            spiritValue = 3;
+            strengthValue = 6;
+            dexterityValue = 4;
+            intellectValue = 2;
+            staminaValue = 10;
+            spiritValue = 6;
             break;
         case "Mage":
-            attackMinValue=1;
-            attackMaxValue=5;
+            attackMinValue=2;
+            attackMaxValue=8;
             defensiveValue = 1;
-            strengthValue = 1;
-            dexterityValue = 2;
-            intellectValue = 5;
-            staminaValue = 3;
-            spiritValue = 4; 
+            strengthValue = 4;
+            dexterityValue = 4;
+            intellectValue = 10;
+            staminaValue = 6;
+            spiritValue = 8; 
             break;
         case "Priest":
-            attackMinValue=1;
-            attackMaxValue=5;
+            attackMinValue=2;
+            attackMaxValue=8;
             defensiveValue = 2;
-            strengthValue = 1;
-            dexterityValue = 2;
-            intellectValue = 4;
-            staminaValue = 3;
-            spiritValue = 5;
+            strengthValue = 2;
+            dexterityValue = 4;
+            intellectValue = 8;
+            staminaValue = 6;
+            spiritValue = 10;
             break;
         case "Hunter":
-            attackMinValue=1;
-            attackMaxValue=5;
-            defensiveValue = 4;
-            strengthValue = 2;
-            dexterityValue = 5;
-            intellectValue = 1;
-            staminaValue = 4;
-            spiritValue = 3;
+            attackMinValue=2;
+            attackMaxValue=8;
+            defensiveValue = 3;
+            strengthValue = 4;
+            dexterityValue = 10;
+            intellectValue = 2;
+            staminaValue = 8;
+            spiritValue = 6;
             break;
         case "Berserk":
-            attackMinValue=1;
-            attackMaxValue=5;
+            attackMinValue=2;
+            attackMaxValue=8;
             defensiveValue = 3;
-            strengthValue = 5;
-            dexterityValue = 2;
-            intellectValue = 1;
-            staminaValue = 3;
-            spiritValue = 4;
+            strengthValue = 10;
+            dexterityValue = 4;
+            intellectValue = 2;
+            staminaValue = 6;
+            spiritValue = 8;
             break;
     };
  }
@@ -166,10 +166,10 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     }
   
 
-    let itemCost = (level * 2) * Math.floor((Math.random() * 5) + 1);
+    let itemCost = (level * 4) * Math.floor((Math.random() * 10) + 1);
 
     if (itemAssignment == 1) {
-        itemCost = itemCost * 10;
+        itemCost = Math.floor(itemCost * 20);
     }
     
     let nameOfItemsMagesHeads = ['Czapka Inteligencji', 'Czapka Ognia', 'Czapka Lodu'];

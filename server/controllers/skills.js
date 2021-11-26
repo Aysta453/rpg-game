@@ -56,7 +56,7 @@ export const assignSkill = async (req, res) => {
     const { owner, numerOfSkill } = req.body;
     let result1 = await Skills.findOne({ owner });
     let data = assigningSkill(result1, numerOfSkill);
-    console.log(data);
+
     try {
         const result1= await Skills.findOneAndUpdate({owner:owner}, data,{new:true});
         res.status(201).json(result1);

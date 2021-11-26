@@ -7,18 +7,18 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
     let timeOfMission;
     let goldOfMission;
     let experienceOfMission;
-    let nameOfMissions = ['Mroczny Las', 'Ludowe Pustkowie', 'Zakazane Bagno', 'Królewskie Przedmieścia', 'Wielki Targ', 'Las RavenHood', 'Szmaragdowa Wieża', 'Lodowa Góra', 'Lochy'];
-    let descriptionOfMissions = ['Kupiec przemierzajacy mroczny las został napadniety przez dużego zielonego orka. Została wystawiona wysoka nagroda. Podejmiesz się wyprawy do mrocznego Lasu?',
-        'Książęca wyprawa do sąsiedniego kraju została przerwana przez koczującego potwora na lodowym pustkowiu. Nagroda jest spora. Na pewno przyda Ci się gruby ubiór oraz coś ciepłego do picia. To jak, ruszasz?',
-        'Wieśniacy są napadani przez głodnego orka w niewielkiej wiosce Landerwood. A jak dobrze wiemy, głodny ork to zły ork. Czas ruszać.',
-        'Po małej sprzeczce z królem, jeden z jego zabójców postanowił działać na swoją rękę i terroryzuje przedmieścia. Czy chciałbyś należycie go oduczyć złych manier? Król słono płaci.',
-        'W mieście krąży plotka o grasującym Johnym, który ostatnio zabardzo rozwinął skrzydła na miejscowym targu. Pasuje mu dać nauczkę by nie przywłaszczał swoich rzeczy.',
-        'W okolicznym lesie zaczął szaleć jakiś Robin Chłód czy jakoś tak i okrada bogatych. Podobno rozdaje biednym, ale znając jego siedzi w barze i chwali się jaki to bogaty. Czeka na wizytę.',
-        'W szmaragdowym mieście, w szmaragdowej wieży, królewna piękna w opresji długo czeka... Jakoś tak to szło, historia piękna ale czy prawdziwa? Sprawdź, na coś się przydasz.',
-        'W dalekich górach jest stara legenda, że wielki lodowy smok śpi na ogromnym skarbu. Sprawdzisz to czy to tylko plotki?',
-        'W podmiejskich lochach zaczął grasować wielki czarny jak smoła smok. Coraz więcej osadników jest przerażona, że zostanie pożarta i uciekają smoka. Król błaga Cię o pomoc. Pewien szewczyk kombinuje coś z magiczną owcą. Pokonasz smoka po swojemu czy się boisz?'];
-    let nameOfMonsters = ['Zielony Ork', 'Lodowy Ork', 'Bagnisty Ork', 'Królewski Zabójca', 'Johny Lepkie Rączki', 'Leśny Łotrzyk', 'Szmaragdowy Smok', 'Lodowy Smok', 'Czarny Smok'];
-    let timeOfMissions = [10, 20, 30, 40, 50, 60, 70, 90, 100,120];
+    let nameOfMissions = ['Mroczny Las', 'Lodowe Pustkowie', 'Zakazane Bagno', 'Królewskie Przedmieścia', 'Wielki Targ', 'Port Myrefall', 'Szmaragdowa Wieża', 'Lodowa Góra', 'Lochy'];
+    let descriptionOfMissions = ['W Mrocznym lesie grasuje Zielony Ork napadający na przechodzących kupców i wieśniaków. Starszy wioski wyznaczył za niego sowitą nagrodę. Wyrusz w podróż do Mrocznego Lasu i zabij tę bestię!',
+        'Słyszysz pogłoskę o kreaturze zamieszkującej lodowe pustkowie. Wyprawa książęca nie może wyruszyć, dopóki bestia nie zostanie zabita. Zgładź bydlaka!',
+        'Wieśniacy są napadani przez orka z odstraszającym zapachem cebuli. Bestia zamieszkuje bagno, znajdujące się przy wiosce Landerwood. Pozbądź się jej.',
+        'Królewski zabójca obrócił się przeciwko swojemu władcy. Wyrusz na przedmieścia miasta i odnajdź zdrajcę, zanim dokona zamachu na królestwo Veltewind. Za tą przysługę, Król słono Ci zapłaci.',
+        'W mieście jak co tydzień odbywa się targ. Straż otrzymała informację o grasującym złodzieju. Złap go, a otrzymasz nagrodę.',
+        'W leśnej gęstwinie grasuje łotr napadający na bogatych, jak i biednych. Wszystkie te pieniądze wydaje na rozrywki w porcie. Sprawdź, że następną wizytę odbędzie u Ciebie.',
+        'W szmaragdowym mieście, w szmaragdowej wieży, szmaragdowy smok, broni ją od grabieży. Pozbądź się bestii, aby odzyskać królewski skarb.',
+        'W dalekich górach jest stara legenda, że wielki lodowy smok śpi na ogromnym skarbie. Sprawdź, czy są to wyłącznie plotki.',
+        'W podmiejskich lochach zaczął grasować wielki czarny jak smoła smok. Coraz więcej osadników jest przerażona, że zostanie pożarta i uciekają z miasta. Król błaga Cię o pomoc. Pewien szewczyk kombinuje coś z magiczną owcą. Pokonasz smoka czy zostawisz to zadanie szewczykowi?'];
+    let nameOfMonsters = ['Zielony Ork', 'Lodowy Ork', 'Bagnisty Ork', 'Królewski Zabójca', 'Złodziej Kieł', 'Portowy Łotrzyk', 'Szmaragdowy Smok', 'Lodowy Smok', 'Czarny Smok'];
+    let timeOfMissions = [2, 3, 4, 5, 6, 7, 8,9, 10,15];
 
     let nameOfMonster;
     let monsterHealtPoints;
@@ -131,14 +131,15 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
             break;
     };
 
-    goldOfMission = ((secondValue * level) * 2) * Math.floor((Math.random() * 10) + 1);  
-    experienceOfMission = ((secondValue * level) * 3) * Math.floor((Math.random() * 10) + 1);
+    goldOfMission = ((secondValue * level) * 4) * Math.floor((Math.random() * 10) + 1);  
+    experienceOfMission = ((secondValue * level) * 5) * Math.floor((Math.random() * 10) + 1);
 
-    monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * 10) + 6);
-    monsterDefense =Math.floor(((dificultMode * level)) * Math.floor((Math.random() * 5) + 1));
+    monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * 20) + 250);
+    console.log('moster hp ' + monsterHealtPoints);
+    monsterDefense =Math.floor(((dificultMode * level)) * Math.floor((Math.random() * 10) + 5));
     do {
-        monsterMinAttack = ((dificultMode * level)) * Math.floor((Math.random() * 5) + 4);
-        monsterMaxAttack = ((dificultMode * level)) * Math.floor((Math.random() * 5) + 4);
+        monsterMinAttack = ((dificultMode * level)) * Math.floor((Math.random() * 2) + 1);
+        monsterMaxAttack = ((dificultMode * level)) * Math.floor((Math.random() * 3) + 1);
     }while (monsterMinAttack>= monsterMaxAttack)
 
     let { dataOfItem } = {};

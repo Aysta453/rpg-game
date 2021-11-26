@@ -10,7 +10,6 @@ export const createNewItem = async (req, res) => {
     let a;
     let classing = 'Mage';
     a = creatingItem(classing, 1, 0,0,0);
-    console.log(a);
     try {
         //await newItem.save();
 

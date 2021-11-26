@@ -79,24 +79,22 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             bp8 = passsiveSkills.eighthSkill.isUnlocked ? (manaPoints * passsiveSkills.eighthSkill.valueOfSkill) : (0);
             manaPoints = Math.floor(manaPoints + bp8);
 
-            defensePoints = sumStatsFromItemsDefensive;
+             defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
 
             chanceOnDodge =logCalc(1.50, ((dexterity+ (spirit / 10)) / 10));
-            chanceOnBlock =logCalc(1.60, (( (strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
+            chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
             chanceOnCritHit = logCalc(1.20, (intellect + spirit / 10));
+            chanceOnHit = logCalc(1.08, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            bonusToSpecialAttack = Math.floor((intellect + (spirit / 10)) / 1);
             
-            chanceOnHit = logCalc(1.10, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
-            bonusToSpecialAttack = Math.floor(intellect + (spirit / 10));
             regHp = 1;
-
             regMp = 1;
             bp11= passsiveSkills.eleventhSkill.isUnlocked ? ( passsiveSkills.eleventhSkill.valueOfSkill) : (0);
             regMp = regMp + bp11;
 
-            minAttack = Math.floor(((intellect + (spirit / 10)) *itemsInUse.weapon.minAttack ) / 10);
-            maxAttack = Math.floor(((intellect + (spirit / 10)) *itemsInUse.weapon.maxAttack  )/ 10);
+            minAttack = Math.floor(((intellect + (spirit / 10)) +itemsInUse.weapon.minAttack ));
+            maxAttack = Math.floor(((intellect + (spirit / 10)) +itemsInUse.weapon.maxAttack ));
 
-    
             bpatt1min = passsiveSkills.sixthSkill.isUnlocked ? (minAttack * passsiveSkills.sixthSkill.valueOfSkill) : (0);
             bpatt1max = passsiveSkills.sixthSkill.isUnlocked ? (maxAttack * passsiveSkills.sixthSkill.valueOfSkill) : (0);
             bpatt2min = passsiveSkills.twelfthSkill.isUnlocked ? (minAttack * passsiveSkills.twelfthSkill.valueOfSkill) : (0);
@@ -121,29 +119,27 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             
             manaPoints = Math.floor(intellect + ((spirit) / 10));
 
-            chanceOnDodge = logCalc(1.50, ((dexterity + (spirit / 10) / 10)));
-            
-            chanceOnBlock = logCalc(1.20,(((strength + sumStatsFromItemsDefensive + (spirit / 10)) / 10)));
+            chanceOnDodge = logCalc(1.40, ((dexterity + (spirit / 10) / 10)));
+            chanceOnBlock = logCalc(1.15,(((strength + sumStatsFromItemsDefensive + (spirit / 10)) / 10)));
             chanceOnCritHit = logCalc(1.30,((strength + spirit) / 10));
-                        chanceOnHit = logCalc(1.10, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            chanceOnHit = logCalc(1.08, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
             regHp = 1;
             regMp = 1;
-            bonusToSpecialAttack = Math.floor(strength + (spirit / 10));
             
-            healthPoints = Math.floor(((stamina + ((spirit) / 10)) * 5) / 2);
+            healthPoints = Math.floor(stamina + (spirit / 10));
             bp6= passsiveSkills.sixthSkill.isUnlocked ? (healthPoints * passsiveSkills.sixthSkill.valueOfSkill) : (0);
             bp12= passsiveSkills.twelfthSkill.isUnlocked ? (healthPoints * passsiveSkills.twelfthSkill.valueOfSkill) : (0);
             healthPoints = Math.floor(healthPoints + bp6 + bp12);
 
 
-            defensePoints = sumStatsFromItemsDefensive;
+             defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
             bp7 = passsiveSkills.seventhSkill.isUnlocked ? (defensePoints * passsiveSkills.seventhSkill.valueOfSkill) : (0);
             bp11 = passsiveSkills.eleventhSkill.isUnlocked ? (defensePoints* passsiveSkills.eleventhSkill.valueOfSkill) : (0);
             defensePoints = Math.floor(defensePoints + bp7 + bp11);
-
+            minAttack = Math.floor(((strength + (spirit / 10)) +itemsInUse.weapon.minAttack ));
+            maxAttack = Math.floor(((strength + (spirit / 10)) + itemsInUse.weapon.maxAttack));
+            bonusToSpecialAttack = Math.floor((strength + (spirit / 10))/5);
             
-            minAttack = Math.floor(((strength) + ((spirit) / 10)) * (itemsInUse.weapon.minAttack * 4) / 10);
-            maxAttack = Math.floor(((strength) + ((spirit) / 10)) * (itemsInUse.weapon.maxAttack * 4) / 10);
             bpatt1min = passsiveSkills.eighthSkill.isUnlocked ? (minAttack * passsiveSkills.eighthSkill.valueOfSkill) : (0);
             bpatt1max = passsiveSkills.eighthSkill.isUnlocked ? (maxAttack * passsiveSkills.eighthSkill.valueOfSkill) : (0);
             minAttack = Math.floor(minAttack + bpatt1min);
@@ -168,26 +164,27 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             
             regHp = 1;
             regMp = 1;
-                        defensePoints = sumStatsFromItemsDefensive;
-            chanceOnBlock = logCalc(1.35,(((strength) + sumStatsFromItemsDefensive + ((spirit) / 10)) * 3 / 10));
-            chanceOnCritHit = logCalc(1.33,(((dexterity) + (spirit)) * 3 / 10));
-                        chanceOnHit = logCalc(1.10, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
-            bonusToSpecialAttack = Math.floor(((dexterity) + ((spirit) / 10)));
-            chanceOnDodge = ((((dexterity) + ((spirit) / 10)) * 5) / 10);
+             defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
+            chanceOnBlock =logCalc(1.35, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));    
+            chanceOnCritHit = logCalc(1.25,(((dexterity) + (spirit)) * 3 / 10));
+            chanceOnHit = logCalc(1.08, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+
+            chanceOnDodge =((dexterity+ (spirit / 10)) / 10);
             bp9 = passsiveSkills.ninthSkill.isUnlocked ? (passsiveSkills.ninthSkill.valueOfSkill) : (0);
             chanceOnDodge = logCalc(1.20,(chanceOnDodge + bp9));
 
-            healthPoints = Math.floor(((stamina + ((spirit) / 10)) * 3) / 2);
+            healthPoints = Math.floor(stamina + (spirit / 10));
             bp7 = passsiveSkills.seventhSkill.isUnlocked ? (healthPoints * passsiveSkills.ninthSkill.valueOfSkill) : (0);
             healthPoints = Math.floor(healthPoints + bp7);
 
-            manaPoints = Math.floor(((intellect + ((spirit) / 10)) * 2) / 2);
+
+            manaPoints = Math.floor(intellect + (spirit / 10));
             bp8 = passsiveSkills.eighthSkill.isUnlocked ? (manaPoints * passsiveSkills.eighthSkill.valueOfSkill) : (0);
             manaPoints = Math.floor(manaPoints + bp8);
 
-
-            minAttack = Math.floor(((dexterity) + ((spirit) / 10)) * (itemsInUse.weapon.minAttack * 4) / 10);
-            maxAttack = Math.floor(((dexterity) + ((spirit) / 10)) * (itemsInUse.weapon.maxAttack * 4) / 10);
+            minAttack = Math.floor(((dexterity + (spirit / 10)) +itemsInUse.weapon.minAttack ));
+            maxAttack = Math.floor(((dexterity + (spirit / 10)) + itemsInUse.weapon.maxAttack));
+            bonusToSpecialAttack = Math.floor((dexterity + (spirit / 10))/3);
 
             bpatt1min = passsiveSkills.sixthSkill.isUnlocked ? (minAttack* passsiveSkills.sixthSkill.valueOfSkill): (0);
             bpatt1max = passsiveSkills.sixthSkill.isUnlocked ? (maxAttack* passsiveSkills.sixthSkill.valueOfSkill): (0);
@@ -213,28 +210,30 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             stamina = stats.stamina + sumStatsFromItemsStamina + bp3;
             spirit = stats.spirit + sumStatsFromItemsSpirit + bp1 + bp9;
             regHp = 1;
-            bonusToSpecialAttack = Math.floor(((intellect) + ((spirit) / 10)));     
-                        defensePoints = sumStatsFromItemsDefensive;
-            chanceOnDodge = logCalc(1.35,((((dexterity) + ((spirit) / 10)) * 2) / 10));
-            chanceOnBlock = logCalc(1.40,(((strength) + sumStatsFromItemsDefensive + ((spirit) / 10)) * 2 / 10));
-            chanceOnCritHit = logCalc(1.30,((intellect + spirit) * 2 / 10));
-                        chanceOnHit = logCalc(1.10, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
-           
+            bonusToSpecialAttack = Math.floor((intellect + (spirit / 10)) / 2);   
+             defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
+
+            chanceOnDodge =logCalc(1.50, ((dexterity+ (spirit / 10)) / 10));
+            chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
+            chanceOnCritHit = logCalc(1.25, (intellect + spirit / 10));
+            chanceOnHit = logCalc(1.08, ((dexterity + strength + intellect + (spirit / 10)) / hero.level));
+     
             regMp = 1;
             bp11 = passsiveSkills.eleventhSkill.isUnlocked ? (passsiveSkills.eleventhSkill.valueOfSkill) : (0);
             regMp = regMp + bp11;
-            healthPoints = Math.floor(((stamina + ((spirit) / 10)) * 1) / 2);
+            healthPoints = Math.floor(stamina + (spirit / 10));
             bp6 = passsiveSkills.sixthSkill.isUnlocked ? (healthPoints* passsiveSkills.sixthSkill.valueOfSkill) : (0);
             healthPoints = Math.floor(healthPoints + bp6);
 
-            manaPoints = Math.floor(((intellect + ((spirit) / 10)) * 5) / 2);
+            manaPoints = Math.floor(intellect + (spirit / 10));
             bp8 = passsiveSkills.eighthSkill.isUnlocked ? (manaPoints* passsiveSkills.eighthSkill.valueOfSkill): (0);
             bp12 = passsiveSkills.twelfthSkill.isUnlocked ? (manaPoints * passsiveSkills.twelfthSkill.valueOfSkill) : (0);
             manaPoints = Math.floor(manaPoints + bp8 + bp12);
 
         
-            minAttack = Math.floor((intellect + (spirit/ 10)) * (itemsInUse.weapon.minAttack * 1) / 10);
-            maxAttack = Math.floor((intellect + (spirit / 10)) * (itemsInUse.weapon.maxAttack * 1) / 10);
+           
+            minAttack = Math.floor(((intellect + (spirit / 10)) +itemsInUse.weapon.minAttack ));
+            maxAttack = Math.floor(((intellect + (spirit / 10)) +itemsInUse.weapon.maxAttack ));
             
             bpatt1min = passsiveSkills.seventhSkill.isUnlocked ? (minAttack* passsiveSkills.seventhSkill.valueOfSkill): (0);
             bpatt1max = passsiveSkills.seventhSkill.isUnlocked ? (maxAttack * passsiveSkills.seventhSkill.valueOfSkill) : (0);
@@ -261,28 +260,25 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
  
             regMp = 1;
             manaPoints = Math.floor(intellect + (spirit / 10));
-            bonusToSpecialAttack = Math.floor(strength + (spirit / 10));
-            defensePoints = sumStatsFromItemsDefensive;
-            chanceOnHit = logCalc(1.10, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
-            
-            chanceOnDodge = logCalc(1.30,(((dexterity + (spirit / 10)) * 3) / 10));
-            chanceOnBlock = logCalc(1.18,((strength + sumStatsFromItemsDefensive + (spirit / 10)) * 4 / 10));
-            chanceOnCritHit = logCalc(1.25,((  strength + spirit) * 4 / 10));
+            bonusToSpecialAttack = Math.floor((intellect + (spirit / 10)) / 4);
+             defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
+       
  
-        
+            chanceOnDodge =logCalc(1.45, ((dexterity+ (spirit / 10)) / 10));
+            chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
+            chanceOnCritHit = logCalc(1.22, (intellect + spirit / 10));
+            chanceOnHit = logCalc(1.08, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
 
             regHp = 1;
             bp11 = passsiveSkills.eleventhSkill.isUnlocked ? (passsiveSkills.eleventhSkill.valueOfSkill) : (0);
             regHp = regHp + bp11;
 
-            healthPoints = Math.floor(((stamina + (spirit / 10)) * 4) / 2);
+            healthPoints = Math.floor(stamina + (spirit / 10));
             bp10 = passsiveSkills.tenthSkill.isUnlocked ? (healthPoints* passsiveSkills.tenthSkill.valueOfSkill): (0);
             healthPoints = Math.floor(healthPoints + bp10);
 
-            console.log(itemsInUse.weapon.minAttack);
-            console.log(itemsInUse.weapon.maxAttack);
-            minAttack = Math.floor(((strength+ (spirit / 10)) * (itemsInUse.weapon.minAttack)) / 10);
-            maxAttack = Math.floor(((strength + (spirit / 10)) * (itemsInUse.weapon.maxAttack)) / 10);
+            minAttack = Math.floor(((strength + (spirit / 10)) +itemsInUse.weapon.minAttack ));
+            maxAttack = Math.floor(((strength + (spirit / 10)) +itemsInUse.weapon.maxAttack ));
 
             bpatt1min = passsiveSkills.seventhSkill.isUnlocked ? (minAttack* passsiveSkills.seventhSkill.valueOfSkill): (0);
             bpatt1max = passsiveSkills.seventhSkill.isUnlocked ? (maxAttack * passsiveSkills.seventhSkill.valueOfSkill) : (0);

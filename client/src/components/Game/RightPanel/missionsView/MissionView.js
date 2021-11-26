@@ -36,13 +36,13 @@ const MissionView = ({mission, setWindowOfElements,setButtons,size,missionType})
     const setMission = mission;
     const startingMission = () => {
         setWindowOfElements(7);
-        console.log(mission);
+ 
         dispatch(setMissionValue(mission));
         setButtons()
     }
     let isItemAssigmentToMission = mission.item.isEmpty;
     let image;
-    console.log(isItemAssigmentToMission);
+
     if (isItemAssigmentToMission === false) {
         image = showingEquipmentImage(hero.heroClass, mission.item.typeOfItem, size, mission.item.numberOfItem);
     }

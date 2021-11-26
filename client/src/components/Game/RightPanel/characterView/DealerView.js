@@ -7,7 +7,7 @@ import CharacterInventoryItem from './characterInventoryItem/CharacterInventoryI
 
 import CharStatExtended from './charStatExtended/CharStatExtended';
 
-import { decreasediamond, decreasegold } from '../../../../actions/hero';
+import { decreasediamond, decreasegold, increasegold } from '../../../../actions/hero';
 
 import { getinventory,assignitemtoinventory,deleitemfrominventory,changeitemininventory } from '../../../../actions/inventory.js';
 
@@ -68,7 +68,7 @@ const DealerView = (user) => {
     const sellThisItem = (slotNumber, item) => {
         let cost = item.cost;
         dispatch(deleitemfrominventory({ owner: user.user, itemNumber: slotNumber }));
-        dispatch(decreasegold({ owner: user.user, amountOfGold: cost }));
+        dispatch(increasegold({ owner: user.user, amountOfGold: cost }));
         
     }
     let statementToChangeItems;

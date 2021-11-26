@@ -18,7 +18,7 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
     if (diamondChance <= 10) {
         diamondReward = 1;
     }
-    console.log(diamondChance);
+
     
     const handleSubmit = () => {
         let exp = hero.expStart + game.missionRewardExp;

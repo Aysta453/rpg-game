@@ -31,6 +31,9 @@ app.use('/skillsInBattle', skillsInBattleRouter);
 app.use('/missions', missionsRouter);
 app.use('/trade', tradeRouter);
 app.use('/inventory', inventoryRouter);
+app.use('/', (req, res) => {
+  res.send('Hello Worlds');
+})
 
 
 
