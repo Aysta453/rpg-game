@@ -507,7 +507,7 @@
                         tenthSkill: {
                             nameOfSkill: "Ulepszony bonus szcześcia",
                             descriptionOfSkill: "Zwiększenie podstawowych punktów szcześcia o 20%",
-                            valueOfSkill: 20,
+                            valueOfSkill: 0.20,
                             numberOfSkill:10,
                         },
                         eleventhSkill: {
@@ -571,7 +571,7 @@
                         eighthSkill: {
                             nameOfSkill: "Bonus obrażeń",
                             descriptionOfSkill: "Zwiększenie obrażeń o 10%",
-                            valueOfSkill: 10,
+                            valueOfSkill: 0.10,
                             numberOfSkill:8,
                         },
                         ninthSkill: {
