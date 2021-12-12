@@ -169,7 +169,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     let itemCost = (level * 4) * Math.floor((Math.random() * 10) + 1);
 
     if (itemAssignment == 1) {
-        itemCost = Math.floor(itemCost * 20);
+        itemCost = Math.floor(itemCost * 5);
     }
     
     let nameOfItemsMagesHeads = ['Czapka Inteligencji', 'Czapka Ognia', 'Czapka Lodu'];
