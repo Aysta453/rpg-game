@@ -4,7 +4,7 @@ import { useSelector} from 'react-redux';
 const CharStatExtended = () => {
     const playerGame = useSelector(state => state.playerGame);
     return (<>
-          <div className='statsExtended'>
+          
               <div className='statExtended'>
                    <div className="nameOfStat">Punkty życia</div>
                 <div className="valueOfStat">{playerGame.healthPoints}</div>
@@ -49,7 +49,7 @@ const CharStatExtended = () => {
                    <div className="nameOfStat">Bonus do umiejętności specjalnych</div>
                    <div className="valueOfStat">{playerGame.bonusToSpecialAttack}</div>
               </div>
-          </div>
+        
         </>
     );
 };

@@ -54,12 +54,10 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
             <div className="win-inner">
                 <div className="title">
                      Zwycięstwo!
-                   
                 </div>
                 <div className="description">
                     <p> Odniosłeś zwycięstwo w trakcie wykonywania misji {game.missionTitle} pokonując potężnego potwora {game.monster.monsterName}.</p>
                     <p> Jednak nie spoczywaj na laurach, to jest dopiero początek Twojej wielkiej przygody.</p>
-                    
                 </div>
                 <div className="rewards">
                     <div className="title">Wynagrodzenie</div>

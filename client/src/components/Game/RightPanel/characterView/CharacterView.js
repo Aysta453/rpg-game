@@ -29,26 +29,26 @@ const CharacterView = (user) => {
 
     const handleSubmit = (a, b) => {
         if (hero.gold > b) {
-               switch (a) {
-            case 1:
-                dispatch(increasestatstrength({owner:user.user}));
-                break;
-            case 2:
-                dispatch(increasestatdexterity({owner:user.user}));
-                break;
-            case 3:
-                dispatch(increasestatintellect({owner:user.user}));
-                break;
-            case 4:
-                dispatch(increasestatstamina({owner:user.user}));    
-                break;
-            case 5:
-                dispatch(increasestatspirit({owner:user.user}));     
-                       break;
-                   default:
-                       break;
-        }
-        dispatch(decreasegold({ owner: user.user, amountOfGold: b }));
+            switch (a) {
+                case 1:
+                    dispatch(increasestatstrength({owner:user.user}));
+                    break;
+                case 2:
+                    dispatch(increasestatdexterity({owner:user.user}));
+                    break;
+                case 3:
+                    dispatch(increasestatintellect({owner:user.user}));
+                    break;
+                case 4:
+                    dispatch(increasestatstamina({owner:user.user}));    
+                    break;
+                case 5:
+                    dispatch(increasestatspirit({owner:user.user}));     
+                    break;
+                default:
+                    break;
+            }
+            dispatch(decreasegold({ owner: user.user, amountOfGold: b }));
         }
      
     };
@@ -122,17 +122,25 @@ const CharacterView = (user) => {
                     </div>
                 </div>
                 <div className='thirdBox'>
-                    <CharacterInventoryItem size={1}  slotNumber={1} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.firstItem.isEmpty} specyficItem={inventory.firstItem} />
-                     <CharacterInventoryItem size={1} slotNumber={2} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}  valueOfItem={inventory.secondItem.isEmpty} specyficItem={inventory.secondItem} />
-                     <CharacterInventoryItem size={1} slotNumber={3}sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.thirdItem.isEmpty} specyficItem={inventory.thirdItem} />
-                     <CharacterInventoryItem size={1} slotNumber={4} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.forthItem.isEmpty} specyficItem={inventory.forthItem} />
-                     <CharacterInventoryItem size={1} slotNumber={5}sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.fifthItem.isEmpty} specyficItem={inventory.fifthItem} />
-                     <CharacterInventoryItem size={1} slotNumber={6} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.sixthItem.isEmpty} specyficItem={inventory.sixthItem} />
-                     <CharacterInventoryItem size={1} slotNumber={7} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.seventhItem.isEmpty} specyficItem={inventory.seventhItem} />
-                     <CharacterInventoryItem size={1}  slotNumber={8} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}  valueOfItem={inventory.eigthItem.isEmpty} specyficItem={inventory.eigthItem} />
-                     <CharacterInventoryItem size={1}  slotNumber={9} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}    valueOfItem={inventory.ninthItem.isEmpty} specyficItem={inventory.ninthItem} />
+                    <div className='row' id="bottomBorder">
+                        <CharacterInventoryItem size={1}  typeOfPosition={1} slotNumber={1} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.firstItem.isEmpty} specyficItem={inventory.firstItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={2} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}  valueOfItem={inventory.secondItem.isEmpty} specyficItem={inventory.secondItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={0} slotNumber={3}sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.thirdItem.isEmpty} specyficItem={inventory.thirdItem} />
+                    </div>
+                        <div className='row' id="bottomBorder">
+                        <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={4} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.forthItem.isEmpty} specyficItem={inventory.forthItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={5}sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.fifthItem.isEmpty} specyficItem={inventory.fifthItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={0} slotNumber={6} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.sixthItem.isEmpty} specyficItem={inventory.sixthItem} />
+                    </div>
+                    <div className='row'>
+                        <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={7} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}   valueOfItem={inventory.seventhItem.isEmpty} specyficItem={inventory.seventhItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={8} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse}  valueOfItem={inventory.eigthItem.isEmpty} specyficItem={inventory.eigthItem} />
+                        <CharacterInventoryItem size={1} typeOfPosition={0} slotNumber={9} sellThisItem={sellThisItem}handleChangeItemIntoUse={handleChangeItemIntoUse}    valueOfItem={inventory.ninthItem.isEmpty} specyficItem={inventory.ninthItem} />
+                    </div>
+
+
+
                 </div>
-            
                 <div className='secondBox'>
                     <CharacterStatistic typeOfStat={1} handleSubmit={handleSubmit} value={stats.strength} user={user} />
                     <CharacterStatistic typeOfStat={2} handleSubmit={handleSubmit} value={stats.dexterity} user={user} />
@@ -143,6 +151,8 @@ const CharacterView = (user) => {
                 <div className='forthBox'>
                     <CharStatExtended />
                 </div>   
+            
+
             </div>
         </>
     );

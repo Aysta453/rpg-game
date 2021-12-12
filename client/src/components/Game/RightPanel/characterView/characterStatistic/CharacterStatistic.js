@@ -1,12 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import summaryStatsFromItems from '../../../../../functions/summaryStatsFromItems';
+import sumMainStatsBonus from '../../../../../functions/sumMainStatsBonus';
 
 
 
 const CharacterStatistic = ({value,handleSubmit,typeOfStat,id}) => {
     const hero = useSelector(state => state.hero);
     const itemInUse = useSelector(state => state.itemInUse);
+    const skills = useSelector(state => state.skills);
+    const stats = useSelector(state => state.stats);
     let possibility;
     let nameOfStat;
     let descriptionOfStat;
@@ -22,41 +25,37 @@ const CharacterStatistic = ({value,handleSubmit,typeOfStat,id}) => {
         case 1:
             valueToSum = 1;
             nameOfStat = 'Siła';
-            descriptionOfStat= 'Siła jest główną statystyką dla obrażeń fizycznych. Zwiększa również obronę.';
+            descriptionOfStat= 'Siła jest główną statystyką zadająca obrażenia przez Wojowników i Berserków. Zwieksza szansę na blok i cios.';
             id="sila";
             break;
         case 2:
                 valueToSum = 2;
                   nameOfStat = 'Zręczność';
-            descriptionOfStat = 'Zręczność jest główną statystyką dla wyprowadzenia uników.';
+            descriptionOfStat = 'Zręczność jest główną statystyką zadająca obrażenia przez Łuczników. Zwieksza szansę na unik i cios.';
             id="zrecznosc";
             break;
         case 3:
                 valueToSum = 3;
                nameOfStat = 'Inteligencja';
-            descriptionOfStat= 'Jest główną mocą na wyprowadzanie ataków magicznych, mocy leczniczej oraz punktów many.';
+            descriptionOfStat= 'Inteligencja jest główną statystyką zadająca obrażenia przez Magów i Kapłanów. Zwieksza maksymalną ilość punktów many.';
             id="inteligencja";
             break;
         case 4:
                 valueToSum = 4;
                nameOfStat = 'Wytrzymałość';
-            descriptionOfStat= 'Zwiększa maksymalną ilość punktów życia jak i obronę.';
+            descriptionOfStat= 'Zwiększa maksymalną ilość punktów życia.';
             id="wytrzymalosc";
             break;
         case 5:
                 valueToSum = 5;
                nameOfStat = 'Szczęście';
-            descriptionOfStat= 'Szczeście zwiększa wszystkie statystyki oprócz obrony.';
+            descriptionOfStat= 'Szczeście polepsza wszystkie statystyki w szczególności szansę na cios krytyczny.';
             id="szczescie";
             break;
         default:
             break;
     }
-              
-
-    
-
-    
+             
     return (<>
         <div className='stat'>             
             <div className='nameBox'>
@@ -68,7 +67,15 @@ const CharacterStatistic = ({value,handleSubmit,typeOfStat,id}) => {
                 </div>
              </div>
             <div className='statValue' id={id}>
-                {value +summaryStatsFromItems(itemInUse,valueToSum)}
+                <div className="innerStat" id={id}>
+                    {value + summaryStatsFromItems(itemInUse, valueToSum) +sumMainStatsBonus(hero,valueToSum,stats,skills.passive)}
+                    <div className="tooltip" id={id}>
+                        <p style={{fontSize:'28px'}}>Suma uzyskanych punktów</p>
+                        <p>Bazowe punkty: {value}</p>
+                        <p>Przedmioty: {summaryStatsFromItems(itemInUse, valueToSum)}</p>
+                        <p>Umiejętności pasywne: {sumMainStatsBonus(hero,valueToSum,stats,skills.passive)}</p>
+                    </div>
+                </div>
             </div>
             <div className='statButton' >
                 {possibility ? ( <button className='statisticButton' type="button"  onClick={() => handleSubmit(typeOfStat, value)}>

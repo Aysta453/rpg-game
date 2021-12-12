@@ -23,13 +23,13 @@ const Auth = () => {
 
     const error = useSelector(state => state.error);
 
+
     const showPopup = () => {
         setPopupValue(!popupValue);
     }
-    const [authFormHeight, setAuthFormHeight] = useState(330);
-    const [authLeftPosition, setAuthLeftPosition] = useState(585);
+    const [authFormHeight, setAuthFormHeight] = useState(35);
+    const [authLeftPosition, setAuthLeftPosition] = useState(30);
     const [infoNumber, setInfoNumber] = useState(1);
-
     const heroClassTable = ["Mage", "Warrior", "Hunter", "Priest", "Berserk"];
     const heroDescriptionTable = ["Dzięki odbytej nauce w wieży Magów, posiada wiedze na temat żywiołów, potrafi nimi władać oraz zadawać ogromne obrażenia magiczne.",
         "Za sprawą wysoką obroną oraz wytrzymałości jest ciężkim przeciwnikiem do pokonania.",
@@ -38,8 +38,6 @@ const Auth = () => {
         "Zadaniem każdego berserkera jest przebijanie ścian nie zależnie od sytuacji, jest brutalny i za wszelką cene dąży do pokonania każdego przeciwnika."];
     const heroImageTable = ['1', '2', '3', '4', '5'];
  
-
-    
     const [mode, setMode] = useState(2);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -63,12 +61,12 @@ const Auth = () => {
 
     const setPosition = (type) => {
         if (type === 1) {
-            setAuthFormHeight(330);
-            setAuthLeftPosition(585);
+            setAuthFormHeight(35);
+            setAuthLeftPosition(30);
             setMode(2);
         } else if (type === 2) {
-            setAuthFormHeight(450);
-            setAuthLeftPosition(350);
+            setAuthFormHeight(49);
+            setAuthLeftPosition(15);
             setMode(1);
         }
     }
@@ -120,6 +118,7 @@ const Auth = () => {
                 break;
         }
     }
+
     const switchMode = () => {
         setIsSingnup((prevIsSignup) => !prevIsSignup);
     };
@@ -140,13 +139,11 @@ const Auth = () => {
                 <div className="auth">
 
                     <div className="authTitle">
-                        Gra Przęglądarkowa RPG Aysta       
+                        Magic World       
                 </div>
                 
                 <div className="authForm">
-                 
-                     <form onSubmit={handleSubmit}>
-                         {
+                       {
                     isSingnup && (
                     <div className="authClassContent">
                         <div className="title">Wybór Postaci</div>
@@ -162,7 +159,8 @@ const Auth = () => {
                         </div>
                              )
                     }    
-                    <div style={{ left: `${authLeftPosition}px`,height: `${authFormHeight}px`}} className="authContent">
+                     <form onSubmit={handleSubmit}>
+                    <div style={{ left: `${authLeftPosition}vw`,height: `${authFormHeight}vh`}} className="authContent">
                             <div className="authContentTitle">
                                  {!isSingnup ? 'Logowanie':'Rejestracja'}
                             </div>
