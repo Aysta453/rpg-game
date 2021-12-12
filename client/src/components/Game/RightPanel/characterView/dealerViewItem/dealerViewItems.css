@@ -1,14 +1,15 @@
 .characterView .dealerView {
-  margin-top: 65px;
-  width: 620px;
-  height: 375px;
+  margin-top: 8vh;
+  width: 34vw;
+  height: 40vh;
   float: right;
   border: 1px solid rgba(0, 208, 255, 0.5);
+  margin-right: 1vw;
 }
 
 .dealerView .dealerViewChange {
   width: 100%;
-  height: 75px;
+  height: 8vh;
   float: left;
   background: rgba(0, 208, 255, 0.1);
   border: 1px solid rgba(0, 208, 255, 0.5);
@@ -16,30 +17,32 @@
 }
 .dealerViewItems {
   width: 100%;
-  height: 300px;
+  height: 32vh;
   float: left;
-  border: 1px solid rgba(0, 208, 255, 0.5);
   text-align: center;
 }
-
+.dealerViewItems .row {
+  width: 100%;
+  height: 16vh;
+  float: left;
+}
 .buttonDealerChange {
-  width: 190px;
-  height: 45px;
+  width: 10vw;
+  height: 5vh;
   background: rgba(0, 208, 255, 0.1);
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   color: rgb(0, 208, 255);
   border: 1px solid rgba(0, 208, 255, 0.6);
-  padding: 5px;
+  padding: 0.25rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin: 11px 6px;
+  font-size: 1rem;
+  margin: 0.55rem 0.3rem;
   transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
-  top: 3px;
 }
 .buttonDealerChange:hover {
   background: rgba(0, 208, 255, 0.2);
@@ -54,17 +57,17 @@
 
 .buttonDealerChange .tooltipButtonDealerChange {
   visibility: hidden;
-  width: 150px;
+  width: 12vw;
   height: auto;
   border: 1px solid rgba(255, 255, 255, 0.65);
   background-color: rgb(10, 10, 10);
   color: white;
   text-align: center;
-  padding: 5px;
+  padding: 0.4rem;
   position: absolute;
   z-index: 1;
-  bottom: 120%;
-  left: 10%;
+  bottom: 6vh;
+  left: 3vw;
   opacity: 0;
   transition: opacity 0.3s;
   overflow-wrap: break-word;
@@ -76,38 +79,35 @@
 }
 
 .dealerViewItem {
-  height: 141px;
-  width: 200px;
+  height: 15.98vh;
+  width: 11.28vw;
   float: left;
-  border: solid rgba(0, 208, 255, 0.3) 1px;
   text-align: center;
-  margin-top: 5px;
-  margin-left: 4px;
   background: rgba(0, 208, 255, 0.03);
 }
 
 .dealerViewItem .imageDealerItem {
   position: relative;
   display: inline-block;
-  top: 0px;
-  right: 2px;
   z-index: 1;
+  height: 15.98vh;
+  width: 11.28vw;
 }
 .dealerViewItem .itemDealer-btn {
   display: unset;
   position: relative;
-  top: -145px;
-  left: 84px;
-  width: 30px;
-  height: 30px;
+  top: -16.3vh;
+  left: 4.8vw;
+  width: 1.5rem;
+  height: 1.5rem;
   background: rgba(0, 208, 255, 0.1);
   border: 1px solid rgba(0, 208, 255, 0.5);
   color: rgb(0, 208, 255);
   font-weight: bold;
   outline: none;
-  border-radius: 3px;
+  border-radius: 0.2rem;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 1.2rem;
   z-index: 3;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -117,37 +117,7 @@
   border: 1px solid rgba(0, 208, 255, 1);
   color: rgb(0, 207, 255);
 }
-.dealerViewItem .inventoryItemButtons button {
-  background-color: #1d1d18;
-  color: rgba(255, 255, 0, 0.9);
-  border: 1px solid rgba(255, 255, 0, 0.52);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 25px;
-  padding: 5px 5px;
-  width: 150px;
-  height: 55px;
-  margin-top: 18px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-.dealerViewItem .inventoryItemButtons button:hover {
-  background-color: #23231d;
-  color: rgba(255, 255, 0, 1);
-  border: 1px solid rgba(255, 255, 0, 1);
-}
-.dealerViewItem .inventoryItemButtons button:disabled {
-  background-color: rgb(255, 253, 0, 0.02);
-  color: rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 253, 0, 0.25);
-  cursor: no-drop;
-}
+
 .popup-itemDealer {
   z-index: 7;
   position: fixed;
@@ -164,80 +134,86 @@
 
 .itemDealer-inner {
   position: fixed;
-  padding: 32px;
+  padding: 3vh;
   width: 100%;
-  height: 870px;
-  max-width: 670px;
+  height: 95vh;
+  max-width: 35vw;
   background-color: black;
   border: solid rgba(0, 208, 255, 0.5) 1px;
 }
 .itemDealer-inner .close-btn {
   position: absolute;
-  top: 7px;
-  right: 7px;
-  padding: 8px 11px;
+  top: 1vh;
+  right: 1vh;
+  padding: 0.4rem 0.5rem;
   background: rgba(220, 20, 60, 0.12);
   border: 1px solid rgba(220, 20, 60, 0.85);
   color: rgba(255, 255, 255, 1);
   outline: none;
-  border-radius: 2px;
+  border-radius: 0.1rem;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  z-index: 2;
 }
 .itemDealer-inner .title {
   width: 100%;
   float: left;
-  font-size: 45px;
+  font-size: 2.3rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   position: relative;
-  top: -15px;
+  top: -1.5vh;
+  z-index: 1;
 }
 .itemDealer-inner .undertitle {
   width: 100%;
-  height: 40px;
+  height: 4.3vh;
   float: left;
-  margin-bottom: 13px;
-  margin-top: 10px;
-  font-size: 34px;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  font-size: 1.7rem;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
   color: #f5f5f5;
 }
 .itemDealer-inner .image {
-  margin-left: 147px;
-  width: 311px;
-  height: 220px;
+  margin-left: 8vw;
+  width: 16vw;
+  height: 24vh;
   background-color: rgba(0, 208, 255, 0.07);
   float: left;
   border: solid rgba(0, 208, 255, 0.5) 1px;
 }
+.itemDealer-inner .image img {
+  width: 16vw;
+  height: 24vh;
+}
 .itemDealer-inner .typeOfItem {
   width: 100%;
-  height: 60px;
-  font-size: 28px;
-  padding-top: 5px;
+  height: 6.5vh;
+  font-size: 1.4rem;
+  padding-top: 0.25rem;
   font-weight: 100 !important;
   color: rgba(232, 232, 232, 0.95);
   float: left;
 }
 .itemDealer-inner .infoAboutItem {
   width: 100%;
-  height: 280px;
+  height: 31vh;
   float: left;
 }
 .itemDealer-inner .infoAboutItem .title {
   float: left;
-  height: 70px;
+  height: 8vh;
   width: 100%;
 }
 .itemDealer-inner .infoAboutItem .stats {
-  padding-top: 9px;
+  padding-top: 0.5rem;
   float: left;
-  height: 235px;
+  height: 25vh;
   width: 100%;
   background-color: rgba(0, 208, 255, 0.05);
   border: solid rgba(0, 208, 255, 0.4) 1px;
@@ -246,48 +222,53 @@
   float: left;
   height: 100%;
   width: 100%;
-  font-size: 25px;
+  font-size: 1.2rem;
   font-weight: 500;
+  font-family: "Montserrat", sans-serif;
 }
 
 .itemDealer-inner .sellInfo {
-  margin-top: 40px;
+  margin-top: 4.5vh;
   width: 100%;
-  height: 50px;
+  height: 5vh;
   float: left;
-  font-size: 25px;
+  font-size: 1.3rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
 }
-.itemDealer-inner .itemDealerButtons {
+.itemDealer-inner .inventoryItemButtons {
   width: 100%;
-  height: 100px;
+  height: 11vh;
   float: left;
-  background-color: red;
 }
-
-.itemDealer-inner .itemDealerButtons button {
-  background-color: rgb(9, 9, 29);
-  color: red;
-  border: 1px solid red;
+.itemDealer-inner .inventoryItemButtons button {
+  background-color: #1d1d18;
+  color: rgba(255, 255, 0, 0.9);
+  border: 1px solid rgba(255, 255, 0, 0.52);
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  padding: 5px 5px;
-  width: 125px;
-  margin-top: 15px;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.25rem;
+  width: 8vw;
+  height: 6vh;
+  margin-top: 2vh;
   transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
-
-.itemDealer-inner .itemDealerButtons button:hover {
-  background-color: red;
-  color: rgb(9, 9, 29);
+.itemDealer-inner .inventoryItemButtons button:hover {
+  background-color: #23231d;
+  color: rgba(255, 255, 0, 1);
+  border: 1px solid rgba(255, 255, 0, 1);
 }
-.itemDealer-inner .itemDealerButtons button:disabled {
-  background: #dddddd;
-  color: rgb(9, 9, 29);
+.itemDealer-inner .inventoryItemButtons button:disabled {
+  background-color: rgb(255, 253, 0, 0.02);
+  color: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 253, 0, 0.25);
   cursor: no-drop;
 }

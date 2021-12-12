@@ -13,28 +13,29 @@
 
 .active-inner {
   position: fixed;
-  padding: 32px;
+  padding: 3.5vh;
   width: 100%;
-  height: 820px;
-  max-width: 800px;
+  height: 90vh;
+  max-width: 46vw;
   background-color: rgb(0, 5, 0);
   border: 1px solid rgba(0, 208, 255, 0.55);
 }
 
 .active-inner .close-btn {
   position: absolute;
-  top: 7px;
-  right: 7px;
-  padding: 8px 11px;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.4rem 0.6rem;
   background: rgba(220, 20, 60, 0.12);
   border: 1px solid rgba(220, 20, 60, 0.85);
   color: rgba(255, 255, 255, 1);
   outline: none;
-  border-radius: 2px;
+  border-radius: 0.2rem;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 1.2rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+  z-index: 2;
 }
 
 .active-inner .close-btn:hover {
@@ -46,87 +47,96 @@
 .active-inner .title {
   width: 100%;
   float: left;
-  font-size: 45px;
+  font-size: 2.4rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   position: relative;
-  top: -15px;
+  top: -0.8rem;
+  z-index: 1;
 }
 
 .active-inner .image {
-  height: 230px;
-  position: relative;
-  top: -15px;
+  width: 100%;
+  height: 25vh;
+  float: left;
+}
+
+.active-inner .image img {
+  height: 25vh;
+  width: 17vw;
 }
 
 .active-inner .description {
   width: 100%;
-  height: 70px;
+  height: 8vh;
   float: left;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 26px;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+  font-size: 1.3rem;
   font-weight: 200;
   font-family: "Montserrat", sans-serif;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .active-inner .values {
-  height: 125px;
+  float: left;
+  height: 19vh;
   width: 100%;
   font-family: "Montserrat", sans-serif;
-  font-size: 24px;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
-.values .nameOfValue {
-  width: 55%;
-  height: 100%;
+.active-inner .values .nameOfValue {
   float: left;
-  margin-bottom: 60px;
-  margin-top: 12px;
-  margin-left: 45px;
+  margin-top: 1.3vh;
+  width: 60%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-.values .second {
-  width: 35% !important;
+.active-inner .values .second {
+  width: 40%;
   height: 100%;
   float: left;
-  margin-bottom: 60px;
-  margin-top: 12px;
+  margin-top: 1.3vh;
+  font-size: 1.2rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .active-inner .buttons-div-assign {
-  height: 130px;
-  margin-top: 170px;
+  float: left;
+  height: 15vh;
 }
 
 .buttons-div-assign .info {
-  height: 40px;
-  font-size: 25px;
+  width: 100%;
+  float: left;
+  height: 3.5vh;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
 .buttons-div-assign .buttons {
-  margin-top: 40px;
-
-  height: 70px;
+  margin-top: 2vh;
+  height: 8vh;
   display: inline-block;
 }
 
 .buttons button {
-  width: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
+  width: 6vw;
+  margin-left: 1.3vw;
+  margin-right: 1.3vw;
   background-color: rgb(9, 9, 29);
   color: red;
   border: 1px solid red;
-  padding: 14px 25px;
+  padding: 0.7rem 1.4rem;
   text-align: center;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1.6rem;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -143,20 +153,21 @@
 }
 
 .active-inner .button-div-unlock {
-  margin-top: 20px;
-  height: 75px;
+  float: left;
+  width: 100%;
+  height: 9vh;
 }
 
 .button-div-unlock button {
-  width: 175px;
-  margin: 4px 2px;
+  width: 9.3vw;
+  margin: 0.2rem 0.2rem;
   background-color: rgb(9, 9, 29);
   color: red;
   border: 1px solid red;
-  padding: 14px 25px;
+  padding: 0.7rem 1.2rem;
   text-align: center;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1.2rem;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -179,15 +190,14 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
-
-  width: 155px;
+  font-size: 1.2rem;
+  width: 8vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   position: relative;
-  top: 10px;
+  top: 0.5rem;
 }
 
 .unlock:hover {
@@ -209,8 +219,8 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
-  width: 155px;
+  font-size: 1.2rem;
+  width: 8vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -236,8 +246,8 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
-  width: 155px;
+  font-size: 1.2rem;
+  width: 8vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -263,8 +273,8 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
-  width: 155px;
+  font-size: 1.2rem;
+  width: 8vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;

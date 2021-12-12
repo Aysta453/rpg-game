@@ -1,46 +1,46 @@
 .cash {
   border-top: solid red 1px;
   border-bottom: solid red 1px;
-  padding-top: 10px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  height: 11rem;
+  padding-top: 1vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  height: 18vh;
   font-weight: bold;
   background-color: rgba(56, 24, 24, 0.6);
 }
 .cashItem {
-  margin-top:11px;
+  margin-top: 1vh;
   width: 100%;
-  height: 4rem;
+  height: 7vh;
   float: left;
-  font-family: 'Paytone One', sans-serif;
+  font-family: "Paytone One", sans-serif;
 }
 
 .cashItemName {
   text-align: center;
   width: 50%;
-  height: 2rem;
-  padding-top: 4px;
+  height: 7vh;
+
   float: left;
-  font-size: 30px;
-  font-family: 'Paytone One', sans-serif;
+  font-size: 1.6rem;
+  font-family: "Paytone One", sans-serif;
   position: relative;
-  left:27px;
+  left: 1vw;
 }
 
 .cashItemValue {
   text-align: center;
   width: 50%;
-  height: 2rem;
-  padding-top: 4px;
+  height: 7vh;
   float: left;
-  font-size: 30px;
-  font-family: 'Paytone One', sans-serif;
+  font-size: 1.6rem;
+  font-family: "Paytone One", sans-serif;
   position: relative;
-  left:27px;
+  left: 1vw;
 }
-#zloto{
+#zloto {
   color: #fff264 !important;
-}#diamenty{
+}
+#diamenty {
   color: #80f0ff !important;
 }

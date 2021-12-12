@@ -9,16 +9,15 @@ body {
   width: 100%;
   height: 100%;
   border: 1px solid rgba(128, 0, 0, 0.22);
-
   float: left;
-  padding: 10px;
+  padding: 1vh;
 }
 
 .authTitle {
   width: 100%;
-  height: 150px;
-  padding: 35px;
-  font-size: 45px;
+  height: 16vh;
+  padding: 1.75rem;
+  font-size: 2.3rem;
   font-weight: 700;
   border: 1px solid red;
   background-color: darkred;
@@ -27,149 +26,151 @@ body {
 }
 .authForm {
   width: 100%;
-  height: 750px;
-  padding: 20px;
+  height: 81vh;
+  padding: 2vh;
   text-align: center;
 }
 .authClassContent {
   background-color: #181818;
   float: left;
-  width: 700px;
-  height: 450px;
+  width: 36.5vw;
+  height: 49vh;
   border: 1px solid red;
   position: relative;
-  top: 120px;
-  left: 100px;
+  top: 13vh;
+  left: 5vw;
   visibility: visible;
   opacity: 1;
 }
 .authClassContent .title {
   width: 100%;
-  height: 75px;
+  height: 8vh;
   background-color: rgb(9, 9, 29);
   border: 1px solid red;
   background-color: darkred;
   text-align: center;
   color: #f3a712;
   float: left;
-  font-size: 32px;
+  font-size: 1.6rem;
   font-weight: 700;
-  padding-top: 10px;
-  margin-bottom: 10px;
+  padding-top: 1vh;
+  margin-bottom: 1vh;
 }
 .authClassContent .avatar {
-  margin-left: 15px;
+  margin-left: 0.8vw;
   float: left;
-
-  width: 301px;
-  height: 266px;
+  width: 15.9vw;
+  height: 29vh;
   background-color: rgba(255, 0, 0, 0.15);
   border: 1px solid rgba(148, 0, 0, 0.72);
 }
 .authClassContent .avatar .imageAvatar {
   position: relative;
+  width: 15.9vw;
+  height: 29vh;
+  top: -0.3vh;
+  left: 0;
 }
 .authClassContent .right {
   float: left;
-  width: 350px;
-  height: 266px;
-
-  margin-left: 20px;
+  width: 18.3vw;
+  height: 29vh;
+  margin-left: 1vw;
 }
 .authClassContent .right .heroClass {
   float: left;
-  width: 350px;
-  height: 60px;
+  width: 18.3vw;
+  height: 6.5vh;
   color: #f3a712;
-  font-size: 28px;
+  font-size: 1.4rem;
   font-weight: 400;
-  padding-top: 8px;
+  padding-top: 0.4rem;
   background-color: rgba(255, 0, 0, 0.15);
   border: 1px solid rgba(148, 0, 0, 0.72);
 }
 .authClassContent .right .heroDescription {
-  margin-top: 5px;
-  padding-top: 10px;
-  font-size: 25px;
+  margin-top: 0.5vh;
+  padding-top: 1vh;
+  font-size: 1.2rem;
   font-weight: 300;
   background-color: rgba(255, 0, 0, 0.15);
   border: 1px solid rgba(148, 0, 0, 0.72);
   float: left;
-  width: 350px;
+  width: 18.3vw;
   color: #f3a712;
-  height: 200px;
+  height: 22vh;
 }
 .authClassContent .buttons {
-  margin-top: 2px;
-  padding-top: 20px;
+  margin-top: 0.1rem;
+  padding-top: 2vh;
   float: left;
   width: 100%;
-  height: 90px;
+  height: 10vh;
   background-color: #181818;
 }
 .authContent {
   background-color: #181818;
   float: left;
-  width: 700px;
+  width: 36.5vw;
   border: 1px solid red;
   text-align: center;
   color: red;
-  top: 120px;
+  top: 13vh;
   position: relative;
 }
 .logItems {
-  margin-top: 5px;
+  margin-top: 0.25rem;
 }
 .authContentTitle {
   display: inline-block;
-  width: 700px;
-  height: 75px;
+  width: 36.5vw;
+  height: 8.2vh;
   border: 1px solid red;
   background-color: darkred;
   text-align: center;
   color: #f3a712;
-  font-size: 35px;
+  font-size: 1.75rem;
   font-weight: 600;
-  padding-top: 8px;
+  padding-top: 1vh;
 }
 
 .authElementInput {
   width: 100%;
-  height: 72px;
+  height: 8vh;
   float: left;
   color: #f3a712;
-  font-size: 22px;
+  font-size: 1.1rem;
 }
 
 .authElementInputName {
   float: left;
-  padding-top: 10px;
+  padding-top: 0.5rem;
   width: 50%;
-  height: 72px;
+  height: 8vh;
 }
 .authElementInputInput {
-  padding-top: 12px;
+  padding-top: 0.6rem;
   text-align: center;
   display: inline-block;
   width: 50%;
-  height: 72px;
+  height: 8vh;
 }
 .authElementInput input {
-  font-size: 20px;
+  font-size: 1rem;
 }
 .main .authForm .authClassContent .buttons .previousButton {
   background-color: #1c1c1c;
   color: #f3a712;
   border: 2px solid #050505;
-  padding: 16px 32px;
+  padding: 0.8rem 1.2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
-  margin-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  width: 150px;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  width: 8vw;
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -177,15 +178,15 @@ body {
   background-color: #1c1c1c;
   color: #f3a712;
   border: 2px solid #050505;
-  padding: 16px 32px;
+  padding: 0.8rem 1.6rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
-  margin-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
-  width: 150px;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  width: 8vw;
 
   transition-duration: 0.4s;
   cursor: pointer;
@@ -203,14 +204,14 @@ body {
   background-color: #1c1c1c;
   color: #f3a712;
   border: 2px solid #050505;
-  padding: 16px 32px;
+  padding: 0.8rem 1.6rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
-  margin-top: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 
   transition-duration: 0.4s;
   cursor: pointer;
@@ -236,10 +237,10 @@ body {
 
 .error-inner {
   position: fixed;
-  padding: 32px;
+  padding: 3.8vh;
   width: 100%;
-  height: 400px;
-  max-width: 500px;
+  height: 43vh;
+  max-width: 26vw;
   border: 1px solid red;
   background-color: #181818;
 }
@@ -250,14 +251,14 @@ body {
   width: 100%;
   float: left;
   text-align: center;
-  font-size: 45px;
+  font-size: 2.2rem;
   font-weight: 600;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   position: relative;
-  top: -15px;
+  top: -1.5vh;
   color: #f3a712;
 }
 
@@ -265,35 +266,35 @@ body {
   color: #f3a712;
   width: 100%;
   text-align: center;
-  height: 120px;
+  height: 13vh;
   float: left;
-  margin-top: 20px;
-  font-size: 26px;
+  margin-top: 2vh;
+  font-size: 1.3rem;
   font-weight: 200;
   font-family: "Montserrat", sans-serif;
 }
 .error-inner .button-div {
   text-align: center;
   width: 100%;
-  height: 40px;
+  height: 3.5vh;
   float: left;
-  margin-top: 68px;
-  font-size: 26px;
+  margin-top: 7.3vh;
+  font-size: 1.3rem;
   font-weight: 200;
   font-family: "Montserrat", sans-serif;
   color: rgba(255, 255, 255, 0.9);
 }
 .error-inner .button-div button {
-  width: 175px;
+  width: 9.2vw;
   background-color: #1c1c1c;
   color: #f3a712;
   border: 2px solid #050505;
   text-transform: uppercase;
-  padding: 16px 32px;
+  padding: 0.8rem 1.6rem;
   text-align: center;
   text-decoration: none;
-  font-size: 25px;
-  margin: 4px 2px;
+  font-size: 1.2rem;
+  margin: 0.2rem 0.1rem;
   transition-duration: 0.4s;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;

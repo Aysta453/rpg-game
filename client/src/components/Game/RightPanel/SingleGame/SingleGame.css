@@ -2,66 +2,70 @@
   width: 100%;
   height: 100%;
   font-family: "Montserrat", sans-serif;
+  padding: 1vh;
 }
 .singleGameView .player {
-  width: 500px;
+  width: 26vw;
   float: left;
-  height: 650px;
+  height: 69vh;
   background-color: rgba(0, 149, 255, 0.03);
   border: 1px solid rgba(0, 149, 255, 0.2);
   clear: both;
-  padding-left: 55px;
-  padding-top: 80px;
+  padding-left: 2.5vw;
+  padding-top: 9vh;
 }
 
 .singleGameView .player .avatar {
   border: 1px solid rgba(0, 183, 255, 0.3);
-  width: 300px;
-  height: 390px;
-  margin-left: 50px;
-  padding-top: 20px;
+  width: 15.8vw;
+  height: 42vh;
+  margin-left: 2.5vw;
+  padding-top: 2vh;
   float: left;
   clear: both;
 }
-
+.singleGameView .player .avatar img {
+  width: 15.8vw;
+  height: 28.7vh;
+}
 .singleGameView .player .avatar .nick {
-  height: 50px;
+  height: 5vh;
   float: left;
   width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-size: 27px;
-  margin-top: 13px;
+  font-size: 1.4rem;
+  margin-top: 0.7rem;
 }
 .singleGameView .player .avatar .background {
   background-color: rgba(0, 149, 255, 0.03);
-  height: 105px;
+  height: 11vh;
   position: relative;
-  top: -5px;
+  top: -0.5vh;
   border-top: 1px solid rgba(0, 149, 255, 0.3);
 }
 .singleGameView .player .avatar .level {
-  height: 50px;
+  height: 5.5vh;
   float: left;
   width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 0.85rem;
 }
 .singleGameView .player .healthPoints {
   border: 1px solid black;
-  width: 300px;
-  height: 52px;
+  width: 15.8vw;
+  height: 5.5vh;
   float: left;
   text-align: center;
   position: relative;
-  left: 50px;
+  left: 2.5vw;
 }
 
 .singleGameView .player .progressMonsterHealthPoints-div {
-  height: 50px;
+  height: 5.5vh;
   background-color: rgba(7, 255, 0, 0.4);
   position: relative;
   left: -1px;
@@ -69,20 +73,21 @@
 
 .singleGameView .player .progressMonsterHealthPoints {
   background-color: rgb(0, 255, 88);
-  height: 50px;
+  height: 5.5vh;
   transition: 1s linear;
   position: relative;
   left: -1px;
 }
 
 .singleGameView .player .progress-div-monsterHealthPointsText {
+  padding-top: 0.5rem;
   position: relative;
-  height: 50px;
-  width: 400px;
+  height: 5.5vh;
+  width: 15.8vw;
   float: left;
-  font-size: 24px;
-  left: -45px;
-  top: -41px;
+  font-size: 1.2rem;
+  top: -5.5vh;
+  left: -0.1vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #151515;
@@ -90,84 +95,89 @@
 }
 
 .singleGameView .enemy {
-  width: 500px;
+  width: 26vw;
   float: right;
-  height: 650px;
+  height: 69vh;
   border: 1px solid rgba(255, 0, 0, 0.45);
-  padding-left: 55px;
-  padding-top: 80px;
+  padding-left: 2.5vw;
+  padding-top: 9vh;
   background-color: rgba(255, 0, 0, 0.03);
-}
-.singleGameView .enemy .avatar .background {
-  background-color: rgba(255, 0, 0, 0.04);
-  height: 105px;
-  position: relative;
-  top: -5px;
-  border-top: 1px solid rgba(255, 0, 0, 0.35);
-}
-.singleGameView .enemy img {
-  width: 298px;
 }
 .singleGameView .enemy .avatar {
   border: 1px solid red;
-  width: 300px;
-  height: 390px;
-  margin-left: 50px;
-  padding-top: 20px;
+  width: 15.8vw;
+  height: 42vh;
+  margin-left: 2.5vw;
+  padding-top: 2vh;
   float: left;
   clear: both;
 }
-
+.singleGameView .enemy .avatar img {
+  width: 15.8vw;
+  height: 28.7vh;
+}
+.singleGameView .enemy .avatar .background {
+  background-color: rgba(255, 0, 0, 0.04);
+  height: 11vh;
+  position: relative;
+  top: -0.5vh;
+  border-top: 1px solid rgba(255, 0, 0, 0.35);
+}
 .singleGameView .enemy .avatar .nick {
-  height: 50px;
+  height: 5vh;
   float: left;
   width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 27px;
-  margin-top: 13px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-top: 0.7rem;
 }
 
 .singleGameView .enemy .avatar .level {
-  height: 50px;
+  height: 5.5vh;
   float: left;
   width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 0.85rem;
 }
 
 .singleGameView .enemy .healthPoints {
   border: 1px solid rgba(255, 0, 0, 0.6);
-  width: 300px;
-  height: 52px;
+  width: 15.8vw;
+  height: 5.5vh;
   float: left;
   text-align: center;
   position: relative;
-  left: 50px;
+  left: 2.5vw;
 }
 
 .singleGameView .enemy .progressMonsterHealthPoints-div {
-  height: 50px;
+  height: 5.5vh;
   background-color: rgba(225, 0, 0, 0.3);
+  position: relative;
+  left: -1px;
 }
 
 .singleGameView .enemy .progressMonsterHealthPoints {
   background-color: rgba(225, 0, 0, 0.6);
-  height: 50px;
+  height: 5.5vh;
   transition: 1s linear;
+  position: relative;
+  left: -1px;
 }
 
 .singleGameView .enemy .progress-div-monsterHealthPointsText {
+  padding-top: 0.5rem;
   position: relative;
-  height: 50px;
-  width: 400px;
+  height: 5.5vh;
+  width: 15.8vw;
   float: left;
-  font-size: 24px;
-  left: -45px;
-  top: -41px;
+  font-size: 1.2rem;
+  top: -5.5vh;
+  left: -0.1vw;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: whitesmoke;
@@ -176,26 +186,26 @@
 
 .singleGameView .playerViewBattleController {
   position: relative;
-  top: -40px;
-  left: 440px;
-  width: 520px;
+  top: -4.4vh;
+  left: 24.5vw;
+  width: 27vw;
   float: left;
-  height: 285px;
+  height: 31vh;
   background-color: rgb(24, 24, 24);
   border: 1px solid rgb(35, 52, 58);
 }
 
 .singleGameView .playerViewBattleController .playerValues {
   width: 100%;
-  height: 60px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  height: 6.5vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   float: left;
 }
 
 .singleGameView .playerViewBattleController .playerValues .healtPoints-div {
-  margin-left: 30px;
-  height: 50px;
+  margin-left: 1.5vw;
+  height: 5.5vh;
   text-align: center;
   background-color: rgba(0, 255, 100, 0.6);
   border: 1px solid black;
@@ -208,7 +218,7 @@
   .healtPoints-div
   .progressPlayerHealthPoints {
   background-color: rgba(0, 255, 100, 0.7);
-  height: 48px;
+  height: 5.3vh;
   transition: 1s linear;
 }
 
@@ -218,24 +228,24 @@
   .healtPoints-div
   .progress-div-playerHealthPointsText {
   position: relative;
-  height: 48px;
-  width: 300px;
+  height: 5.3vh;
+  width: 15.8vw;
   float: left;
-  font-size: 25px;
-  left: -45px;
-  top: -40px;
+  font-size: 1.2rem;
+  left: -2.5vw;
+  top: -4.2vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #151515;
-
+  text-align: center;
   z-index: 2;
 }
 
 .singleGameView .playerViewBattleController .playerValues .manaPoints-div {
   text-align: center;
-  margin-right: 30px;
   border: 1px solid black;
-  height: 50px;
+  margin-right: 1.5vw;
+  height: 5.5vh;
   background-color: rgba(75, 214, 255, 0.8);
   float: right;
 }
@@ -246,7 +256,7 @@
   .manaPoints-div
   .progressPlayerManaPoints {
   background-color: rgba(75, 214, 255, 0.95);
-  height: 48px;
+  height: 5.3vh;
   transition: 1s linear;
 }
 
@@ -256,43 +266,46 @@
   .manaPoints-div
   .progress-div-playerManaPointsText {
   position: relative;
-  height: 48px;
-  width: 300px;
+  height: 5.3vh;
+  width: 15.8vw;
   float: left;
-  font-size: 20px;
-  font-size: 25px;
-  left: -45px;
-  top: -40px;
+  font-size: 1.2rem;
+  left: -2.5vw;
+  top: -4.2vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #151515;
-
   z-index: 3;
 }
 
 .singleGameView .playerViewBattleController .actions {
-  height: 190px;
+  height: 24vh;
   width: 100%;
   float: left;
 }
 
 .singleGameView .playerViewBattleController .actions .attackModes {
-  padding-top: 5px;
-  margin-top: 7px;
-  padding-bottom: 90px;
-  height: 87px;
+  padding-top: 0.5vh;
+  margin-top: 1vh;
+  height: 11vh;
   width: 100%;
   float: left;
   background-color: rgba(255, 255, 0, 0.04);
-  border: 1px solid rgba(255, 255, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 0, 0.2);
 }
 
 .singleGameView .playerViewBattleController .actions .attackModes .mode {
-  margin-left: 7.5%;
-  height: 85px;
-  width: 120px;
+  margin-left: 2vw;
+  margin-top: 0.5vh;
+  height: 9vh;
+  width: 6.5vw;
   float: left;
   background-color: transparent;
+}
+.singleGameView .playerViewBattleController .actions .attackModes .mode img {
+  height: 9vh;
+  width: 6.5vw;
 }
 .singleGameView .playerViewBattleController .actions .attackModes .mode button {
   background-color: transparent;
@@ -392,45 +405,50 @@
 
 .nametool {
   font-weight: 300;
-  font-size: 20px;
-  margin-top: 2px;
+  font-size: 1rem;
+  margin-top: 0.1rem;
   text-transform: uppercase;
-  height: 30px;
+  height: 1.5rem;
 }
 .costtool {
   text-transform: capitalize;
-  font-size: 17px;
+  font-size: 0.85rem;
   font-weight: 300;
-  margin-bottom: 3px;
+  margin-bottom: 0.15rem;
 }
 .pcosttool {
   font-weight: bolder;
 }
 .worftool {
   text-transform: capitalize;
-  font-size: 17px;
+  font-size: 0.85rem;
   font-weight: 300;
 }
 .pworftool {
   font-weight: bolder;
 }
 .singleGameView .playerViewBattleController .actions .skills {
-  padding-top: 5px;
-  margin-top: 14px;
-  padding-bottom: 90px;
-  height: 87px;
+  padding-top: 0.25vh;
+  margin-top: 0.7vh;
+  height: 11vh;
   width: 100%;
   float: left;
   background-color: rgba(0, 178, 255, 0.04);
-  border: 1px solid rgba(0, 178, 255, 0.4);
+  border-top: 1px solid rgba(0, 178, 255, 0.4);
+  border-bottom: 1px solid rgba(0, 178, 255, 0.4);
 }
 
 .singleGameView .playerViewBattleController .actions .skills .skill {
-  margin-left: 7.5%;
-  height: 87px;
-  width: 122px;
+  margin-left: 2vw;
+  margin-top: 0.5vh;
+  height: 9vh;
+  width: 6.5vw;
   float: left;
   background-color: transparent;
+}
+.singleGameView .playerViewBattleController .actions .skills .skill img {
+  height: 9vh;
+  width: 6.5vw;
 }
 .singleGameView .playerViewBattleController .actions .skills .skill button {
   background-color: transparent;
@@ -443,37 +461,19 @@
   .skills
   .skill
   .progress-div {
-  margin-top: 40px;
-  margin-left: 50px;
-  width: 50px;
+  margin-top: 4vh;
+  margin-left: 2.5vw;
   position: relative;
-  top: -2px;
-  width: 301px;
+  top: -0.5vh;
+
   background-color: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .singleGameView .playerViewBattleController .actions .skills .skill .progress {
   background-color: rgb(62, 122, 235);
-  height: 21px;
-
+  height: 2.3vh;
   transition: 1s linear;
-}
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .progress-div-time {
-  position: relative;
-  height: 21px;
-  width: 1300px;
-  margin-left: 50px;
-  float: left;
-  font-size: 20px;
-  top: -50px;
-  padding-top: 5px;
-  color: red;
 }
 
 .singleGameView
@@ -509,10 +509,10 @@
   position: relative;
   visibility: hidden;
   opacity: 0;
-  height: 100px;
-  width: 300px;
-  top: -210px;
-  left: -100px;
+  height: 11vh;
+  width: 15.6vw;
+  top: -23vh;
+  left: -5vw;
   background-color: yellow;
   border: 1px solid black;
   color: red;
@@ -539,10 +539,10 @@
   position: relative;
   visibility: hidden;
   opacity: 0;
-  height: 100px;
-  width: 300px;
-  top: -210px;
-  left: -100px;
+  height: 11vh;
+  width: 15.6vw;
+  top: -23vh;
+  left: -5vw;
   background-color: yellow;
   border: 1px solid black;
   color: red;
@@ -578,10 +578,10 @@
 
 .win-inner {
   position: fixed;
-  padding: 32px;
+  padding: 3vh;
   width: 100%;
-  max-height: 850px;
-  max-width: 500px;
+  max-height: 95vh;
+  max-width: 26vw;
   background-color: rgb(0, 2, 2);
   border: 1px solid rgba(44, 225, 91, 0.8);
   color: #2ce15b;
@@ -589,16 +589,16 @@
 
 .win-inner .title {
   width: 100%;
-  height: 80px;
+  height: 6.5vh;
   float: left;
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .win-inner .description {
   width: 100%;
-  height: 240px;
-  font-size: 25px;
+  height: 26vh;
+  font-size: 1.25rem;
   font-weight: 300;
   float: left;
   color: rgba(255, 255, 255, 0.8);
@@ -608,27 +608,22 @@
 }
 .win-inner .rewards {
   width: 100%;
-  height: 330px;
+  height: 36vh;
   float: left;
 }
 .win-inner .rewards .title {
   float: left;
-  height: 65px;
+  height: 5.5vh;
   width: 100%;
   font-weight: 200;
   color: rgba(0, 255, 196, 0.7);
-  font-size: 35px;
+  font-size: 1.75rem;
 }
 .rewards .money {
   float: left;
-  height: 50px;
+  height: 5vh;
   width: 100%;
-}
-.rewards .money {
-  float: left;
-  height: 45px;
-  width: 100%;
-  font-size: 25px;
+  font-size: 1.25rem;
   font-weight: 300;
   color: #fff264;
 }
@@ -637,14 +632,9 @@
 }
 .rewards .diamonds {
   float: left;
-  height: 50px;
+  height: 5vh;
   width: 100%;
-}
-.rewards .diamonds {
-  float: left;
-  height: 45px;
-  width: 100%;
-  font-size: 25px;
+  font-size: 1.25rem;
   font-weight: 300;
   color: #80f0ff !important;
 }
@@ -654,9 +644,9 @@
 
 .rewards .expoints {
   float: left;
-  height: 55px;
+  height: 5vh;
   width: 100%;
-  font-size: 25px;
+  font-size: 1.25rem;
   font-weight: 300;
   color: rgb(207, 155, 255);
 }
@@ -666,8 +656,7 @@
 
 .rewards .itemBox {
   width: 100%;
-  height: 160px;
-
+  height: 17.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -675,15 +664,18 @@
   float: left;
 }
 .win-inner .rewards .itemBox .item {
-  width: 200px;
+  width: 10.4vw;
   background-color: rgba(44, 225, 91, 0.03);
   border: 1px solid rgba(44, 225, 91, 0.2);
-  height: 141px;
+  height: 15.3vh;
 }
-
+.win-inner .rewards .itemBox .item img {
+  height: 15.1vh;
+  width: 10.4vw;
+}
 .win-inner .submitButtonBox {
   width: 100%;
-  height: 75px;
+  height: 8vh;
   float: left;
 }
 
@@ -694,10 +686,10 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin-top: 20px;
-  padding: 14px 14px;
-  width: 180px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 9.5vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -736,26 +728,26 @@
 
 .lose-inner {
   position: fixed;
-  padding: 32px;
+  padding: 3vh;
   width: 100%;
-  height: 450px;
-  max-width: 550px;
+  height: 49vh;
+  max-width: 29vw;
   background-color: rgb(9, 0, 0);
   border: 1px solid rgba(255, 0, 0, 0.8);
 }
 
 .lose-inner .title {
   width: 100%;
-  height: 80px;
+  height: 9vh;
   float: left;
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: 400;
 }
 
 .lose-inner .description {
   width: 100%;
-  height: 220px;
-  font-size: 25px;
+  height: 24vh;
+  font-size: 1.25rem;
   font-weight: 300;
   float: left;
   color: rgba(255, 255, 255, 0.9);
@@ -766,7 +758,7 @@
 
 .lose-inner .submitButtonBox {
   width: 100%;
-  height: 75px;
+  height: 8vh;
   float: left;
 }
 
@@ -777,10 +769,10 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin-top: 20px;
-  padding: 14px 14px;
-  width: 180px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 9.5vw;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -805,9 +797,9 @@
   .skill1
   .showingTime {
   position: relative !important;
-  top: 50px;
-  left: 25px;
-  height: 25px;
+  top: 5.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
   z-index: 1;
   border: 1px solid black;
 }
@@ -818,7 +810,7 @@
   .skill
   .skill1
   .progressSkillTime-div {
-  height: 25px;
+  height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
@@ -830,7 +822,7 @@
   .skill1
   .progressSkillTime {
   background-color: rgb(235, 200, 62);
-  height: 25px;
+  height: 2.8vh;
   transition: 1s linear;
 }
 .singleGameView
@@ -841,9 +833,9 @@
   .skill2
   .showingTime {
   position: relative !important;
-  top: -550px;
-  left: 25px;
-  height: 25px;
+  top: -54.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
   z-index: 1;
   border: 1px solid black;
 }
@@ -854,7 +846,7 @@
   .skill
   .skill2
   .progressSkillTime-div {
-  height: 25px;
+  height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
@@ -866,7 +858,7 @@
   .skill2
   .progressSkillTime {
   background-color: rgb(62, 122, 235);
-  height: 25px;
+  height: 2.8vh;
   transition: 1s linear;
 }
 .singleGameView
@@ -877,9 +869,9 @@
   .skill3
   .showingTime {
   position: relative !important;
-  top: 50px;
-  left: 25px;
-  height: 25px;
+  top: 5.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
   z-index: 1;
   border: 1px solid black;
 }
@@ -890,7 +882,7 @@
   .skill
   .skill3
   .progressSkillTime-div {
-  height: 25px;
+  height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
@@ -902,45 +894,44 @@
   .skill3
   .progressSkillTime {
   background-color: rgb(62, 122, 235);
-  height: 25px;
+  height: 2.8vh;
   transition: 1s linear;
 }
 
 .barskill1 {
   position: relative;
-  top: -165px;
-  left: -50px;
-  height: 20px !important;
+  top: -17.6vh;
+  left: -2.6vw;
+  height: 2vh !important;
 }
 .barskill2 {
   position: relative;
-  top: -165px;
-  left: -50px;
-  height: 20px !important;
+  top: -18vh;
+  left: -2.6vw;
+  height: 2vh !important;
 }
 .barskill3 {
   position: relative;
-  top: -165px;
-  left: -50px;
-  height: 20px !important;
+  top: -18vh;
+  left: -2.6vw;
+  height: 2vh !important;
 }
 
 .combatDivEnemyNormalAttack {
   margin: 0;
   text-align: center;
-  width: 300px;
+  width: 15.8vw;
   position: relative;
-  font-size: 65px;
+  font-size: 3.2rem;
   z-index: 1;
-
-  top: -150px;
+  top: -16vh;
 }
 
 .combatDivEnemyNormalAttack .combatTextFast {
   position: relative;
-  top: -150px;
+  top: -16vh;
 
-  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  text-shadow: 1vh 1vh 1vh rgb(15, 12, 12);
   z-index: 1;
   opacity: 0;
   animation-name: example;
@@ -948,8 +939,8 @@
 }
 .combatDivEnemyNormalAttack .combatTextNormal {
   position: relative;
-  top: -150px;
-  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  top: -16vh;
+  text-shadow: 1vh 1vh 1vhrgb (15, 12, 12);
   z-index: 1;
   opacity: 0;
   animation-name: example;
@@ -958,8 +949,8 @@
 
 .combatDivEnemyNormalAttack .combatTextHard {
   position: relative;
-  top: -150px;
-  text-shadow: 10px 10px 10px rgb(15, 12, 12);
+  top: -16vh;
+  text-shadow: 1vh 1vh 1vh rgb(15, 12, 12);
   z-index: 1;
   opacity: 0;
   animation-name: example;
@@ -971,13 +962,13 @@
     opacity: 1;
   }
   10% {
-    top: -150px;
+    top: -16vh;
   }
   30% {
-    top: -300px;
+    top: -32vh;
   }
   100% {
-    top: -300px;
+    top: -32vh;
 
     opacity: 0;
   }
