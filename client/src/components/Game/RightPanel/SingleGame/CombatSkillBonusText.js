@@ -8,7 +8,7 @@ const CombatSkillBonusText = ({ value, id}) => {
         check = true;
     } 
     let text = '-'+value;
-    let colorOfText = '#710193';
+    let colorOfText = '#8B5FBF';
 
 
     return (

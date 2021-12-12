@@ -3,7 +3,7 @@ import React from 'react'
 import './SingleGame.css';
 const CombatEnemyText = ({ value, id,attackMode,type}) => {
         let check;
-    if (value === 0 && (type===1 || type===0)) {
+    if (value === 0 && (type===1 || type===0 || type===2)) {
         check = false;
     } else {
         check = true;
@@ -17,26 +17,26 @@ const CombatEnemyText = ({ value, id,attackMode,type}) => {
             switch (type) {
                 //normal attack
                 case 0:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = 'white';  
                     typeOfText = 'Fast';
                     break;
                 //crit attack
                 case 1:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = '#D61801';
                     typeOfText = 'Fast';
                     break;
                 //block
                 case 2:
-                    text = 'blok';
-                    colorOfText = '#FDAF08';
+                    text = '- '+value;
+                    colorOfText = '#F9A03F';
                     typeOfText = 'Fast';
                     break;
                 //miss
                 case 3:
                     text = 'unik';
-                    colorOfText = '#FDAF08';
+                    colorOfText = '#D8CC34';
                     typeOfText = 'Fast';
                     break;
                 default:
@@ -48,26 +48,26 @@ const CombatEnemyText = ({ value, id,attackMode,type}) => {
             switch (type) {
                 //normal attack
                 case 0:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = 'white';  
                     typeOfText = 'Normal';
                     break;
                 //crit attack
                 case 1:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = '#D61801';
                     typeOfText = 'Normal';
                     break;
                 //block
                 case 2:
-                    text = 'blok';
-                    colorOfText = '#FDAF08';
+                    text = '- '+value;
+                    colorOfText = '#F9A03F';
                     typeOfText = 'Normal';
                     break;
                 //miss
                 case 3:
                     text = 'unik';
-                    colorOfText = '#FDAF08';
+                    colorOfText = '#D8CC34';
                     typeOfText = 'Normal';
                     break;
                 default:
@@ -79,26 +79,26 @@ const CombatEnemyText = ({ value, id,attackMode,type}) => {
             switch (type) {
                 //normal attack
                 case 0:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = 'white';  
                     typeOfText = 'Hard';
                     break;
                 //crit attack
                 case 1:
-                    text = '-'+value;
+                    text = '- '+value;
                     colorOfText = '#D61801';
                     typeOfText = 'Hard';
                     break;
                 //block
                 case 2:
-                    text = 'blok';
-                    colorOfText = '#FDAF08';
+                    text = '- '+value;
+                    colorOfText = '#F9A03F';
                     typeOfText = 'Hard';
                     break;
                 //miss
                 case 3:
                     text = 'unik';
-                    colorOfText = '#FDAF08';
+                    colorOfText = '#D8CC34';
                     typeOfText = 'Hard';
                     break;
                 default:

@@ -10,7 +10,7 @@ const CombatEnemySkillText  = ({ value, id}) => {
    
 
     let text = '-'+value;
-    let colorOfText = '#124364';
+    let colorOfText = '#00A2C7';
 
 
     return (

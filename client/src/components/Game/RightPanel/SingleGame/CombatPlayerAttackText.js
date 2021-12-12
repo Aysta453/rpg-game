@@ -15,28 +15,28 @@ const CombatPlayerAttackText = ({ value, id,type}) => {
     switch (type) {
         //crit attack
         case 0:
-            text = '-'+value;
+            text = '- '+value;
             colorOfText = '#D61801';
             break;
                 //normal attack
         case 1:
-            text = '-'+value;
+            text = '- '+value;
             colorOfText = 'white';
             break;
         //block
         case 2:
-            text = 'blok';
-            colorOfText = '#FDAF08';
+            text = '- '+value;
+            colorOfText = '#F9A03F';
             break;
         //miss
         case 3:
             text = 'unik';
-            colorOfText = '$FDAF08';
+            colorOfText = '#D8CC34';
             break;
         //reduction by armor
         case 4:
             text = 'redukcja';
-            colorOfText = '#E85D04';
+            colorOfText = '#CEB5A7';
             break;
         default:
             break;

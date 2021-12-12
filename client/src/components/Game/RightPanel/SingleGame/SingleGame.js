@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,useRef} from 'react';
 import {useSelector} from 'react-redux';
 import './SingleGame.css';
 import SingleGamePopupLose from './SingleGamePopupLose';
@@ -201,6 +201,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
 
     //players main Stats
     const [playerStats, setPlayerStats] = useState(playerGame);
+    //console.log(playerStatRef);
+
     // eslint-disable-next-line
     const [enemyStats, setEnemyStats] = useState(game.monster);
 
@@ -285,8 +287,9 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         setTypeOfNormalPlayerHeal(type);
     }
 
-    let widthOfMainHealthPointsBar = 300;
-    let widthOfBattleContenerBars = 200;
+    let widthOfMainHealthPointsBar = 15.8;
+    let widthOfBattleContenerBars = 10.5;
+    
 
     const changePopup = (number) => {
         if (number === 0) {
@@ -337,70 +340,51 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
         }
     };
 
-
-    
     const attackPlayer = () => {
         setIntervalPlayerDamage(setInterval(() => {
+            let hit = Math.random() * 100 + 1;
 
-                let hit = Math.random() * 100 + 1;
-                if (hit <= playerStats.chanceOnDodge) {
- 
-                       functionNormalPlayerAttack(0,3);
-                    if (hit <= playerStats.chanceOnBlock) {
-                        console.log('player blocked attack')
-                       functionNormalPlayerAttack(0,2);
-                    } else {
-                        let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints);
-                        if (damage > 0) {
-                            setHpPlayer(hpPlayer => hpPlayer - damage);
-                       
-                            
-                            functionNormalPlayerAttack(damage, 1);
-                        
-                            
-                        } else {
-                        functionNormalPlayerAttack(0,4);
-                            console.log('damage reduced by armor');
-                        }
-                    }
+            if (hit <= playerStats.chanceOnDodge) {
+                functionNormalPlayerAttack(0,3);
+            } else {
+                  if (hit <= playerStats.chanceOnBlock) {
+                     let damage = Math.floor(((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints)*0.25);
+                    setHpPlayer(hpPlayer => hpPlayer - damage);
+                    functionNormalPlayerAttack(damage,2);
+                  
                 } else {
-                    let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints);
+                     let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack) - playerStats.defensePoints);
                     if (damage > 0) {
-                        setHpPlayer(hpPlayer => hpPlayer - damage);
-                          functionNormalPlayerAttack(damage,1);
-                                            
+                        setHpPlayer(hpPlayer => hpPlayer - damage);                     
+                        functionNormalPlayerAttack(damage, 1);                  
                     } else {
-                        console.log('damage reduced by armor');
                         functionNormalPlayerAttack(0,4);
                     }
                 }
+
             }
+        }
             , 1 * 2500));
-        
-      
     }
 
     const attackEnemy = (time, attackMode) => {
         setIntervalEnemyDamage(setInterval(() => {
-
-                let hit = Math.random() * 100 + 1;
-                if (hit <= playerGame.chanceOnHit) {
+            let hit = Math.random() * 100 + 1;
+                if (hit <= playerStats.chanceOnHit) {
                     let critHit = Math.random() * 100 + 1;
                     let damage = Math.floor(((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack)
                         - Math.ceil(enemyStats.monsterDefense / 10)) * attackMode);
                     if (damage > 0) {
-                        if (critHit <= playerGame.chanceOnHit) {
+                        if (critHit <= playerStats.chanceOnCritHit) {
                             damage = damage * 1.5;
                             setHpEnemy(hpEnemy => hpEnemy - damage);
-                            
-
                             functionNormalEnemyAttack(damage,1);
                         } else {
                             setHpEnemy(hpEnemy => hpEnemy - damage);
                             functionNormalEnemyAttack(damage, 0);
                         }
                     } else {
-                        functionNormalEnemyAttack(0,2);
+                        functionNormalEnemyAttack(0,3);
                     }
                 } else {
                     functionNormalEnemyAttack(0,3);
@@ -410,7 +394,42 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
 
     }
 
-
+    const refreshAttacks = (time) => {
+        switch (attackMode) {
+            case 3750:
+                clearInterval(intervalEnemyDamage)
+                clearInterval(intervalPlayerDamage);
+                attackEnemy(attackMode, 1.5);
+                attackPlayer();
+                sleep(time).then(() => {
+                     clearInterval(intervalEnemyDamage)
+                clearInterval(intervalPlayerDamage);
+                attackEnemy(attackMode, 1.5);
+                attackPlayer();
+                })
+                break;
+            case 2500:
+                clearInterval(intervalEnemyDamage)
+                clearInterval(intervalPlayerDamage);
+                console.log(playerStats);
+                break;
+            case 1250:
+                clearInterval(intervalEnemyDamage)
+                clearInterval(intervalPlayerDamage);
+                attackEnemy(attackMode, 0.5);
+                attackPlayer();
+                sleep(time).then(() => {
+                     clearInterval(intervalEnemyDamage)
+                clearInterval(intervalPlayerDamage);
+                attackEnemy(attackMode, 0.5);
+                attackPlayer();
+                })
+                break;
+            default:
+                break;
+            
+        }
+    }
 
 
 
@@ -449,8 +468,6 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
     
   
     useEffect(() => {
-        
-     
         let changeBarHpPlayer = (hpPlayer / playerStats.healthPoints) * widthOfMainHealthPointsBar;
         let changeBattleHealthBarPlayer = (hpPlayer / playerStats.healthPoints) * widthOfBattleContenerBars;
         if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
@@ -556,8 +573,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     </div>
                     <div className="healthPoints">
                         <div className="progressMonsterHealthPoints-div"
-                             style={{width: `${widthOfMainHealthPointsBar}px`}}>
-                            <div style={{width: `${playerHpBar}px`}} className="progressMonsterHealthPoints"/>
+                             style={{width: `${widthOfMainHealthPointsBar}vw`}}>
+                            <div style={{width: `${playerHpBar}vw`}} className="progressMonsterHealthPoints"/>
                         </div>
                         <div className="progress-div-monsterHealthPointsText">
                             {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
@@ -566,7 +583,6 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                 </div>
                 <div className="enemy">
                 <div className="avatar">
-                       
                         <img alt='' src={`${monsterImage}`}/>
                         <div className='background'>
                             <div className="nick">
@@ -581,8 +597,8 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                     </div>
                     <div className="healthPoints">
                         <div className="progressMonsterHealthPoints-div"
-                             style={{width: `${widthOfMainHealthPointsBar}px`}}>
-                            <div style={{width: `${monsterHpBar}px`}} className="progressMonsterHealthPoints"/>
+                             style={{width: `${widthOfMainHealthPointsBar}vw`}}>
+                            <div style={{width: `${monsterHpBar}vw`}} className="progressMonsterHealthPoints"/>
                         </div>
                         <div className="progress-div-monsterHealthPointsText">
                             {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
@@ -591,15 +607,15 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                 </div>
                 <div className="playerViewBattleController">
                     <div className="playerValues">
-                        <div className="healtPoints-div" style={{width: `${widthOfBattleContenerBars}px`}}>
-                            <div style={{width: `${playerBattleHpBar}px`}} className="progressPlayerHealthPoints"/>
+                        <div className="healtPoints-div" style={{width: `${widthOfBattleContenerBars}vw`}}>
+                            <div style={{width: `${playerBattleHpBar}vw`}} className="progressPlayerHealthPoints"/>
 
                             <div className="progress-div-playerHealthPointsText">
                                 {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
                             </div>
                         </div>
-                        <div className="manaPoints-div" style={{width: `${widthOfBattleContenerBars}px`}}>
-                            <div style={{width: `${playerBattleMpBar}px`}} className="progressPlayerManaPoints"/>
+                        <div className="manaPoints-div" style={{width: `${widthOfBattleContenerBars}vw`}}>
+                            <div style={{width: `${playerBattleMpBar}vw`}} className="progressPlayerManaPoints"/>
 
                             <div className="progress-div-playerManaPointsText">
                                 {parseInt(manaPlayer)}/{parseInt(playerStats.manaPoints)}
@@ -635,10 +651,10 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                         </div>
                         </div>
                         <div className="skills">
-                            <SkillHandling numberOfSkill={1} handlingSkillButtons={handlingSkillButtons}
-                                           buttonValue={firstButton} setButtonValue={setFirstButton}
+                            <SkillHandling numberOfSkill={1} handlingSkillButtons={handlingSkillButtons} 
+                                           buttonValue={firstButton} setButtonValue={setFirstButton} 
                                            skillNumber={'skill1'} skill={skillsToBattle.firstSkill}
-                                           setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
+                                           setManaPlayer={setManaPlayer} manaPlayer={manaPlayer} refreshAttacks={refreshAttacks} intervalEnemyDamage={intervalEnemyDamage} intervalPlayerDamage={intervalPlayerDamage}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
                                            setHpPlayer={setHpPlayer} functionNormalPlayerHeal={functionNormalPlayerHeal}
                                            sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
@@ -648,7 +664,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                                            skillNumber={'skill2'} skill={skillsToBattle.secondSkill}
                                            setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
-                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal}
+                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal} refreshAttacks={refreshAttacks} intervalEnemyDamage={intervalEnemyDamage} intervalPlayerDamage={intervalPlayerDamage}
                                            sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
                                            setPlayerStats={setPlayerStats} manaRegen={manaRegen} functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}  functionSkillBonusText={functionSkillBonusText}/>
                             <SkillHandling numberOfSkill={3} handlingSkillButtons={handlingSkillButtons}
@@ -656,7 +672,7 @@ const SingleGame = ({setButtons, setWindowOfElements}) => {
                                            skillNumber={'skill3'} skill={skillsToBattle.thirdSkill}
                                            setManaPlayer={setManaPlayer} manaPlayer={manaPlayer}
                                            setHpEnemy={setHpEnemy} hpEnemy={hpEnemy} hpPlayer={hpPlayer}
-                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal}
+                                           setHpPlayer={setHpPlayer}  functionNormalPlayerHeal={functionNormalPlayerHeal} refreshAttacks={refreshAttacks} intervalEnemyDamage={intervalEnemyDamage} intervalPlayerDamage={intervalPlayerDamage}
                                            sleep={sleep} damageOverTime={damageOverTime} playerStats={playerStats} healOverTime={healOverTime}
                                            setPlayerStats={setPlayerStats} manaRegen={manaRegen} functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack} functionSkillBonusText={functionSkillBonusText} />
 

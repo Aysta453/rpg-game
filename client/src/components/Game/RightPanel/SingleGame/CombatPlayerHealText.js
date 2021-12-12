@@ -15,13 +15,13 @@ const CombatPlayerHealText  = ({ value, id,type}) => {
     switch (type) {
         //heal regen
         case 0:
-            text = '+'+value +'HP';
-            colorOfText = 'green';
+            text = '+ '+value +'HP';
+            colorOfText = '#00FF64';
             break;
                 //mana regen
         case 1:
-            text = '-'+value +'MP';
-            colorOfText = 'cyan';
+            text = '+ '+value +'MP';
+            colorOfText = '#4BD6FF';
             break;
         //block
         default:

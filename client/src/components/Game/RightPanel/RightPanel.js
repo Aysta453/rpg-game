@@ -22,7 +22,7 @@ const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons })
     return (
         
         <div className='rightPanel'>
-                {windowOfElements === 1 && <CharacterView user={user} /> }
+                {windowOfElements === 1 && <CharacterView user={user} />}
                 {windowOfElements === 2 &&  <SkillsView />  }
                 {windowOfElements === 3 &&  <DealerView user={user} />  }
                 {windowOfElements === 4 && <MissionsView setWindowOfElements={setWindowOfElements} setButtons={setButtons} />}
