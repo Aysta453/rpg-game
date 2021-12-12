@@ -7,7 +7,7 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
     const game = useSelector(state => state.game);
     const [time, setTime] = useState(game.missionTime);
     const [timeBar, setTimeBar] = useState(0);
-    let width = 1300;
+    let width = 67.7;
     let progress = width / game.missionTime;
     const cancelingMission = () => {
         setWindowOfElements(4);
@@ -42,8 +42,8 @@ const SinglePlayerGameView = ({setWindowOfElements ,setButtons}) => {
                 {game.missionDescription}
             </div>
             <div className="time">
-                <div className="progress-div-wait" style={{ width: width }}>
-                    <div style={{ width: `${timeBar}px` }} className="progresswait"/>
+                <div className="progress-div-wait" style={{ width: `${width}vw` }}>
+                    <div style={{ width: `${timeBar}vw` }} className="progresswait"/>
                 </div>
                 <div className="progress-div-time-wait">
                     {convertingTime(time)} / {convertingTime(game.missionTime)}
