@@ -1,13 +1,16 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { useSelector } from 'react-redux';
 
 
 const CharacterAvatar = () => {
+
     const hero = useSelector(state => state.hero);
-    let widthBarExp = 300;
     let heroClassPolish;
-    let progress = (hero.expStart / hero.expStop) * widthBarExp;
     let image;
+
+    const [progressBar, setProgressBar] = useState(15);
+    let progress = (hero.expStart / hero.expStop) * progressBar;
+    const [currentProgress, setCurrentProgress] = useState(progress);
     switch (hero.heroClass) {
         case 'Mage':
             heroClassPolish = 'Mag';
@@ -33,16 +36,16 @@ const CharacterAvatar = () => {
             break;
     }
     return(<>
-        <div className='avatar' >
+        <div className="avatar" >
             <img src={`${image}`} alt="" className="imageSkill"/>
             <div className={'background'}>
                 <div className='infoNick'>{hero.nick}</div>
                 <div className='klasa'>{heroClassPolish}</div>
             <div className='info'>Poziom {hero.level}</div>
             
-                <div className="progressExp-div" style={{ width: widthBarExp }}>
+                <div className="progressExp-div" style={{ width: `${currentProgress}vw` }}>
                       
-                    <div style={{ width: `${progress}px` }} className="progressExp"></div>
+                    <div style={{ width: `${progressBar}vw` }} className="progressExp"></div>
                  
                   
             </div>
