@@ -1,6 +1,6 @@
 import creatingItem from "./creatingItem.js";
 
-export default function createMission(firstValue,secondValue,level,dificultMode,heroClass) {
+export default function createMission(firstValue, secondValue, level, dificultMode, heroClass) {
     let { mission } = {};
     let nameOfMission;
     let descriptionOfMission;
@@ -18,7 +18,7 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
         'W dalekich górach jest stara legenda, że wielki lodowy smok śpi na ogromnym skarbie. Sprawdź, czy są to wyłącznie plotki.',
         'W podmiejskich lochach zaczął grasować wielki czarny jak smoła smok. Coraz więcej osadników jest przerażona, że zostanie pożarta i uciekają z miasta. Król błaga Cię o pomoc. Pewien szewczyk kombinuje coś z magiczną owcą. Pokonasz smoka czy zostawisz to zadanie szewczykowi?'];
     let nameOfMonsters = ['Zielony Ork', 'Lodowy Ork', 'Bagnisty Ork', 'Królewski Zabójca', 'Złodziej Kieł', 'Portowy Łotrzyk', 'Szmaragdowy Smok', 'Lodowy Smok', 'Czarny Smok'];
-    let timeOfMissions = [2, 3, 4, 5, 6, 7, 8,9, 10,15];
+    let timeOfMissions = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15];
 
     let nameOfMonster;
     let monsterHealtPoints;
@@ -130,12 +130,29 @@ export default function createMission(firstValue,secondValue,level,dificultMode,
         default:
             break;
     };
+    let levelDificult;
+    if (level < 10) {
+        levelDificult = 50;
+    } else if (level >= 10 && level < 20) {
+        levelDificult = 150;
+    } else if (level >= 20 && level < 30) {
+        levelDificult = 400;
+    } else if (level >= 30 && level < 40) {
+        levelDificult = 750;
+    } else if (level >= 40 && level < 50) {
+        levelDificult = 1000;
+    } else if (level >= 50 && level < 60) {
+        levelDificult = 1250;
+    }else if (level >= 60 && level < 70) {
+        levelDificult = 2000;
+    }else if (level >= 70 && level < 80) {
+        levelDificult = 2500;
+    }
 
+    console.log(levelDificult);
     goldOfMission = ((secondValue * level) * 4) * Math.floor((Math.random() * 10) + 1);  
     experienceOfMission = ((secondValue * level) * 5) * Math.floor((Math.random() * 10) + 1);
-
-    monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * 20) + 250);
-    console.log('moster hp ' + monsterHealtPoints);
+    monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * levelDificult) + 1000);
     monsterDefense =Math.floor(((dificultMode * level)) * Math.floor((Math.random() * 10) + 5));
     do {
         monsterMinAttack = ((dificultMode * level)) * Math.floor((Math.random() * 2) + 1);
