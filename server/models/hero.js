@@ -13,7 +13,7 @@ const heroSchema = mongoose.Schema({
     },
     gold: {
         type: Number,
-      default: 100,  
+      default: 10000,  
     },
     diamond: {
         type: Number,
