@@ -9,7 +9,7 @@ const CharacterAvatar = () => {
     let image;
 
     const [progressBar, setProgressBar] = useState(15);
-    let progress = (hero.expStart / hero.expStop) * progressBar;
+    let progress = Math.max(((hero.expStart ===0?(1):(hero.expStart)) / hero.expStop) * progressBar,0.01);
     const [currentProgress, setCurrentProgress] = useState(progress);
     switch (hero.heroClass) {
         case 'Mage':

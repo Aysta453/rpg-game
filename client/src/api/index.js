@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({ baseURL: 'http://localhost:7215' });
+//const API = axios.create({ baseURL: 'https://aysta-game-server.herokuapp.com/' });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {

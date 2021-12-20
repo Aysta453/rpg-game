@@ -7,13 +7,13 @@ const CombatSkillBonusText = ({ value, id}) => {
     } else {
         check = true;
     } 
-    let text = '-'+value;
-    let colorOfText = '#8B5FBF';
+    let text = value;
+    let colorOfText = '#672480';
 
 
     return (
-        <div className="combatDivEnemyNormalAttack">
-         {check ? (<div key={id} style={{color:colorOfText}} className={`combatTextNormal`}> {text}</div>):('')}
+        <div className="combatDivPlayerSkillBonus">
+         {check ? (<div key={id} style={{color:colorOfText}} className={`skillBonus`}> {text}</div>):('')}
          
         </div>
     )

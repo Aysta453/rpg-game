@@ -5,7 +5,11 @@ import DungeonView from './DungeonView';
 const DungeonsView=()=>{
     return(<>
         <div className='dungeonsView'>
-            <div className='title'>Tablica Wypraw</div>
+            
+            <div className='title'>
+                            <div className='optionJoin'>Dołącz</div>
+                Tablica Wypraw
+            </div>
             <div className='dungeons'>
                 <DungeonView />
                 <DungeonView />

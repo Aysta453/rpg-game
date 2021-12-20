@@ -32,7 +32,7 @@ app.use('/missions', missionsRouter);
 app.use('/trade', tradeRouter);
 app.use('/inventory', inventoryRouter);
 app.use('/', (req, res) => {
-  res.send('Hello Worlds');
+  res.send('Hello Worlds1');
 })
 
 

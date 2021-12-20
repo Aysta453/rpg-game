@@ -160,8 +160,7 @@ export default function creatingItem(heroClass, level, itemAssignment, ifNewChar
     if (typeOfItemGeneration == 5) {
         defensiveValue = 0;
     } else {
-        attackMinValue = 0;
-
+        attackMinValue = 0; 
         attackMaxValue = 0;
     }
   

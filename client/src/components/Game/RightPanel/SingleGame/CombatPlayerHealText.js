@@ -31,8 +31,8 @@ const CombatPlayerHealText  = ({ value, id,type}) => {
 
 
     return (
-        <div className="combatDivEnemyNormalAttack">
-         {check ? (<div key={id} style={{color:colorOfText}} className={`combatTextNormal`}> {text}</div>):('')}
+        <div className="combatDivPlayerSkillRestore">
+         {check ? (<div key={id} style={{color:colorOfText}} className={`skillRestore`}> {text}</div>):('')}
          
         </div>
     )

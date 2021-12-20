@@ -149,7 +149,7 @@ export default function createMission(firstValue, secondValue, level, dificultMo
         levelDificult = 2500;
     }
 
-    console.log(levelDificult);
+
     goldOfMission = ((secondValue * level) * 4) * Math.floor((Math.random() * 10) + 1);  
     experienceOfMission = ((secondValue * level) * 5) * Math.floor((Math.random() * 10) + 1);
     monsterHealtPoints = ((dificultMode * level)) * Math.floor((Math.random() * levelDificult) + 1000);
@@ -169,8 +169,6 @@ export default function createMission(firstValue, secondValue, level, dificultMo
             isEmpty: true,
         }
     }
-
-    
     mission = {
         missionTitle: nameOfMission,
         missionDescription: descriptionOfMission,

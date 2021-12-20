@@ -84,7 +84,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             chanceOnDodge =logCalc(1.50, ((dexterity+ (spirit / 10)) / 10));
             chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
             chanceOnCritHit = logCalc(1.20, (intellect + spirit / 10));
-            chanceOnHit = logCalc(1.07, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            chanceOnHit = logCalc(1.06, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
             bonusToSpecialAttack = Math.floor((intellect + (spirit / 10)) / 1);
             
             regHp = 1;
@@ -122,7 +122,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             chanceOnDodge = logCalc(1.40, ((dexterity + (spirit / 10) / 10)));
             chanceOnBlock = logCalc(1.15,(((strength + sumStatsFromItemsDefensive + (spirit / 10)) / 10)));
             chanceOnCritHit = logCalc(1.30,((strength + spirit) / 10));
-            chanceOnHit = logCalc(1.05, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            chanceOnHit = logCalc(1.06, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
             regHp = 1;
             regMp = 1;
             
@@ -169,7 +169,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
              defensePoints = Math.floor(sumStatsFromItemsDefensive/10);
             chanceOnBlock =logCalc(1.35, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));    
             chanceOnCritHit = logCalc(1.25,(((dexterity) + (spirit)) * 3 / 10));
-            chanceOnHit = logCalc(1.05, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            chanceOnHit = logCalc(1.06, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
 
             chanceOnDodge =((dexterity+ (spirit / 10)) / 10);
             bp9 = passsiveSkills.ninthSkill.isUnlocked ? (passsiveSkills.ninthSkill.valueOfSkill) : (0);
@@ -218,7 +218,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             chanceOnDodge =logCalc(1.50, ((dexterity+ (spirit / 10)) / 10));
             chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
             chanceOnCritHit = logCalc(1.25, (intellect + spirit / 10));
-            chanceOnHit = logCalc(1.05, ((dexterity + strength + intellect + (spirit / 10)) / hero.level));
+            chanceOnHit = logCalc(1.06, ((dexterity + strength + intellect + (spirit / 10)) / hero.level));
      
             regMp = 1;
             bp11 = passsiveSkills.eleventhSkill.isUnlocked ? (passsiveSkills.eleventhSkill.valueOfSkill) : (0);
@@ -269,7 +269,7 @@ export default function playerGameValues(hero, itemsInUse, stats,passsiveSkills)
             chanceOnDodge =logCalc(1.45, ((dexterity+ (spirit / 10)) / 10));
             chanceOnBlock =logCalc(1.60, (((strength + sumStatsFromItemsDefensive + (spirit / 10))/ 10)));        
             chanceOnCritHit = logCalc(1.22, (intellect + spirit / 10));
-            chanceOnHit = logCalc(1.05, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
+            chanceOnHit = logCalc(1.06, ((dexterity + strength+ intellect + (spirit / 10))/ hero.level));
 
             regHp = 1;
             bp11 = passsiveSkills.eleventhSkill.isUnlocked ? (passsiveSkills.eleventhSkill.valueOfSkill) : (0);

@@ -14,8 +14,8 @@ const CombatEnemySkillText  = ({ value, id}) => {
 
 
     return (
-        <div className="combatDivEnemyNormalAttack">
-         {check ? (<div key={id} style={{color:colorOfText}} className={`combatTextNormal`}> {text}</div>):('')}
+        <div className="combatDivPlayerSkillAttack">
+         {check ? (<div key={id} style={{color:colorOfText}} className={`skillAttack`}> {text}</div>):('')}
          
         </div>
     )

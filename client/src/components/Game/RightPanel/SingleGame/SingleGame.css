@@ -900,19 +900,19 @@
 
 .barskill1 {
   position: relative;
-  top: -17.6vh;
+  top: -17.5vh;
   left: -2.6vw;
   height: 2vh !important;
 }
 .barskill2 {
   position: relative;
-  top: -18vh;
+  top: -17.5vh;
   left: -2.6vw;
   height: 2vh !important;
 }
 .barskill3 {
   position: relative;
-  top: -18vh;
+  top: -17.5vh;
   left: -2.6vw;
   height: 2vh !important;
 }
@@ -922,16 +922,66 @@
   text-align: center;
   width: 15.8vw;
   position: relative;
-  font-size: 3.2rem;
   z-index: 1;
-  top: -16vh;
+  top: -5vh;
 }
-
+.combatDivPlayerSkillBonus {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -30vh;
+}
+.combatDivPlayerSkillRestore {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -23.5vh;
+}
+.combatDivPlayerSkillAttack {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -23.5vh;
+}
+.combatDivPlayerSkillBonus .skillBonus {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 7s;
+  font-size: 2.5rem;
+  font-size: 2.5rem;
+}
+.combatDivPlayerSkillRestore .skillRestore {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 7s;
+  font-size: 2.5rem;
+}
+.combatDivPlayerSkillAttack .skillAttack {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 3s;
+  font-size: 2.5rem;
+}
 .combatDivEnemyNormalAttack .combatTextFast {
   position: relative;
   top: -16vh;
-
-  text-shadow: 1vh 1vh 1vh rgb(15, 12, 12);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
   opacity: 0;
   animation-name: example;
@@ -940,36 +990,48 @@
 .combatDivEnemyNormalAttack .combatTextNormal {
   position: relative;
   top: -16vh;
-  text-shadow: 1vh 1vh 1vhrgb (15, 12, 12);
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
   opacity: 0;
   animation-name: example;
   animation-duration: 2.4s;
+  font-size: 2.5rem;
 }
 
 .combatDivEnemyNormalAttack .combatTextHard {
   position: relative;
   top: -16vh;
-  text-shadow: 1vh 1vh 1vh rgb(15, 12, 12);
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
   opacity: 0;
   animation-name: example;
   animation-duration: 3.6s;
+  font-size: 2.5rem;
 }
 
 @keyframes example {
   0% {
     opacity: 1;
-  }
-  10% {
-    top: -16vh;
-  }
-  30% {
-    top: -32vh;
+    top: -26vh;
   }
   100% {
-    top: -32vh;
+    top: -45vh;
 
+    opacity: 0;
+  }
+}
+@keyframes example1 {
+  0% {
+    opacity: 1;
+    top: -1vh;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    top: -10vh;
+  }
+  100% {
     opacity: 0;
   }
 }
