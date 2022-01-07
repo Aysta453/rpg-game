@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import showingEquipmentImage from '../../../../../functions/showingEquipmentImage';
 
-const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOfItem, buyItem ,size}) => {
+const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOfItem, buyItem}) => {
     const inventory = useSelector(state => state.inventory);
     const hero = useSelector(state => state.hero)
     const itemInUse = useSelector(state => state.itemInUse);
     let equipmentItem;
-    let image = showingEquipmentImage(hero.heroClass, specyficItem.typeOfItem, size, specyficItem.numberOfItem);
+    let image = showingEquipmentImage(hero.heroClass, specyficItem.typeOfItem, specyficItem.numberOfItem);
     const buyingButton = (item, positionOfItem) => {
         buyItem(item, positionOfItem);
         showPopup();

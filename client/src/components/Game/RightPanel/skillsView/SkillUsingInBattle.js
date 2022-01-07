@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import showingActiveImageSkill from '../../../../functions/showingActiveImageSkill';
 import SkillUsingInBattlePopup from './SkillUsingInBattlePopup';
 
-const SkillUsingInBattle = ({ skill, handleChangeAssign2, position ,size }) => {
+const SkillUsingInBattle = ({ skill, handleChangeAssign2, position }) => {
      const hero = useSelector(state => state.hero)
 
-     let image = showingActiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+     let image = showingActiveImageSkill(hero.heroClass, skill.numberOfSkill);
 
     const [popupValue, setPopupValueset] = useState(false);
     
@@ -18,7 +18,7 @@ const SkillUsingInBattle = ({ skill, handleChangeAssign2, position ,size }) => {
         <div className='Skill'>
             <img className="imageSkill" src={`/images/${image}.png`} alt=""/>
             <button className="active-btn" onClick={() => { showPopup() }}>+</button>
-            <SkillUsingInBattlePopup size={1} handleChangeAssign2={handleChangeAssign2} position={position} showPopup={showPopup} valueOfPopup={popupValue} skill={skill}/>
+            <SkillUsingInBattlePopup handleChangeAssign2={handleChangeAssign2} position={position} showPopup={showPopup} valueOfPopup={popupValue} skill={skill}/>
         </div>
     ) : (
         <div className='Skill'>

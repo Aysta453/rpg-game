@@ -4,12 +4,12 @@ import showingPassiveImageSkill from '../../../../functions/showingPassiveImageS
 
 import SkillPassivePopup from './SkillPassivePopup.js';
 
-const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeLock,typeOfSkill,size}) => {
+const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeLock,typeOfSkill}) => {
     const hero = useSelector(state => state.hero);
 
     const [popupValue, setPopupValueset] = useState(false);
 
-    let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+    let image = showingPassiveImageSkill(hero.heroClass, skill.numberOfSkill);
 
     const showPopup = () => {
         setPopupValueset(!popupValue);
@@ -20,7 +20,7 @@ const SpecyficSkillPassive = ({ skill,levelOfSkill,availablePoints,handleChangeL
             <div className='Element'>
                 <img className="imageSkill" src={`/images/${image}.png`} alt=""/>
                 <button className="passive-btn" onClick={() => { showPopup() }}>+</button>
-                <SkillPassivePopup size={1} levelOfSkill={levelOfSkill} availablePoints={availablePoints} skill={skill} valueOfPopup={popupValue} showPopup={showPopup} handleChangeLock={handleChangeLock} typeOfSkill={typeOfSkill} />
+                <SkillPassivePopup levelOfSkill={levelOfSkill} availablePoints={availablePoints} skill={skill} valueOfPopup={popupValue} showPopup={showPopup} handleChangeLock={handleChangeLock} typeOfSkill={typeOfSkill} />
             </div>
         </>
     );

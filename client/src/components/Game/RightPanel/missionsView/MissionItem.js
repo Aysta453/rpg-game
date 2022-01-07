@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import showingEquipmentImage from '../../../../functions/showingEquipmentImage';
-const MissionItem = ({ valueOfPopup, missionItem, showPopup, size }) => {
+const MissionItem = ({ valueOfPopup, missionItem, showPopup }) => {
     const hero = useSelector(state => state.hero);
         const itemInUse = useSelector(state => state.itemInUse);
     let equipmentItem;
-    let image = showingEquipmentImage(hero.heroClass, missionItem.typeOfItem, size, missionItem.numberOfItem);
+    let image = showingEquipmentImage(hero.heroClass, missionItem.typeOfItem, missionItem.numberOfItem);
 
     let typeOfItem;
     switch (missionItem.typeOfItem) {

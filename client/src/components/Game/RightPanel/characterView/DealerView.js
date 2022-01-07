@@ -127,34 +127,34 @@ const DealerView = (user) => {
         <div className='characterView'>
               <div className='FirstBox'>
                     <div className="left">
-                    <CharacterItemInUse size={1} itemRightNow={itemInUse.head}/>
-                        <CharacterItemInUse size={1} itemRightNow={itemInUse.necklace}/>
-                        <CharacterItemInUse size={1} itemRightNow={itemInUse.armor}/>
+                    <CharacterItemInUse  itemRightNow={itemInUse.head}/>
+                        <CharacterItemInUse  itemRightNow={itemInUse.necklace}/>
+                        <CharacterItemInUse  itemRightNow={itemInUse.armor}/>
                     </div>
                     <div className="middle">
                         <CharacterAvatar />
                     </div>
                     <div className="right">
-                        <CharacterItemInUse size={1} itemRightNow={itemInUse.pants}/>
-                        <CharacterItemInUse size={1} itemRightNow={itemInUse.boots}/>
-                        <CharacterItemInUse size={1} itemRightNow={itemInUse.weapon}/>
+                        <CharacterItemInUse  itemRightNow={itemInUse.pants}/>
+                        <CharacterItemInUse  itemRightNow={itemInUse.boots}/>
+                        <CharacterItemInUse  itemRightNow={itemInUse.weapon}/>
                     </div>
             </div>
             <div className='thirdBox'>
                 <div className='row' id="bottomBorder">
-                    <CharacterInventoryItem size={1}typeOfPosition={1} slotNumber={1} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.firstItem.isEmpty} specyficItem={inventory.firstItem} />                
-                     <CharacterInventoryItem size={1}typeOfPosition={1} slotNumber={2} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.secondItem.isEmpty} specyficItem={inventory.secondItem} />
-                     <CharacterInventoryItem size={1}typeOfPosition={0} slotNumber={3} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.thirdItem.isEmpty} specyficItem={inventory.thirdItem} />
+                    <CharacterInventoryItem typeOfPosition={1} slotNumber={1} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.firstItem.isEmpty} specyficItem={inventory.firstItem} />                
+                     <CharacterInventoryItem typeOfPosition={1} slotNumber={2} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.secondItem.isEmpty} specyficItem={inventory.secondItem} />
+                     <CharacterInventoryItem typeOfPosition={0} slotNumber={3} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.thirdItem.isEmpty} specyficItem={inventory.thirdItem} />
                 </div>
                 <div className='row' id="bottomBorder">
-                    <CharacterInventoryItem size={1}typeOfPosition={1} slotNumber={4} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.forthItem.isEmpty} specyficItem={inventory.forthItem} />
-                     <CharacterInventoryItem size={1}typeOfPosition={1} slotNumber={5} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.fifthItem.isEmpty} specyficItem={inventory.fifthItem} />
-                     <CharacterInventoryItem size={1} typeOfPosition={0} slotNumber={6} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.sixthItem.isEmpty} specyficItem={inventory.sixthItem} />
+                    <CharacterInventoryItem typeOfPosition={1} slotNumber={4} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.forthItem.isEmpty} specyficItem={inventory.forthItem} />
+                     <CharacterInventoryItem typeOfPosition={1} slotNumber={5} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.fifthItem.isEmpty} specyficItem={inventory.fifthItem} />
+                     <CharacterInventoryItem  typeOfPosition={0} slotNumber={6} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.sixthItem.isEmpty} specyficItem={inventory.sixthItem} />
                 </div>
                 <div className='row'>
-                    <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={7} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.seventhItem.isEmpty} specyficItem={inventory.seventhItem} />
-                     <CharacterInventoryItem size={1} typeOfPosition={1} slotNumber={8} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.eigthItem.isEmpty} specyficItem={inventory.eigthItem} />
-                     <CharacterInventoryItem size={1} typeOfPosition={0} slotNumber={9} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.ninthItem.isEmpty} specyficItem={inventory.ninthItem} />
+                    <CharacterInventoryItem  typeOfPosition={1} slotNumber={7} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.seventhItem.isEmpty} specyficItem={inventory.seventhItem} />
+                     <CharacterInventoryItem  typeOfPosition={1} slotNumber={8} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.eigthItem.isEmpty} specyficItem={inventory.eigthItem} />
+                     <CharacterInventoryItem  typeOfPosition={0} slotNumber={9} sellThisItem={sellThisItem} handleChangeItemIntoUse={handleChangeItemIntoUse} valueOfItem={inventory.ninthItem.isEmpty} specyficItem={inventory.ninthItem} />
                 </div>
             </div>
             <div className='forthBoxDealer'>
@@ -186,15 +186,15 @@ const DealerView = (user) => {
                    </div> 
                     <div className='dealerViewItems'>
                     <div className='row' id="bottomBorder1">
-                        <DealerViewItem hero={hero} size={1} typeOfPosition={1}  dealerItem={trades.items.firstItemForSell}  buyItem={buyItem} positionOfItem={1} />
-                        <DealerViewItem hero={hero} size={1} typeOfPosition={1} dealerItem={trades.items.secondItemForSell}  buyItem={buyItem} positionOfItem={2} />
+                        <DealerViewItem hero={hero}  typeOfPosition={1}  dealerItem={trades.items.firstItemForSell}  buyItem={buyItem} positionOfItem={1} />
+                        <DealerViewItem hero={hero}  typeOfPosition={1} dealerItem={trades.items.secondItemForSell}  buyItem={buyItem} positionOfItem={2} />
                         
-                        <DealerViewItem hero={hero} size={1}typeOfPosition={0}  dealerItem={trades.items.thirdItemForSell}  buyItem={buyItem} positionOfItem={3}  />
+                        <DealerViewItem hero={hero} typeOfPosition={0}  dealerItem={trades.items.thirdItemForSell}  buyItem={buyItem} positionOfItem={3}  />
                     </div>
                     <div className='row'>
-                        <DealerViewItem hero={hero} size={1} typeOfPosition={1} dealerItem={trades.items.forthItemForSell} buyItem={buyItem} positionOfItem={4} />
-                        <DealerViewItem hero={hero} size={1} typeOfPosition={1} dealerItem={trades.items.fifthItemForSell}  buyItem={buyItem} positionOfItem={5}  />
-                        <DealerViewItem hero={hero} size={1} typeOfPosition={0} dealerItem={trades.items.sixthItemForSell}  buyItem={buyItem} positionOfItem={6}  />
+                        <DealerViewItem hero={hero}  typeOfPosition={1} dealerItem={trades.items.forthItemForSell} buyItem={buyItem} positionOfItem={4} />
+                        <DealerViewItem hero={hero}  typeOfPosition={1} dealerItem={trades.items.fifthItemForSell}  buyItem={buyItem} positionOfItem={5}  />
+                        <DealerViewItem hero={hero}  typeOfPosition={0} dealerItem={trades.items.sixthItemForSell}  buyItem={buyItem} positionOfItem={6}  />
                     </div>
                 </div>
            </div>

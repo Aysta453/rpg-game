@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import showingPassiveImageSkill from '../../../../functions/showingPassiveImageSkill';
 import './SkillPassivePopup.css';
-const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup,skill,handleChangeLock,typeOfSkill,size}) => {
+const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup,skill,handleChangeLock,typeOfSkill}) => {
 
     const hero = useSelector(state => state.hero);
 
@@ -11,7 +11,7 @@ const SkillPassivePopup = ({levelOfSkill,availablePoints ,valueOfPopup,showPopup
         showPopup();
     };
 
-    let image = showingPassiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+    let image = showingPassiveImageSkill(hero.heroClass, skill.numberOfSkill);
     
     let statementToUnlock;
     let statementToUnlockText;

@@ -5,7 +5,7 @@ import { setMissionValue } from '../../../../actions/game.js';
 import showingEquipmentImage from '../../../../functions/showingEquipmentImage';
 import MissionItem from './MissionItem';
 import convertingTime from '../../../../functions/convertingTime';
-const MissionView = ({mission, setWindowOfElements,setButtons,size,missionType}) => {
+const MissionView = ({mission, setWindowOfElements,setButtons,missionType}) => {
     const dispatch = useDispatch();
     const [popupValue, setPopupValueset] = useState(false);
     let styleColorText;
@@ -44,7 +44,7 @@ const MissionView = ({mission, setWindowOfElements,setButtons,size,missionType})
     let image;
 
     if (isItemAssigmentToMission === false) {
-        image = showingEquipmentImage(hero.heroClass, mission.item.typeOfItem, size, mission.item.numberOfItem);
+        image = showingEquipmentImage(hero.heroClass, mission.item.typeOfItem, mission.item.numberOfItem);
     }
     let valueOfEmptySlot;
     if (isItemAssigmentToMission === false && inventory.firstItem.isEmpty === false && inventory.secondItem.isEmpty === false && inventory.thirdItem.isEmpty === false &&
@@ -73,7 +73,7 @@ const MissionView = ({mission, setWindowOfElements,setButtons,size,missionType})
                         <div className="item">
                               <img className="imageSkill" src={`/images/eq${image}.png`} alt=""/>
                                 <button className="active-btn" onClick={() => { showPopup() }}>i</button>
-                                <MissionItem size={0} valueOfPopup={popupValue} missionItem={mission.item} showPopup={showPopup}/>
+                                <MissionItem valueOfPopup={popupValue} missionItem={mission.item} showPopup={showPopup}/>
                         </div>
                     )
                 }

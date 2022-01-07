@@ -5,13 +5,13 @@ import showingActiveImageSkill from '../../../../functions/showingActiveImageSki
 import showingValueOfSkill from '../../../../functions/showingValueOfSkill';
 import './SkillActivePopup.css';
 
-const SkillActivePopup = ({ valueOfPopup, size,showPopup, skill, handleChangeAssign, handleChangeLock, typeOfSkill, levelOfSkill, availablePoints }) => {
+const SkillActivePopup = ({ valueOfPopup,showPopup, skill, handleChangeAssign, handleChangeLock, typeOfSkill, levelOfSkill, availablePoints }) => {
     
     const hero = useSelector(state => state.hero);
     const skillsToBattle = useSelector(state => state.skillsToBattle);
     const playerGame = useSelector(state => state.playerGame);
 
-      let image = showingActiveImageSkill(hero.heroClass, size, skill.numberOfSkill);
+      let image = showingActiveImageSkill(hero.heroClass, skill.numberOfSkill);
 
 
     let statementToUnlock;

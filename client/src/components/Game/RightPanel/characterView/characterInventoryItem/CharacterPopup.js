@@ -2,12 +2,12 @@ import React from 'react'
 import './CharacterPopup.css';
 import { useSelector } from 'react-redux';
 import showingEquipmentImage from '../../../../../functions/showingEquipmentImage';
-const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemIntoUse,slotNumber,sellThisItem,size }) => {
+const CharacterPopup = ({ valueOfPoup, showPopup, specyficItem,handleChangeItemIntoUse,slotNumber,sellThisItem }) => {
  
     const hero = useSelector(state => state.hero)
     const itemInUse = useSelector(state => state.itemInUse);
     let equipmentItem;
-    let image = showingEquipmentImage(hero.heroClass, specyficItem.typeOfItem, size, specyficItem.numberOfItem);
+    let image = showingEquipmentImage(hero.heroClass, specyficItem.typeOfItem, specyficItem.numberOfItem);
     const sellingButton = (itemNumber,item) => {
         sellThisItem(itemNumber, item);
         showPopup();

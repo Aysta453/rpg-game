@@ -4,7 +4,7 @@ import showingEquipmentImage from '../../../../../functions/showingEquipmentImag
 import CharacterItemInUsePopup from './CharacterItemInUsePopup';
 const CharacterItemInUse = ({ itemRightNow,size }) => {
     const hero = useSelector(state => state.hero)
-    let image = showingEquipmentImage(hero.heroClass, itemRightNow.typeOfItem, size, itemRightNow.numberOfItem);
+    let image = showingEquipmentImage(hero.heroClass, itemRightNow.typeOfItem, itemRightNow.numberOfItem);
      const [popupValue, setPopupValueset] = useState(false);
     
     const showPopup = () => {
@@ -14,7 +14,7 @@ const CharacterItemInUse = ({ itemRightNow,size }) => {
         <div className='itemInUse'>
             <img className="imageSkill" src={`/images/eq${image}.png`} alt=""/>
             <button className="active-btn" onClick={() => { showPopup() }}>i</button>
-            <CharacterItemInUsePopup size={0} valueOfPopup={popupValue} itemInUse={itemRightNow} showPopup={showPopup}/>
+            <CharacterItemInUsePopup valueOfPopup={popupValue} itemInUse={itemRightNow} showPopup={showPopup}/>
         </div>
     );
 };

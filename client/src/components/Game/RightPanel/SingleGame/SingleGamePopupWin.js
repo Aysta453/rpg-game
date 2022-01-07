@@ -46,7 +46,7 @@ const SingleGamePopupWin = ({valueOfPopup,setButtons, setWindowOfElements,change
 
     let image;
     if (isItemAsReward === false) {
-         image = showingEquipmentImage(hero.heroClass, game.item.typeOfItem, 1, game.item.numberOfItem);
+         image = showingEquipmentImage(hero.heroClass, game.item.typeOfItem, game.item.numberOfItem);
     }
     
     return (valueOfPopup) ? (  

@@ -2,11 +2,11 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import showingEquipmentImage from '../../../../../functions/showingEquipmentImage';
 import './characterItemInUsePopup.css'
-const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup, size }) => {
+const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup }) => {
 
     const hero = useSelector(state => state.hero);
 
-    let image = showingEquipmentImage(hero.heroClass, itemInUse.typeOfItem, size, itemInUse.numberOfItem);
+    let image = showingEquipmentImage(hero.heroClass, itemInUse.typeOfItem, itemInUse.numberOfItem);
 
     let typeOfItem;
 
