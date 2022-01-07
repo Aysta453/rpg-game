@@ -1,0 +1,336 @@
+.groupsView {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+.groupsView .title {
+  float: left;
+  text-align: center;
+  padding-top: 0.4rem;
+  height: 9vh;
+  width: 100%;
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-shadow: 2px 2px #5e2700;
+  background-color: rgba(255, 107, 0, 0.03);
+  color: rgb(255, 107, 0);
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+.groupsView .title .optionRefresh {
+  background-color: rgba(255, 136, 0, 0.04);
+  color: rgb(255, 136, 0);
+  border: 1px solid rgba(255, 136, 0, 0.7);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1vh;
+  padding: 0.7rem 0.7rem;
+  width: 9.3vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 4vh;
+  right: 5vw;
+}
+.groupsView .title .optionRefresh:hover {
+  background-color: rgba(255, 136, 0, 0.15);
+  color: rgb(255, 154, 38);
+  border: 1px solid rgba(255, 136, 0, 1);
+}
+.groupsView .title .optionRefresh:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  cursor: no-drop;
+}
+
+.groupsView .title .optionBack {
+  background-color: rgba(255, 136, 0, 0.04);
+  color: rgb(255, 136, 0);
+  border: 1px solid rgba(255, 136, 0, 0.7);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1vh;
+  padding: 0.7rem 0.7rem;
+  width: 9.3vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 4vh;
+  left: 28vw;
+}
+.groupsView .title .optionBack:hover {
+  background-color: rgba(255, 136, 0, 0.15);
+  color: rgb(255, 154, 38);
+  border: 1px solid rgba(255, 136, 0, 1);
+}
+.groupsView .title .optionBack:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  cursor: no-drop;
+}
+
+.groupsView .groups {
+  margin-top: 1vh;
+  float: left;
+  width: 100%;
+  max-height: 85vh;
+  padding: 2vh;
+  border: 1px solid rgba(126, 50, 0, 0.5);
+  overflow: auto;
+}
+
+.groups::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.groups::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.groups::-webkit-scrollbar-thumb {
+  background: rgba(126, 50, 0, 0.5);
+  border-radius: 10px;
+}
+
+.groups::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 50, 0, 0.5);
+}
+
+.groupsView .groups .groupView {
+  width: 100%;
+  height: 10vh;
+  border: 1px solid rgba(126, 50, 0, 0.5);
+  background-color: rgba(80, 33, 0, 0.06);
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding: 1vh;
+  text-align: center;
+}
+.groupsView .groups .groupView .groupLeader {
+  height: 100%;
+  width: 17vw;
+  float: left;
+  font-size: 1.5rem;
+  padding-top: 1.5vh;
+  color: rgb(255, 122, 36);
+}
+.groupsView .groups .groupView .groupMissionName {
+  height: 100%;
+  width: 25vw;
+  float: left;
+  padding-top: 1.5vh;
+  font-size: 1.5rem;
+  color: rgba(255, 178, 128, 0.75);
+}
+.groupsView .groups .groupView .missionInfo {
+  height: 100%;
+  width: 13vw;
+  float: left;
+  padding-top: 1vh;
+  font-size: 1.5rem;
+}
+.groupsView .groups .groupView .missionInfo button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 9.3vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  position: relative;
+}
+.groupsView .groups .groupView .missionInfo button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: white;
+}
+
+.groupsView .groups .groupView .groupSize {
+  height: 100%;
+  width: 5vw;
+  float: left;
+  padding-top: 1.5vh;
+  font-size: 1.5rem;
+  color: rgba(255, 178, 128, 0.75);
+}
+.groupsView .groups .groupView .actionJoinButton {
+  height: 100%;
+  width: 10vw;
+  float: left;
+  padding-top: 1vh;
+  font-size: 1.5rem;
+}
+
+.groupsView .groups .groupView .actionJoinButton button {
+  background-color: rgba(255, 136, 0, 0.04);
+  color: rgb(255, 136, 0);
+  border: 1px solid rgba(255, 136, 0, 0.7);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 7.5vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  position: relative;
+}
+.groupsView .groups .groupView .actionJoinButton button:hover {
+  background-color: rgba(255, 136, 0, 0.15);
+  color: rgb(255, 154, 38);
+  border: 1px solid rgba(255, 136, 0, 1);
+}
+.groupsView .groups .groupView .actionJoinButton button:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  cursor: no-drop;
+}
+.popup-groupViewPopup {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.popup-groupViewPopup .groupViewPopup-inner {
+  position: fixed;
+  padding: 3vh;
+  width: 100%;
+  height: 60vh;
+  max-width: 35vw;
+  background-color: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.popup-groupViewPopup .groupViewPopup-inner .close-btn {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  padding: 0.4rem 0.5rem;
+  background: rgba(220, 20, 60, 0.12);
+  border: 1px solid rgba(220, 20, 60, 0.85);
+  color: rgba(255, 255, 255, 1);
+  outline: none;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  z-index: 2;
+}
+.popup-groupViewPopup .groupViewPopup-inner .title {
+  width: 100%;
+  height: 9vh;
+  text-align: center;
+  margin-bottom: 1vh;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: rgb(255, 122, 36);
+  background-color: unset;
+}
+.popup-groupViewPopup .groupViewPopup-inner .description {
+  height: 23vh;
+  width: 100%;
+  text-align: center;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 1.3rem;
+  color: rgba(255, 178, 128, 0.75);
+}
+.popup-groupViewPopup .groupViewPopup-inner .difficult {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 1.1rem;
+  color: rgba(255, 178, 128, 0.75);
+}
+.popup-groupViewPopup .groupViewPopup-inner .level {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 1.1rem;
+  color: rgba(255, 178, 128, 0.75);
+}
+.popup-groupViewPopup .groupViewPopup-inner .expPoints {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: rgb(185, 119, 246);
+  font-size: 1.1rem;
+}
+.popup-groupViewPopup .groupViewPopup-inner .expPointsValue {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: rgb(185, 119, 246);
+  font-size: 1.1rem;
+}
+.popup-groupViewPopup .groupViewPopup-inner .money {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #fff264;
+  font-size: 1.1rem;
+}
+.popup-groupViewPopup .groupViewPopup-inner .moneyValue {
+  height: 6vh;
+  width: 50%;
+  text-align: center;
+  padding-top: 0.5rem;
+  float: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #fff264;
+  font-size: 1.1rem;
+}

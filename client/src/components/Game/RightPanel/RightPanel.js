@@ -14,23 +14,23 @@ import './rightPanel.css';
 
 
 import MultiPlayerView from "./MultiPlayer/MultiPlayerView";
-
-//
-//               
+import GroupsView from './GroupsView/GroupsView';
+            
 const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons }) => {
 
     return (
         
         <div className='rightPanel'>
-                {windowOfElements === 1 && <CharacterView user={user} />}
-                {windowOfElements === 2 &&  <SkillsView />  }
-                {windowOfElements === 3 &&  <DealerView user={user} />  }
-                {windowOfElements === 4 && <MissionsView setWindowOfElements={setWindowOfElements} setButtons={setButtons} />}
-                {windowOfElements === 5 && <DungeonsView />}
-                {windowOfElements === 7 && <SinglePlayerGameView setButtons={setButtons} setWindowOfElements={setWindowOfElements}/>}
-                {windowOfElements === 6 && <> tu bedzie logout </>}
-                {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements}/> }
-                {windowOfElements === 90 && <MultiPlayerView /> }
+            {windowOfElements === 1 && <CharacterView user={user} />}
+            {windowOfElements === 2 &&  <SkillsView />  }
+            {windowOfElements === 3 &&  <DealerView user={user} />  }
+            {windowOfElements === 4 && <MissionsView setWindowOfElements={setWindowOfElements} setButtons={setButtons} />}
+            {windowOfElements === 5 && <DungeonsView />}
+            {windowOfElements === 7 && <SinglePlayerGameView setButtons={setButtons} setWindowOfElements={setWindowOfElements}/>}
+            {windowOfElements === 6 && <> tu bedzie logout </>}
+            {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements}/> }
+            {windowOfElements === 90 && <MultiPlayerView />}
+            {windowOfElements ===110 && <GroupsView/> }
 
                
             </div>

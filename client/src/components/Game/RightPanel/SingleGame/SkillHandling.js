@@ -114,7 +114,7 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
     let isSkillAssigned = skill.isSkillAssigned;
     let enoughMana;
 
-    let skillImage = showingActiveImageSkill(hero.heroClass, 0, skill.numberOfSkill);
+    let skillImage = showingActiveImageSkill(hero.heroClass, skill.numberOfSkill);
 
     if (manaPlayer < skill.pointsOfMana) {
         enoughMana = false;
@@ -161,11 +161,11 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
                         let increaseDodgeTemporary = dodgeStatic + skill.valueOfSkill;
                         handlingSkillButtons(numberOfSkill, skill.castTime);
                         sleep(skill.castTime).then(() => {
-                            functionSkillBonusText('+ ' + skill.valueOfSkill  + '% unik');
+                            functionSkillBonusText('+ ' + (100*skill.valueOfSkill)  + '% unik');
                             playerStats.chanceOnDodge = increaseDodgeTemporary;
                             setPlayerStats(playerStats=>playerStats=playerStats);
                             sleep(skill.durationTime).then(() => {
-                                functionSkillBonusText('- ' + skill.valueOfSkill + '% unik');
+                                functionSkillBonusText('- ' + (100*skill.valueOfSkill) + '% unik');
                                 playerStats.chanceOnDodge = dodgeStatic;
                                 setPlayerStats(playerStats=>playerStats=playerStats);
                                 sleep(skill.recastTime).then(() => {
@@ -182,11 +182,11 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
                         sleep(skill.castTime).then(() => {
                             playerStats.chanceOnBlock = increaseBlockTemporary;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                            functionSkillBonusText('+ ' + skill.valueOfSkill + '% blok');
+                            functionSkillBonusText('+ ' + (100*skill.valueOfSkill) + '% blok');
                             sleep(skill.durationTime).then(() => {
                                  playerStats.chanceOnBlock = blockStatic;
                                 setPlayerStats(playerStats=>playerStats=playerStats);
-                                functionSkillBonusText('- ' + skill.valueOfSkill + '% blok');
+                                functionSkillBonusText('- ' + (100*skill.valueOfSkill) + '% blok');
                                 sleep(skill.recastTime).then(() => {
                                     setButtonValue(buttonValue=>!buttonValue);
                                 });
@@ -201,11 +201,11 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
                         sleep(skill.castTime).then(() => {
                             playerStats.chanceOnCritHit = increaseCritTemporary;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                            functionSkillBonusText('+ ' + skill.valueOfSkill + '% kryt');
+                            functionSkillBonusText('+ ' + (100*skill.valueOfSkill) + '% kryt');
                             sleep(skill.durationTime).then(() => {
                             playerStats.chanceOnCritHit = critStatic;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                                functionSkillBonusText('- ' + skill.valueOfSkill + '% kryt');
+                                functionSkillBonusText('- ' + (100*skill.valueOfSkill) + '% kryt');
                                 sleep(skill.recastTime).then(() => {
                                     setButtonValue(buttonValue=>!buttonValue);
                                 });
@@ -220,11 +220,11 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
                         sleep(skill.castTime).then(() => {
                              playerStats.defensePoints = increaseDefenseTemporary;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                            functionSkillBonusText('+ ' + skill.valueOfSkill+ '% obrona');
+                            functionSkillBonusText('+ ' + (100*skill.valueOfSkill)+ '% obrona');
                             sleep(skill.durationTime).then(() => {
                             playerStats.defensePoints = defenseStatic;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                                functionSkillBonusText('- ' + skill.valueOfSkill+ '% obrona');
+                                functionSkillBonusText('- ' + (100*skill.valueOfSkill)+ '% obrona');
                                 sleep(skill.recastTime).then(() => {
                                     setButtonValue(buttonValue=>!buttonValue);
                                 });
@@ -234,20 +234,20 @@ const SkillHandling = ({intervalEnemyDamage,intervalPlayerDamage,setChanceOnDodg
                     case 'attack':
                         let minAttackStatic = playerStats.minAttack;
                         let maxAttackStatic = playerStats.maxAttack;
-                        let increaseMinAttackTemporary = minAttackStatic + (minAttackStatic * (skill.valueOfSkill/100));
-                        let increaseMaxAttackTemporary = maxAttackStatic + (maxAttackStatic * (skill.valueOfSkill/100));
+                        let increaseMinAttackTemporary = minAttackStatic + (minAttackStatic * (skill.valueOfSkill));
+                        let increaseMaxAttackTemporary = maxAttackStatic + (maxAttackStatic * (skill.valueOfSkill));
                          playerStatsTemporary = playerStats;
                         handlingSkillButtons(numberOfSkill, skill.castTime);
                         sleep(skill.castTime).then(() => {
                             playerStats.minAttack = increaseMinAttackTemporary;
                             playerStats.maxAttack = increaseMaxAttackTemporary;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                            functionSkillBonusText('+ ' + skill.valueOfSkill + '% atak');
+                            functionSkillBonusText('+ ' + (100*skill.valueOfSkill) + '% atak');
                             sleep(skill.durationTime).then(() => {
                             playerStats.minAttack = minAttackStatic;
                             playerStats.maxAttack = maxAttackStatic;
                             setPlayerStats(playerStats=>playerStats=playerStats);
-                                functionSkillBonusText('- ' + skill.valueOfSkill + '% atak');
+                                functionSkillBonusText('- ' + (100*skill.valueOfSkill) + '% atak');
                                 sleep(skill.recastTime).then(() => {
                                     setButtonValue(buttonValue=>!buttonValue);
                                 });
