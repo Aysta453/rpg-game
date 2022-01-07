@@ -7,7 +7,7 @@
                     data = {
                         firstSkill: {
                             nameOfSkill: "Kula ognia",
-                            descriptionOfSkill: "Przywołanie kuli ognia która zadaje duże obrażenia. Zadaje dodatkowe obrażenia od ognia przez określony czas.",
+                            descriptionOfSkill: "Przywołanie kuli ognia, zadająca duże obrażenia. Po trafieniu przeciwnika zadaje dodatkowe obrażenia od ognia przez określony czas.",
                             pointsOfMana: 25,
                             valueOfSkill: 0.50,
                             durationTime: 0,
@@ -76,8 +76,8 @@
                             dotValue:0,
                         },
                         sixthSkill: {
-                            nameOfSkill: "Meteoryt",
-                            descriptionOfSkill: "Przywołuje ogromny meteoryt który zadaje ogromne obrażenia. Na obszarze pozostaje ogień, który zadaje dodatkowe obrażenia od ognia.",
+                            nameOfSkill: "Ognisty Meteoryt",
+                            descriptionOfSkill: "Przywołanie ogromnego ognistego meteorytu zadający ogromne obrażenia. Na obszarze uderzenia pozostaje ogień, który zadaje dodatkowe obrażenia od ognia przeciwnikom przez pewnien czas.",
                             pointsOfMana: 200,
                             valueOfSkill: 0.70,
                             durationTime: 0,
@@ -95,7 +95,7 @@
                     data = {
                         firstSkill: {
                             nameOfSkill: "Błyskawiczne pchnięcie",
-                            descriptionOfSkill: "Szybki atak przebijający się przez lukę w obronie przeciwnika zadaje duze obrażenia.",
+                            descriptionOfSkill: "Szybki atak przebijający przez lukę w obronie przeciwnika zadający duze obrażenia.",
                             pointsOfMana: 25,
                             valueOfSkill: 0.50,
                             durationTime: 0,
@@ -109,7 +109,7 @@
                         },
                         secondSkill: {
                             nameOfSkill: "Oślepiająca zbroja",
-                            descriptionOfSkill: "Zwiększa szansę  na uniknięcie ataku o 10%.",
+                            descriptionOfSkill: "Zwiększa szansę na unik o 10%.",
                             pointsOfMana: 30,
                             valueOfSkill: 0.10,
                             durationTime: 15000,
@@ -123,7 +123,7 @@
                         },
                         thirdSkill: {
                             nameOfSkill: "Silna wola",
-                            descriptionOfSkill: "Poprzez cięźki królewski trening, przypływ adrenaliny przywróca punkty życia.",
+                            descriptionOfSkill: "Przywraca punkty życia.",
                             pointsOfMana: 70,
                             valueOfSkill: 0.20,
                             durationTime: 0,
@@ -183,7 +183,7 @@
                     data = {
                         firstSkill: {
                             nameOfSkill: "Złota strzała",
-                            descriptionOfSkill: "Powoduje wystrzelenie złotej strzały, która zadaje ogromne obrażenia",
+                            descriptionOfSkill: "Powoduje wystrzelenie złotej strzały, która zadaje ogromne obrażenia.",
                             pointsOfMana: 25,
                             valueOfSkill: 0.30,
                             durationTime: 0,
@@ -211,9 +211,9 @@
                         },
                         thirdSkill: {
                             nameOfSkill: "Ukrycie w cieniu",
-                            descriptionOfSkill: "Zwiększenie szansy na unik o 10% na okres 30 sekund. Ponowne użycie możliwe po upłynieniu 120 sekund.",
+                            descriptionOfSkill: "Zwiększenie szansy na unik o 10%.",
                             pointsOfMana: 70,
-                            valueOfSkill: 0.30,
+                            valueOfSkill: 0.10,
                             durationTime: 30000,
                             castTime: 5000,
                             recastTime: 120000,
@@ -239,7 +239,7 @@
                         },
                         fifthSkill: {
                             nameOfSkill: "Liściasty bandaż",
-                            descriptionOfSkill:"Użycie liściastego bandażu przywraca określoną ilość punktów życia.",
+                            descriptionOfSkill:"Przywraca punkty życia.",
                             pointsOfMana: 70,
                             valueOfSkill: 0.20,
                             durationTime: 0,
@@ -271,7 +271,7 @@
                     data = {
                         firstSkill: {
                             nameOfSkill: "Światło osądu",
-                            descriptionOfSkill: "Przywołuje mocne światło, które zadaje duże obrażenia.",
+                            descriptionOfSkill: "Przywołuje mocne światło, zadające duże obrażenia.",
                             pointsOfMana: 25,
                             valueOfSkill: 0.45,
                             durationTime: 0,
@@ -285,7 +285,7 @@
                         },
                         secondSkill: {
                             nameOfSkill: "Boski Dotyk",
-                            descriptionOfSkill: "Przywraca punkty życia celu.",
+                            descriptionOfSkill: "Przywraca punkty życia.",
                             pointsOfMana: 70,
                             valueOfSkill: 0.50,
                             durationTime: 0,
@@ -313,7 +313,7 @@
                         },
                         forthSkill: {
                             nameOfSkill: "Niebiańska Opatrzność",
-                            descriptionOfSkill: "Zwiększa obrażenia oraz efekty leczące o 25%.",
+                            descriptionOfSkill: "Zwiększa obrażenia o 25%.",
                             pointsOfMana: 50,
                             valueOfSkill: 0.25,
                             durationTime: 30000,
@@ -327,7 +327,7 @@
                         },
                         fifthSkill: {
                             nameOfSkill: "Klątwa niewiernego",
-                            descriptionOfSkill:"Zadaje obrażenia poprzez śmiertelną klątwe oraz dodatkowe obrażenia w wysokości 45% prez 6 sekund.",
+                            descriptionOfSkill:"Zadaje obrażenia od klątwy. Po użyciu umiejętności przeciwnik pozostaje przeklęty na określony czas w wyniku otrzymuje dodatkowe obrażenia.",
                             pointsOfMana: 70,
                             valueOfSkill: 0.60,
                             durationTime: 0,
@@ -341,7 +341,7 @@
                         },
                         sixthSkill: {
                             nameOfSkill: "Ulepszony Boski Dotyk",
-                            descriptionOfSkill: "Przywraca określoną ilość życia oraz przywraca 30% dodatkowych przywróconych punktów życia przez okres 6 sekund.",
+                            descriptionOfSkill: "Przywraca punkty życia oraz po wykorzystaniu umiejętności,przywraca dodatkowe punkty życia przez określony czas.",
                             pointsOfMana: 120,
                             valueOfSkill: 0.60,
                             durationTime: 0,
