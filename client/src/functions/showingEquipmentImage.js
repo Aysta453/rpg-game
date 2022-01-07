@@ -1,220 +1,94 @@
-export default function showingEquipmentImage(heroClass, typeOfItem,size,numberOfItem) {
+export default function showingEquipmentImage(heroClass, typeOfItem, numberOfItem) {
     let url;
 
     switch (heroClass) {
         case 'Mage':
             switch (typeOfItem) {
                 case 'head':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/head/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/head/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/head/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/head/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/head/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/head/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/head/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/head/2';
+                            break;
+                        case 2:
+                            url = '/mage/head/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'necklace':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/necklace/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/necklace/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/necklace/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/necklace/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/necklace/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/necklace/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/necklace/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/necklace/2';
+                            break;
+                        case 2:
+                            url = '/mage/necklace/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'armor':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/armor/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/armor/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/armor/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/armor/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/armor/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/armor/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/armor/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/armor/2';
+                            break;
+                        case 2:
+                            url = '/mage/armor/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'pants':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/pants/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/pants/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/pants/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/pants/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/pants/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/pants/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/pants/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/pants/2';
+                            break;
+                        case 2:
+                            url = '/mage/pants/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'boots':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/boots/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/boots/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/boots/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/boots/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/boots/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/boots/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/boots/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/boots/2';
+                            break;
+                        case 2:
+                            url = '/mage/boots/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'weapon':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/weapon/big/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/weapon/big/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/weapon/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/weapon/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/mage/weapon/small/1';
-                                    break;
-                                case 1:
-                                    url = '/mage/weapon/small/2';
-                                    break;
-                                case 2:
-                                    url = '/mage/weapon/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/mage/weapon/2';
+                            break;
+                        case 2:
+                            url = '/mage/weapon/3';
                             break;
                         default:
                             break;
@@ -227,216 +101,90 @@ export default function showingEquipmentImage(heroClass, typeOfItem,size,numberO
         case 'Berserk':
             switch (typeOfItem) {
                 case 'head':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/head/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/head/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/head/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/head/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/head/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/head/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/head/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/head/2';
+                            break;
+                        case 2:
+                            url = '/berserk/head/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'necklace':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/necklace/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/necklace/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/necklace/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/necklace/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/necklace/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/necklace/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/necklace/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/necklace/2';
+                            break;
+                        case 2:
+                            url = '/berserk/necklace/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'armor':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/armor/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/armor/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/armor/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/armor/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/armor/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/armor/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/armor/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/armor/2';
+                            break;
+                        case 2:
+                            url = '/berserk/armor/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'pants':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/pants/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/pants/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/pants/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/pants/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/pants/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/pants/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/pants/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/pants/2';
+                            break;
+                        case 2:
+                            url = '/berserk/pants/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'boots':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/boots/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/boots/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/boots/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/boots/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/boots/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/boots/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/boots/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/boots/2';
                             break;
-                           default:
-                                break;
+                        case 2:
+                            url = '/berserk/boots/3';
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 'weapon':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/weapon/big/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/weapon/big/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/weapon/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/weapon/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/berserk/weapon/small/1';
-                                    break;
-                                case 1:
-                                    url = '/berserk/weapon/small/2';
-                                    break;
-                                case 2:
-                                    url = '/berserk/weapon/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/berserk/weapon/2';
+                            break;
+                        case 2:
+                            url = '/berserk/weapon/3';
                             break;
                         default:
                             break;
@@ -449,216 +197,90 @@ export default function showingEquipmentImage(heroClass, typeOfItem,size,numberO
         case 'Priest':
             switch (typeOfItem) {
                 case 'head':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/head/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/head/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/head/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/head/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/head/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/head/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/head/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/head/2';
+                            break;
+                        case 2:
+                            url = '/priest/head/3';
                             break;
                         default:
                             break;
                     }
                     break;
-                case 'necklace':
-                    switch (size) {
+                case 'necklace':  
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/necklace/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/necklace/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/necklace/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/necklace/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/necklace/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/necklace/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/necklace/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/necklace/2';
+                            break;
+                        case 2:
+                            url = '/priest/necklace/3';
                             break;
                         default:
                             break;
                     }
                     break;
-                case 'armor':
-                    switch (size) {
+                case 'armor': 
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/armor/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/armor/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/armor/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/armor/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/armor/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/armor/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/armor/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/armor/2';
+                            break;
+                        case 2:
+                            url = '/priest/armor/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'pants':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/pants/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/pants/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/pants/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/pants/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/pants/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/pants/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/pants/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/pants/2';
+                            break;
+                        case 2:
+                            url = '/priest/pants/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'boots':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/boots/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/boots/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/boots/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/boots/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/boots/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/boots/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/boots/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/boots/2';
+                            break;
+                        case 2:
+                            url = '/priest/boots/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'weapon':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/weapon/big/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/weapon/big/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/weapon/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/weapon/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/priest/weapon/small/1';
-                                    break;
-                                case 1:
-                                    url = '/priest/weapon/small/2';
-                                    break;
-                                case 2:
-                                    url = '/priest/weapon/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/priest/weapon/2';
+                            break;
+                        case 2:
+                            url = '/priest/weapon/3';
                             break;
                         default:
                             break;
@@ -670,217 +292,91 @@ export default function showingEquipmentImage(heroClass, typeOfItem,size,numberO
             break;
         case 'Hunter':
             switch (typeOfItem) {
-                case 'head':
-                    switch (size) {
+                case 'head': 
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/head/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/head/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/head/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/head/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/head/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/head/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/head/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/head/2';
+                            break;
+                        case 2:
+                            url = '/hunter/head/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'necklace':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/necklace/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/necklace/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/necklace/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/necklace/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/necklace/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/necklace/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/necklace/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/necklace/2';
+                            break;
+                        case 2:
+                            url = '/hunter/necklace/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'armor':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/armor/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/armor/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/armor/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/armor/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/armor/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/armor/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/armor/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/armor/2';
+                            break;
+                        case 2:
+                            url = '/hunter/armor/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'pants':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/pants/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/pants/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/pants/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/pants/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/pants/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/pants/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/pants/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/pants/2';
+                            break;
+                        case 2:
+                            url = '/hunter/pants/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'boots':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/boots/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/boots/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/boots/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/boots/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/boots/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/boots/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/boots/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/boots/2';
+                            break;
+                        case 2:
+                            url = '/hunter/boots/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'weapon':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/weapon/big/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/weapon/big/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/weapon/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/weapon/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/hunter/weapon/small/1';
-                                    break;
-                                case 1:
-                                    url = '/hunter/weapon/small/2';
-                                    break;
-                                case 2:
-                                    url = '/hunter/weapon/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/hunter/weapon/2';
+                            break;
+                        case 2:
+                            url = '/hunter/weapon/3';
                             break;
                         default:
                             break;
@@ -893,216 +389,90 @@ export default function showingEquipmentImage(heroClass, typeOfItem,size,numberO
         case 'Warrior':
             switch (typeOfItem) {
                 case 'head':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/head/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/head/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/head/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/head/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/head/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/head/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/head/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/head/2';
+                            break;
+                        case 2:
+                            url = '/warrior/head/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'necklace':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/necklace/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/necklace/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/necklace/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/necklace/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/necklace/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/necklace/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/necklace/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/necklace/2';
+                            break;
+                        case 2:
+                            url = '/warrior/necklace/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'armor':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/armor/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/armor/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/armor/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/armor/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/armor/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/armor/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/armor/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/armor/2';
+                            break;
+                        case 2:
+                            url = '/warrior/armor/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'pants':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/pants/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/pants/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/pants/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/pants/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/pants/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/pants/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/pants/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/pants/2';
+                            break;
+                        case 2:
+                            url = '/warrior/pants/3';
                             break;
                         default:
                             break;
                     }
                     break;
                 case 'boots':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/boots/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/boots/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/boots/big/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/boots/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/boots/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/boots/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/boots/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/boots/2';
                             break;
-                         default:
+                        case 2:
+                            url = '/warrior/boots/3';
+                            break;
+                        default:
                             break;
                     }
                     break;
                 case 'weapon':
-                    switch (size) {
+                    switch (numberOfItem) {
                         case 0:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/weapon/big/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/weapon/big/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/weapon/big/3';
-                                    break;
-                                 default:
-                                    break;
-                            }
+                            url = '/warrior/weapon/1';
                             break;
                         case 1:
-                            switch (numberOfItem) {
-                                case 0:
-                                    url = '/warrior/weapon/small/1';
-                                    break;
-                                case 1:
-                                    url = '/warrior/weapon/small/2';
-                                    break;
-                                case 2:
-                                    url = '/warrior/weapon/small/3';
-                                    break;
-                                default:
-                                    break;
-                            }
+                            url = '/warrior/weapon/2';
+                            break;
+                        case 2:
+                            url = '/warrior/weapon/3';
                             break;
                         default:
                             break;

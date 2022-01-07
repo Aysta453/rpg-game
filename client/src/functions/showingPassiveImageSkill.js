@@ -1,452 +1,212 @@
-export default function showingPassiveImageSkill (heroClass,size,numberOfSkill) {
+export default function showingPassiveImageSkill (heroClass,numberOfSkill) {
     let url;
 
     switch (heroClass) {
         case 'Mage':
-            switch (size) {
-                case 0:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/mage/small/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/mage/small/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/mage/small/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/mage/small/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/mage/small/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/mage/small/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/mage/small/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/mage/small/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/mage/small/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/mage/small/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/mage/small/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/mage/small/12';
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+            switch (numberOfSkill) {
                 case 1:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/mage/big/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/mage/big/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/mage/big/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/mage/big/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/mage/big/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/mage/big/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/mage/big/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/mage/big/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/mage/big/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/mage/big/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/mage/big/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/mage/big/12';
-                            break;
-                        default:
-                            break;
-                    }
+                    url = 'skills/passive/mage/1';
+                    break;
+                case 2:
+                    url = 'skills/passive/mage/2';
+                        break;
+                case 3:
+                    url = 'skills/passive/mage/3';
+                        break;
+                case 4:
+                    url = 'skills/passive/mage/4';
+                        break;
+                case 5:
+                    url = 'skills/passive/mage/5';
+                        break;
+                case 6:
+                    url = 'skills/passive/mage/6';
+                        break;
+                case 7:
+                    url = 'skills/passive/mage/7';
+                        break;
+                case 8:
+                    url = 'skills/passive/mage/8';
+                        break;
+                case 9:
+                    url = 'skills/passive/mage/9';
+                        break;
+                case 10:
+                    url = 'skills/passive/mage/10';
+                        break;
+                case 11:
+                    url = 'skills/passive/mage/11';
+                    break;
+                case 12:
+                    url = 'skills/passive/mage/12';
                     break;
                 default:
                     break;
             }
             break;
         case 'Priest':
-            switch (size) {
-                case 0:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/priest/small/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/priest/small/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/priest/small/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/priest/small/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/priest/small/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/priest/small/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/priest/small/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/priest/small/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/priest/small/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/priest/small/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/priest/small/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/priest/small/12';
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+            switch (numberOfSkill) {
                 case 1:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/priest/big/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/priest/big/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/priest/big/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/priest/big/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/priest/big/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/priest/big/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/priest/big/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/priest/big/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/priest/big/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/priest/big/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/priest/big/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/priest/big/12';
-                            break;
-                        default:
-                            break;
-                    }
+                    url = 'skills/passive/priest/1';
+                    break;
+                case 2:
+                    url = 'skills/passive/priest/2';
+                        break;
+                case 3:
+                    url = 'skills/passive/priest/3';
+                        break;
+                case 4:
+                    url = 'skills/passive/priest/4';
+                        break;
+                case 5:
+                    url = 'skills/passive/priest/5';
+                        break;
+                case 6:
+                    url = 'skills/passive/priest/6';
+                        break;
+                case 7:
+                    url = 'skills/passive/priest/7';
+                        break;
+                case 8:
+                    url = 'skills/passive/priest/8';
+                        break;
+                case 9:
+                    url = 'skills/passive/priest/9';
+                        break;
+                case 10:
+                    url = 'skills/passive/priest/10';
+                        break;
+                case 11:
+                    url = 'skills/passive/priest/11';
+                    break;
+                case 12:
+                    url = 'skills/passive/priest/12';
                     break;
                 default:
                     break;
             }
             break;
         case 'Berserk':
-            switch (size) {
-                case 0:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/berserk/small/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/berserk/small/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/berserk/small/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/berserk/small/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/berserk/small/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/berserk/small/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/berserk/small/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/berserk/small/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/berserk/small/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/berserk/small/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/berserk/small/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/berserk/small/12';
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+            switch (numberOfSkill) {
                 case 1:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/berserk/big/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/berserk/big/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/berserk/big/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/berserk/big/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/berserk/big/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/berserk/big/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/berserk/big/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/berserk/big/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/berserk/big/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/berserk/big/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/berserk/big/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/berserk/big/12';
-                            break;
-                        default:
-                            break;
-                    }
+                    url = 'skills/passive/berserk/1';
+                    break;
+                case 2:
+                    url = 'skills/passive/berserk/2';
+                        break;
+                case 3:
+                    url = 'skills/passive/berserk/3';
+                        break;
+                case 4:
+                    url = 'skills/passive/berserk/4';
+                        break;
+                case 5:
+                    url = 'skills/passive/berserk/5';
+                        break;
+                case 6:
+                    url = 'skills/passive/berserk/6';
+                        break;
+                case 7:
+                    url = 'skills/passive/berserk/7';
+                        break;
+                case 8:
+                    url = 'skills/passive/berserk/8';
+                        break;
+                case 9:
+                    url = 'skills/passive/berserk/9';
+                        break;
+                case 10:
+                    url = 'skills/passive/berserk/10';
+                        break;
+                case 11:
+                    url = 'skills/passive/berserk/11';
+                    break;
+                case 12:
+                    url = 'skills/passive/berserk/12';
                     break;
                 default:
                     break;
             }
             break;
         case 'Hunter':
-            switch (size) {
-                case 0:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/hunter/small/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/hunter/small/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/hunter/small/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/hunter/small/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/hunter/small/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/hunter/small/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/hunter/small/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/hunter/small/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/hunter/small/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/hunter/small/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/hunter/small/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/hunter/small/12';
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+            switch (numberOfSkill) {
                 case 1:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/hunter/big/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/hunter/big/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/hunter/big/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/hunter/big/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/hunter/big/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/hunter/big/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/hunter/big/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/hunter/big/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/hunter/big/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/hunter/big/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/hunter/big/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/hunter/big/12';
-                            break;
-                        default:
-                            break;
-                    }
+                    url = 'skills/passive/hunter/1';
+                    break;
+                case 2:
+                    url = 'skills/passive/hunter/2';
+                        break;
+                case 3:
+                    url = 'skills/passive/hunter/3';
+                        break;
+                case 4:
+                    url = 'skills/passive/hunter/4';
+                        break;
+                case 5:
+                    url = 'skills/passive/hunter/5';
+                        break;
+                case 6:
+                    url = 'skills/passive/hunter/6';
+                        break;
+                case 7:
+                    url = 'skills/passive/hunter/7';
+                        break;
+                case 8:
+                    url = 'skills/passive/hunter/8';
+                        break;
+                case 9:
+                    url = 'skills/passive/hunter/9';
+                        break;
+                case 10:
+                    url = 'skills/passive/hunter/10';
+                        break;
+                case 11:
+                    url = 'skills/passive/hunter/11';
+                    break;
+                case 12:
+                    url = 'skills/passive/hunter/12';
                     break;
                 default:
                     break;
             }
             break;
         case 'Warrior':
-            switch (size) {
-                case 0:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/warrior/small/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/warrior/small/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/warrior/small/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/warrior/small/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/warrior/small/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/warrior/small/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/warrior/small/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/warrior/small/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/warrior/small/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/warrior/small/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/warrior/small/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/warrior/small/12';
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
+            switch (numberOfSkill) {
                 case 1:
-                    switch (numberOfSkill) {
-                        case 1:
-                            url = 'skills/passive/warrior/big/1';
-                            break;
-                        case 2:
-                            url = 'skills/passive/warrior/big/2';
-                                break;
-                        case 3:
-                            url = 'skills/passive/warrior/big/3';
-                                break;
-                        case 4:
-                            url = 'skills/passive/warrior/big/4';
-                                break;
-                        case 5:
-                            url = 'skills/passive/warrior/big/5';
-                                break;
-                        case 6:
-                            url = 'skills/passive/warrior/big/6';
-                                break;
-                        case 7:
-                            url = 'skills/passive/warrior/big/7';
-                                break;
-                        case 8:
-                            url = 'skills/passive/warrior/big/8';
-                                break;
-                        case 9:
-                            url = 'skills/passive/warrior/big/9';
-                                break;
-                        case 10:
-                            url = 'skills/passive/warrior/big/10';
-                                break;
-                        case 11:
-                            url = 'skills/passive/warrior/big/11';
-                            break;
-                        case 12:
-                            url = 'skills/passive/warrior/big/12';
-                            break;
-                        default:
-                            break;
-                    }
+                    url = 'skills/passive/warrior/1';
+                    break;
+                case 2:
+                    url = 'skills/passive/warrior/2';
+                        break;
+                case 3:
+                    url = 'skills/passive/warrior/3';
+                        break;
+                case 4:
+                    url = 'skills/passive/warrior/4';
+                        break;
+                case 5:
+                    url = 'skills/passive/warrior/5';
+                        break;
+                case 6:
+                    url = 'skills/passive/warrior/6';
+                        break;
+                case 7:
+                    url = 'skills/passive/warrior/7';
+                        break;
+                case 8:
+                    url = 'skills/passive/warrior/8';
+                        break;
+                case 9:
+                    url = 'skills/passive/warrior/9';
+                        break;
+                case 10:
+                    url = 'skills/passive/warrior/10';
+                        break;
+                case 11:
+                    url = 'skills/passive/warrior/11';
+                    break;
+                case 12:
+                    url = 'skills/passive/warrior/12';
                     break;
                 default:
                     break;
