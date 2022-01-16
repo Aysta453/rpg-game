@@ -46,13 +46,48 @@ const CharacterItemInUsePopup = ({ valueOfPopup, itemInUse, showPopup }) => {
                     </div>
                     <div className="stats">
                         <div className="values">
-                            {itemInUse.minAttack !== 0 || itemInUse.maxAttack !==0 ? (<p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {itemInUse.minAttack} - {itemInUse.maxAttack}</p>): (null)}
-                             {itemInUse.defensive !== 0 ? (<p className={"def"}><span className={"defd"}>Obrona:</span> {itemInUse.defensive}</p>): (null)}
-                             {itemInUse.strength !== 0 ? (<p className={"str"}><span className={"strd"}>Siła:</span> {itemInUse.strength}</p>): (null)}
-                             {itemInUse.dexterity !== 0 ? (<p className={"agl"}><span className={"agld"}>Zręczność:</span> {itemInUse.dexterity}</p>): (null)}
-                             {itemInUse.intellect !== 0 ? (<p className={"int"}><span className={"intd"}>Inteligencja:</span> {itemInUse.intellect}</p>): (null)}
-                             {itemInUse.stamina !== 0 ? (<p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {itemInUse.stamina}</p>): (null)}
-                             {itemInUse.spirit !== 0 ? (<p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {itemInUse.spirit}</p>): (null)}
+                            {itemInUse.minAttack !== 0 || itemInUse.maxAttack !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> </p></div>
+                                    <div className='statValue'><p className={"dmg"}>{itemInUse.minAttack} - {itemInUse.maxAttack}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.defensive !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'> <p className={"def"}><span className={"defd"}>Obrona:</span></p></div>
+                                    <div className='statValue'> <p className={"def"}>{itemInUse.defensive}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.strength !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"str"}><span className={"strd"}>Siła:</span></p></div>
+                                    <div className='statValue'><p className={"str"}>{itemInUse.strength}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.dexterity !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"agl"}><span className={"agld"}>Zręczność:</span></p></div>
+                                    <div className='statValue'><p className={"agl"}> {itemInUse.dexterity}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.intellect !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'> <p className={"int"}><span className={"intd"}>Inteligencja:</span></p></div>
+                                    <div className='statValue'><p className={"int"}>{itemInUse.intellect}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.stamina !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span></p></div>
+                                    <div className='statValue'><p className={"stm"}>{itemInUse.stamina}</p></div>
+                                </div>
+                            ) : (null)}
+                            {itemInUse.spirit !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"luk"}><span className={"lukd"}>Szczęście:</span></p></div>
+                                    <div className='statValue'><p className={"luk"} >{itemInUse.spirit}</p></div>
+                                </div>
+                             ) : (null)}
                         </div>
                     </div>
                 <div className="sellInfo">

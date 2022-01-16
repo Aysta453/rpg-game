@@ -17,6 +17,18 @@
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
 }
+.easy {
+  font-weight: 500;
+  color: #228147;
+}
+.medium {
+  font-weight: 500;
+  color: #ecdb1a;
+}
+.hard {
+  font-weight: 500;
+  color: #9c1b1b;
+}
 
 .dungeonsView .title .optionJoin {
   border: 1px solid rgba(255, 28, 90, 0.65);
@@ -68,7 +80,7 @@
   width: 100%;
   height: 9vh;
   text-align: center;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   margin-bottom: 1vh;
   float: left;
   font-family: "Montserrat", sans-serif;
@@ -200,8 +212,10 @@
   float: left;
   width: 11.5vw;
   height: 16vh;
+  padding-top: 2.5vh;
   background-color: rgba(255, 107, 0, 0.05);
   border: 1px solid rgba(126, 50, 0, 0.5);
+  font-size: 1.5rem;
 }
 .dungeonView .itemBox .item img {
   width: 11.5vw;

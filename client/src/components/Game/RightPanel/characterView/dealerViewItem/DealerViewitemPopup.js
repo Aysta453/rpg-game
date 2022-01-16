@@ -67,56 +67,94 @@ const DealerViewitemPopup = ({ valueOfPopup, showPopup, specyficItem, positionOf
                     </div>
                     <div className="stats">
                          <div className="values">
-                             {specyficItem.minAttack !== 0 || specyficItem.maxAttack !== 0 ? (<p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {specyficItem.minAttack} - {specyficItem.maxAttack}
-                                 {(specyficItem.minAttack + specyficItem.maxAttack) >= (equipmentItem.minAttack + equipmentItem.maxAttack) ? (
-                                     (equipmentItem.minAttack + equipmentItem.maxAttack) === (specyficItem.minAttack + specyficItem.maxAttack) ? (<span style={{ color: 'grey' }}> {equipmentItem.minAttack} - {equipmentItem.maxAttack}<span style={{ color: 'grey' }}>~{(specyficItem.minAttack + specyficItem.maxAttack) - (equipmentItem.minAttack + equipmentItem.maxAttack)}</span></span>) :
-                                         (<span style={{color:'grey'}}> { equipmentItem.minAttack} - {equipmentItem.maxAttack }<span style={{ color: 'green' }}> + ~{(specyficItem.minAttack+specyficItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack)}</span></span>)
-                             ):(<span style={{color:'grey'}}> { equipmentItem.minAttack} - {equipmentItem.maxAttack }<span style={{ color: 'red' }}> - ~{((specyficItem.minAttack+specyficItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack))*(-1)}</span></span>)}
-                             </p>) : (null)}
-                             {specyficItem.defensive !== 0 ? (<p className={"def"}><span className={"defd"}>Obrona:</span> {specyficItem.defensive}
-                                 {(specyficItem.defensive - equipmentItem.defensive) >= 0 ? (
+                            {specyficItem.minAttack !== 0 || specyficItem.maxAttack !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span></p></div>
+                                     <div className='statValue'><p className={"dmg"}>{specyficItem.minAttack} - {specyficItem.maxAttack}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{ equipmentItem.minAttack} - {equipmentItem.maxAttack }</span></div>
+                                    <div className='diffrenceValue'>
+                                        {(specyficItem.minAttack + specyficItem.maxAttack) >= (equipmentItem.minAttack + equipmentItem.maxAttack) ? (
+                                            (equipmentItem.minAttack + equipmentItem.maxAttack) === (specyficItem.minAttack + specyficItem.maxAttack) ? (<span style={{ color: 'grey' }}>~{(specyficItem.minAttack + specyficItem.maxAttack) - (equipmentItem.minAttack + equipmentItem.maxAttack)}</span>) :
+                                            (<span style={{ color: 'green' }}> + ~{(specyficItem.minAttack+specyficItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack)}</span>)
+                                            ):(<span style={{ color: 'red' }}> - ~{((specyficItem.minAttack+specyficItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack))*(-1)}</span>)}
+                                    </div>
+                                </div>
+                            ) : (null)}
+                            {specyficItem.defensive !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"def"}><span className={"defd"}>Obrona:</span></p></div>
+                                     <div className='statValue'><p className={"def"}>{specyficItem.defensive}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.defensive}</span></div>
+                                    <div className='diffrenceValue'>{(specyficItem.defensive - equipmentItem.defensive) >= 0 ? (
                                      (equipmentItem.defensive - specyficItem.defensive) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.defensive - specyficItem.defensive}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.defensive - specyficItem.defensive)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.defensive - specyficItem.defensive}</span>)}
-                             </p>) : (null)}
-                             {specyficItem.strength !== 0 ? (<p className={"str"}><span className={"strd"}>Siła:</span> {specyficItem.strength}
-                                 {(specyficItem.strength - equipmentItem.strength) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.defensive - specyficItem.defensive}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {specyficItem.strength !== 0 ?(
+                                <div className='row'>
+                                    <div className='statName'><p className={"str"}><span className={"strd"}>Siła:</span></p></div>
+                                     <div className='statValue'><p className={"str"}>{specyficItem.strength}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.strength}</span></div>
+                                    <div className='diffrenceValue'> {(specyficItem.strength - equipmentItem.strength) >= 0 ? (
                                      (equipmentItem.strength - specyficItem.strength) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.strength - specyficItem.strength}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.strength - specyficItem.strength)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.strength - specyficItem.strength}</span>)}
-                             </p>) : (null)}
-                             {specyficItem.dexterity !== 0 ? (<p className={"agl"}><span className={"agld"}>Zręczność:</span> {specyficItem.dexterity}
-                                 {(specyficItem.dexterity - equipmentItem.dexterity) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.strength - specyficItem.strength}</span>)}</div>
+                                </div>
+                            ) : (null)}  
+                            {specyficItem.dexterity !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"agl"}><span className={"agld"}>Zręczność:</span></p></div>
+                                     <div className='statValue'><p className={"agl"}>{specyficItem.dexterity}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.dexterity}</span></div>
+                                    <div className='diffrenceValue'>{(specyficItem.dexterity - equipmentItem.dexterity) >= 0 ? (
                                      (equipmentItem.dexterity - specyficItem.dexterity) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.dexterity - specyficItem.dexterity}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.dexterity - specyficItem.dexterity)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.dexterity - specyficItem.dexterity}</span>)}
-                             </p>) : (null)}
-                             {specyficItem.intellect !== 0 ? (<p className={"int"}><span className={"intd"}>Inteligencja:</span> {specyficItem.intellect}
-                                    {(specyficItem.intellect - equipmentItem.intellect) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.dexterity - specyficItem.dexterity}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {specyficItem.intellect !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"int"}><span className={"intd"}>Inteligencja:</span></p></div>
+                                     <div className='statValue'><p className={"int"}>{specyficItem.intellect}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.intellect}</span></div>
+                                    <div className='diffrenceValue'> {(specyficItem.intellect - equipmentItem.intellect) >= 0 ? (
                                      (equipmentItem.intellect - specyficItem.intellect) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.intellect - specyficItem.intellect}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.intellect - specyficItem.intellect)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.intellect - specyficItem.intellect}</span>)}
-                             </p>) : (null)}
-                            
-                             {specyficItem.stamina !== 0 ? (<p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {specyficItem.stamina}
-                                 {(specyficItem.stamina - equipmentItem.stamina) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.intellect - specyficItem.intellect}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {specyficItem.stamina !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span></p></div>
+                                     <div className='statValue'><p className={"stm"}>{specyficItem.stamina}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.stamina}</span></div>
+                                    <div className='diffrenceValue'>
+                                        {(specyficItem.stamina - equipmentItem.stamina) >= 0 ? (
                                      (equipmentItem.stamina - specyficItem.stamina) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.stamina - specyficItem.stamina}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.stamina - specyficItem.stamina)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.stamina - specyficItem.stamina}</span>)}
-                             </p>) : (null)}
-                            {specyficItem.spirit !== 0 ? (<p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {specyficItem.spirit}
-                                 {(specyficItem.spirit - equipmentItem.spirit) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.stamina - specyficItem.stamina}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {specyficItem.spirit !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"luk"}><span className={"lukd"}>Szczęście:</span></p></div>
+                                    <div className='statValue'><p className={"luk"}>{specyficItem.spirit}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.spirit}</span></div>
+                                     <div className='diffrenceValue'>
+                                    {(specyficItem.spirit - equipmentItem.spirit) >= 0 ? (
                                      (equipmentItem.spirit - specyficItem.spirit) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.spirit - specyficItem.spirit}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.spirit - specyficItem.spirit)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.spirit - specyficItem.spirit}</span>)}
-                             </p>) : (null)}
-                        </div>
+                             ):(<span style={{color:'red'}}> - {equipmentItem.spirit - specyficItem.spirit}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                         </div>
                     </div>  
                  </div>
                   <div className="sellInfo">

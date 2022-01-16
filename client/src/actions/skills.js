@@ -1,11 +1,11 @@
-import {FETCH_SKILLS,CREATE_SKILLS,ASSIGN_SKILLS,UNLOCK_SKILLS,ADD_POINT} from '../constants/actionTypes';
+import { FETCH_SKILLS, CREATE_SKILLS, ASSIGN_SKILLS, UNLOCK_SKILLS, ADD_POINT } from "../constants/actionTypes";
 
-import * as api from '../api/index.js';
+import * as api from "../api/index.js";
 
 export const createNewskillstoaccount = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createNewSkillsToAccount(formData);
-    
+
     dispatch({ type: CREATE_SKILLS, payload: data });
   } catch (error) {
     console.log(error);
@@ -28,7 +28,6 @@ export const unlockedskill = (formData) => async (dispatch) => {
   }
 };
 export const assignskill = (formData) => async (dispatch) => {
-  console.log(formData);
   try {
     const { data } = await api.assignSkill(formData);
 

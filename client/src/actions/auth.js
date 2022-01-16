@@ -30,6 +30,7 @@ export const signup = (formData,history) => async (dispatch) => {
         await api.createAllTradeItems({ owner, heroClass, level: 1 });
         await api.createNewInventory({owner:owner})
         await api.createMissions({ owner });
+        await api.createDungeons({ owner });
         await api.createSkillsToBattle({ owner });
 
         dispatch({ type: AUTH, data });

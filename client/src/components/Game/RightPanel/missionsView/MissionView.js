@@ -36,7 +36,6 @@ const MissionView = ({mission, setWindowOfElements,setButtons,missionType}) => {
     const setMission = mission;
     const startingMission = () => {
         setWindowOfElements(7);
- 
         dispatch(setMissionValue(mission));
         setButtons()
     }
@@ -47,6 +46,7 @@ const MissionView = ({mission, setWindowOfElements,setButtons,missionType}) => {
         image = showingEquipmentImage(hero.heroClass, mission.item.typeOfItem, mission.item.numberOfItem);
     }
     let valueOfEmptySlot;
+
     if (isItemAssigmentToMission === false && inventory.firstItem.isEmpty === false && inventory.secondItem.isEmpty === false && inventory.thirdItem.isEmpty === false &&
     inventory.forthItem.isEmpty === false && inventory.fifthItem.isEmpty === false && inventory.sixthItem.isEmpty === false &&inventory.seventhItem.isEmpty === false &&
         inventory.eigthItem.isEmpty === false && inventory.ninthItem.isEmpty === false) {
@@ -55,6 +55,7 @@ const MissionView = ({mission, setWindowOfElements,setButtons,missionType}) => {
     else {
         valueOfEmptySlot =true;
     }
+    
     return(<>
         <div className='missionView'>
             <div className='title'>{setMission.missionTitle}</div>

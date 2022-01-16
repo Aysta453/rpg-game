@@ -176,6 +176,18 @@
   padding-top: 1vh;
   font-size: 1.5rem;
 }
+.easy {
+  font-weight: 500;
+  color: #228147;
+}
+.medium {
+  font-weight: 500;
+  color: #ecdb1a;
+}
+.hard {
+  font-weight: 500;
+  color: #9c1b1b;
+}
 
 .groupsView .groups .groupView .actionJoinButton button {
   background-color: rgba(255, 136, 0, 0.04);
@@ -204,6 +216,33 @@
   border: 1px solid rgba(0, 0, 0, 0.7);
   cursor: no-drop;
 }
+.groupsView .groups .groupView .actionJoinButton button .tooltipJoinInfo {
+  visibility: hidden;
+  min-width: 10vw;
+  max-width: 18vw;
+  max-height: 10vh;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background-color: rgb(10, 10, 10);
+  color: white;
+  text-align: center;
+  padding: 1vh;
+  position: absolute;
+  z-index: 1;
+  bottom: 0vh;
+  left: -20vw;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1.1rem;
+  overflow-wrap: break-word;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.groupsView .groups .groupView .actionJoinButton button:hover .tooltipJoinInfo {
+  visibility: visible;
+  opacity: 1;
+}
+
 .popup-groupViewPopup {
   z-index: 7;
   position: fixed;
@@ -223,7 +262,7 @@
   position: fixed;
   padding: 3vh;
   width: 100%;
-  height: 60vh;
+  height: 75vh;
   max-width: 35vw;
   background-color: #0b0b0b;
   border: 1px solid rgba(255, 255, 255, 0.35);
@@ -333,4 +372,21 @@
   font-weight: 500;
   color: #fff264;
   font-size: 1.1rem;
+}
+.popup-groupViewPopup .groupViewPopup-inner .itemBox {
+  width: 100%;
+  height: 17vh;
+  text-align: center;
+  float: left;
+  padding-left: 10vw;
+}
+.popup-groupViewPopup .groupViewPopup-inner .itemBox .item {
+  float: left;
+  width: 11.5vw;
+  height: 16vh;
+  padding-top: 2.5vh;
+  background-color: rgba(255, 107, 0, 0.05);
+  border: 1px solid rgba(126, 50, 0, 0.5);
+  font-size: 1.5rem;
+  text-align: center;
 }

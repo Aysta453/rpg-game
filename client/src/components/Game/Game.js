@@ -12,6 +12,8 @@ import { showmissions } from '../../actions/missions';
 import {getalltradeitems } from '../../actions/trades';
 import {getheroskillstobattle } from '../../actions/skillsInBattle';
 import { getinventory } from '../../actions/inventory';
+import { showdungeons } from '../../actions/dungeons';
+import { showrooms } from '../../actions/rooms';
 
 const Game = () => {
     const dispatch = useDispatch();
@@ -32,9 +34,11 @@ const Game = () => {
         dispatch(getiteminuse({ owner: currentOwner }));
         dispatch(getheroskills({ owner: currentOwner }));
         dispatch(showmissions({ owner: currentOwner }));
+        dispatch(showdungeons({ owner: currentOwner }));
         dispatch(getalltradeitems({ owner: currentOwner }));
         dispatch(getheroskillstobattle({ owner: currentOwner }));
             dispatch(getinventory({ owner: currentOwner }));
+            dispatch(showrooms());
 
         // eslint-disable-next-line
         }, [dispatch]);

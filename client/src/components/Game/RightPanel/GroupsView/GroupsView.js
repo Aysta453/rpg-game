@@ -1,33 +1,58 @@
-import React from 'react';
-import GroupView from './GroupView';
-import './groupView.css';
-const GroupsView = () => {
-    return (
-        <div className='groupsView'>
-            <div className='title'>
-                <button className='optionRefresh' onClick={() => { console.log('tak'); }}>Odśwież</button>
-                <button  className='optionBack' onClick={() => {console.log('nie');}}>Wróć</button>
-                    Grupy
-            </div>
-            <div className='groups'>
-                <GroupView />
-                <GroupView />
-
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-                <GroupView />
-
-
-            </div>
-        </div>
-    )
-}
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import GroupView from "./GroupView";
+import "./groupView.css";
+import { showrooms, showroom } from "../../../../actions/rooms.js";
+const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
+  const dispatch = useDispatch();
+  const rooms = useSelector((state) => state.rooms);
+  const returnToPlayerDangeons = () => {
+    setWindowOfElements(5);
+  };
+  const joiningRoom = (roomName, idOfRoom) => {
+    socket.emit("joinRoom", roomName, (mess) => {
+      console.log(mess);
+    });
+    socket.emit("refreshRoom", roomName);
+  };
+  const refreshGroups = () => {
+    dispatch(showrooms());
+  };
+  useEffect(() => {
+    dispatch(showrooms());
+  }, []);
+  return (
+    <div className="groupsView">
+      <div className="title">
+        <button
+          className="optionRefresh"
+          onClick={() => {
+            refreshGroups();
+          }}
+        >
+          Odśwież
+        </button>
+        <button
+          className="optionBack"
+          onClick={() => {
+            returnToPlayerDangeons();
+          }}
+        >
+          Wróć
+        </button>
+        Grupy
+      </div>
+      <div className="groups">
+        {rooms.length
+          ? rooms.map((room) => (
+              <div key={room._id}>
+                <GroupView room={room} joiningRoom={joiningRoom} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
+              </div>
+            ))
+          : ""}
+      </div>
+    </div>
+  );
+};
 
 export default GroupsView;

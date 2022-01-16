@@ -1,30 +1,24 @@
-import { CREATE,STATS_FETCH,
-STATS_STR_IN,STATS_DEX_IN,STATS_INT_IN,STATS_STA_IN,STATS_SPI_IN } from '../constants/actionTypes';
+import { CREATE, STATS_FETCH, STATS_STR_IN, STATS_DEX_IN, STATS_INT_IN, STATS_STA_IN, STATS_SPI_IN } from "../constants/actionTypes";
 
-import * as api from '../api/index.js';
+import * as api from "../api/index.js";
 
 export const createnewstats = (formData) => async (dispatch) => {
-    try {
-        const { data } = await api.createNewStats(formData);
-      dispatch({ type: CREATE, data });
-      
-      
-       
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const { data } = await api.createNewStats(formData);
+    dispatch({ type: CREATE, data });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getinfoaboutstats = (formData) => async (dispatch) => {
   try {
     const { data } = await api.getInfoAboutStats(formData);
     dispatch({ type: STATS_FETCH, payload: data });
-    console.log({ data });
   } catch (error) {
     console.log(error);
   }
 };
-
 
 export const increasestatstrength = (formData) => async (dispatch) => {
   try {
@@ -70,8 +64,3 @@ export const increasestatspirit = (formData) => async (dispatch) => {
     console.log(error);
   }
 };
-
-
-
-
-

@@ -50,56 +50,94 @@ const MissionItem = ({ valueOfPopup, missionItem, showPopup }) => {
                     </div>
                     <div className="stats">
                         <div className="values">
-                             {missionItem.minAttack !== 0 || missionItem.maxAttack !== 0 ? (<p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span> {missionItem.minAttack} - {missionItem.maxAttack}
-                                 {(missionItem.minAttack + missionItem.maxAttack) >= (equipmentItem.minAttack + equipmentItem.maxAttack) ? (
-                                     (equipmentItem.minAttack + equipmentItem.maxAttack) === (missionItem.minAttack + missionItem.maxAttack) ? (<span style={{ color: 'grey' }}> {equipmentItem.minAttack} - {equipmentItem.maxAttack}<span style={{ color: 'grey' }}>~{(missionItem.minAttack + missionItem.maxAttack) - (equipmentItem.minAttack + equipmentItem.maxAttack)}</span></span>) :
-                                         (<span style={{color:'grey'}}> { equipmentItem.minAttack} - {equipmentItem.maxAttack }<span style={{ color: 'green' }}> + ~{(missionItem.minAttack+missionItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack)}</span></span>)
-                             ):(<span style={{color:'grey'}}> { equipmentItem.minAttack} - {equipmentItem.maxAttack }<span style={{ color: 'red' }}> - ~{((missionItem.minAttack+missionItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack))*(-1)}</span></span>)}
-                             </p>) : (null)}
-                             {missionItem.defensive !== 0 ? (<p className={"def"}><span className={"defd"}>Obrona:</span> {missionItem.defensive}
-                                 {(missionItem.defensive - equipmentItem.defensive) >= 0 ? (
+                            {missionItem.minAttack !== 0 || missionItem.maxAttack !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"dmg"}><span className={"dmgd"}>Obrażenia:</span></p></div>
+                                     <div className='statValue'><p className={"dmg"}>{missionItem.minAttack} - {missionItem.maxAttack}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{ equipmentItem.minAttack} - {equipmentItem.maxAttack }</span></div>
+                                    <div className='diffrenceValue'>
+                                        {(missionItem.minAttack + missionItem.maxAttack) >= (equipmentItem.minAttack + equipmentItem.maxAttack) ? (
+                                            (equipmentItem.minAttack + equipmentItem.maxAttack) === (missionItem.minAttack + missionItem.maxAttack) ? (<span style={{ color: 'grey' }}>~{(missionItem.minAttack + missionItem.maxAttack) - (equipmentItem.minAttack + equipmentItem.maxAttack)}</span>) :
+                                            (<span style={{ color: 'green' }}> + ~{(missionItem.minAttack+missionItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack)}</span>)
+                                            ):(<span style={{ color: 'red' }}> - ~{((missionItem.minAttack+missionItem.maxAttack)-(equipmentItem.minAttack+equipmentItem.maxAttack))*(-1)}</span>)}
+                                    </div>
+                                </div>
+                            ) : (null)}
+                            {missionItem.defensive !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"def"}><span className={"defd"}>Obrona:</span></p></div>
+                                     <div className='statValue'><p className={"def"}>{missionItem.defensive}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.defensive}</span></div>
+                                    <div className='diffrenceValue'>{(missionItem.defensive - equipmentItem.defensive) >= 0 ? (
                                      (equipmentItem.defensive - missionItem.defensive) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.defensive - missionItem.defensive}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.defensive - missionItem.defensive)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.defensive - missionItem.defensive}</span>)}
-                             </p>) : (null)}
-                             {missionItem.strength !== 0 ? (<p className={"str"}><span className={"strd"}>Siła:</span> {missionItem.strength}
-                                 {(missionItem.strength - equipmentItem.strength) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.defensive - missionItem.defensive}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {missionItem.strength !== 0 ?(
+                                <div className='row'>
+                                    <div className='statName'><p className={"str"}><span className={"strd"}>Siła:</span></p></div>
+                                     <div className='statValue'><p className={"str"}>{missionItem.strength}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.strength}</span></div>
+                                    <div className='diffrenceValue'> {(missionItem.strength - equipmentItem.strength) >= 0 ? (
                                      (equipmentItem.strength - missionItem.strength) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.strength - missionItem.strength}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.strength - missionItem.strength)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.strength - missionItem.strength}</span>)}
-                             </p>) : (null)}
-                             {missionItem.dexterity !== 0 ? (<p className={"agl"}><span className={"agld"}>Zręczność:</span> {missionItem.dexterity}
-                                 {(missionItem.dexterity - equipmentItem.dexterity) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.strength - missionItem.strength}</span>)}</div>
+                                </div>
+                            ) : (null)}  
+                            {missionItem.dexterity !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"agl"}><span className={"agld"}>Zręczność:</span></p></div>
+                                     <div className='statValue'><p className={"agl"}>{missionItem.dexterity}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.dexterity}</span></div>
+                                    <div className='diffrenceValue'>{(missionItem.dexterity - equipmentItem.dexterity) >= 0 ? (
                                      (equipmentItem.dexterity - missionItem.dexterity) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.dexterity - missionItem.dexterity}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.dexterity - missionItem.dexterity)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.dexterity - missionItem.dexterity}</span>)}
-                             </p>) : (null)}
-                             {missionItem.intellect !== 0 ? (<p className={"int"}><span className={"intd"}>Inteligencja:</span> {missionItem.intellect}
-                                    {(missionItem.intellect - equipmentItem.intellect) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.dexterity - missionItem.dexterity}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {missionItem.intellect !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"int"}><span className={"intd"}>Inteligencja:</span></p></div>
+                                     <div className='statValue'><p className={"int"}>{missionItem.intellect}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.intellect}</span></div>
+                                    <div className='diffrenceValue'> {(missionItem.intellect - equipmentItem.intellect) >= 0 ? (
                                      (equipmentItem.intellect - missionItem.intellect) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.intellect - missionItem.intellect}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.intellect - missionItem.intellect)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.intellect - missionItem.intellect}</span>)}
-                             </p>) : (null)}
-                            
-                             {missionItem.stamina !== 0 ? (<p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span> {missionItem.stamina}
-                                 {(missionItem.stamina - equipmentItem.stamina) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.intellect - missionItem.intellect}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {missionItem.stamina !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"stm"}><span className={"stmd"}>Wytrzymałość:</span></p></div>
+                                     <div className='statValue'><p className={"stm"}>{missionItem.stamina}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.stamina}</span></div>
+                                    <div className='diffrenceValue'>
+                                        {(missionItem.stamina - equipmentItem.stamina) >= 0 ? (
                                      (equipmentItem.stamina - missionItem.stamina) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.stamina - missionItem.stamina}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.stamina - missionItem.stamina)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.stamina - missionItem.stamina}</span>)}
-                             </p>) : (null)}
-                            {missionItem.spirit !== 0 ? (<p className={"luk"} ><span className={"lukd"}>Szczęście:</span> {missionItem.spirit}
-                                 {(missionItem.spirit - equipmentItem.spirit) >= 0 ? (
+                             ):(<span style={{color:'red'}}> - {equipmentItem.stamina - missionItem.stamina}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                            {missionItem.spirit !== 0 ? (
+                                <div className='row'>
+                                    <div className='statName'><p className={"luk"}><span className={"lukd"}>Szczęście:</span></p></div>
+                                    <div className='statValue'><p className={"luk"}>{missionItem.spirit}</p></div>
+                                    <div className='equipmentValue'><span style={{ color: 'grey' }}>{equipmentItem.spirit}</span></div>
+                                     <div className='diffrenceValue'>
+                                    {(missionItem.spirit - equipmentItem.spirit) >= 0 ? (
                                      (equipmentItem.spirit - missionItem.spirit) === 0 ?
                                          (<span style={{ color: 'grey' }}> {equipmentItem.spirit - missionItem.spirit}</span>)
                                          : (<span style={{color:'green'}}> + {-1*(equipmentItem.spirit - missionItem.spirit)}</span>)
-                             ):(<span style={{color:'red'}}> - {equipmentItem.spirit - missionItem.spirit}</span>)}
-                             </p>) : (null)}
-                        </div>
+                             ):(<span style={{color:'red'}}> - {equipmentItem.spirit - missionItem.spirit}</span>)}</div>
+                                </div>
+                            ) : (null)}
+                         </div>
                     </div>
                 <div className="sellInfo">
                     Możliwa sprzedaż za: {missionItem.cost} złota
