@@ -1,7 +1,7 @@
 import { Server } from "socket.io";
 export const io = new Server({
   cors: {
-    origin: "https://aystagame.netlify.app/",
+    origin: "https://aystagame.netlify.app",
     methods: ["GET", "POST"],
   },
 });
