@@ -15,21 +15,12 @@ export var Socket = {
 
 io.on("connection", function (socket) {
   socket.on("createRoom", (roomName) => {
-    console.log("before created room" + roomName);
-    console.log(socket.rooms);
     socket.join(roomName);
-
-    console.log("after created room" + roomName);
-    console.log(socket.rooms);
   });
   socket.on("joinRoom", (roomName) => {
-    console.log("before joining room" + roomName);
-    console.log(socket.rooms);
     socket.join(roomName);
 
-    console.log("after joining room" + roomName);
-    console.log(socket.rooms);
-    io.emit("mess", "this is a test");
+    io.in(roomName).emit("mess", "this is a test");
   });
 
   console.log(`A user connected ${socket.id}`);
