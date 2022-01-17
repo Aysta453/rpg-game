@@ -29,7 +29,7 @@ io.on("connection", function (socket) {
 
     console.log("after joining room" + roomName);
     console.log(socket.rooms);
-    socket.emit("mess", "joined");
+    io.emit("mess", "this is a test");
   });
 
   console.log(`A user connected ${socket.id}`);
