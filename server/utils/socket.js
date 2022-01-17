@@ -17,10 +17,10 @@ io.on("connection", function (socket) {
   socket.on("createRoom", (roomName) => {
     socket.join(roomName);
   });
-  socket.on("joinRoom", (roomName) => {
+  socket.on("joinRoom", (roomName, idOfRoom) => {
     socket.join(roomName);
-
-    io.in(roomName).emit("mess", "this is a test");
+    io.emit("check", "refresh all sockets");
+    io.in(roomName).emit("mess", idOfRoom);
   });
 
   console.log(`A user connected ${socket.id}`);
