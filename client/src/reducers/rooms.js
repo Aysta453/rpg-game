@@ -5,7 +5,7 @@ export default (rooms = [], action) => {
     case SHOW_ROOMS:
       return action.payload;
     case CREATE_ROOM:
-      return [...rooms, action.payload];
+      return action.payload;
     case SHOW_ROOM:
       return action.payload;
     case SHOW_ROOM_BY_NAME:

@@ -23,6 +23,7 @@ export const createRoom = async (req, res) => {
 
   try {
     await newRoom.save();
+    console.log(newRoom);
     res.status(201).json(newRoom);
   } catch (error) {
     res.status(409).json({ message: error.message });
