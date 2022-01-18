@@ -47,8 +47,10 @@ export const showRoom = async (req, res) => {
 };
 export const showRoomByName = async (req, res) => {
   const { roomName } = req.body;
+  console.log(roomName);
   try {
     const result = await Rooms.findOne({ roomName: roomName });
+    console.log(result);
     res.status(201).json(result);
   } catch (error) {
     res.status(409).json({ message: error.message });
