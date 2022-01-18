@@ -76,6 +76,7 @@ export const newDungeons = (formData) => API.post(`/dungeons/newDungeons`, formD
 
 export const createRoom = (formData) => API.post(`/rooms/createRoom`, formData);
 export const showRooms = (formData) => API.post(`/rooms/showRooms`, formData);
+export const showRoomByName = (formData) => API.post(`/rooms/showRoomByName`, formData);
 export const showRoom = (formData) => API.post(`/rooms/showRoom`, formData);
 export const deleteRoom = (formData) => API.post(`/rooms/deleteRoom`, formData);
 export const joinRoom = (formData) => API.post(`/rooms/joinRoom`, formData);

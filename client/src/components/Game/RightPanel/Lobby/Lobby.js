@@ -3,48 +3,56 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Lobby.css";
 import LobbyDungeonInfo from "./LobbyDungeonInfo";
 import PlayerInfo from "./PlayerInfo";
-import { deleteroom, showroom } from "../../../../actions/rooms.js";
+import { deleteroom, showroom, showrooms } from "../../../../actions/rooms.js";
 const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const rooms = useSelector((state) => state.rooms);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
   const [popupValue, setPopupValueset] = useState(false);
   const [popupValue1, setPopupValueset1] = useState(false);
+  const [players, setPlayers] = useState(rooms.players);
+  // if (!Array.isArray(rooms)) {
+  //   players = rooms.players;
+  // }
   console.log(rooms);
-  let players = [];
-  if (!Array.isArray(rooms)) {
-    players = rooms.players;
-  }
-
   const showPopup = () => {
     setPopupValueset(!popupValue);
   };
   const showPopup1 = () => {
     setPopupValueset1(!popupValue1);
   };
-  let isLeader;
+  const refreshRoom = (idOfRoom) => {
+    console.log(idOfRoom);
+    dispatch(showrooms());
+    dispatch(showroom({ id: idOfRoom }));
+    setPlayers(rooms);
+
+    console.log(players);
+  };
+  let isRoomOwner;
   if (hero.owner === rooms.owner) {
-    isLeader = true;
+    isRoomOwner = true;
   } else {
-    isLeader = false;
+    isRoomOwner = false;
   }
   let isEnoughPlayers;
-  if (players.length === 5) {
-    isEnoughPlayers = true;
-  } else {
-    isEnoughPlayers = false;
-  }
+  // if (players.length === 5) {
+  //   isEnoughPlayers = true;
+  // } else {
+  //   isEnoughPlayers = false;
+  // }
   useEffect(() => {
     socket.on("mess", (mess) => {
-      console.log(mess);
+      refreshRoom(mess);
     });
+    console.log("works");
   }, []);
 
   return (
     <div className="lobbyView">
       <div className="title">
         Grupa
-        {isLeader ? (
+        {isRoomOwner ? (
           <button
             className="dismissGroup"
             onClick={() => {
@@ -76,13 +84,13 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
           <div className="heroStatsLabel">Dane postaci</div>
           <div className="kickButtonLabel">Zarządzaj</div>
         </div>
-        {players.length
+        {/* {players.length
           ? players.map((player) => (
               <div key={player.owner}>
-                <PlayerInfo player={player} />
+                <PlayerInfo player={player} isRoomOwner={isRoomOwner} />
               </div>
             ))
-          : ""}
+          : ""} */}
       </div>
       <div className="missionStart">{isEnoughPlayers ? <button onClick={() => {}}>Rozpocznij misję</button> : ""}</div>
     </div>

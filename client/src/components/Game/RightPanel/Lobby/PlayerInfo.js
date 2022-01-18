@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import PlayerInfoExtend from "./PlayerInfoExtend";
 
-const PlayerInfo = ({ player }) => {
+const PlayerInfo = ({ player, isRoomOwner }) => {
   const hero = useSelector((state) => state.hero);
   const [popupValue, setPopupValue] = useState(false);
   console.log(player);
@@ -11,14 +11,16 @@ const PlayerInfo = ({ player }) => {
   };
   let isPlayer;
   let isLeader;
-  if (player.owner === hero.owner && player.isLeader === true) {
+  if (player.owner === hero.owner && isRoomOwner === true) {
     isLeader = true;
-    isPlayer = false;
-  }
-  if (player.owner === hero.owner && player.isLeader === false) {
+  } else if (player.owner !== hero.owner && isRoomOwner === true) {
     isLeader = false;
+  }
+
+  if (player.owner === hero.owner && isRoomOwner === false) {
     isPlayer = true;
-  } else {
+  } else if (player.owner !== hero.owner && isRoomOwner === false) {
+    isPlayer = false;
   }
   return (
     <div className="player">
@@ -35,7 +37,20 @@ const PlayerInfo = ({ player }) => {
         </button>
       </div>
       <PlayerInfoExtend player={player} valueOfPopup={popupValue} showPopup={showPopup} />
-      <div className="kickButton">{!isLeader ? isPlayer ? <button onClick={() => {}}>Wyjdz z grupy</button> : <button onClick={() => {}}>Wyrzuć z grupy</button> : ""}</div>
+      {isLeader ? (
+        ""
+      ) : (
+        <div className="kickButton">
+          <button onClick={() => {}}>Wyrzuć z grupy</button>
+        </div>
+      )}
+      {!isPlayer && isLeader === false ? (
+        ""
+      ) : (
+        <div className="kickButton">
+          <button onClick={() => {}}>Wyrzuć z grupy</button>
+        </div>
+      )}
     </div>
   );
 };

@@ -64,8 +64,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, joiningRoom }) => {
       heroPower: playerGame,
     };
     dispatch(joinroom({ id: idOfRoom, member: member }));
-    dispatch(showroom({ id: idOfRoom }));
-    joiningRoom(room.roomName, room._id);
+    joiningRoom(room.roomName, idOfRoom);
     setWindowOfElements(200);
     setButtons();
   };

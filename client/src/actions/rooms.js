@@ -1,7 +1,6 @@
-import { CREATE_ROOM,DELETE_ROOM,JOIN_ROOM,LEAVE_ROOM,SHOW_ROOM,SHOW_ROOMS } from '../constants/actionTypes';
+import { CREATE_ROOM, DELETE_ROOM, JOIN_ROOM, LEAVE_ROOM, SHOW_ROOM, SHOW_ROOMS, SHOW_ROOM_BY_NAME } from "../constants/actionTypes";
 
-import * as api from '../api/index.js';
-
+import * as api from "../api/index.js";
 
 export const showrooms = () => async (dispatch) => {
   try {
@@ -27,6 +26,15 @@ export const showroom = (post) => async (dispatch) => {
     const { data } = await api.showRoom(post);
 
     dispatch({ type: SHOW_ROOM, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const showroombyname = (post) => async (dispatch) => {
+  try {
+    const { data } = await api.showRoomByName(post);
+
+    dispatch({ type: SHOW_ROOM_BY_NAME, payload: data });
   } catch (error) {
     console.log(error.message);
   }

@@ -71,6 +71,7 @@ export const NEW_DUNGEONS = "NEW_DUNGEONS";
 export const CREATE_ROOM = "CREATE_ROOM";
 export const SHOW_ROOMS = "SHOW_ROOMS";
 export const SHOW_ROOM = "SHOW_ROOM";
+export const SHOW_ROOM_BY_NAME = "SHOW_ROOM_BY_NAME";
 export const JOIN_ROOM = "JOIN_ROOM";
 export const DELETE_ROOM = "DELETE_ROOM";
 export const LEAVE_ROOM = "LEAVE_ROOM";

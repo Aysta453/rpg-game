@@ -10,10 +10,7 @@ const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
     setWindowOfElements(5);
   };
   const joiningRoom = (roomName, idOfRoom) => {
-    socket.emit("joinRoom", roomName, (mess) => {
-      console.log(mess);
-    });
-    socket.emit("refreshRoom", roomName);
+    socket.emit("joinRoom", roomName, idOfRoom);
   };
   const refreshGroups = () => {
     dispatch(showrooms());
