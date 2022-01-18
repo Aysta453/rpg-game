@@ -9,6 +9,7 @@ const router = express.Router();
 export const createRoom = async (req, res) => {
   const { dungeon, owner, member } = req.body;
   let newRoom = new Rooms();
+  let test = dungeon.roomName;
   newRoom = Rooms({
     roomName: dungeon.roomName,
     dungeonTitle: dungeon.dungeonTitle,
@@ -24,7 +25,9 @@ export const createRoom = async (req, res) => {
   try {
     await newRoom.save();
     console.log(newRoom);
-    res.status(201).json(newRoom);
+    const result = await Rooms.findOne({ roomName: test });
+    console.log(result);
+    res.status(201).json(result);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
