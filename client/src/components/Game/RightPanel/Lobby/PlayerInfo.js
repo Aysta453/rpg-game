@@ -5,7 +5,6 @@ import PlayerInfoExtend from "./PlayerInfoExtend";
 const PlayerInfo = ({ player, isRoomOwner }) => {
   const hero = useSelector((state) => state.hero);
   const [popupValue, setPopupValue] = useState(false);
-  console.log(player);
   const showPopup = () => {
     setPopupValue(!popupValue);
   };
