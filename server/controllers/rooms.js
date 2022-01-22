@@ -21,12 +21,10 @@ export const createRoom = async (req, res) => {
     owner: owner,
     players: [member],
   });
+  await newRoom.save();
 
   try {
-    await newRoom.save();
-    console.log(newRoom);
     const result = await Rooms.findOne({ roomName: test });
-    console.log(result);
     res.status(201).json(result);
   } catch (error) {
     res.status(409).json({ message: error.message });
