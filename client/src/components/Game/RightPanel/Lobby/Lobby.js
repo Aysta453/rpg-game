@@ -48,6 +48,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     setPopupDestroyGroupValue(!popupDestroyGroupValue);
   };
   const refreshRoom = (idOfRoom) => {
+    console.log("refreshed");
     dispatch(showroom({ id: idOfRoom }));
   };
   const destroyingRoom = () => {
@@ -58,8 +59,8 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     socket.emit("kickFromRoom", socketId, id, roomNameOfParty, idOfRoom);
   };
   const leavingFromGroup = (owner, roomNameOfParty, idOfRoom) => {
-    socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
+    // socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
     setPlayerInfoError("Opuściłeś grupę. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
@@ -81,29 +82,27 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
 
   useEffect(() => {
     socket.on("mess", (mess) => {
+      console.log(mess);
       setControlRefresh((controlRefresh) => controlRefresh + 1);
       setControlRefreshId((controlRefreshId) => (controlRefreshId = mess));
     });
-    console.log(controlRefresh);
+    console.log(controlRefreshId);
+    if (controlRefreshId !== "") {
+      refreshRoom(controlRefreshId);
+    }
+    console.log(controlRefreshId);
     return () => {
       setControlRefresh((controlRefresh) => 0);
       setControlRefreshId((controlRefreshId) => (controlRefreshId = ""));
+
       socket.off("mess");
     };
-  }, [socket]);
+  });
   useEffect(() => {
     socket.on("kicked", (mess, roomNameOfParty, idOfRoom) => {
       kickPlayer(mess, roomNameOfParty, idOfRoom);
     });
   }, []);
-  useEffect(() => {
-    if (controlRefreshId !== "") {
-      refreshRoom(controlRefreshId);
-    }
-  }, [controlRefresh]);
-  // useEffect(() => {
-  //   dispatch(showroombyname({ roomName: hero.nick }));
-  // }, []);
 
   return (
     <div className="lobbyView">

@@ -263,26 +263,26 @@
 
 .multiContener .playerViewBattleController {
   position: relative;
-  top: -40px;
-  left: 440px;
-  width: 520px;
+  top: -4.4vh;
+  left: 24.5vw;
+  width: 27vw;
   float: left;
-  height: 285px;
+  height: 31vh;
   background-color: rgb(24, 24, 24);
   border: 1px solid rgb(35, 52, 58);
 }
 
 .multiContener .playerViewBattleController .playerValues {
   width: 100%;
-  height: 60px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  height: 6.5vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   float: left;
 }
 
 .multiContener .playerViewBattleController .playerValues .healtPoints-div {
-  margin-left: 30px;
-  height: 50px;
+  margin-left: 1.5vw;
+  height: 5.5vh;
   text-align: center;
   background-color: rgba(0, 255, 100, 0.6);
   border: 1px solid black;
@@ -291,93 +291,131 @@
 
 .multiContener .playerViewBattleController .playerValues .healtPoints-div .progressPlayerHealthPoints {
   background-color: rgba(0, 255, 100, 0.7);
-  height: 48px;
+  height: 5.3vh;
   transition: 1s linear;
 }
 
 .multiContener .playerViewBattleController .playerValues .healtPoints-div .progress-div-playerHealthPointsText {
   position: relative;
-  height: 48px;
-  width: 300px;
+  height: 5.3vh;
+  width: 15.8vw;
   float: left;
-  font-size: 25px;
-  left: -45px;
-  top: -40px;
+  font-size: 1.2rem;
+  left: -2.5vw;
+  top: -4.2vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #151515;
-
+  text-align: center;
   z-index: 2;
 }
 
 .multiContener .playerViewBattleController .playerValues .manaPoints-div {
   text-align: center;
-  margin-right: 30px;
   border: 1px solid black;
-  height: 50px;
+  margin-right: 1.5vw;
+  height: 5.5vh;
   background-color: rgba(75, 214, 255, 0.8);
   float: right;
 }
 
 .multiContener .playerViewBattleController .playerValues .manaPoints-div .progressPlayerManaPoints {
   background-color: rgba(75, 214, 255, 0.95);
-  height: 48px;
+  height: 5.3vh;
   transition: 1s linear;
 }
 
 .multiContener .playerViewBattleController .playerValues .manaPoints-div .progress-div-playerManaPointsText {
   position: relative;
-  height: 48px;
-  width: 300px;
+  height: 5.3vh;
+  width: 15.8vw;
   float: left;
-  font-size: 20px;
-  font-size: 25px;
-  left: -45px;
-  top: -40px;
+  font-size: 1.2rem;
+  left: -2.5vw;
+  top: -4.2vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #151515;
-
-  z-index: 2;
+  z-index: 3;
 }
 
 .multiContener .playerViewBattleController .actions {
-  height: 190px;
+  height: 24vh;
   width: 100%;
   float: left;
 }
 
 .multiContener .playerViewBattleController .actions .attackModes {
-  padding-top: 5px;
-  margin-top: 7px;
-  padding-bottom: 90px;
-  height: 87px;
+  padding-top: 0.5vh;
+  margin-top: 1vh;
+  height: 11vh;
   width: 100%;
   float: left;
   background-color: rgba(255, 255, 0, 0.04);
-  border: 1px solid rgba(255, 255, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 0, 0.2);
 }
 
 .multiContener .playerViewBattleController .actions .attackModes .mode {
-  margin-left: 7.5%;
-  height: 85px;
-  width: 120px;
+  margin-left: 2vw;
+  margin-top: 0.5vh;
+  height: 9vh;
+  width: 6.5vw;
   float: left;
+  background-color: transparent;
+}
+.multiContener .playerViewBattleController .actions .attackModes .mode img {
+  height: 9vh;
+  width: 6.5vw;
+}
+.multiContener .playerViewBattleController .actions .attackModes .mode button {
+  background-color: transparent;
+  border: none;
+}
+
+.multiContener .playerViewBattleController .actions .attackModes .mode button .imageMode {
+  display: inline-block;
+  z-index: 1;
+}
+.multiContener .playerViewBattleController .actions .attackModes .mode button:disabled .imageMode {
+  background-color: transparent;
+  display: inline-block;
+  z-index: 1;
+  filter: grayscale(90%);
+  cursor: no-drop;
 }
 
 .atk1 {
   background-color: rgba(255, 0, 0, 0.2);
   border: 1px solid rgba(255, 0, 0, 0.4);
 }
+.atk1 .attackTooltip {
+  background-color: #391c1c !important;
+  border: 1px solid #743232 !important;
+  color: #ffffff !important;
+  text-align: center;
+}
 
 .atk2 {
   background-color: rgba(255, 128, 0, 0.2);
   border: 1px solid rgba(255, 128, 0, 0.4);
 }
+.atk2 .attackTooltip {
+  background-color: #392c1c !important;
+  border: 1px solid #745732 !important;
+  color: #ffffff !important;
+  text-align: center;
+}
 
 .atk3 {
   background-color: rgba(43, 120, 114, 0.2);
   border: 1px solid rgba(43, 120, 114, 0.4);
+}
+.atk3 .attackTooltip {
+  background-color: #1c3639 !important;
+  border: 1px solid #326a74 !important;
+  color: #ffffff !important;
+  text-align: center;
 }
 
 .skill1 {
@@ -416,54 +454,92 @@
 
 .nametool {
   font-weight: 300;
-  font-size: 20px;
-  margin-top: 2px;
+  font-size: 1rem;
+  margin-top: 0.1rem;
   text-transform: uppercase;
-  height: 30px;
+  height: 1.5rem;
 }
 .costtool {
   text-transform: capitalize;
-  font-size: 17px;
+  font-size: 0.85rem;
   font-weight: 300;
-  margin-bottom: 3px;
+  margin-bottom: 0.15rem;
 }
 .pcosttool {
   font-weight: bolder;
 }
 .worftool {
   text-transform: capitalize;
-  font-size: 17px;
+  font-size: 0.85rem;
   font-weight: 300;
 }
 .pworftool {
   font-weight: bolder;
 }
 .multiContener .playerViewBattleController .actions .skills {
-  padding-top: 5px;
-  margin-top: 14px;
-  padding-bottom: 90px;
-  height: 87px;
+  padding-top: 0.25vh;
+  margin-top: 0.7vh;
+  height: 11vh;
   width: 100%;
   float: left;
   background-color: rgba(0, 178, 255, 0.04);
-  border: 1px solid rgba(0, 178, 255, 0.4);
+  border-top: 1px solid rgba(0, 178, 255, 0.4);
+  border-bottom: 1px solid rgba(0, 178, 255, 0.4);
 }
 
 .multiContener .playerViewBattleController .actions .skills .skill {
-  margin-left: 7.5%;
-  height: 85px;
-  width: 120px;
+  margin-left: 2vw;
+  margin-top: 0.5vh;
+  height: 9vh;
+  width: 6.5vw;
   float: left;
+  background-color: transparent;
+}
+.multiContener .playerViewBattleController .actions .skills .skill img {
+  height: 9vh;
+  width: 6.5vw;
+}
+.multiContener .playerViewBattleController .actions .skills .skill button {
+  background-color: transparent;
+  border: none;
 }
 
+.multiContener .playerViewBattleController .actions .skills .skill .progress-div {
+  margin-top: 4vh;
+  margin-left: 2.5vw;
+  position: relative;
+  top: -0.5vh;
+
+  background-color: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.multiContener .playerViewBattleController .actions .skills .skill .progress {
+  background-color: rgb(62, 122, 235);
+  height: 2.3vh;
+  transition: 1s linear;
+}
+
+.multiContener .playerViewBattleController .actions .skills .skill button .imageSkill {
+  background-color: transparent;
+  display: inline-block;
+  z-index: 1;
+}
+.multiContener .playerViewBattleController .actions .skills .skill button:disabled .imageSkill {
+  background-color: transparent;
+  display: inline-block;
+  z-index: 1;
+  filter: grayscale(90%);
+  cursor: no-drop;
+}
 .multiContener .playerViewBattleController .actions .skills .skill .skillTooltip {
   position: relative;
   visibility: hidden;
   opacity: 0;
-  height: 100px;
-  width: 300px;
-  top: -120px;
-  left: -100px;
+  height: 11vh;
+  width: 15.6vw;
+  top: -23vh;
+  left: -5vw;
   background-color: yellow;
   border: 1px solid black;
   color: red;
@@ -475,4 +551,445 @@
 .multiContener .playerViewBattleController .actions .skills .skill:hover .skillTooltip {
   visibility: visible;
   opacity: 1;
+}
+.multiContener .playerViewBattleController .actions .attackModes .mode .attackTooltip {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  height: 11vh;
+  width: 15.6vw;
+  top: -23vh;
+  left: -5vw;
+  background-color: yellow;
+  border: 1px solid black;
+  color: red;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  z-index: 4;
+}
+
+.multiContener .playerViewBattleController .actions .attackModes .mode:hover .attackTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* win Popup*/
+.popup-win {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.win-inner {
+  position: fixed;
+  padding: 3vh;
+  width: 100%;
+  max-height: 95vh;
+  max-width: 26vw;
+  background-color: rgb(0, 2, 2);
+  border: 1px solid rgba(44, 225, 91, 0.8);
+  color: #2ce15b;
+}
+
+.win-inner .title {
+  width: 100%;
+  height: 6.5vh;
+  float: left;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.win-inner .description {
+  width: 100%;
+  height: 26vh;
+  font-size: 1.25rem;
+  font-weight: 300;
+  float: left;
+  color: rgba(255, 255, 255, 0.8);
+}
+.win-inner .description .gold {
+  color: rgba(124, 126, 42, 0.7);
+}
+.win-inner .rewards {
+  width: 100%;
+  height: 36vh;
+  float: left;
+}
+.win-inner .rewards .title {
+  float: left;
+  height: 5.5vh;
+  width: 100%;
+  font-weight: 200;
+  color: rgba(0, 255, 196, 0.7);
+  font-size: 1.75rem;
+}
+.rewards .money {
+  float: left;
+  height: 5vh;
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #fff264;
+}
+.moni {
+  font-weight: 600;
+}
+.rewards .diamonds {
+  float: left;
+  height: 5vh;
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #80f0ff !important;
+}
+.diam {
+  font-weight: 600;
+}
+
+.rewards .expoints {
+  float: left;
+  height: 5vh;
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: rgb(207, 155, 255);
+}
+.xp {
+  font-weight: 600;
+}
+
+.rewards .itemBox {
+  width: 100%;
+  height: 17.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  float: left;
+}
+.win-inner .rewards .itemBox .item {
+  width: 10.4vw;
+  background-color: rgba(44, 225, 91, 0.03);
+  border: 1px solid rgba(44, 225, 91, 0.2);
+  height: 15.3vh;
+}
+.win-inner .rewards .itemBox .item img {
+  height: 15.1vh;
+  width: 10.4vw;
+}
+.win-inner .submitButtonBox {
+  width: 100%;
+  height: 8vh;
+  float: left;
+}
+
+.win-inner .submitButtonBox button {
+  background-color: rgba(0, 255, 65, 0.04);
+  color: rgb(0, 255, 65);
+  border: 1px solid rgba(0, 255, 65, 0.7);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 9.5vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+
+.win-inner .submitButtonBox button:hover {
+  background-color: rgba(0, 255, 65, 0.2);
+  color: rgb(0, 255, 65);
+  border: 1px solid rgba(0, 255, 65, 1);
+}
+.win-inner .submitButtonBox button:disabled {
+  background: #dddddd;
+  color: rgb(9, 9, 29);
+  cursor: no-drop;
+}
+
+/* win Popup*/
+
+/* lose Popup*/
+.popup-lose {
+  z-index: 7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ff0000;
+}
+
+.lose-inner {
+  position: fixed;
+  padding: 3vh;
+  width: 100%;
+  height: 49vh;
+  max-width: 29vw;
+  background-color: rgb(9, 0, 0);
+  border: 1px solid rgba(255, 0, 0, 0.8);
+}
+
+.lose-inner .title {
+  width: 100%;
+  height: 9vh;
+  float: left;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.lose-inner .description {
+  width: 100%;
+  height: 24vh;
+  font-size: 1.25rem;
+  font-weight: 300;
+  float: left;
+  color: rgba(255, 255, 255, 0.9);
+}
+.lose-inner .description .gold {
+  color: rgba(255, 213, 0, 0.9);
+}
+
+.lose-inner .submitButtonBox {
+  width: 100%;
+  height: 8vh;
+  float: left;
+}
+
+.lose-inner .submitButtonBox button {
+  background-color: rgba(255, 0, 0, 0.04);
+  color: rgb(255, 0, 0);
+  border: 1px solid rgba(255, 0, 0, 0.7);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.7rem;
+  width: 9.5vw;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+
+.lose-inner .submitButtonBox button:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: rgb(255, 0, 0);
+  border: 1px solid rgba(255, 0, 0, 1);
+}
+/* lose Popup*/
+
+/* */
+
+.multiContener .playerViewBattleController .actions .skills .skill .skill1 .showingTime {
+  position: relative !important;
+  top: 5.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
+  z-index: 1;
+  border: 1px solid black;
+}
+.multiContener .playerViewBattleController .actions .skills .skill .skill1 .progressSkillTime-div {
+  height: 2.8vh;
+  background-color: rgb(233, 233, 233);
+}
+
+.multiContener .playerViewBattleController .actions .skills .skill .skill1 .progressSkillTime {
+  background-color: rgb(235, 200, 62);
+  height: 2.8vh;
+  transition: 1s linear;
+}
+.multiContener .playerViewBattleController .actions .skills .skill .skill2 .showingTime {
+  position: relative !important;
+  top: -54.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
+  z-index: 1;
+  border: 1px solid black;
+}
+.multiContener .playerViewBattleController .actions .skills .skill .skill2 .progressSkillTime-div {
+  height: 2.8vh;
+  background-color: rgb(233, 233, 233);
+}
+
+.multiContener .playerViewBattleController .actions .skills .skill .skill2 .progressSkillTime {
+  background-color: rgb(62, 122, 235);
+  height: 2.8vh;
+  transition: 1s linear;
+}
+.multiContener .playerViewBattleController .actions .skills .skill .skill3 .showingTime {
+  position: relative !important;
+  top: 5.5vh;
+  left: 1.25vw;
+  height: 2.8vh;
+  z-index: 1;
+  border: 1px solid black;
+}
+.multiContener .playerViewBattleController .actions .skills .skill .skill3 .progressSkillTime-div {
+  height: 2.8vh;
+  background-color: rgb(233, 233, 233);
+}
+
+.multiContener .playerViewBattleController .actions .skills .skill .skill3 .progressSkillTime {
+  background-color: rgb(62, 122, 235);
+  height: 2.8vh;
+  transition: 1s linear;
+}
+
+.barskill1 {
+  position: relative;
+  top: -17.5vh;
+  left: -2.6vw;
+  height: 2vh !important;
+}
+.barskill2 {
+  position: relative;
+  top: -17.5vh;
+  left: -2.6vw;
+  height: 2vh !important;
+}
+.barskill3 {
+  position: relative;
+  top: -17.5vh;
+  left: -2.6vw;
+  height: 2vh !important;
+}
+
+.combatDivEnemyNormalAttack {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -5vh;
+}
+.combatDivPlayerSkillBonus {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -30vh;
+}
+.combatDivPlayerSkillRestore {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -23.5vh;
+}
+.combatDivPlayerSkillAttack {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -23.5vh;
+}
+.combatDivPlayerSkillBonus .skillBonus {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 7s;
+  font-size: 2.5rem;
+  font-size: 2.5rem;
+}
+.combatDivPlayerSkillRestore .skillRestore {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 7s;
+  font-size: 2.5rem;
+}
+.combatDivPlayerSkillAttack .skillAttack {
+  position: relative;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example1;
+  animation-duration: 3s;
+  font-size: 2.5rem;
+}
+.combatDivEnemyNormalAttack .combatTextFast {
+  position: relative;
+  top: -16vh;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.combatDivEnemyNormalAttack .combatTextNormal {
+  position: relative;
+  top: -16vh;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2.4s;
+  font-size: 2.5rem;
+}
+
+.combatDivEnemyNormalAttack .combatTextHard {
+  position: relative;
+  top: -16vh;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 3.6s;
+  font-size: 2.5rem;
+}
+
+@keyframes example {
+  0% {
+    opacity: 1;
+    top: -26vh;
+  }
+  100% {
+    top: -45vh;
+
+    opacity: 0;
+  }
+}
+@keyframes example1 {
+  0% {
+    opacity: 1;
+    top: -1vh;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    top: -10vh;
+  }
+  100% {
+    opacity: 0;
+  }
 }

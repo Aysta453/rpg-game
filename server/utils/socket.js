@@ -51,5 +51,6 @@ io.on("connection", function (socket) {
   socket.on("startAGame", (roomName) => {
     socket.leave(roomName);
   });
+
   console.log(`A user connected ${socket.id}`);
 });
