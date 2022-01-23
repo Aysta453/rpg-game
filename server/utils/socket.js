@@ -34,13 +34,13 @@ io.on("connection", function (socket) {
     socket.leave(roomName);
   });
   //information that member was kicked
-  socket.on("kickFromRoom", (socketid, idOfOwner, roomNameOfParty) => {
-    socket.broadcast.to(socketid).emit("kicked", idOfOwner, roomNameOfParty);
+  socket.on("kickFromRoom", (socketid, idOfOwner, roomNameOfParty, idOfRoom) => {
+    socket.broadcast.to(socketid).emit("kicked", idOfOwner, roomNameOfParty, idOfRoom);
   });
   //remove member from party
-  socket.on("kicking", (roomName) => {
-    // socket.leave(roomName);
-    console.log(roomName);
+  socket.on("kicking", (roomName, idOfRoom) => {
+    socket.leave(roomName);
+    io.in(roomName).emit("mess", idOfRoom);
   });
   socket.on("startAGame", (roomName) => {
     socket.leave(roomName);

@@ -14,6 +14,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const [popupDestroyGroupValue, setPopupDestroyGroupValue] = useState(false);
   const [controlRefresh, setControlRefresh] = useState(0);
   const [controlRefreshId, setControlRefreshId] = useState("");
+  const [playerInfoError, setPlayerInfoError] = useState("");
   let players = [];
   let isRoomOwner;
   let isEnoughPlayers;
@@ -49,17 +50,20 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     socket.emit("closeRoom", rooms.roomName);
     dispatch(deleteroom({ id: rooms._id }));
   };
-  const kickingPlayer = (socketId, id, roomNameOfParty) => {
-    socket.emit("kickFromRoom", socketId, id, roomNameOfParty);
+  const kickingPlayer = (socketId, id, roomNameOfParty, idOfRoom) => {
+    socket.emit("kickFromRoom", socketId, id, roomNameOfParty, idOfRoom);
   };
-  const kickPlayer = (owner, roomNameOfParty) => {
-    socket.emit("kicking", roomNameOfParty);
-    console.log(owner);
+  const kickPlayer = (owner, roomNameOfParty, idOfRoom) => {
+    socket.emit("kicking", roomNameOfParty, idOfRoom);
+    dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
+    setPlayerInfoError("Zostałeś wyrzucony z grupy. Zostaniesz przeniesiony do ekranu grup.");
+    showDestroyPopup();
   };
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
       console.log(mess);
       socket.emit("leaveRoom", mess);
+      setPlayerInfoError("Grupa została rozwiązana. Zostaniesz przeniesiony do ekranu grup.");
       showDestroyPopup();
     });
   }, []);
@@ -113,7 +117,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         >
           Szczegóły misji
         </button>
-        <LobbyInfoPopup showPopup={showDestroyPopup} moveToGroups={moveToGroups} valueOfPopup={popupDestroyGroupValue} />
+        <LobbyInfoPopup showPopup={showDestroyPopup} moveToGroups={moveToGroups} valueOfPopup={popupDestroyGroupValue} playerInfoError={playerInfoError} />
         <LobbyDungeonInfo room={rooms} showPopup={showPopup} valueOfPopup={popupValue} />
       </div>
       <div className="players">
@@ -127,7 +131,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         {players.length
           ? players.map((player) => (
               <div key={player.owner}>
-                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} roomNameOfParty={rooms.roomName} />
+                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} roomNameOfParty={rooms.roomName} idOfRoom={rooms._id} />
               </div>
             ))
           : ""}
