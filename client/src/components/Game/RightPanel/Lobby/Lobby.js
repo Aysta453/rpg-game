@@ -4,12 +4,14 @@ import "./Lobby.css";
 import LobbyDungeonInfo from "./LobbyDungeonInfo";
 import PlayerInfo from "./PlayerInfo";
 import { deleteroom, showroom, showroombyname, showrooms } from "../../../../actions/rooms.js";
+import LobbyInfoPopup from "./LobbyInfoPopup";
 const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const rooms = useSelector((state) => state.rooms);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
   const [popupValue, setPopupValueset] = useState(false);
   const [popupValue1, setPopupValueset1] = useState(false);
+  const [popupDestroyGroupValue, setPopupDestroyGroupValue] = useState(false);
   const [controlRefresh, setControlRefresh] = useState(0);
   const [controlRefreshId, setControlRefreshId] = useState("");
   let players = [];
@@ -33,19 +35,26 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const showPopup1 = () => {
     setPopupValueset1(!popupValue1);
   };
+  const moveToGroups = () => {
+    setWindowOfElements(110);
+    setButtons();
+  };
+  const showDestroyPopup = () => {
+    setPopupDestroyGroupValue(!popupDestroyGroupValue);
+  };
   const refreshRoom = (idOfRoom) => {
     dispatch(showroom({ id: idOfRoom }));
   };
   const destroyingRoom = () => {
     socket.emit("closeRoom", rooms.roomName);
-    dispatch(deleteroom({ id: rooms._id }));
   };
 
   useEffect(() => {
-    socket.on("leaving", (mess) => {
+    socket.on("leavingRoom", (mess) => {
       console.log(mess);
-      setWindowOfElements(110);
-      setButtons();
+      socket.emit("leaveRoom", rooms.roomName);
+      dispatch(deleteroom({ id: rooms._id }));
+      showDestroyPopup();
     });
   }, []);
   // if (players.length === 5) {
@@ -93,6 +102,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         >
           Szczegóły misji
         </button>
+        <LobbyInfoPopup showPopup={showDestroyPopup} moveToGroups={moveToGroups} valueOfPopup={popupDestroyGroupValue} />
         <LobbyDungeonInfo room={rooms} showPopup={showPopup} valueOfPopup={popupValue} />
       </div>
       <div className="players">
