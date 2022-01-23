@@ -73,6 +73,11 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     });
   });
   useEffect(() => {
+    socket.on("kicked", (mess) => {
+      console.log(mess);
+    });
+  });
+  useEffect(() => {
     if (controlRefreshId !== "") {
       refreshRoom(controlRefreshId);
     }
