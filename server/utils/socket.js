@@ -33,6 +33,10 @@ io.on("connection", function (socket) {
   socket.on("leaveRoom", (roomName) => {
     socket.leave(roomName);
   });
+  socket.on("leaveRoomByPlayer", (roomName, idOfRoom) => {
+    socket.leave(roomName);
+    io.in(roomName).emit("mess", idOfRoom);
+  });
   //information that member was kicked
   socket.on("kickFromRoom", (socketid, idOfOwner, roomNameOfParty, idOfRoom) => {
     socket.broadcast.to(socketid).emit("kicked", idOfOwner, roomNameOfParty, idOfRoom);
@@ -42,6 +46,8 @@ io.on("connection", function (socket) {
     socket.leave(roomName);
     io.in(roomName).emit("mess", idOfRoom);
   });
+
+  //start game of multiplayer
   socket.on("startAGame", (roomName) => {
     socket.leave(roomName);
   });

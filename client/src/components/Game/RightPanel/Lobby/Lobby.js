@@ -53,6 +53,12 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const kickingPlayer = (socketId, id, roomNameOfParty, idOfRoom) => {
     socket.emit("kickFromRoom", socketId, id, roomNameOfParty, idOfRoom);
   };
+  const leavingFromGroup = (owner, roomNameOfParty, idOfRoom) => {
+    socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
+    dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
+    setPlayerInfoError("Opuściłeś grupę. Zostaniesz przeniesiony do ekranu grup.");
+    showDestroyPopup();
+  };
   const kickPlayer = (owner, roomNameOfParty, idOfRoom) => {
     socket.emit("kicking", roomNameOfParty, idOfRoom);
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
@@ -80,8 +86,8 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     });
   });
   useEffect(() => {
-    socket.on("kicked", (mess, roomNameOfParty) => {
-      kickPlayer(mess, roomNameOfParty);
+    socket.on("kicked", (mess, roomNameOfParty, idOfRoom) => {
+      kickPlayer(mess, roomNameOfParty, idOfRoom);
     });
   }, []);
   useEffect(() => {
@@ -131,7 +137,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         {players.length
           ? players.map((player) => (
               <div key={player.owner}>
-                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} roomNameOfParty={rooms.roomName} idOfRoom={rooms._id} />
+                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} roomNameOfParty={rooms.roomName} idOfRoom={rooms._id} leavingFromGroup={leavingFromGroup} />
               </div>
             ))
           : ""}
