@@ -27,7 +27,7 @@ io.on("connection", function (socket) {
 
   //destroying a room, send message to all room's members to leave
   socket.on("closeRoom", (roomName) => {
-    io.in(roomName).emit("leavingRoom", "leave");
+    io.in(roomName).emit("leavingRoom", roomName);
   });
 
   socket.on("leaveRoom", (roomName) => {

@@ -47,13 +47,13 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   };
   const destroyingRoom = () => {
     socket.emit("closeRoom", rooms.roomName);
+    dispatch(deleteroom({ id: rooms._id }));
   };
 
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
       console.log(mess);
-      socket.emit("leaveRoom", rooms.roomName);
-      dispatch(deleteroom({ id: rooms._id }));
+      socket.emit("leaveRoom", mess);
       showDestroyPopup();
     });
   }, []);
