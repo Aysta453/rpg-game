@@ -43,7 +43,7 @@ const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
         {rooms.length
           ? rooms.map((room) => (
               <div key={room._id}>
-                <GroupView room={room} joiningRoom={joiningRoom} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
+                <GroupView room={room} joiningRoom={joiningRoom} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />
               </div>
             ))
           : ""}

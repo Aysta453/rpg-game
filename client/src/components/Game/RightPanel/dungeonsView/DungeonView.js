@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createroom } from "../../../../actions/rooms";
-const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocket }) => {
+const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocket, socket }) => {
   const hero = useSelector((state) => state.hero);
   const playerGame = useSelector((state) => state.playerGame);
   let { playerInfo } = {};
@@ -24,6 +24,7 @@ const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocke
     nick: hero.nick,
     owner: hero.owner,
     isLeader: true,
+    socketId: socket.id,
   };
   let styleColorText;
   let text;

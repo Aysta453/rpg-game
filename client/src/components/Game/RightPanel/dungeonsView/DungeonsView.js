@@ -39,9 +39,9 @@ const DungeonsView = ({ setWindowOfElements, setButtons, socket }) => {
           Tablica Wypraw
         </div>
         <div className="dungeons">
-          <DungeonView dungeon={dungeons.firstDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} />
-          <DungeonView dungeon={dungeons.secondDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} />
-          <DungeonView dungeon={dungeons.thirdDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} />
+          <DungeonView dungeon={dungeons.firstDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} socket={socket} />
+          <DungeonView dungeon={dungeons.secondDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} socket={socket} />
+          <DungeonView dungeon={dungeons.thirdDungeon} createRoomSocket={createRoomSocket} setWindowOfElements={setWindowOfElements} setButtons={setButtons} socket={socket} />
         </div>
       </div>
     </>

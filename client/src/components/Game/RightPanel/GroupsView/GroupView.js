@@ -4,7 +4,7 @@ import { setPlayerValues } from "../../../../actions/playerGame";
 import { joinroom, showrooms, showroom } from "../../../../actions/rooms";
 import playerGameValues from "../../../../functions/playerGameValues";
 import GroupViewPopup from "./GroupViewPopup";
-const GroupView = ({ room, setButtons, setWindowOfElements, joiningRoom }) => {
+const GroupView = ({ room, setButtons, setWindowOfElements, joiningRoom, socket }) => {
   const [popupValue, setPopupValueset] = useState(false);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
@@ -62,6 +62,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, joiningRoom }) => {
       owner: hero.owner,
       isLeader: false,
       heroPower: playerGame,
+      socketId: socket.id,
     };
     dispatch(joinroom({ id: idOfRoom, member: member }));
     joiningRoom(room.roomName, idOfRoom);
