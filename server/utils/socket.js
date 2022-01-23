@@ -25,14 +25,8 @@ io.on("connection", function (socket) {
   socket.on("closeRoom", (roomName) => {
     io.in(roomName).emit("leaving", 2);
 
-    io.in(roomName).clients(function (error, clients) {
-      if (clients.length > 0) {
-        console.log("clients in the room: \n");
-        console.log(clients);
-        clients.forEach(function (socket_id) {
-          io.sockets.sockets[socket_id].leave(roomName);
-        });
-      }
+    socket.on("leave", (roomName) => {
+      socket.leave(roomName);
     });
   });
 
