@@ -12,7 +12,7 @@ export var Socket = {
     io.sockets.emit(event, data);
   },
 };
-
+//
 io.on("connection", function (socket) {
   //creating new room for party and leader joining to room
   socket.on("createRoom", (roomName) => {
