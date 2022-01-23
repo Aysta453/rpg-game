@@ -29,14 +29,16 @@ io.on("connection", function (socket) {
   socket.on("closeRoom", (roomName) => {
     io.in(roomName).emit("leavingRoom", roomName);
   });
-
+  //leaving room by member
   socket.on("leaveRoom", (roomName) => {
     socket.leave(roomName);
   });
-
-  socket.on("kickFromRoom", (socketid) => {
-    socket.broadcast.to(socketid).emit("kicked", "for your eyes only");
+  //information that member was kicked
+  socket.on("kickFromRoom", (socketid, idOfOwner) => {
+    console.log(socketid, idOfOwner);
+    //socket.broadcast.to(socketid).emit("kicked", idOfOwner);
   });
+  //remove member from party
   socket.on("kicking", (roomName) => {
     socket.leave(roomName);
   });

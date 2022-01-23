@@ -74,7 +74,6 @@ export const joinRoom = async (req, res) => {
 };
 export const deleteRoom = async (req, res) => {
   const { id } = req.body;
-  console.log(id);
   try {
     const result = await Rooms.findByIdAndRemove({ _id: id });
     res.status(201).json(result);

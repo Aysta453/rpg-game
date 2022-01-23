@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import PlayerInfoExtend from "./PlayerInfoExtend";
 
-const PlayerInfo = ({ player, isRoomOwner }) => {
+const PlayerInfo = ({ player, isRoomOwner, kickingPlayer }) => {
   const hero = useSelector((state) => state.hero);
   const [popupValue, setPopupValue] = useState(false);
   const showPopup = () => {
@@ -41,7 +41,13 @@ const PlayerInfo = ({ player, isRoomOwner }) => {
           ""
         ) : (
           <div className="kickButton">
-            <button onClick={() => {}}>Wyrzuć z grupy</button>
+            <button
+              onClick={() => {
+                kickingPlayer(player.socketId, player.owner);
+              }}
+            >
+              Wyrzuć z grupy
+            </button>
           </div>
         )
       ) : isPlayer ? (
