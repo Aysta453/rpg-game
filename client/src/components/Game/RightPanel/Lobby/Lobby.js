@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Lobby.css";
 import LobbyDungeonInfo from "./LobbyDungeonInfo";
 import PlayerInfo from "./PlayerInfo";
-import { deleteroom, showroom, showroombyname, showrooms } from "../../../../actions/rooms.js";
+import { deleteroom, showroom, showroombyname, showrooms, leaveroom } from "../../../../actions/rooms.js";
 import LobbyInfoPopup from "./LobbyInfoPopup";
 const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const rooms = useSelector((state) => state.rooms);
@@ -52,7 +52,10 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const kickingPlayer = (socketId, id) => {
     socket.emit("kickFromRoom", socketId, id);
   };
-
+  const kickPlayer = (owner) => {
+    socket.emit("kicking", rooms.roomName);
+    console.log(owner);
+  };
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
       console.log(mess);
@@ -74,7 +77,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   });
   useEffect(() => {
     socket.on("kicked", (mess) => {
-      console.log(mess);
+      kickPlayer(mess);
     });
   });
   useEffect(() => {
