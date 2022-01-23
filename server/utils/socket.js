@@ -34,8 +34,8 @@ io.on("connection", function (socket) {
     socket.leave(roomName);
   });
   //information that member was kicked
-  socket.on("kickFromRoom", (socketid, idOfOwner) => {
-    socket.broadcast.to(socketid).emit("kicked", idOfOwner);
+  socket.on("kickFromRoom", (socketid, idOfOwner, roomNameOfParty) => {
+    socket.broadcast.to(socketid).emit("kicked", idOfOwner, roomNameOfParty);
   });
   //remove member from party
   socket.on("kicking", (roomName) => {

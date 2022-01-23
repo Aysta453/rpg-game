@@ -49,11 +49,11 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     socket.emit("closeRoom", rooms.roomName);
     dispatch(deleteroom({ id: rooms._id }));
   };
-  const kickingPlayer = (socketId, id) => {
-    socket.emit("kickFromRoom", socketId, id);
+  const kickingPlayer = (socketId, id, roomNameOfParty) => {
+    socket.emit("kickFromRoom", socketId, id, roomNameOfParty);
   };
-  const kickPlayer = (owner) => {
-    socket.emit("kicking", rooms.roomName);
+  const kickPlayer = (owner, roomNameOfParty) => {
+    socket.emit("kicking", roomNameOfParty);
     console.log(owner);
   };
   useEffect(() => {
@@ -76,10 +76,10 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     });
   });
   useEffect(() => {
-    socket.on("kicked", (mess) => {
-      kickPlayer(mess);
+    socket.on("kicked", (mess, roomNameOfParty) => {
+      kickPlayer(mess, roomNameOfParty);
     });
-  });
+  }, []);
   useEffect(() => {
     if (controlRefreshId !== "") {
       refreshRoom(controlRefreshId);
@@ -127,7 +127,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         {players.length
           ? players.map((player) => (
               <div key={player.owner}>
-                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} />
+                <PlayerInfo player={player} isRoomOwner={isRoomOwner} kickingPlayer={kickingPlayer} roomNameOfParty={rooms.roomName} />
               </div>
             ))
           : ""}
