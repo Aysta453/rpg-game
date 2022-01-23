@@ -29,7 +29,11 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
       isRoomOwner = false;
     }
   }
-
+  // if (players.length === 5) {
+  //   isEnoughPlayers = true;
+  // } else {
+  //   isEnoughPlayers = false;
+  // }
   const showPopup = () => {
     setPopupValueset(!popupValue);
   };
@@ -65,6 +69,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     setPlayerInfoError("Zostałeś wyrzucony z grupy. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
+
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
       console.log(mess);
@@ -73,18 +78,19 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
       showDestroyPopup();
     });
   }, []);
-  // if (players.length === 5) {
-  //   isEnoughPlayers = true;
-  // } else {
-  //   isEnoughPlayers = false;
-  // }
 
   useEffect(() => {
     socket.on("mess", (mess) => {
       setControlRefresh((controlRefresh) => controlRefresh + 1);
       setControlRefreshId((controlRefreshId) => (controlRefreshId = mess));
     });
-  });
+    console.log(controlRefresh);
+    return () => {
+      setControlRefresh((controlRefresh) => 0);
+      setControlRefreshId((controlRefreshId) => (controlRefreshId = ""));
+      socket.off("mess");
+    };
+  }, [socket]);
   useEffect(() => {
     socket.on("kicked", (mess, roomNameOfParty, idOfRoom) => {
       kickPlayer(mess, roomNameOfParty, idOfRoom);
