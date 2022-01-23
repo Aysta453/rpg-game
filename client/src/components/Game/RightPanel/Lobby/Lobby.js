@@ -16,7 +16,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   let isRoomOwner;
   let isEnoughPlayers;
 
-  if (rooms !== null && rooms !== undefined) {
+  if (rooms !== null || rooms !== undefined) {
     if (Array.isArray(rooms.players)) {
       players = rooms.players;
     }
@@ -34,10 +34,20 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     setPopupValueset1(!popupValue1);
   };
   const refreshRoom = (idOfRoom) => {
-    console.log(idOfRoom);
     dispatch(showroom({ id: idOfRoom }));
   };
+  const destroyingRoom = () => {
+    socket.emit("closeRoom", rooms.roomName);
+    dispatch(deleteroom({ id: rooms._id }));
+  };
 
+  useEffect(() => {
+    socket.on("leaving", (mess) => {
+      console.log(mess);
+      setWindowOfElements(110);
+      setButtons();
+    });
+  }, []);
   // if (players.length === 5) {
   //   isEnoughPlayers = true;
   // } else {
@@ -51,7 +61,9 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     });
   });
   useEffect(() => {
-    refreshRoom(controlRefreshId);
+    if (controlRefreshId !== "") {
+      refreshRoom(controlRefreshId);
+    }
   }, [controlRefresh]);
   // useEffect(() => {
   //   dispatch(showroombyname({ roomName: hero.nick }));
@@ -65,9 +77,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
           <button
             className="dismissGroup"
             onClick={() => {
-              dispatch(deleteroom({ id: rooms._id }));
-              setWindowOfElements(110);
-              setButtons();
+              destroyingRoom();
             }}
           >
             Rozwiąż grupę
@@ -83,7 +93,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
         >
           Szczegóły misji
         </button>
-        <LobbyDungeonInfo rooms={rooms} showPopup={showPopup} valueOfPopup={popupValue} />
+        <LobbyDungeonInfo room={rooms} showPopup={showPopup} valueOfPopup={popupValue} />
       </div>
       <div className="players">
         <div className="playerInfo">
@@ -104,7 +114,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
       <div className="missionStart">{isEnoughPlayers ? <button onClick={() => {}}>Rozpocznij misję</button> : ""}</div>
       <button
         onClick={() => {
-          dispatch(showroom({ roomName: rooms._id }));
+          dispatch(showroom({ id: rooms._id }));
           console.log(rooms);
         }}
       >

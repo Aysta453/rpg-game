@@ -10,15 +10,15 @@ const PlayerInfo = ({ player, isRoomOwner }) => {
   };
   let isPlayer;
   let isLeader;
-  if (player.owner === hero.owner && isRoomOwner === true) {
+  if (isRoomOwner === true) {
     isLeader = true;
-  } else if (player.owner !== hero.owner && isRoomOwner === true) {
+  } else if (isRoomOwner === false) {
     isLeader = false;
   }
 
-  if (player.owner === hero.owner && isRoomOwner === false) {
+  if (player.owner === hero.owner) {
     isPlayer = true;
-  } else if (player.owner !== hero.owner && isRoomOwner === false) {
+  } else if (player.owner !== hero.owner) {
     isPlayer = false;
   }
   return (
@@ -37,18 +37,19 @@ const PlayerInfo = ({ player, isRoomOwner }) => {
       </div>
       <PlayerInfoExtend player={player} valueOfPopup={popupValue} showPopup={showPopup} />
       {isLeader ? (
-        ""
-      ) : (
+        isPlayer ? (
+          ""
+        ) : (
+          <div className="kickButton">
+            <button onClick={() => {}}>Wyrzuć z grupy</button>
+          </div>
+        )
+      ) : isPlayer ? (
         <div className="kickButton">
-          <button onClick={() => {}}>Wyrzuć z grupy</button>
+          <button onClick={() => {}}>Wyjdź z grupy</button>
         </div>
-      )}
-      {!isPlayer && isLeader === false ? (
-        ""
       ) : (
-        <div className="kickButton">
-          <button onClick={() => {}}>Wyrzuć z grupy</button>
-        </div>
+        ""
       )}
     </div>
   );
