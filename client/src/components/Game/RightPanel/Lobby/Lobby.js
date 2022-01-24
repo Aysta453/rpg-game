@@ -12,8 +12,6 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const [popupValue, setPopupValueset] = useState(false);
   const [popupValue1, setPopupValueset1] = useState(false);
   const [popupDestroyGroupValue, setPopupDestroyGroupValue] = useState(false);
-  const [controlRefresh, setControlRefresh] = useState(0);
-  const [controlRefreshId, setControlRefreshId] = useState("");
   const [playerInfoError, setPlayerInfoError] = useState("");
   let players = [];
   let isRoomOwner;
@@ -52,56 +50,37 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     dispatch(showroom({ id: idOfRoom }));
   };
   const destroyingRoom = () => {
-    socket.emit("closeRoom", rooms.roomName);
     dispatch(deleteroom({ id: rooms._id }));
+    socket.emit("closeRoom", rooms.roomName);
   };
   const kickingPlayer = (socketId, id, roomNameOfParty, idOfRoom) => {
     socket.emit("kickFromRoom", socketId, id, roomNameOfParty, idOfRoom);
   };
   const leavingFromGroup = (owner, roomNameOfParty, idOfRoom) => {
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
-    // socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
+    socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
     setPlayerInfoError("Opuściłeś grupę. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
   const kickPlayer = (owner, roomNameOfParty, idOfRoom) => {
-    socket.emit("kicking", roomNameOfParty, idOfRoom);
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
+    socket.emit("kicking", roomNameOfParty, idOfRoom);
     setPlayerInfoError("Zostałeś wyrzucony z grupy. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
 
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
-      console.log(mess);
       socket.emit("leaveRoom", mess);
       setPlayerInfoError("Grupa została rozwiązana. Zostaniesz przeniesiony do ekranu grup.");
       showDestroyPopup();
     });
   }, []);
-  useEffect(() => {
-    socket.on("check", (mess) => {
-      console.log(mess);
-    });
-  });
 
   useEffect(() => {
     socket.on("mess", (mess) => {
-      console.log(mess);
-      setControlRefresh((controlRefresh) => controlRefresh + 1);
-      setControlRefreshId((controlRefreshId) => (controlRefreshId = mess));
+      if (mess !== "") return refreshRoom(mess);
     });
-    console.log(controlRefreshId);
-    if (controlRefreshId !== "") {
-      refreshRoom(controlRefreshId);
-    }
-    console.log(controlRefreshId);
-    return () => {
-      setControlRefresh((controlRefresh) => 0);
-      setControlRefreshId((controlRefreshId) => (controlRefreshId = ""));
-
-      socket.off("mess");
-    };
   });
   useEffect(() => {
     socket.on("kicked", (mess, roomNameOfParty, idOfRoom) => {
