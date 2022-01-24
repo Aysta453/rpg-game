@@ -20,10 +20,6 @@ io.on("connection", function (socket) {
   });
 
   //joining new member to party and send to all a message to refresh UI
-  socket.on("joinRoom", (roomName, idOfRoom) => {
-    socket.join(roomName);
-    io.in(roomName).emit("mess", idOfRoom);
-  });
 
   //destroying a room, send message to all room's members to leave
   socket.on("closeRoom", (roomName) => {

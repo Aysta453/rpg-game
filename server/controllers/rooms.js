@@ -1,7 +1,7 @@
 import express from "express";
 import assignToRoom from "../functions/assignToRoom.js";
 import leaveFromRoom from "../functions/leaveFromRoom.js";
-
+import { Socket, io } from "../utils/socket.js";
 import Rooms from "../models/rooms.js";
 
 const router = express.Router();
@@ -64,10 +64,12 @@ export const joinRoom = async (req, res) => {
   let result = await Rooms.findOne({ _id: id });
   let data = assignToRoom(result, member);
   try {
-    const result = await Rooms.findOneAndUpdate({ _id: id }, data, {
+    const result1 = await Rooms.findOneAndUpdate({ _id: id }, data, {
       new: true,
     });
-    res.status(201).json(result);
+    Socket.join(result.roomName);
+    io.in(result.roomName).emit("mess", id);
+    res.status(201).json(result1);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }

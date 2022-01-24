@@ -574,8 +574,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
           <div className="background">
             <div className="nick">{game.monster.monsterName}</div>
             <div className="level">Poziom {game.monster.monsterLevel}</div>
-            <CombatEnemyText value={valueOfNormalEnemyAttackText} id={normalAttackEnemyID} type={typeOfNormalEnemyAttack} attackMode={attackMode} />
-            <CombatEnemySkillText value={valueSkillDamageEnemyText} id={enemySkillDamageID} />
           </div>
         </div>
         <div className="healthPoints">

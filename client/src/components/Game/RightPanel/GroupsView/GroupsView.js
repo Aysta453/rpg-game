@@ -9,9 +9,6 @@ const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
   const returnToPlayerDangeons = () => {
     setWindowOfElements(5);
   };
-  const joiningRoom = (roomName, idOfRoom) => {
-    socket.emit("joinRoom", roomName, idOfRoom);
-  };
   const refreshGroups = () => {
     dispatch(showrooms());
   };
@@ -43,7 +40,7 @@ const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
         {rooms.length
           ? rooms.map((room) => (
               <div key={room._id}>
-                <GroupView room={room} joiningRoom={joiningRoom} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />
+                <GroupView room={room} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />
               </div>
             ))
           : ""}
