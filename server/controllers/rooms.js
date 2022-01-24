@@ -92,6 +92,7 @@ export const leaveRoom = async (req, res) => {
     const result1 = await Rooms.findOneAndUpdate({ _id: id }, data, {
       new: true,
     });
+    io.in(result1.roomName).emit("mess", id);
     res.status(201).json(result1);
   } catch (error) {
     res.status(409).json({ message: error.message });

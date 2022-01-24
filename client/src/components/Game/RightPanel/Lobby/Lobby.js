@@ -58,13 +58,13 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   };
   const leavingFromGroup = (owner, roomNameOfParty, idOfRoom) => {
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
-    socket.emit("leaveRoomByPlayer", roomNameOfParty, idOfRoom);
+    socket.emit("leaveRoom", roomNameOfParty);
     setPlayerInfoError("Opuściłeś grupę. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
   const kickPlayer = (owner, roomNameOfParty, idOfRoom) => {
     dispatch(leaveroom({ id: idOfRoom, memberToLeave: owner }));
-    socket.emit("kicking", roomNameOfParty, idOfRoom);
+    socket.emit("leaveRoom", roomNameOfParty);
     setPlayerInfoError("Zostałeś wyrzucony z grupy. Zostaniesz przeniesiony do ekranu grup.");
     showDestroyPopup();
   };
@@ -81,7 +81,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     socket.on("mess", (mess) => {
       if (mess !== "") return refreshRoom(mess);
     });
-  });
+  }, []);
   useEffect(() => {
     socket.on("kicked", (mess, roomNameOfParty, idOfRoom) => {
       kickPlayer(mess, roomNameOfParty, idOfRoom);
