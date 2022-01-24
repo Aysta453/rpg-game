@@ -65,6 +65,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
       socketId: socket.id,
     };
     dispatch(joinroom({ id: idOfRoom, member: member }));
+    socket.emit("joinRoom", room.roomName);
     setWindowOfElements(200);
     setButtons();
   };

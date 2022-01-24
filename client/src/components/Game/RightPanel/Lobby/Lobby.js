@@ -79,6 +79,11 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
       showDestroyPopup();
     });
   }, []);
+  useEffect(() => {
+    socket.on("check", (mess) => {
+      console.log(mess);
+    });
+  });
 
   useEffect(() => {
     socket.on("mess", (mess) => {
