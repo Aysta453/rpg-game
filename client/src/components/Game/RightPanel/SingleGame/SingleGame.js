@@ -15,7 +15,7 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
   const hero = useSelector((state) => state.hero);
   const playerGame = useSelector((state) => state.playerGame);
   const skillsToBattle = useSelector((state) => state.skillsToBattle);
-
+  console.log(game);
   const [firstButton, setFirstButton] = useState(true);
   const [secondButton, setSecondButton] = useState(true);
   const [thirdButton, setThirdButton] = useState(true);

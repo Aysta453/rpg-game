@@ -1,13 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import MainPlayer from "./MainPlayer";
 import "./MultiPlayerView.css";
+import Player from "./Player";
 import SkillHandlingMulti from "./SkillHandlingMulti";
 
 const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
-  const game = useSelector((state) => state.game);
+  //const game = useSelector((state) => state.game);
   const hero = useSelector((state) => state.hero);
   const playerGame = useSelector((state) => state.playerGame);
   const skillsToBattle = useSelector((state) => state.skillsToBattle);
+  const gameTemp = {
+    item: {
+      isEmpty: true,
+    },
+    missionDescription:
+      "Królewski zabójca obrócił się przeciwko swojemu władcy. Wyrusz na przedmieścia miasta i odnajdź zdrajcę, zanim dokona zamachu na królestwo Veltewind. Za tą przysługę, Król słono Ci zapłaci.",
+    missionRewardExp: 20,
+    missionRewardGold: 56,
+    missionTime: 3,
+    missionTitle: "Królewskie Przedmieścia",
+    monster: {
+      monsterDefense: 14,
+      monsterHealtPoints: 2016,
+      monsterLevel: 1,
+      monsterMaxAttack: 6,
+      monsterMinAttack: 4,
+      monsterName: "Królewski Zabójca",
+      monsterNumber: 3,
+    },
+  };
 
   const [firstButton, setFirstButton] = useState(true);
   const [secondButton, setSecondButton] = useState(true);
@@ -151,7 +173,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
     default:
       break;
   }
-  switch (game.monster.monsterNumber) {
+  switch (gameTemp.monster.monsterNumber) {
     case 0:
       monsterImage = "/images/monstersAvatars/1.png";
       break;
@@ -189,10 +211,10 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
   //console.log(playerStatRef);
 
   // eslint-disable-next-line
-  const [enemyStats, setEnemyStats] = useState(game.monster);
+  const [enemyStats, setEnemyStats] = useState(gameTemp.monster);
 
   //players temporary Stats
-  const [hpEnemy, setHpEnemy] = useState(game.monster.monsterHealtPoints);
+  const [hpEnemy, setHpEnemy] = useState(gameTemp.monster.monsterHealtPoints);
   //const [hpEnemy, setHpEnemy] = useState(3000);
   const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
   //  const [hpPlayer, setHpPlayer] = useState(3000);
@@ -487,93 +509,18 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
   return (
     <div className="multiContener">
       <div className="playersView">
-        <div className="mainPlayer">
-          <div className="avatarBox">
-            <div className="avatar"></div>
-          </div>
-          <div className="nick">Aysta</div>
-          <div className="healtPoints">
-            <div className="healtPoints-div" style={{ width: `${250}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
-            </div>
-          </div>
-          <div className="manaPoints">
-            <div className="manaPoints-div" style={{ width: `${220}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
-            </div>
-          </div>
-        </div>
-        <div className="player">
-          <div className="avatarBox">
-            <div className="avatar"></div>
-          </div>
-          <div className="nick">Aysta</div>
-          <div className="healtPoints">
-            <div className="healtPoints-div" style={{ width: `${130}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
-            </div>
-          </div>
-          <div className="manaPoints">
-            <div className="manaPoints-div" style={{ width: `${100}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
-            </div>
-          </div>
-        </div>
-        <div className="player">
-          <div className="avatarBox">
-            <div className="avatar"></div>
-          </div>
-          <div className="nick">Aysta</div>
-          <div className="healtPoints">
-            <div className="healtPoints-div" style={{ width: `${130}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
-            </div>
-          </div>
-          <div className="manaPoints">
-            <div className="manaPoints-div" style={{ width: `${100}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
-            </div>
-          </div>
-        </div>
-        <div className="player">
-          <div className="avatarBox">
-            <div className="avatar"></div>
-          </div>
-          <div className="nick">Aysta</div>
-          <div className="healtPoints">
-            <div className="healtPoints-div" style={{ width: `${130}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
-            </div>
-          </div>
-          <div className="manaPoints">
-            <div className="manaPoints-div" style={{ width: `${100}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
-            </div>
-          </div>
-        </div>
-        <div className="player">
-          <div className="avatarBox">
-            <div className="avatar"></div>
-          </div>
-          <div className="nick">Aysta</div>
-          <div className="healtPoints">
-            <div className="healtPoints-div" style={{ width: `${130}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
-            </div>
-          </div>
-          <div className="manaPoints">
-            <div className="manaPoints-div" style={{ width: `${100}px` }}>
-              <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
-            </div>
-          </div>
-        </div>
+        <MainPlayer />
+        <Player />
+        <Player />
+        <Player />
+        <Player />
       </div>
       <div className="enemy">
         <div className="avatar">
           <img alt="" src={`${monsterImage}`} />
           <div className="background">
-            <div className="nick">{game.monster.monsterName}</div>
-            <div className="level">Poziom {game.monster.monsterLevel}</div>
+            <div className="nick">{gameTemp.monster.monsterName}</div>
+            <div className="level">Poziom {gameTemp.monster.monsterLevel}</div>
           </div>
         </div>
         <div className="healthPoints">
@@ -582,7 +529,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
           </div>
           <div className="progress-div-monsterHealthPointsText">
             {" "}
-            {parseInt(hpEnemy)}/{parseInt(game.monster.monsterHealtPoints)}
+            {parseInt(hpEnemy)}/{parseInt(gameTemp.monster.monsterHealtPoints)}
           </div>
         </div>
       </div>

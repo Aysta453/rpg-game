@@ -26,12 +26,14 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     } else {
       isRoomOwner = false;
     }
+
+    if (players.length === 5) {
+      isEnoughPlayers = true;
+    } else {
+      isEnoughPlayers = false;
+    }
   }
-  // if (players.length === 5) {
-  //   isEnoughPlayers = true;
-  // } else {
-  //   isEnoughPlayers = false;
-  // }
+
   const showPopup = () => {
     setPopupValueset(!popupValue);
   };
@@ -132,14 +134,6 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
           : ""}
       </div>
       <div className="missionStart">{isEnoughPlayers ? <button onClick={() => {}}>Rozpocznij misję</button> : ""}</div>
-      <button
-        onClick={() => {
-          dispatch(showroom({ id: rooms._id }));
-          console.log(rooms);
-        }}
-      >
-        reset
-      </button>
     </div>
   );
 };

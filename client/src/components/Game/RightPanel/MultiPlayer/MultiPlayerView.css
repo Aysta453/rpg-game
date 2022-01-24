@@ -17,47 +17,50 @@
 }
 
 .multiContener .playersView .mainPlayer {
-  width: 400px;
-  height: 130px;
+  width: 21vw;
+  height: 14vh;
   border: 1px solid rgba(255, 232, 0, 0.5);
 }
 
 .multiContener .playersView .mainPlayer .avatarBox {
   height: 100%;
   float: left;
-  width: 128px;
+  width: 6.8vw;
 }
 
 .multiContener .playersView .mainPlayer .avatarBox .avatar {
   height: 100%;
   float: left;
-  width: 128px;
+  width: 6.8vw;
 }
-
+.multiContener .playersView .mainPlayer .avatarBox .avatar img {
+  width: 6.8vw;
+  height: 13.8vh;
+}
 .multiContener .playersView .mainPlayer .nick {
-  padding-top: 11px;
-  padding-bottom: 11px;
+  padding-top: 1.2vh;
+  padding-bottom: 1.2vh;
   float: right;
-  width: 270px;
+  width: 14vw;
   background-color: rgba(79, 65, 9, 0.4);
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 1.5rem;
   position: relative;
 }
 
 .multiContener .playersView .mainPlayer .healtPoints {
-  height: 34px;
+  height: 3.5vh;
   float: right;
-  width: 270px;
+  width: 14vw;
   text-align: center;
-  padding: 3px;
+  padding: 0.3vh;
 }
 
 .multiContener .playersView .mainPlayer .healtPoints .healtPoints-div {
-  margin-left: 10px;
-  height: 28px;
+  margin-left: 0.5vw;
+  height: 3vh;
   text-align: center;
   background-color: rgba(7, 255, 0, 0.4);
   border: 1px solid black;
@@ -66,78 +69,82 @@
 
 .multiContener .playersView .mainPlayer .healtPoints .healtPoints-div .progressPlayerHealthPoints {
   background-color: rgb(0, 255, 88);
-  height: 26px;
+  height: 2.8vh;
   transition: 1s linear;
 }
 
 .multiContener .playersView .mainPlayer .manaPoints {
-  height: 34px;
+  height: 3.5vh;
   float: right;
-  width: 270px;
+  width: 14vw;
   text-align: center;
-  padding: 5px;
-  padding-left: 3px;
+  padding: 0.45vh;
+  padding-left: 0.15vw;
 }
 
 .multiContener .playersView .mainPlayer .manaPoints .manaPoints-div {
   text-align: center;
-  margin-left: 10px;
+  margin-left: 0.5vw;
   border: 1px solid black;
-  height: 24px;
+  height: 2.7vh;
   background-color: rgba(0, 183, 255, 0.4);
   float: left;
 }
 
 .multiContener .playersView .mainPlayer .manaPoints .manaPoints-div .progressPlayerManaPoints {
   background-color: rgba(0, 183, 255, 0.9);
-  height: 22px;
+  height: 2.5vh;
   transition: 1s linear;
 }
 
 .multiContener .playersView .player {
-  margin-top: 20px;
-  width: 250px;
-  height: 100px;
+  margin-top: 2vh;
+  width: 15vw;
+  height: 10.5vh;
   border: 1px solid rgba(0, 183, 255, 0.3);
 }
 
 .multiContener .playersView .player .avatarBox {
   height: 100%;
   float: left;
-  width: 98px;
+  width: 6.05vw;
 }
 
 .multiContener .playersView .player .avatarBox .avatar {
   height: 100%;
   float: left;
-  width: 98px;
+  width: 6.05vw;
+}
+.multiContener .playersView .player .avatarBox .avatar img {
+  width: 6.05vw;
+  height: 10.2vh;
 }
 
 .multiContener .playersView .player .nick {
-  height: 40px;
+  height: 4.2vh;
   float: right;
-  width: 150px;
+  width: 8.7vw;
   background-color: rgba(0, 183, 255, 0.1);
   text-align: center;
-  padding-top: 7px;
+  padding-top: 0.7vh;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
-  font-size: 20px;
+  font-size: 1rem;
   position: relative;
 }
 
 .multiContener .playersView .player .healtPoints {
-  height: 29px;
+  height: 3vh;
   float: right;
-  width: 150px;
+  width: 8.7vw;
   text-align: center;
-  padding: 3px;
+  padding: 0.3vh;
 }
 
 .multiContener .playersView .player .healtPoints .healtPoints-div {
-  margin-left: 10px;
-  margin-top: 5px;
-  height: 20px;
+  margin-left: 0.5vw;
+  margin-top: 0.5vh;
+  height: 2.2vh;
   text-align: center;
   background-color: rgba(0, 250, 33, 0.3);
   border: 1px solid black;
@@ -146,32 +153,32 @@
 
 .multiContener .playersView .player .healtPoints .healtPoints-div .progressPlayerHealthPoints {
   background-color: rgba(0, 250, 33, 0.9);
-  height: 18px;
+  height: 2vh;
   transition: 1s linear;
 }
 
 .multiContener .playersView .player .manaPoints {
-  height: 29px;
+  height: 3vh;
   float: right;
-  width: 150px;
+  width: 8.7vw;
   text-align: center;
-  padding: 4px;
-  padding-left: 3px;
+  padding: 0.4vh;
+  padding-left: 0.2vw;
 }
 
 .multiContener .playersView .player .manaPoints .manaPoints-div {
   text-align: center;
-  margin-left: 10px;
-  margin-top: 2px;
+  margin-left: 0.5vw;
+  margin-top: 0.2vh;
   border: 1px solid black;
-  height: 17px;
+  height: 1.8vh;
   background-color: rgba(30, 110, 255, 0.3);
   float: left;
 }
 
 .multiContener .playersView .player .manaPoints .manaPoints-div .progressPlayerManaPoints {
   background-color: rgb(30, 110, 255);
-  height: 15px;
+  height: 1.6vh;
   transition: 1s linear;
 }
 
