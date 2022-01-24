@@ -67,8 +67,9 @@ export const joinRoom = async (req, res) => {
     const result1 = await Rooms.findOneAndUpdate({ _id: id }, data, {
       new: true,
     });
-    Socket.join(result.roomName);
-    io.in(result.roomName).emit("mess", id);
+    console.log(result1.roomName);
+    Socket.join(result1.roomName);
+    io.in(result1.roomName).emit("mess", id);
     res.status(201).json(result1);
   } catch (error) {
     res.status(409).json({ message: error.message });
