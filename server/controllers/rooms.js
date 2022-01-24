@@ -68,7 +68,7 @@ export const joinRoom = async (req, res) => {
       new: true,
     });
     console.log(result1.roomName);
-    Socket.join(result1.roomName);
+    //Socket.join(result1.roomName);
     io.in(result1.roomName).emit("mess", id);
     res.status(201).json(result1);
   } catch (error) {
