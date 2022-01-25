@@ -1,132 +1,133 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const dungeonsSchema = mongoose.Schema({
-    
-    firstDungeon: {
-        dungeonTitle: {
-            type: String,
-        },
-        dungeonDescription: {
-            type: String,
-        },
-        dungeonRewardGold: {
-            type: Number,
-        },
-        dungeonRewardExp: {
-            type: Number,
-        },
-        dungeonDifficult: {
-            type:String,
-        },
-        monster: {
-            monsterName: {
-                type:String,
-            },
-            monsterHealtPoints: {
-                type:Number,
-            }, 
-            monsterMinAttack: {
-                type:Number,
-            },
-            monsterMaxAttack: {
-                type:Number,
-            },
-            monsterDefense: {
-                type:Number,
-            },
-            monsterLevel:{
-                type:Number,
-            },
-            monsterNumber: {
-                type:Number,
-            }
-        },
+  firstDungeon: {
+    dungeonTitle: {
+      type: String,
     },
-    secondDungeon: {
-        dungeonTitle: {
-            type: String,
-        },
-        dungeonDescription: {
-            type: String,
-        },
-        dungeonRewardGold: {
-            type: Number,
-        },
-        dungeonRewardExp: {
-            type: Number,
-        },
-        dungeonDifficult: {
-            type:String,
-        },
-        monster: {
-            monsterName: {
-                type:String,
-            },
-            monsterHealtPoints: {
-                type:Number,
-            }, 
-            monsterMinAttack: {
-                type:Number,
-            },
-            monsterMaxAttack: {
-                type:Number,
-            },
-            monsterDefense: {
-                type:Number,
-            },
-            monsterLevel:{
-                type:Number,
-            },
-            monsterNumber: {
-                type:Number,
-            }
-        },
+    dungeonDescription: {
+      type: String,
     },
-    thirdDungeon: {
-        dungeonTitle: {
-            type: String,
-        },
-        dungeonDescription: {
-            type: String,
-        },
-        dungeonRewardGold: {
-            type: Number,
-        },
-        dungeonRewardExp: {
-            type: Number,
-        },
-        dungeonDifficult: {
-            type:String,
-        },
-        monster: {
-            monsterName: {
-                type:String,
-            },
-            monsterHealtPoints: {
-                type:Number,
-            }, 
-            monsterMinAttack: {
-                type:Number,
-            },
-            monsterMaxAttack: {
-                type:Number,
-            },
-            monsterDefense: {
-                type:Number,
-            },
-            monsterLevel:{
-                type:Number,
-            },
-            monsterNumber: {
-                type:Number,
-            }
-        },
+    dungeonRewardGold: {
+      type: Number,
     },
-    owner: {
+    dungeonRewardExp: {
+      type: Number,
+    },
+    dungeonDifficult: {
+      type: String,
+    },
+    monster: {
+      monsterName: {
         type: String,
-        require: true,
-    }
+      },
+      currentMonsterHealtPoints: {
+        type: Number,
+      },
+      monsterHealtPoints: {
+        type: Number,
+      },
+      monsterMinAttack: {
+        type: Number,
+      },
+      monsterMaxAttack: {
+        type: Number,
+      },
+      monsterDefense: {
+        type: Number,
+      },
+      monsterLevel: {
+        type: Number,
+      },
+      monsterNumber: {
+        type: Number,
+      },
+    },
+  },
+  secondDungeon: {
+    dungeonTitle: {
+      type: String,
+    },
+    dungeonDescription: {
+      type: String,
+    },
+    dungeonRewardGold: {
+      type: Number,
+    },
+    dungeonRewardExp: {
+      type: Number,
+    },
+    dungeonDifficult: {
+      type: String,
+    },
+    monster: {
+      monsterName: {
+        type: String,
+      },
+      monsterHealtPoints: {
+        type: Number,
+      },
+      monsterMinAttack: {
+        type: Number,
+      },
+      monsterMaxAttack: {
+        type: Number,
+      },
+      monsterDefense: {
+        type: Number,
+      },
+      monsterLevel: {
+        type: Number,
+      },
+      monsterNumber: {
+        type: Number,
+      },
+    },
+  },
+  thirdDungeon: {
+    dungeonTitle: {
+      type: String,
+    },
+    dungeonDescription: {
+      type: String,
+    },
+    dungeonRewardGold: {
+      type: Number,
+    },
+    dungeonRewardExp: {
+      type: Number,
+    },
+    dungeonDifficult: {
+      type: String,
+    },
+    monster: {
+      monsterName: {
+        type: String,
+      },
+      monsterHealtPoints: {
+        type: Number,
+      },
+      monsterMinAttack: {
+        type: Number,
+      },
+      monsterMaxAttack: {
+        type: Number,
+      },
+      monsterDefense: {
+        type: Number,
+      },
+      monsterLevel: {
+        type: Number,
+      },
+      monsterNumber: {
+        type: Number,
+      },
+    },
+  },
+  owner: {
+    type: String,
+    require: true,
+  },
 });
-
 
 export default mongoose.model("Dungeons", dungeonsSchema);
