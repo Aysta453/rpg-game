@@ -26,6 +26,9 @@ const roomsSchema = mongoose.Schema({
     monsterHealtPoints: {
       type: Number,
     },
+    currentMonsterHealtPoints: {
+      type: Number,
+    },
     monsterMinAttack: {
       type: Number,
     },

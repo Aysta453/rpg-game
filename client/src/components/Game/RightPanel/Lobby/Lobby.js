@@ -71,6 +71,9 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     showDestroyPopup();
   };
 
+  const startingGame = () => {
+    socket.emit("startGame", rooms.roomName);
+  };
   useEffect(() => {
     socket.on("leavingRoom", (mess) => {
       socket.emit("leaveRoom", mess);
@@ -78,7 +81,11 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
       showDestroyPopup();
     });
   }, []);
-
+  useEffect(() => {
+    socket.on("gameStarted", () => {
+      setWindowOfElements(90);
+    });
+  }, []);
   useEffect(() => {
     socket.on("mess", (mess) => {
       if (mess !== "") return refreshRoom(mess);
@@ -133,7 +140,19 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
             ))
           : ""}
       </div>
-      <div className="missionStart">{isEnoughPlayers ? <button onClick={() => {}}>Rozpocznij misję</button> : ""}</div>
+      <div className="missionStart">
+        {isEnoughPlayers && isRoomOwner ? (
+          <button
+            onClick={() => {
+              startingGame();
+            }}
+          >
+            Rozpocznij misję
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

@@ -43,8 +43,8 @@ io.on("connection", function (socket) {
   });
 
   //start game of multiplayer
-  socket.on("startAGame", (roomName) => {
-    socket.leave(roomName);
+  socket.on("startGame", (roomName) => {
+    io.in(roomName).emit("gameStarted");
   });
 
   console.log(`A user connected ${socket.id}`);

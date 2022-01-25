@@ -168,7 +168,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
       playerImage = "/images/charactersAvatars/5.png";
       break;
     case "Hunter":
-      playerImage = "../images/charactersAvatars/3.png";
+      playerImage = "/images/charactersAvatars/3.png";
       break;
     default:
       break;

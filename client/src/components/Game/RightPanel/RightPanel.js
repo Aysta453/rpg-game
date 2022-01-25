@@ -34,7 +34,7 @@ const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons })
       {windowOfElements === 7 && <SinglePlayerGameView setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
       {windowOfElements === 6 && <> tu bedzie logout </>}
       {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
-      {windowOfElements === 90 && <MultiPlayerView />}
+      {windowOfElements === 90 && <MultiPlayerView setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
       {windowOfElements === 110 && <GroupsView socket={socket} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
       {windowOfElements === 200 && <Lobby socket={socket} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
     </div>
