@@ -68,9 +68,9 @@ io.on("connection", function (socket) {
             Math.floor(
               Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
             ) * 0.25;
-          data.players[memberPartyId].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+          data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
           if (damage > 0) {
-            data.players[memberPartyId].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+            data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
           } else {
             data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - 0;
           }
