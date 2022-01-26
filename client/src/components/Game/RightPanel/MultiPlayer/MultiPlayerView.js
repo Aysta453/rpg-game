@@ -270,8 +270,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       setInterval(() => {
         setManaPlayer((manaPlayer) => manaPlayer + playerStats.regMp);
 
-        rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentManaPoints =
-          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentManaPoints + rooms.players[rooms.players[memberPartyId].heroPower].heroPower.regMp;
+        rooms.players[memberPartyId].heroPower.currentManaPoints = rooms.players[memberPartyId].heroPower.currentManaPoints + rooms.players[memberPartyId].heroPower.regMp;
         dispatch(sendupdateroomingame(rooms));
         socket.emit("updateBattle", rooms, rooms.roomName);
       }, 1 * 1000)
@@ -282,8 +281,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     setIntervalPlayerHealth(
       setInterval(() => {
         setHpPlayer((hpPlayer) => hpPlayer + playerStats.regHp);
-        rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints =
-          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints + rooms.players[rooms.players[memberPartyId].heroPower].heroPower.regHp;
+        rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + rooms.players[memberPartyId].heroPower.regHp;
         dispatch(sendupdateroomingame(rooms));
         socket.emit("updateBattle", rooms, rooms.roomName);
       }, 1 * 1000)
@@ -309,7 +307,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
         if (hpPlayer >= 0) {
           setHpPlayer((hpPlayer) => hpPlayer + valueOfHotValue);
 
-          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints = rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints + valueOfHotValue;
+          rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + valueOfHotValue;
           dispatch(sendupdateroomingame(rooms));
           socket.emit("updateBattle", rooms, rooms.roomName);
 
@@ -476,6 +474,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
   useEffect(() => {
     socket.on("downloadBatte", (rooms) => {
+      console.log(rooms);
       dispatch(downloadupdateroomingame(rooms));
     });
   });

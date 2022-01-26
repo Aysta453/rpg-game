@@ -47,6 +47,7 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("gameStarted");
   });
   socket.on("updateBattle", (data, roomName) => {
+    console.log(roomName);
     io.in(roomName).emit("downloadBatte", data);
   });
 

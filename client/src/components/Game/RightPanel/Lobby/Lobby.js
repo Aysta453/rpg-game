@@ -32,18 +32,16 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
     } else {
       isEnoughPlayers = false;
     }
-  }
-  if (rooms !== null || rooms !== undefined) {
-    for (let index = 0; index < rooms.players.length; index++) {
-      if (hero.owner === rooms.players[index].owner) {
+    for (let index = 0; index < players.length; index++) {
+      if (hero.owner === players[index].owner) {
         setMemberPartyId(index);
       }
     }
   }
   const setMemberId = () => {
     if (rooms !== null || rooms !== undefined) {
-      for (let index = 0; index < rooms.players.length; index++) {
-        if (hero.owner === rooms.players[index].owner) {
+      for (let index = 0; index < players.length; index++) {
+        if (hero.owner === players[index].owner) {
           setMemberPartyId(index);
         }
       }
