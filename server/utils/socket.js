@@ -62,12 +62,14 @@ io.on("connection", function (socket) {
               Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
             ) * 0.25;
           data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+          console.log(randomNember, damage);
         } else {
           let damage =
             Math.floor(
               Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
             ) * 0.25;
           data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+          console.log(randomNember, damage);
           if (damage > 0) {
             data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
           } else {
@@ -75,7 +77,6 @@ io.on("connection", function (socket) {
           }
         }
       }
-      console.log(randomNember, damage);
     }
 
     io.in(roomName).emit("downloadBatte", data);
