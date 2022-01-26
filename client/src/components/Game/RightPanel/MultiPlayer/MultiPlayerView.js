@@ -269,7 +269,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       setInterval(() => {
         rooms.players[memberPartyId].heroPower.currentManaPoints = rooms.players[memberPartyId].heroPower.currentManaPoints + rooms.players[memberPartyId].heroPower.regMp;
         dispatch(sendupdateroomingame(rooms));
-        socket.emit("updateBattle", rooms, rooms.roomName);
+        socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
       }, 1 * 1000)
     );
   };
@@ -279,7 +279,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       setInterval(() => {
         rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + rooms.players[memberPartyId].heroPower.regHp;
         dispatch(sendupdateroomingame(rooms));
-        socket.emit("updateBattle", rooms, rooms.roomName);
+        socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
       }, 1 * 1000)
     );
   };
@@ -290,7 +290,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
           setHpEnemy((hpEnemy) => hpEnemy - valueOfDotValue);
           rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - valueOfDotValue;
           dispatch(sendupdateroomingame(rooms));
-          socket.emit("updateBattle", rooms, rooms.roomName);
+          socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
           functionSkillDamageEnemyAttack(Math.floor(valueOfDotValue));
           damageOverTime(delay, numberOfAttack - 1, valueOfDotValue);
         }
@@ -303,7 +303,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
         if (hpPlayer >= 0) {
           rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + valueOfHotValue;
           dispatch(sendupdateroomingame(rooms));
-          socket.emit("updateBattle", rooms, rooms.roomName);
+          socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
         }
@@ -330,26 +330,26 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               damage = damage * 1.5;
               rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
               dispatch(sendupdateroomingame(rooms));
-              socket.emit("updateBattle", rooms, rooms.roomName);
+              socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
               functionNormalEnemyAttack(damage, 1);
               console.log("dmg: " + damage);
             } else {
               functionNormalEnemyAttack(damage, 0);
               rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
               dispatch(sendupdateroomingame(rooms));
-              socket.emit("updateBattle", rooms, rooms.roomName);
+              socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
               console.log("dmg: " + damage);
             }
           } else {
             functionNormalEnemyAttack(0, 3);
             dispatch(sendupdateroomingame(rooms));
-            socket.emit("updateBattle", rooms, rooms.roomName);
+            socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
             console.log("dmg: 0");
           }
         } else {
           functionNormalEnemyAttack(0, 3);
           dispatch(sendupdateroomingame(rooms));
-          socket.emit("updateBattle", rooms, rooms.roomName);
+          socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
           console.log("dmg: 0");
         }
       }, 1 * time)
