@@ -4,33 +4,15 @@ import MainPlayer from "./MainPlayer";
 import "./MultiPlayerView.css";
 import Player from "./Player";
 import SkillHandlingMulti from "./SkillHandlingMulti";
+import { sendupdateroomingame, downloadupdateroomingame } from "../../../../actions/rooms.js";
 
-const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
+const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
   //const game = useSelector((state) => state.game);
   const hero = useSelector((state) => state.hero);
+  const dispatch = useDispatch();
   const playerGame = useSelector((state) => state.playerGame);
   const skillsToBattle = useSelector((state) => state.skillsToBattle);
-  const gameTemp = {
-    item: {
-      isEmpty: true,
-    },
-    missionDescription:
-      "Królewski zabójca obrócił się przeciwko swojemu władcy. Wyrusz na przedmieścia miasta i odnajdź zdrajcę, zanim dokona zamachu na królestwo Veltewind. Za tą przysługę, Król słono Ci zapłaci.",
-    missionRewardExp: 20,
-    missionRewardGold: 56,
-    missionTime: 3,
-    missionTitle: "Królewskie Przedmieścia",
-    monster: {
-      monsterDefense: 14,
-      monsterHealtPoints: 2016,
-      monsterLevel: 1,
-      monsterMaxAttack: 6,
-      monsterMinAttack: 4,
-      monsterName: "Królewski Zabójca",
-      monsterNumber: 3,
-    },
-  };
-
+  const rooms = useSelector((state) => state.rooms);
   const [firstButton, setFirstButton] = useState(true);
   const [secondButton, setSecondButton] = useState(true);
   const [thirdButton, setThirdButton] = useState(true);
@@ -150,30 +132,9 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
         break;
     }
   };
-
-  let playerImage;
   let monsterImage;
 
-  switch (hero.heroClass) {
-    case "Mage":
-      playerImage = "/images/charactersAvatars/1.png";
-      break;
-    case "Priest":
-      playerImage = "/images/charactersAvatars/4.png";
-      break;
-    case "Warrior":
-      playerImage = "/images/charactersAvatars/2.png";
-      break;
-    case "Berserk":
-      playerImage = "/images/charactersAvatars/5.png";
-      break;
-    case "Hunter":
-      playerImage = "/images/charactersAvatars/3.png";
-      break;
-    default:
-      break;
-  }
-  switch (gameTemp.monster.monsterNumber) {
+  switch (rooms.monster.monsterNumber) {
     case 0:
       monsterImage = "/images/monstersAvatars/1.png";
       break;
@@ -204,21 +165,25 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
     default:
       break;
   }
+  const [playerStats, setPlayerStats] = useState(0);
+
+  for (let index = 0; index < rooms.players.length; index++) {
+    if (hero.owner === rooms.players[index].owner) {
+      setPlayerStats(rooms.players[index].heroPower);
+    }
+  }
 
   //players main Stats
-  const [playerStats, setPlayerStats] = useState(playerGame);
-  const [chanceOnDodge, setChanceOnDodge] = useState(playerStats.chanceOnDodge);
-  //console.log(playerStatRef);
 
   // eslint-disable-next-line
-  const [enemyStats, setEnemyStats] = useState(gameTemp.monster);
+  const [enemyStats, setEnemyStats] = useState(rooms.monster);
 
   //players temporary Stats
-  const [hpEnemy, setHpEnemy] = useState(gameTemp.monster.monsterHealtPoints);
+  const [hpEnemy, setHpEnemy] = useState(rooms.monster.monsterHealtPoints);
   //const [hpEnemy, setHpEnemy] = useState(3000);
-  const [hpPlayer, setHpPlayer] = useState(playerGame.healthPoints);
+  const [hpPlayer, setHpPlayer] = useState(playerStats.currentHealthPoints);
   //  const [hpPlayer, setHpPlayer] = useState(3000);
-  const [manaPlayer, setManaPlayer] = useState(playerGame.manaPoints);
+  const [manaPlayer, setManaPlayer] = useState(playerStats.currentManaPoints);
 
   //intervals
   const [intervalPlayerDamage, setIntervalPlayerDamage] = useState(0);
@@ -310,6 +275,13 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
     setIntervalPlayerMana(
       setInterval(() => {
         setManaPlayer((manaPlayer) => manaPlayer + playerStats.regMp);
+        for (let index = 0; index < rooms.players.length; index++) {
+          if (hero.owner === rooms.players[index].owner) {
+            rooms.players[index].heroPower.currentManaPoints = rooms.players[index].heroPower.currentManaPoints + rooms.players[index].heroPower.regMp;
+            dispatch(sendupdateroomingame(rooms));
+            socket.emit("updateBattle", rooms, rooms.roomName);
+          }
+        }
       }, 1 * 1000)
     );
   };
@@ -318,6 +290,13 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
     setIntervalPlayerHealth(
       setInterval(() => {
         setHpPlayer((hpPlayer) => hpPlayer + playerStats.regHp);
+        for (let index = 0; index < rooms.players.length; index++) {
+          if (hero.owner === rooms.players[index].owner) {
+            rooms.players[index].heroPower.currentHealthPoints = rooms.players[index].heroPower.currentHealthPoints + rooms.players[index].heroPower.regHp;
+            dispatch(sendupdateroomingame(rooms));
+            socket.emit("updateBattle", rooms, rooms.roomName);
+          }
+        }
       }, 1 * 1000)
     );
   };
@@ -326,6 +305,9 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
       sleep(delay).then(() => {
         if (hpEnemy >= 0) {
           setHpEnemy((hpEnemy) => hpEnemy - valueOfDotValue);
+          rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - valueOfDotValue;
+          dispatch(sendupdateroomingame(rooms));
+          socket.emit("updateBattle", rooms, rooms.roomName);
           functionSkillDamageEnemyAttack(Math.floor(valueOfDotValue));
           damageOverTime(delay, numberOfAttack - 1, valueOfDotValue);
         }
@@ -335,8 +317,15 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
   const healOverTime = (delay, numberOfHealing, valueOfHotValue) => {
     if (numberOfHealing > 0) {
       sleep(delay).then(() => {
-        if (hpEnemy >= 0) {
-          setHpPlayer((hpEnemy) => hpEnemy + valueOfHotValue);
+        if (hpPlayer >= 0) {
+          setHpPlayer((hpPlayer) => hpPlayer + valueOfHotValue);
+          for (let index = 0; index < rooms.players.length; index++) {
+            if (hero.owner === rooms.players[index].owner) {
+              rooms.players[index].heroPower.currentHealthPoints = rooms.players[index].heroPower.currentHealthPoints + valueOfHotValue;
+              dispatch(sendupdateroomingame(rooms));
+              socket.emit("updateBattle", rooms, rooms.roomName);
+            }
+          }
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
         }
@@ -368,7 +357,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
       }, 1 * 2500)
     );
   };
-
   const attackEnemy = (time, attackMode) => {
     setIntervalEnemyDamage(
       setInterval(() => {
@@ -382,16 +370,30 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
             if (critHit <= playerStats.chanceOnCritHit) {
               damage = damage * 1.5;
               setHpEnemy((hpEnemy) => hpEnemy - damage);
+              rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
+              dispatch(sendupdateroomingame(rooms));
+              socket.emit("updateBattle", rooms, rooms.roomName);
               functionNormalEnemyAttack(damage, 1);
+              console.log("dmg: " + damage);
             } else {
               setHpEnemy((hpEnemy) => hpEnemy - damage);
               functionNormalEnemyAttack(damage, 0);
+              rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
+              dispatch(sendupdateroomingame(rooms));
+              socket.emit("updateBattle", rooms, rooms.roomName);
+              console.log("dmg: " + damage);
             }
           } else {
             functionNormalEnemyAttack(0, 3);
+            dispatch(sendupdateroomingame(rooms));
+            socket.emit("updateBattle", rooms, rooms.roomName);
+            console.log("dmg: 0");
           }
         } else {
           functionNormalEnemyAttack(0, 3);
+          dispatch(sendupdateroomingame(rooms));
+          socket.emit("updateBattle", rooms, rooms.roomName);
+          console.log("dmg: 0");
         }
       }, 1 * time)
     );
@@ -486,6 +488,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
   }, [manaPlayer]);
 
   useEffect(() => {
+    socket.on("downloadBatte", (rooms) => {
+      dispatch(downloadupdateroomingame(rooms));
+    });
+  });
+  useEffect(() => {
     if (hpPlayer <= 0 && hpEnemy > 0) {
       clearInterval(intervalPlayerDamage);
       clearInterval(intervalEnemyDamage);
@@ -509,18 +516,25 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
   return (
     <div className="multiContener">
       <div className="playersView">
-        <MainPlayer />
-        <Player />
-        <Player />
-        <Player />
-        <Player />
+        <MainPlayer hpPlayer={hpPlayer} manaPlayer={manaPlayer} />
+        {rooms.players.length
+          ? rooms.players.map((player) =>
+              hero.owner !== player.owner ? (
+                <div key={player.owner}>
+                  <Player player={player} />
+                </div>
+              ) : (
+                ""
+              )
+            )
+          : ""}
       </div>
       <div className="enemy">
         <div className="avatar">
           <img alt="" src={`${monsterImage}`} />
           <div className="background">
-            <div className="nick">{gameTemp.monster.monsterName}</div>
-            <div className="level">Poziom {gameTemp.monster.monsterLevel}</div>
+            <div className="nick">{rooms.monster.monsterName}</div>
+            <div className="level">Poziom {rooms.monster.monsterLevel}</div>
           </div>
         </div>
         <div className="healthPoints">
@@ -529,7 +543,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
           </div>
           <div className="progress-div-monsterHealthPointsText">
             {" "}
-            {parseInt(hpEnemy)}/{parseInt(gameTemp.monster.monsterHealtPoints)}
+            {parseInt(hpEnemy)}/{parseInt(rooms.monster.monsterHealtPoints)}
           </div>
         </div>
       </div>
@@ -668,8 +682,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
               setButtonValue={setFirstButton}
               skillNumber={"skill1"}
               skill={skillsToBattle.firstSkill}
-              chanceOnDodge={chanceOnDodge}
-              setChanceOnDodge={setChanceOnDodge}
               setManaPlayer={setManaPlayer}
               manaPlayer={manaPlayer}
               intervalEnemyDamage={intervalEnemyDamage}
@@ -695,8 +707,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
               setButtonValue={setSecondButton}
               skillNumber={"skill2"}
               skill={skillsToBattle.secondSkill}
-              chanceOnDodge={chanceOnDodge}
-              setChanceOnDodge={setChanceOnDodge}
               setManaPlayer={setManaPlayer}
               manaPlayer={manaPlayer}
               setHpEnemy={setHpEnemy}
@@ -722,8 +732,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements }) => {
               setButtonValue={setThirdButton}
               skillNumber={"skill3"}
               skill={skillsToBattle.thirdSkill}
-              chanceOnDodge={chanceOnDodge}
-              setChanceOnDodge={setChanceOnDodge}
               setManaPlayer={setManaPlayer}
               manaPlayer={manaPlayer}
               setHpEnemy={setHpEnemy}

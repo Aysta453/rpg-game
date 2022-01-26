@@ -6,8 +6,6 @@ import showingActiveImageSkill from "../../../../functions/showingActiveImageSki
 const SkillHandlingMulti = ({
   intervalEnemyDamage,
   intervalPlayerDamage,
-  setChanceOnDodge,
-  chanceOnDodge,
   numberOfSkill,
   healOverTime,
   functionNormalPlayerHeal,

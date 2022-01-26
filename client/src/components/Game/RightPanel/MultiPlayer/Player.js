@@ -1,22 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Player = () => {
+const Player = ({ player }) => {
+  const [playerBattleHpBar, setPlayerBattleHpBar] = useState(player.heroPower.healthPoints);
+  const [playerBattleMpBar, setPlayerBattleMpBar] = useState(player.heroPower.manaPoints);
+  let playerImage;
+  let widthOfMainHealthPointsBar = 7.5;
+  let widthOfMainManaPointsBar = 5.2;
+
+  switch (player.heroClass) {
+    case "Mage":
+      playerImage = "/images/charactersAvatars/1.png";
+      break;
+    case "Priest":
+      playerImage = "/images/charactersAvatars/4.png";
+      break;
+    case "Warrior":
+      playerImage = "/images/charactersAvatars/2.png";
+      break;
+    case "Berserk":
+      playerImage = "/images/charactersAvatars/5.png";
+      break;
+    case "Hunter":
+      playerImage = "/images/charactersAvatars/3.png";
+      break;
+    default:
+      break;
+  }
+  useEffect(() => {
+    let changeBarHpPlayer = (player.heroPower.currentHealthPoints / player.heroPower.healthPoints) * widthOfMainHealthPointsBar;
+    if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
+      changeBarHpPlayer = widthOfMainHealthPointsBar;
+    } else if (changeBarHpPlayer <= 0) {
+      changeBarHpPlayer = 0;
+    }
+    setPlayerBattleHpBar(changeBarHpPlayer);
+    // eslint-disable-next-line
+  }, [player.heroPower.healthPoints]);
+
+  useEffect(() => {
+    let changeBarHpPlayer = (player.heroPower.currentManaPoints / player.heroPower.manaPoints) * widthOfMainManaPointsBar;
+    if (changeBarHpPlayer > widthOfMainManaPointsBar) {
+      changeBarHpPlayer = widthOfMainManaPointsBar;
+    } else if (changeBarHpPlayer <= 0) {
+      changeBarHpPlayer = 0;
+    }
+    setPlayerBattleMpBar(changeBarHpPlayer);
+    // eslint-disable-next-line
+  }, [player.heroPower.manaPoints]);
+
   return (
     <div className="player">
       <div className="avatarBox">
         <div className="avatar">
-          <img alt="" src="/images/charactersAvatars/3.png" />
+          <img alt="" src={`${playerImage}`} />
         </div>
       </div>
-      <div className="nick">Aysta</div>
+      <div className="nick">{player.nick}</div>
       <div className="healtPoints">
-        <div className="healtPoints-div" style={{ width: `${130}px` }}>
-          <div style={{ width: `${40}px` }} className="progressPlayerHealthPoints" />
+        <div className="healtPoints-div" style={{ width: `${widthOfMainHealthPointsBar}vw` }}>
+          <div style={{ width: `${playerBattleHpBar}vw` }} className="progressPlayerHealthPoints" />
         </div>
       </div>
       <div className="manaPoints">
-        <div className="manaPoints-div" style={{ width: `${100}px` }}>
-          <div style={{ width: `${40}px` }} className="progressPlayerManaPoints" />
+        <div className="manaPoints-div" style={{ width: `${widthOfMainManaPointsBar}vw` }}>
+          <div style={{ width: `${playerBattleMpBar}vw` }} className="progressPlayerManaPoints" />
         </div>
       </div>
     </div>

@@ -46,6 +46,9 @@ io.on("connection", function (socket) {
   socket.on("startGame", (roomName) => {
     io.in(roomName).emit("gameStarted");
   });
+  socket.on("updateBattle", (data, roomName) => {
+    io.in(roomName).emit("downloadBatte", data);
+  });
 
   console.log(`A user connected ${socket.id}`);
 });
