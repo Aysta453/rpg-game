@@ -47,6 +47,7 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("gameStarted");
   });
   socket.on("updateBattle", (data, roomName) => {
+    console.log(socket.id, data.players[0].socketId);
     if (socket.id === data.players[0].socketId) {
       let randomNember;
       do {

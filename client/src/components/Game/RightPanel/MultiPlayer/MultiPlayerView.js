@@ -168,7 +168,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const [playerStats, setPlayerStats] = useState(rooms.players[memberPartyId].heroPower);
 
   //players main Stats
-
+  console.log(rooms);
   // eslint-disable-next-line
   const [enemyStats, setEnemyStats] = useState(rooms.monster);
 
