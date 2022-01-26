@@ -175,9 +175,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   //players temporary Stats
   const [hpEnemy, setHpEnemy] = useState(rooms.monster.monsterHealtPoints);
   //const [hpEnemy, setHpEnemy] = useState(3000);
-  const [hpPlayer, setHpPlayer] = useState(playerStats.currentHealthPoints);
-  //  const [hpPlayer, setHpPlayer] = useState(3000);
-  const [manaPlayer, setManaPlayer] = useState(playerStats.currentManaPoints);
+  const [hpPlayer, setHpPlayer] = useState(rooms.players[memberPartyId].heroPower.currentHealthPoints);
+  const [manaPlayer, setManaPlayer] = useState(rooms.players[memberPartyId].heroPower.currentManaPoints);
 
   //intervals
   const [intervalPlayerDamage, setIntervalPlayerDamage] = useState(0);
@@ -268,8 +267,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const manaRegen = () => {
     setIntervalPlayerMana(
       setInterval(() => {
-        setManaPlayer((manaPlayer) => manaPlayer + playerStats.regMp);
-
         rooms.players[memberPartyId].heroPower.currentManaPoints = rooms.players[memberPartyId].heroPower.currentManaPoints + rooms.players[memberPartyId].heroPower.regMp;
         dispatch(sendupdateroomingame(rooms));
         socket.emit("updateBattle", rooms, rooms.roomName);
@@ -280,7 +277,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const healthRegen = () => {
     setIntervalPlayerHealth(
       setInterval(() => {
-        setHpPlayer((hpPlayer) => hpPlayer + playerStats.regHp);
         rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + rooms.players[memberPartyId].heroPower.regHp;
         dispatch(sendupdateroomingame(rooms));
         socket.emit("updateBattle", rooms, rooms.roomName);
@@ -305,12 +301,9 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     if (numberOfHealing > 0) {
       sleep(delay).then(() => {
         if (hpPlayer >= 0) {
-          setHpPlayer((hpPlayer) => hpPlayer + valueOfHotValue);
-
           rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + valueOfHotValue;
           dispatch(sendupdateroomingame(rooms));
           socket.emit("updateBattle", rooms, rooms.roomName);
-
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
         }
@@ -318,50 +311,29 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     }
   };
 
-  const attackPlayer = () => {
-    setIntervalPlayerDamage(
-      setInterval(() => {
-        let hit = Math.random() * 100 + 1;
-        if (hit <= playerStats.chanceOnDodge) {
-          functionNormalPlayerAttack(0, 3);
-        } else {
-          if (hit <= playerStats.chanceOnBlock) {
-            let damage = Math.floor((Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack - playerStats.defensePoints) * 0.25);
-            setHpPlayer((hpPlayer) => hpPlayer - damage);
-            functionNormalPlayerAttack(damage, 2);
-          } else {
-            let damage = Math.floor(Math.floor(Math.random() * (enemyStats.monsterMaxAttack - enemyStats.monsterMinAttack + 1)) + enemyStats.monsterMinAttack - playerStats.defensePoints);
-            if (damage > 0) {
-              setHpPlayer((hpPlayer) => hpPlayer - damage);
-              functionNormalPlayerAttack(damage, 1);
-            } else {
-              functionNormalPlayerAttack(0, 4);
-            }
-          }
-        }
-      }, 1 * 2500)
-    );
-  };
   const attackEnemy = (time, attackMode) => {
     setIntervalEnemyDamage(
       setInterval(() => {
         let hit = Math.random() * 100 + 1;
-        if (hit <= playerStats.chanceOnHit) {
+        if (hit <= rooms.players[memberPartyId].heroPower.chanceOnHit) {
           let critHit = Math.random() * 100 + 1;
 
-          let damage = Math.floor((Math.random() * (playerStats.maxAttack - playerStats.minAttack + 1) + playerStats.minAttack - Math.ceil(enemyStats.monsterDefense / 10)) * attackMode);
+          let damage = Math.floor(
+            (Math.random() * (rooms.players[memberPartyId].heroPower.maxAttack - rooms.players[memberPartyId].heroPower.minAttack + 1) +
+              rooms.players[memberPartyId].heroPower.minAttack -
+              Math.ceil(rooms.monster.monsterDefense / 10)) *
+              attackMode
+          );
           if (damage > 0) {
-            console.log(playerStats.chanceOnCritHit);
-            if (critHit <= playerStats.chanceOnCritHit) {
+            console.log(rooms.players[memberPartyId].heroPower.chanceOnCritHit);
+            if (critHit <= rooms.players[memberPartyId].heroPower.chanceOnCritHit) {
               damage = damage * 1.5;
-              setHpEnemy((hpEnemy) => hpEnemy - damage);
               rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
               dispatch(sendupdateroomingame(rooms));
               socket.emit("updateBattle", rooms, rooms.roomName);
               functionNormalEnemyAttack(damage, 1);
               console.log("dmg: " + damage);
             } else {
-              setHpEnemy((hpEnemy) => hpEnemy - damage);
               functionNormalEnemyAttack(damage, 0);
               rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - damage;
               dispatch(sendupdateroomingame(rooms));
@@ -405,20 +377,20 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [playerHealCounter]);
 
   useEffect(() => {
-    if (hpPlayer < playerStats.healthPoints && intervalPlayerHealthID === false) {
+    if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
       healthRegen();
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }
 
-    if (hpPlayer >= playerStats.healthPoints && intervalPlayerHealthID === true) {
+    if (rooms.players[memberPartyId].heroPower.currentHealthPoints >= rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === true) {
       clearInterval(intervalPlayerHealth);
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }
-  }, [hpPlayer, intervalPlayerHealthID]);
+  }, [rooms.players[memberPartyId].heroPower.currentMonsterHealtPoints, intervalPlayerHealthID]);
 
   useEffect(() => {
-    let changeBarHpPlayer = (hpPlayer / playerStats.healthPoints) * widthOfMainHealthPointsBar;
-    let changeBattleHealthBarPlayer = (hpPlayer / playerStats.healthPoints) * widthOfBattleContenerBars;
+    let changeBarHpPlayer = (rooms.players[memberPartyId].heroPower.currentHealthPoints / rooms.players[memberPartyId].heroPower.healthPoints) * widthOfMainHealthPointsBar;
+    let changeBattleHealthBarPlayer = (rooms.players[memberPartyId].heroPower.currentHealthPoints / rooms.players[memberPartyId].heroPower.healthPoints) * widthOfBattleContenerBars;
     if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
       changeBarHpPlayer = widthOfMainHealthPointsBar;
       changeBattleHealthBarPlayer = widthOfBattleContenerBars;
@@ -429,11 +401,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     setPlayerBattleHpBar(changeBattleHealthBarPlayer);
     setPlayerHpBar(changeBarHpPlayer);
     // eslint-disable-next-line
-  }, [hpPlayer]);
+  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints]);
 
   useEffect(() => {
-    let changeManaBarPlayer = (manaPlayer / playerStats.manaPoints) * widthOfMainHealthPointsBar;
-    let changeBattleManaBarPlayer = (manaPlayer / playerStats.manaPoints) * widthOfBattleContenerBars;
+    let changeManaBarPlayer = (rooms.players[memberPartyId].heroPower.currentManaPoints / rooms.players[memberPartyId].heroPower.manaPoints) * widthOfMainHealthPointsBar;
+    let changeBattleManaBarPlayer = (rooms.players[memberPartyId].heroPower.currentManaPoints / rooms.players[memberPartyId].heroPower.manaPoints) * widthOfBattleContenerBars;
 
     if (changeManaBarPlayer > widthOfMainHealthPointsBar) {
       changeManaBarPlayer = widthOfMainHealthPointsBar;
@@ -445,10 +417,10 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     setPlayerBattleMpBar(changeBattleManaBarPlayer);
     setPlayerManaBar(changeManaBarPlayer);
     // eslint-disable-next-line
-  }, [manaPlayer]);
+  }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
 
   useEffect(() => {
-    let changeBarHpMonster = (hpEnemy / enemyStats.monsterHealtPoints) * widthOfMainHealthPointsBar;
+    let changeBarHpMonster = (rooms.monster.currentMonsterHealtPoints / rooms.monster.monsterHealtPoints) * widthOfMainHealthPointsBar;
     if (changeBarHpMonster > widthOfMainHealthPointsBar) {
       changeBarHpMonster = widthOfMainHealthPointsBar;
     } else if (changeBarHpMonster <= 0) {
@@ -457,20 +429,19 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
     setMonsterHpBar(changeBarHpMonster);
     // eslint-disable-next-line
-  }, [hpEnemy]);
+  }, [rooms.monster.currentMonsterHealtPoints]);
 
   useEffect(() => {
     attackEnemy(2500, 1);
-    attackPlayer();
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    if (manaPlayer >= playerStats.manaPoints) {
+    if (rooms.players[memberPartyId].heroPower.currentManaPoints >= rooms.players[memberPartyId].heroPower.manaPoints) {
       clearInterval(intervalPlayerMana);
     }
     // eslint-disable-next-line
-  }, [manaPlayer]);
+  }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
 
   useEffect(() => {
     socket.on("downloadBatte", (rooms) => {
@@ -479,7 +450,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   });
   useEffect(() => {
-    if (hpPlayer <= 0 && hpEnemy > 0) {
+    if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && rooms.monster.currentMonsterHealtPoints > 0) {
       clearInterval(intervalPlayerDamage);
       clearInterval(intervalEnemyDamage);
       clearInterval(intervalPlayerHealth);
@@ -487,7 +458,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       sleep(2000).then(() => {
         setLosePopup(true);
       });
-    } else if (hpEnemy <= 0 && hpPlayer > 0) {
+    } else if (rooms.monster.currentMonsterHealtPoints <= 0 && rooms.players[memberPartyId].heroPower.currentHealthPoints > 0) {
       clearInterval(intervalEnemyDamage);
       clearInterval(intervalPlayerDamage);
       clearInterval(intervalPlayerHealth);
@@ -497,12 +468,12 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       });
     }
     // eslint-disable-next-line
-  }, [hpPlayer, hpEnemy]);
+  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, rooms.monster.currentMonsterHealtPoints]);
 
   return (
     <div className="multiContener">
       <div className="playersView">
-        <MainPlayer hpPlayer={hpPlayer} manaPlayer={manaPlayer} />
+        <MainPlayer hpPlayer={rooms.players[memberPartyId].heroPower.currentHealthPoints} manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints} />
         {rooms.players.length
           ? rooms.players.map((player) =>
               hero.owner !== player.owner ? (
@@ -529,7 +500,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
           </div>
           <div className="progress-div-monsterHealthPointsText">
             {" "}
-            {parseInt(hpEnemy)}/{parseInt(rooms.monster.monsterHealtPoints)}
+            {parseInt(rooms.monster.currentMonsterHealtPoints)}/{parseInt(rooms.monster.monsterHealtPoints)}
           </div>
         </div>
       </div>
@@ -540,7 +511,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
             <div className="progress-div-playerHealthPointsText">
               {" "}
-              {parseInt(hpPlayer)}/{parseInt(playerStats.healthPoints)}
+              {parseInt(rooms.players[memberPartyId].heroPower.currentHealthPoints)}/{parseInt(rooms.players[memberPartyId].heroPower.healthPoints)}
             </div>
           </div>
           <div className="manaPoints-div" style={{ width: `${widthOfBattleContenerBars}vw` }}>
@@ -548,7 +519,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
             <div className="progress-div-playerManaPointsText">
               {" "}
-              {parseInt(manaPlayer)}/{parseInt(playerStats.manaPoints)}
+              {parseInt(rooms.players[memberPartyId].heroPower.currentManaPoints)}/{parseInt(rooms.players[memberPartyId].heroPower.manaPoints)}
             </div>
           </div>
         </div>
@@ -584,7 +555,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
                 <p className={"worftool"}>
                   Wartość ataków:{" "}
                   <span className={"pworftool"}>
-                    {Math.floor(playerGame.minAttack / 2)}-{Math.floor(playerGame.maxAttack / 2)}
+                    {Math.floor(rooms.players[memberPartyId].heroPower.minAttack / 2)}-{Math.floor(rooms.players[memberPartyId].heroPower.maxAttack / 2)}
                   </span>
                 </p>
               </div>
@@ -619,7 +590,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
                 <p className={"worftool"}>
                   Wartość ataków:{" "}
                   <span className={"pworftool"}>
-                    {Math.floor(playerGame.minAttack)}-{Math.floor(playerGame.maxAttack)}
+                    {Math.floor(rooms.players[memberPartyId].heroPower.minAttack)}-{Math.floor(rooms.players[memberPartyId].heroPower.maxAttack)}
                   </span>
                 </p>
               </div>
@@ -654,7 +625,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
                 <p className={"worftool"}>
                   Wartość ataków:{" "}
                   <span className={"pworftool"}>
-                    {Math.floor(playerGame.minAttack * 1.5)}-{Math.floor(playerGame.maxAttack * 1.5)}
+                    {Math.floor(rooms.players[memberPartyId].heroPower.minAttack * 1.5)}-{Math.floor(rooms.players[memberPartyId].heroPower.maxAttack * 1.5)}
                   </span>
                 </p>
               </div>
@@ -669,7 +640,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               skillNumber={"skill1"}
               skill={skillsToBattle.firstSkill}
               setManaPlayer={setManaPlayer}
-              manaPlayer={manaPlayer}
+              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
               intervalEnemyDamage={intervalEnemyDamage}
               intervalPlayerDamage={intervalPlayerDamage}
               setHpEnemy={setHpEnemy}
@@ -694,7 +665,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               skillNumber={"skill2"}
               skill={skillsToBattle.secondSkill}
               setManaPlayer={setManaPlayer}
-              manaPlayer={manaPlayer}
+              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
               setHpEnemy={setHpEnemy}
               hpEnemy={hpEnemy}
               hpPlayer={hpPlayer}
@@ -719,10 +690,10 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               skillNumber={"skill3"}
               skill={skillsToBattle.thirdSkill}
               setManaPlayer={setManaPlayer}
-              manaPlayer={manaPlayer}
+              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
               setHpEnemy={setHpEnemy}
               hpEnemy={hpEnemy}
-              hpPlayer={hpPlayer}
+              hpPlayer={rooms.players[memberPartyId].heroPower.currentHealthPoints}
               setHpPlayer={setHpPlayer}
               functionNormalPlayerHeal={functionNormalPlayerHeal}
               intervalEnemyDamage={intervalEnemyDamage}
