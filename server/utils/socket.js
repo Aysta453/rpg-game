@@ -80,8 +80,7 @@ io.on("connection", function (socket) {
         }
       } while (data.players[1].heroPower.currentHealthPoints === 0 && data.players[0].heroPower.currentHealthPoints === 0);
     }
-
-    io.in(roomName).emit("downloadBatte", data);
+    io.broadcast.to(roomName).emit("downloadBatte", data);
   });
 
   console.log(`A user connected ${socket.id}`);
