@@ -50,33 +50,35 @@ io.on("connection", function (socket) {
     if (nick === roomName) {
       let randomNember;
       do {
-        randomNember = Math.floor(Math.random() * 5);
-      } while (data.players[randomNember].heroPower.currentHealthPoints === 0);
+        do {
+          randomNember = Math.floor(Math.random() * 2);
+        } while (data.players[randomNember].heroPower.currentHealthPoints === 0);
 
-      let hit = Math.random() * 100 + 1;
-      if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
-      } else {
-        if (hit <= data.players[randomNember].heroPower.chanceOnBlock) {
-          let damage =
-            Math.floor(
-              Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
-            ) * 0.25;
-          data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
-          console.log(randomNember, damage);
+        let hit = Math.random() * 100 + 1;
+        if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
         } else {
-          let damage =
-            Math.floor(
-              Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
-            ) * 0.25;
-          data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
-          console.log(randomNember, damage);
-          if (damage > 0) {
+          if (hit <= data.players[randomNember].heroPower.chanceOnBlock) {
+            let damage =
+              Math.floor(
+                Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
+              ) * 0.25;
             data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+            console.log(randomNember, damage);
           } else {
-            data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - 0;
+            let damage =
+              Math.floor(
+                Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
+              ) * 0.25;
+            data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+            console.log(randomNember, damage);
+            if (damage > 0) {
+              data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+            } else {
+              data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - 0;
+            }
           }
         }
-      }
+      } while (data.players[1].heroPower.currentHealthPoints === 0 && data.players[0].heroPower.currentHealthPoints === 0);
     }
 
     io.in(roomName).emit("downloadBatte", data);

@@ -27,7 +27,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
       isRoomOwner = false;
     }
 
-    if (players.length === 5) {
+    if (players.length === 2) {
       isEnoughPlayers = true;
     } else {
       isEnoughPlayers = false;

@@ -26,7 +26,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
   let assaignToJoin = false;
   let infoTextError;
   //  infoTextError = 'Brak dostępnych miejsc.';
-  if (hero.level >= room.monster.monsterLevel - 2 && hero.level <= room.monster.monsterLevel + 2 && room.players.length < 5) {
+  if (hero.level >= room.monster.monsterLevel - 2 && hero.level <= room.monster.monsterLevel + 2 && room.players.length < 2) {
     assaignToJoin = true;
   }
   if (hero.level <= room.monster.monsterLevel - 2) {
@@ -35,7 +35,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
   if (hero.level >= room.monster.monsterLevel + 2) {
     infoTextError = "Za wysoki poziom postaci. Max :" + room.monster.monsterLevel + 2 + ".";
   }
-  if (room.players.length === 5) {
+  if (room.players.length === 2) {
     infoTextError = "Brak wolnych miejsc w grupie.";
   }
   let styleColorText;
@@ -91,7 +91,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
         </button>
       </div>
       <GroupViewPopup room={room} valueOfPopup={popupValue} showPopup={showPopup} />
-      <div className="groupSize">{room.players.length}/5</div>
+      <div className="groupSize">{room.players.length}/2</div>
       <div className="actionJoinButton">
         {assaignToJoin ? (
           <button
