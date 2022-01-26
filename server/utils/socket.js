@@ -74,6 +74,7 @@ io.on("connection", function (socket) {
         }
       }
     }
+    console.log(randomNember, damage);
     io.in(roomName).emit("downloadBatte", data);
   });
 
