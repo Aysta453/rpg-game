@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import io from "socket.io-client";
 import CharacterView from "./characterView/CharacterView";
 import SkillsView from "./skillsView/SkillsView";
@@ -24,6 +24,7 @@ const socket = io("https://aysta-game-server.herokuapp.com/", {
 });
 socket.on();
 const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons }) => {
+  const [memberPartyId, setMemberPartyId] = useState(0);
   return (
     <div className="rightPanel">
       {windowOfElements === 1 && <CharacterView user={user} socket={socket} />}
@@ -34,9 +35,9 @@ const RightPanel = ({ windowOfElements, user, setWindowOfElements, setButtons })
       {windowOfElements === 7 && <SinglePlayerGameView setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
       {windowOfElements === 6 && <> tu bedzie logout </>}
       {windowOfElements === 10 && <SingleGame setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
-      {windowOfElements === 90 && <MultiPlayerView setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />}
+      {windowOfElements === 90 && <MultiPlayerView setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} memberPartyId={memberPartyId} />}
       {windowOfElements === 110 && <GroupsView socket={socket} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
-      {windowOfElements === 200 && <Lobby socket={socket} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />}
+      {windowOfElements === 200 && <Lobby socket={socket} setButtons={setButtons} setWindowOfElements={setWindowOfElements} memberPartyId={memberPartyId} setMemberPartyId={setMemberPartyId} />}
     </div>
   );
 };

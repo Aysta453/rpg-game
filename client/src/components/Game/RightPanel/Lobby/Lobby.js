@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Lobby.css";
 import LobbyDungeonInfo from "./LobbyDungeonInfo";
 import PlayerInfo from "./PlayerInfo";
-import { deleteroom, showroom, showroombyname, showrooms, leaveroom } from "../../../../actions/rooms.js";
+import { deleteroom, showroom, leaveroom } from "../../../../actions/rooms.js";
 import LobbyInfoPopup from "./LobbyInfoPopup";
-const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
+const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemberPartyId }) => {
   const rooms = useSelector((state) => state.rooms);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
@@ -34,6 +34,19 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
     }
   }
 
+  for (let index = 0; index < rooms.players.length; index++) {
+    if (hero.owner === rooms.players[index].owner) {
+      setMemberPartyId(index);
+    }
+  }
+  const setMemberId = () => {
+    for (let index = 0; index < rooms.players.length; index++) {
+      if (hero.owner === rooms.players[index].owner) {
+        setMemberPartyId(index);
+      }
+    }
+  };
+  console.log(memberPartyId);
   const showPopup = () => {
     setPopupValueset(!popupValue);
   };
@@ -50,6 +63,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket }) => {
   const refreshRoom = (idOfRoom) => {
     console.log("refreshed");
     dispatch(showroom({ id: idOfRoom }));
+    setMemberId();
   };
   const destroyingRoom = () => {
     dispatch(deleteroom({ id: rooms._id }));

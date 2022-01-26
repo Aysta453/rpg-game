@@ -6,7 +6,7 @@ import Player from "./Player";
 import SkillHandlingMulti from "./SkillHandlingMulti";
 import { sendupdateroomingame, downloadupdateroomingame } from "../../../../actions/rooms.js";
 
-const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
+const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyId }) => {
   //const game = useSelector((state) => state.game);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
@@ -165,13 +165,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
     default:
       break;
   }
-  const [playerStats, setPlayerStats] = useState(0);
-
-  for (let index = 0; index < rooms.players.length; index++) {
-    if (hero.owner === rooms.players[index].owner) {
-      setPlayerStats(rooms.players[index].heroPower);
-    }
-  }
+  const [playerStats, setPlayerStats] = useState(rooms.players[memberPartyId].heroPower);
 
   //players main Stats
 
@@ -275,13 +269,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
     setIntervalPlayerMana(
       setInterval(() => {
         setManaPlayer((manaPlayer) => manaPlayer + playerStats.regMp);
-        for (let index = 0; index < rooms.players.length; index++) {
-          if (hero.owner === rooms.players[index].owner) {
-            rooms.players[index].heroPower.currentManaPoints = rooms.players[index].heroPower.currentManaPoints + rooms.players[index].heroPower.regMp;
-            dispatch(sendupdateroomingame(rooms));
-            socket.emit("updateBattle", rooms, rooms.roomName);
-          }
-        }
+
+        rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentManaPoints =
+          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentManaPoints + rooms.players[rooms.players[memberPartyId].heroPower].heroPower.regMp;
+        dispatch(sendupdateroomingame(rooms));
+        socket.emit("updateBattle", rooms, rooms.roomName);
       }, 1 * 1000)
     );
   };
@@ -290,13 +282,10 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
     setIntervalPlayerHealth(
       setInterval(() => {
         setHpPlayer((hpPlayer) => hpPlayer + playerStats.regHp);
-        for (let index = 0; index < rooms.players.length; index++) {
-          if (hero.owner === rooms.players[index].owner) {
-            rooms.players[index].heroPower.currentHealthPoints = rooms.players[index].heroPower.currentHealthPoints + rooms.players[index].heroPower.regHp;
-            dispatch(sendupdateroomingame(rooms));
-            socket.emit("updateBattle", rooms, rooms.roomName);
-          }
-        }
+        rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints =
+          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints + rooms.players[rooms.players[memberPartyId].heroPower].heroPower.regHp;
+        dispatch(sendupdateroomingame(rooms));
+        socket.emit("updateBattle", rooms, rooms.roomName);
       }, 1 * 1000)
     );
   };
@@ -319,13 +308,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket }) => {
       sleep(delay).then(() => {
         if (hpPlayer >= 0) {
           setHpPlayer((hpPlayer) => hpPlayer + valueOfHotValue);
-          for (let index = 0; index < rooms.players.length; index++) {
-            if (hero.owner === rooms.players[index].owner) {
-              rooms.players[index].heroPower.currentHealthPoints = rooms.players[index].heroPower.currentHealthPoints + valueOfHotValue;
-              dispatch(sendupdateroomingame(rooms));
-              socket.emit("updateBattle", rooms, rooms.roomName);
-            }
-          }
+
+          rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints = rooms.players[rooms.players[memberPartyId].heroPower].heroPower.currentHealthPoints + valueOfHotValue;
+          dispatch(sendupdateroomingame(rooms));
+          socket.emit("updateBattle", rooms, rooms.roomName);
+
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
         }
