@@ -64,6 +64,9 @@ const dungeonsSchema = mongoose.Schema({
       monsterName: {
         type: String,
       },
+      currentMonsterHealtPoints: {
+        type: Number,
+      },
       monsterHealtPoints: {
         type: Number,
       },
@@ -103,6 +106,9 @@ const dungeonsSchema = mongoose.Schema({
     monster: {
       monsterName: {
         type: String,
+      },
+      currentMonsterHealtPoints: {
+        type: Number,
       },
       monsterHealtPoints: {
         type: Number,
