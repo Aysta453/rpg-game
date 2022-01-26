@@ -33,16 +33,19 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
       isEnoughPlayers = false;
     }
   }
-
-  for (let index = 0; index < rooms.players.length; index++) {
-    if (hero.owner === rooms.players[index].owner) {
-      setMemberPartyId(index);
-    }
-  }
-  const setMemberId = () => {
+  if (rooms !== null || rooms !== undefined) {
     for (let index = 0; index < rooms.players.length; index++) {
       if (hero.owner === rooms.players[index].owner) {
         setMemberPartyId(index);
+      }
+    }
+  }
+  const setMemberId = () => {
+    if (rooms !== null || rooms !== undefined) {
+      for (let index = 0; index < rooms.players.length; index++) {
+        if (hero.owner === rooms.players[index].owner) {
+          setMemberPartyId(index);
+        }
       }
     }
   };
