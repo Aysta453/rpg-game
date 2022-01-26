@@ -280,7 +280,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
         rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + rooms.players[memberPartyId].heroPower.regHp;
         dispatch(sendupdateroomingame(rooms));
         socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
-      }, 1 * 1000)
+      }, 1 * 3000)
     );
   };
   const damageOverTime = (delay, numberOfAttack, valueOfDotValue) => {
