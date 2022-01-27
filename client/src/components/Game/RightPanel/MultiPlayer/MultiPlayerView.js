@@ -283,11 +283,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const damageOverTime = (delay, numberOfAttack, valueOfDotValue) => {
     if (numberOfAttack > 0) {
       sleep(delay).then(() => {
-        if (hpEnemy >= 0) {
-          setHpEnemy((hpEnemy) => hpEnemy - valueOfDotValue);
-          rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - valueOfDotValue;
-          dispatch(sendupdateroomingame(rooms));
-          //socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
+        if (rooms.monster.currentMonsterHealtPoints >= 0) {
+          socket.on("dechp", Math.floor(valueOfDotValue), rooms.roomName);
           functionSkillDamageEnemyAttack(Math.floor(valueOfDotValue));
           damageOverTime(delay, numberOfAttack - 1, valueOfDotValue);
         }
@@ -378,9 +375,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
-    socket.on("incHpPlayer", (randomNember, hp) => {
-      console.log(randomNember, hp);
-      rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + hp;
+    socket.on("decMpPlayer", (randomNember, mp) => {
+      rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints - mp;
     });
   }, []);
   useEffect(() => {
@@ -392,7 +388,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   useEffect(() => {
     console.log(rooms.players[memberPartyId].heroPower.currentHealthPoints);
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
-      console.log("bla");
       healthRegen();
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }
@@ -643,7 +638,77 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               </div>
             </div>
           </div>
-          <div className="skills"></div>
+          <div className="skills">
+            <SkillHandlingMulti
+              numberOfSkill={1}
+              handlingSkillButtons={handlingSkillButtons}
+              buttonValue={firstButton}
+              setButtonValue={setFirstButton}
+              skillNumber={"skill1"}
+              skill={skillsToBattle.firstSkill}
+              intervalEnemyDamage={intervalEnemyDamage}
+              intervalPlayerDamage={intervalPlayerDamage}
+              setHpEnemy={setHpEnemy}
+              hpEnemy={hpEnemy}
+              functionNormalPlayerHeal={functionNormalPlayerHeal}
+              sleep={sleep}
+              damageOverTime={damageOverTime}
+              playerStats={playerStats}
+              healOverTime={healOverTime}
+              setPlayerStats={setPlayerStats}
+              manaRegen={manaRegen}
+              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
+              functionSkillBonusText={functionSkillBonusText}
+              memberPartyId={memberPartyId}
+              socket={socket}
+            />
+            <SkillHandlingMulti
+              numberOfSkill={2}
+              handlingSkillButtons={handlingSkillButtons}
+              buttonValue={secondButton}
+              setButtonValue={setSecondButton}
+              skillNumber={"skill2"}
+              skill={skillsToBattle.secondSkill}
+              setHpEnemy={setHpEnemy}
+              hpEnemy={hpEnemy}
+              functionNormalPlayerHeal={functionNormalPlayerHeal}
+              intervalEnemyDamage={intervalEnemyDamage}
+              intervalPlayerDamage={intervalPlayerDamage}
+              sleep={sleep}
+              damageOverTime={damageOverTime}
+              playerStats={playerStats}
+              healOverTime={healOverTime}
+              setPlayerStats={setPlayerStats}
+              manaRegen={manaRegen}
+              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
+              functionSkillBonusText={functionSkillBonusText}
+              memberPartyId={memberPartyId}
+              socket={socket}
+            />
+            <SkillHandlingMulti
+              numberOfSkill={3}
+              handlingSkillButtons={handlingSkillButtons}
+              buttonValue={thirdButton}
+              setButtonValue={setThirdButton}
+              skillNumber={"skill3"}
+              skill={skillsToBattle.thirdSkill}
+              setHpEnemy={setHpEnemy}
+              hpEnemy={hpEnemy}
+              functionNormalPlayerHeal={functionNormalPlayerHeal}
+              intervalEnemyDamage={intervalEnemyDamage}
+              intervalPlayerDamage={intervalPlayerDamage}
+              sleep={sleep}
+              damageOverTime={damageOverTime}
+              playerStats={playerStats}
+              healOverTime={healOverTime}
+              setPlayerStats={setPlayerStats}
+              manaRegen={manaRegen}
+              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
+              functionSkillBonusText={functionSkillBonusText}
+              memberPartyId={memberPartyId}
+              socket={socket}
+            />
+          </div>
         </div>
       </div>
     </div>

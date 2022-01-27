@@ -27,12 +27,15 @@ const SkillHandlingMulti = ({
   damageOverTime,
   playerStats,
   setPlayerStats,
+  memberPartyId,
+  socket,
 }) => {
   const hero = useSelector((state) => state.hero);
   const casting = "rgba(199,162,4,0.9)";
   const duration = "rgba(199,4,4,0.9)";
   const cooldown = "rgba(85,85,85,0.9)";
   const [testValue, setTestValue] = useState(false);
+  const rooms = useSelector((state) => state.rooms);
   let width = 120;
 
   const [color, setColor] = useState(casting);
@@ -145,17 +148,17 @@ const SkillHandlingMulti = ({
 
   let skillImage = showingActiveImageSkill(hero.heroClass, skill.numberOfSkill);
 
-  if (manaPlayer < skill.pointsOfMana) {
+  if (rooms.players[memberPartyId].heroPower.currentManaPoints < skill.pointsOfMana) {
     enoughMana = false;
   } else {
     enoughMana = true;
   }
 
   const activatingSkill = async () => {
-    setManaPlayer((manaPlayer) => manaPlayer - skill.pointsOfMana);
-    if (manaPlayer === playerStats.manaPoints) {
-      manaRegen();
-    }
+    socket.emit("decreaseMana", rooms.roomName, memberPartyId, skill.pointsOfMana);
+    // if (manaPlayer === playerStats.manaPoints) {
+    //   manaRegen();
+    // }
     clearInterval(timeSkillBar);
     showingDiv();
 
@@ -164,13 +167,17 @@ const SkillHandlingMulti = ({
       case 0:
         handlingSkillButtons(numberOfSkill, skill.castTime);
         let damage = Math.floor(
-          Math.random() * (playerStats.maxAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill - playerStats.minAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill) +
+          Math.random() *
+            (rooms.players[memberPartyId].heroPower.maxAttack +
+              rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill -
+              rooms.players[memberPartyId].heroPower.minAttack +
+              rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill) +
             1 +
-            playerStats.minAttack +
-            playerStats.bonusToSpecialAttack * skill.valueOfSkill
+            rooms.players[memberPartyId].heroPower.minAttack +
+            rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill
         );
         setTimeout(() => {
-          setHpEnemy((hpEnemy) => hpEnemy - damage);
+          socket.on("dechp", damage, rooms.roomName);
           functionSkillDamageEnemyAttack(damage);
         }, 1 * skill.castTime);
 

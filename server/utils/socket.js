@@ -82,12 +82,12 @@ io.on("connection", function (socket) {
   });
 
   socket.on("increaseMana", (roomName, randomNember, mp) => {
-    console.log("Regp Mp to " + randomNember + "off value " + mp);
     io.in(roomName).emit("incMpPlayer", randomNember, mp);
   });
+  socket.on("decreaseMana", (roomName, randomNember, mp) => {
+    io.in(roomName).emit("decMpPlayer", randomNember, mp);
+  });
   socket.on("increaseHealth", (roomName, randomNember, hp) => {
-    console.log("bla");
-    console.log("Regp Hp to " + randomNember + "off value " + hp);
     io.in(roomName).emit("incHpPlayer", randomNember, hp);
   });
 
