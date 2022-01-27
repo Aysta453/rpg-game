@@ -383,11 +383,18 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   useEffect(() => {
     socket.on("incHpPlayer", (randomNember, hp) => {
       rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + hp;
+
+      if (randomNember === memberPartyId) {
+        setHpPlayer((hpPlayer) => hpPlayer + hp);
+      }
     });
   }, []);
   useEffect(() => {
     socket.on("incMpPlayer", (randomNember, mp) => {
       rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints + mp;
+      if (randomNember === memberPartyId) {
+        setManaPlayer((manaPlayer) => manaPlayer + mp);
+      }
     });
   }, []);
 

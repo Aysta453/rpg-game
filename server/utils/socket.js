@@ -75,7 +75,6 @@ io.on("connection", function (socket) {
         }
       }
     }
-    console.log(randomNember, damage);
     io.in(roomName).emit("dechpPlayer", randomNember, damage);
   });
   socket.on("dechp", (damage, roomName) => {
@@ -83,10 +82,12 @@ io.on("connection", function (socket) {
   });
 
   socket.on("increaseMana", (roomName, randomNember, mp) => {
-    io.in(roomName).emit("incMpPlayer", randomNember, damage);
+    console.log("Regp Mp to " + randomNember + "off value " + mp);
+    io.in(roomName).emit("incMpPlayer", randomNember, mp);
   });
-  socket.on("increaseHealth", (roomName, randomNember, mp) => {
-    io.in(roomName).emit("incHpPlayer", randomNember, mp);
+  socket.on("increaseHealth", (roomName, randomNember, hp) => {
+    console.log("Regp Hp to " + randomNember + "off value " + hp);
+    io.in(roomName).emit("incHpPlayer", randomNember, hp);
   });
 
   console.log(`A user connected ${socket.id}`);
