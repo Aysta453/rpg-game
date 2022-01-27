@@ -375,7 +375,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     socket.on("decreasehpenemy", (mess) => {
       setHpEnemy((hpEnemy) => hpEnemy - mess);
     });
-  }, []);
+  });
 
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
@@ -443,13 +443,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     }
     // eslint-disable-next-line
   }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
-
-  useEffect(() => {
-    socket.on("downloadBatte", (rooms) => {
-      console.log(rooms);
-      dispatch(downloadupdateroomingame(rooms));
-    });
-  });
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && rooms.monster.currentMonsterHealtPoints > 0) {
       clearInterval(intervalPlayerDamage);

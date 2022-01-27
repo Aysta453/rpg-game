@@ -85,6 +85,7 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("downloadBatte", data);
   });
   socket.on("dechp", (damage, roomName) => {
+    console.log(damage);
     io.in(roomName).emit("decreasehpenemy", damage);
   });
 
