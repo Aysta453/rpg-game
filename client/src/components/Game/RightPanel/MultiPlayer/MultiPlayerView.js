@@ -561,7 +561,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
 
   useEffect(() => {
-    if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && rooms.monster.currentMonsterHealtPoints > 0) {
+    if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && hpEnemy > 0) {
       clearInterval(intervalEnemyDamage);
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
@@ -571,12 +571,14 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       sleep(2000).then(() => {
         setLosePopup(true);
       });
-    } else if (rooms.monster.currentMonsterHealtPoints <= 0 && rooms.players[memberPartyId].heroPower.currentHealthPoints > 0) {
+    } else if (hpEnemy <= 0 && rooms.players[memberPartyId].heroPower.currentHealthPoints > 0) {
       clearInterval(intervalEnemyDamage);
 
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
+      console.log(hero.owner, rooms.owner);
       if (hero.owner === rooms.owner) {
+        console.log("test");
         clearInterval(intervalPlayerDamage);
       }
       sleep(2000).then(() => {
@@ -584,12 +586,17 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       });
     }
     // eslint-disable-next-line
-  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, rooms.monster.currentMonsterHealtPoints]);
+  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, hpEnemy]);
 
   return (
     <div className="multiContener">
       <div className="playersView">
-        <MainPlayer hpPlayer={rooms.players[memberPartyId].heroPower.currentHealthPoints} manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints} />
+        <MainPlayer
+          currentHp={rooms.players[memberPartyId].heroPower.currentHealthPoints}
+          hp={rooms.players[memberPartyId].heroPower.healthPoints}
+          currentMp={rooms.players[memberPartyId].heroPower.currentManaPoints}
+          mp={rooms.players[memberPartyId].heroPower.manaPoints}
+        />
         {rooms.players.length
           ? rooms.players.map((player) =>
               hero.owner !== player.owner ? (

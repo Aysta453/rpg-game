@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-const MainPlayer = ({ hpPlayer, manaPlayer }) => {
-  const [hp, setHp] = useState(hpPlayer);
-  const [mp, setMp] = useState(manaPlayer);
+const MainPlayer = ({ currentHp, hp, currentMp, mp }) => {
+  const [hpBar, setHp] = useState(currentHp);
+  const [mpBar, setMp] = useState(currentMp);
   const hero = useSelector((state) => state.hero);
-  const playerGame = useSelector((state) => state.playerGame);
+
   let playerImage;
   let widthOfMainHealthPointsBar = 13;
   let widthOfMainManaPointsBar = 11.5;
@@ -28,7 +28,7 @@ const MainPlayer = ({ hpPlayer, manaPlayer }) => {
       break;
   }
   useEffect(() => {
-    let changeBarHpPlayer = (hpPlayer / playerGame.healthPoints) * widthOfMainHealthPointsBar;
+    let changeBarHpPlayer = (currentHp / hp) * widthOfMainHealthPointsBar;
     if (changeBarHpPlayer > widthOfMainHealthPointsBar) {
       changeBarHpPlayer = widthOfMainHealthPointsBar;
     } else if (changeBarHpPlayer <= 0) {
@@ -36,9 +36,9 @@ const MainPlayer = ({ hpPlayer, manaPlayer }) => {
     }
     setHp(changeBarHpPlayer);
     // eslint-disable-next-line
-  }, [hpPlayer]);
+  }, [currentHp]);
   useEffect(() => {
-    let changeBarMpPlayer = (manaPlayer / playerGame.manaPoints) * widthOfMainManaPointsBar;
+    let changeBarMpPlayer = (currentMp / mp) * widthOfMainManaPointsBar;
     if (changeBarMpPlayer > widthOfMainManaPointsBar) {
       changeBarMpPlayer = widthOfMainManaPointsBar;
     } else if (changeBarMpPlayer <= 0) {
@@ -46,7 +46,7 @@ const MainPlayer = ({ hpPlayer, manaPlayer }) => {
     }
     setMp(changeBarMpPlayer);
     // eslint-disable-next-line
-  }, [manaPlayer]);
+  }, [currentMp]);
   return (
     <div className="mainPlayer">
       <div className="avatarBox">
@@ -58,12 +58,12 @@ const MainPlayer = ({ hpPlayer, manaPlayer }) => {
       <div className="nick">{hero.nick}</div>
       <div className="healtPoints">
         <div className="healtPoints-div" style={{ width: `${widthOfMainHealthPointsBar}vw` }}>
-          <div style={{ width: `${hp}vw` }} className="progressPlayerHealthPoints" />
+          <div style={{ width: `${hpBar}vw` }} className="progressPlayerHealthPoints" />
         </div>
       </div>
       <div className="manaPoints">
         <div className="manaPoints-div" style={{ width: `${widthOfMainManaPointsBar}vw` }}>
-          <div style={{ width: `${mp}vw` }} className="progressPlayerManaPoints" />
+          <div style={{ width: `${mpBar}vw` }} className="progressPlayerManaPoints" />
         </div>
       </div>
     </div>

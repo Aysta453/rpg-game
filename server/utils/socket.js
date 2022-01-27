@@ -48,13 +48,13 @@ io.on("connection", function (socket) {
   socket.on("decreaseHpPlayer", (data, roomName, nick) => {
     let randomNember = 0;
     let damage = 0;
+    console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
     if (nick === roomName) {
       do {
         randomNember = Math.floor(Math.random() * 2);
       } while (data.players[randomNember].heroPower.currentHealthPoints === 0);
 
       let hit = Math.random() * 100 + 1;
-      console.log(randomNember, data.players[randomNember].heroPower.chanceOnDodge);
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
       } else {
         if (hit <= data.players[randomNember].heroPower.chanceOnBlock) {
