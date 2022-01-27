@@ -390,15 +390,24 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
+    console.log("before");
+    console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
     socket.on("changedStats", (randomNember, typeOfBuff, value) => {
       if (typeOfBuff === 1) {
-        console.log("bla");
-        rooms.players[randomNember].heroPower.chanceOnDodge = value;
+        rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge + value;
+        console.log("after +");
+        console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
+      }
+      if (typeOfBuff === 2) {
+        rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge - value;
+        console.log("after -");
+        console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
       }
     });
   }, []);
+  console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
   useEffect(() => {
-    socket.on("changeStatsHp", (randomNember, typeOfBuff, value) => {
+    socket.on("changedStatsHp", (randomNember, typeOfBuff, value) => {
       if (typeOfBuff === 1) {
         console.log("bla");
         rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + value;
@@ -412,7 +421,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
 
-  console.log(rooms);
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
       console.log(rooms.players[memberPartyId].heroPower.currentHealthPoints);

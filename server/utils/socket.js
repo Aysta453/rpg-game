@@ -54,6 +54,7 @@ io.on("connection", function (socket) {
       } while (data.players[randomNember].heroPower.currentHealthPoints === 0);
 
       let hit = Math.random() * 100 + 1;
+      console.log(randomNember, data.players[randomNember].heroPower.chanceOnDodge);
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
       } else {
         if (hit <= data.players[randomNember].heroPower.chanceOnBlock) {

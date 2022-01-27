@@ -195,15 +195,13 @@ const SkillHandlingMulti = ({
       case 1:
         switch (skill.targetOfSkill) {
           case "dodge":
-            let dodgeStatic = rooms.players[memberPartyId].heroPower.chanceOnDodge;
-            let increaseDodgeTemporary = dodgeStatic + skill.valueOfSkill;
             handlingSkillButtons(numberOfSkill, skill.castTime);
             sleep(skill.castTime).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% unik");
-              socket.emit("changeStats", rooms.roomName, memberPartyId, 1, increaseDodgeTemporary);
+              socket.emit("changeStats", rooms.roomName, memberPartyId, 1, skill.valueOfSkill);
               sleep(skill.durationTime).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% unik");
-                socket.emit("changeStats", rooms.roomName, memberPartyId, 1, dodgeStatic);
+                socket.emit("changeStats", rooms.roomName, memberPartyId, 2, skill.valueOfSkill);
 
                 sleep(skill.recastTime).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
