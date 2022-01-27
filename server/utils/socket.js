@@ -47,8 +47,8 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("gameStarted");
   });
   socket.on("decreaseHpPlayer", (data, roomName, nick) => {
-    let randomNember;
-    let damage;
+    let randomNember = 0;
+    let damage = 0;
     if (nick === roomName) {
       do {
         randomNember = Math.floor(Math.random() * 2);
@@ -63,13 +63,12 @@ io.on("connection", function (socket) {
               Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
             ) * 0.25;
         } else {
-          damage =
-            Math.floor(
-              Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
-            ) * 0.25;
+          damage = Math.floor(
+            Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
+          );
 
           if (damage > 0) {
-            data.players[randomNember].heroPower.currentHealthPoints = data.players[randomNember].heroPower.currentHealthPoints - damage;
+            damage = damage;
           } else {
             damage = 0;
           }

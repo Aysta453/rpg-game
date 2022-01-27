@@ -309,10 +309,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       });
     }
   };
-  const attackEnemy = () => {
+
+  const attackPlayer = () => {
     setIntervalPlayerDamage(
       setInterval(() => {
-        socket.on("decreaseHpPlayer", rooms, rooms.roomName, hero.nick);
+        socket.emit("decreaseHpPlayer", rooms, rooms.roomName, hero.nick);
       }, 2500)
     );
   };
@@ -383,8 +384,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
-    io.in(roomName).emit("dechpPlayer", randomNember, damage);
     socket.on("dechpPlayer", (randomNember, damage) => {
+      console.log("player " + randomNember + " get " + damage);
       rooms.player[randomNember].heroPower.currentHealthPoints = rooms.player[randomNember].heroPower.currentHealthPoints - damage;
     });
   }, []);
@@ -446,6 +447,9 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
   useEffect(() => {
     attackEnemy(2500, 1);
+    if (hero.owner === rooms.owner) {
+      attackPlayer();
+    }
     // eslint-disable-next-line
   }, []);
 
