@@ -50,10 +50,14 @@ io.on("connection", function (socket) {
     let damage = 0;
     console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
     if (nick === roomName) {
-      do {
+      if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0) {
         randomNember = Math.floor(Math.random() * 2);
-      } while (data.players[randomNember].heroPower.currentHealthPoints > 0);
-
+      } else if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints <= 0) {
+        randomNember = 0;
+      } else {
+        randomNember = 1;
+      }
+      console.log(randomNember);
       let hit = Math.random() * 100 + 1;
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
       } else {
