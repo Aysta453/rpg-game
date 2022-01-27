@@ -380,14 +380,27 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
+    socket.on("incHpPlayer", (randomNember, hp) => {
+      rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + hp;
+    });
+  }, []);
+  useEffect(() => {
     socket.on("incMpPlayer", (randomNember, mp) => {
       rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints + mp;
     });
   }, []);
-
   useEffect(() => {
-    console.log(rooms.players[memberPartyId].heroPower.currentHealthPoints);
+    socket.on("changedStats", (randomNember, typeOfBuff, value) => {
+      if (typeOfBuff === 1) {
+        console.log("bla");
+        rooms.players[randomNember].heroPower.chanceOnDodge = value;
+      }
+    });
+  }, []);
+  console.log(rooms);
+  useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
+      console.log(rooms.players[memberPartyId].heroPower.currentHealthPoints);
       healthRegen();
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }

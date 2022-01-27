@@ -41,7 +41,6 @@ io.on("connection", function (socket) {
     socket.leave(roomName);
     io.in(roomName).emit("mess", idOfRoom);
   });
-
   //start game of multiplayer
   socket.on("startGame", (roomName) => {
     io.in(roomName).emit("gameStarted");
@@ -89,6 +88,9 @@ io.on("connection", function (socket) {
   });
   socket.on("increaseHealth", (roomName, randomNember, hp) => {
     io.in(roomName).emit("incHpPlayer", randomNember, hp);
+  });
+  socket.on("changeStats", (roomName, randomNember, typeOfBuff, value) => {
+    io.in(roomName).emit("changedStats", randomNember, typeOfBuff, value);
   });
 
   console.log(`A user connected ${socket.id}`);

@@ -156,9 +156,9 @@ const SkillHandlingMulti = ({
 
   const activatingSkill = async () => {
     socket.emit("decreaseMana", rooms.roomName, memberPartyId, skill.pointsOfMana);
-    // if (manaPlayer === playerStats.manaPoints) {
-    //   manaRegen();
-    // }
+    if (rooms.players[memberPartyId].heroPower.currentManaPoints === rooms.players[memberPartyId].heroPower.manaPoints) {
+      manaRegen();
+    }
     clearInterval(timeSkillBar);
     showingDiv();
 
@@ -195,17 +195,16 @@ const SkillHandlingMulti = ({
       case 1:
         switch (skill.targetOfSkill) {
           case "dodge":
-            let dodgeStatic = playerStats.chanceOnDodge;
+            let dodgeStatic = rooms.players[memberPartyId].heroPower.chanceOnDodge;
             let increaseDodgeTemporary = dodgeStatic + skill.valueOfSkill;
             handlingSkillButtons(numberOfSkill, skill.castTime);
             sleep(skill.castTime).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% unik");
-              playerStats.chanceOnDodge = increaseDodgeTemporary;
-              setPlayerStats((playerStats) => (playerStats = playerStats));
+              socket.emit("changeStats", rooms.roomName, memberPartyId, 1, increaseDodgeTemporary);
               sleep(skill.durationTime).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% unik");
-                playerStats.chanceOnDodge = dodgeStatic;
-                setPlayerStats((playerStats) => (playerStats = playerStats));
+                socket.emit("changeStats", rooms.roomName, memberPartyId, 1, increaseDodgeTemporary);
+
                 sleep(skill.recastTime).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
@@ -213,7 +212,7 @@ const SkillHandlingMulti = ({
             });
             break;
           case "block":
-            let blockStatic = playerStats.chanceOnBlock;
+            let blockStatic = rooms.players[memberPartyId].heroPower.chanceOnBlock;
             let increaseBlockTemporary = blockStatic + skill.valueOfSkill;
             playerStatsTemporary = playerStats;
             handlingSkillButtons(numberOfSkill, skill.castTime);
