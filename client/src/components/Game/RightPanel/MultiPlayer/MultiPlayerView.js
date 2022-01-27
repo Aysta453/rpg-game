@@ -397,6 +397,21 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       }
     });
   }, []);
+  useEffect(() => {
+    socket.on("changeStatsHp", (randomNember, typeOfBuff, value) => {
+      if (typeOfBuff === 1) {
+        console.log("bla");
+        rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + value;
+        rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints + value;
+      }
+      if (typeOfBuff === 2) {
+        console.log("bla");
+
+        rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints - value;
+      }
+    });
+  }, []);
+
   console.log(rooms);
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {

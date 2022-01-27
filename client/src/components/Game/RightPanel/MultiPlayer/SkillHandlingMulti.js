@@ -203,7 +203,7 @@ const SkillHandlingMulti = ({
               socket.emit("changeStats", rooms.roomName, memberPartyId, 1, increaseDodgeTemporary);
               sleep(skill.durationTime).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% unik");
-                socket.emit("changeStats", rooms.roomName, memberPartyId, 1, increaseDodgeTemporary);
+                socket.emit("changeStats", rooms.roomName, memberPartyId, 1, dodgeStatic);
 
                 sleep(skill.recastTime).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
@@ -292,15 +292,14 @@ const SkillHandlingMulti = ({
             });
             break;
           case "healthPoints":
-            let healthPointsStatic = playerStats.healthPoints;
+            let healthPointsStatic = rooms.players[memberPartyId].heroPower.healthPoints;
             let increaseHealthPointsTemporary = healthPointsStatic * skill.valueOfSkill;
             handlingSkillButtons(numberOfSkill, skill.castTime);
             sleep(skill.castTime).then(() => {
-              setPlayerStats((playerStats) => ({ ...playerStats, healthPoints: healthPointsStatic + increaseHealthPointsTemporary }));
-              setHpPlayer((hpPlayer) => hpPlayer + increaseHealthPointsTemporary);
+              socket.emit("changeStatsHp", rooms.roomName, memberPartyId, 1, increaseHealthPointsTemporary);
               functionSkillBonusText("+ " + Math.floor(increaseHealthPointsTemporary) + " hp");
               sleep(skill.durationTime).then(() => {
-                setPlayerStats((playerStats) => ({ ...playerStats, healthPoints: healthPointsStatic }));
+                socket.emit("changeStatsHp", rooms.roomName, memberPartyId, 2, increaseHealthPointsTemporary);
                 functionSkillBonusText("- " + Math.floor(increaseHealthPointsTemporary) + " hp");
                 sleep(skill.recastTime).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);

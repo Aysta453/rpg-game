@@ -92,6 +92,9 @@ io.on("connection", function (socket) {
   socket.on("changeStats", (roomName, randomNember, typeOfBuff, value) => {
     io.in(roomName).emit("changedStats", randomNember, typeOfBuff, value);
   });
+  socket.on("changeStatsHp", (roomName, randomNember, typeOfBuff, value) => {
+    io.in(roomName).emit("changedStatsHp", randomNember, typeOfBuff, value);
+  });
 
   console.log(`A user connected ${socket.id}`);
 });
