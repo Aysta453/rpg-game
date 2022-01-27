@@ -168,7 +168,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const [playerStats, setPlayerStats] = useState(rooms.players[memberPartyId].heroPower);
 
   //players main Stats
-  console.log(rooms);
   // eslint-disable-next-line
   const [enemyStats, setEnemyStats] = useState(rooms.monster);
 
@@ -310,7 +309,13 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       });
     }
   };
-
+  const attackEnemy = () => {
+    setIntervalPlayerDamage(
+      setInterval(() => {
+        socket.on("decreaseHpPlayer", rooms, rooms.roomName, hero.nick);
+      }, 2500)
+    );
+  };
   const attackEnemy = (time, attackMode) => {
     setIntervalEnemyDamage(
       setInterval(() => {
@@ -373,9 +378,16 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [playerHealCounter]);
   useEffect(() => {
     socket.on("decreasehpenemy", (mess) => {
+      console.log(mess);
       setHpEnemy((hpEnemy) => hpEnemy - mess);
     });
-  });
+  }, []);
+  useEffect(() => {
+    io.in(roomName).emit("dechpPlayer", randomNember, damage);
+    socket.on("dechpPlayer", (randomNember, damage) => {
+      rooms.player[randomNember].heroPower.currentHealthPoints = rooms.player[randomNember].heroPower.currentHealthPoints - damage;
+    });
+  }, []);
 
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
@@ -421,7 +433,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
 
   useEffect(() => {
-    let changeBarHpMonster = (rooms.monster.currentMonsterHealtPoints / rooms.monster.monsterHealtPoints) * widthOfMainHealthPointsBar;
+    let changeBarHpMonster = (hpEnemy / rooms.monster.monsterHealtPoints) * widthOfMainHealthPointsBar;
     if (changeBarHpMonster > widthOfMainHealthPointsBar) {
       changeBarHpMonster = widthOfMainHealthPointsBar;
     } else if (changeBarHpMonster <= 0) {
@@ -430,7 +442,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
     setMonsterHpBar(changeBarHpMonster);
     // eslint-disable-next-line
-  }, [rooms.monster.currentMonsterHealtPoints]);
+  }, [hpEnemy]);
 
   useEffect(() => {
     attackEnemy(2500, 1);
@@ -494,7 +506,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
           </div>
           <div className="progress-div-monsterHealthPointsText">
             {" "}
-            {parseInt(rooms.monster.currentMonsterHealtPoints)}/{parseInt(rooms.monster.monsterHealtPoints)}
+            {parseInt(hpEnemy)}/{parseInt(rooms.monster.monsterHealtPoints)}
           </div>
         </div>
       </div>
