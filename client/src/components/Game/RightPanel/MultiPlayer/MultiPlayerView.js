@@ -174,7 +174,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   //players temporary Stats
   const [hpEnemy, setHpEnemy] = useState(rooms.monster.monsterHealtPoints);
   //const [hpEnemy, setHpEnemy] = useState(3000);
-  const [hpPlayer, setHpPlayer] = useState(rooms.players[memberPartyId].heroPower.currentHealthPoints);
+  // const [hpPlayer, setHpPlayer] = useState(rooms.players[memberPartyId].heroPower.currentHealthPoints);
   const [manaPlayer, setManaPlayer] = useState(rooms.players[memberPartyId].heroPower.currentManaPoints);
 
   //intervals
@@ -297,9 +297,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const healOverTime = (delay, numberOfHealing, valueOfHotValue) => {
     if (numberOfHealing > 0) {
       sleep(delay).then(() => {
-        if (hpPlayer >= 0) {
+        if (rooms.players[memberPartyId].heroPower.currentHealthPoints >= 0) {
           rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + valueOfHotValue;
-          dispatch(sendupdateroomingame(rooms));
           // socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
@@ -329,7 +328,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               attackMode
           );
           if (damage > 0) {
-            console.log(rooms.players[memberPartyId].heroPower.chanceOnCritHit);
             if (critHit <= rooms.players[memberPartyId].heroPower.chanceOnCritHit) {
               damage = damage * 1.5;
               socket.emit("dechp", damage, rooms.roomName);
@@ -371,7 +369,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [playerHealCounter]);
   useEffect(() => {
     socket.on("decreasehpenemy", (mess) => {
-      console.log(mess);
       setHpEnemy((hpEnemy) => hpEnemy - mess);
     });
   }, []);
@@ -382,24 +379,20 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, []);
   useEffect(() => {
     socket.on("incHpPlayer", (randomNember, hp) => {
+      console.log(randomNember, hp);
       rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + hp;
-
-      if (randomNember === memberPartyId) {
-        setHpPlayer((hpPlayer) => hpPlayer + hp);
-      }
     });
   }, []);
   useEffect(() => {
     socket.on("incMpPlayer", (randomNember, mp) => {
       rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints + mp;
-      if (randomNember === memberPartyId) {
-        setManaPlayer((manaPlayer) => manaPlayer + mp);
-      }
     });
   }, []);
 
   useEffect(() => {
+    console.log(rooms.players[memberPartyId].heroPower.currentHealthPoints);
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
+      console.log("bla");
       healthRegen();
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }
@@ -408,7 +401,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       clearInterval(intervalPlayerHealth);
       setIntervalPlayerHealthID(!intervalPlayerHealthID);
     }
-  }, [rooms.players[memberPartyId].heroPower.currentMonsterHealtPoints, intervalPlayerHealthID]);
+  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, intervalPlayerHealthID]);
 
   useEffect(() => {
     let changeBarHpPlayer = (rooms.players[memberPartyId].heroPower.currentHealthPoints / rooms.players[memberPartyId].heroPower.healthPoints) * widthOfMainHealthPointsBar;
@@ -650,83 +643,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               </div>
             </div>
           </div>
-          <div className="skills">
-            <SkillHandlingMulti
-              numberOfSkill={1}
-              handlingSkillButtons={handlingSkillButtons}
-              buttonValue={firstButton}
-              setButtonValue={setFirstButton}
-              skillNumber={"skill1"}
-              skill={skillsToBattle.firstSkill}
-              setManaPlayer={setManaPlayer}
-              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
-              intervalEnemyDamage={intervalEnemyDamage}
-              intervalPlayerDamage={intervalPlayerDamage}
-              setHpEnemy={setHpEnemy}
-              hpEnemy={hpEnemy}
-              hpPlayer={hpPlayer}
-              setHpPlayer={setHpPlayer}
-              functionNormalPlayerHeal={functionNormalPlayerHeal}
-              sleep={sleep}
-              damageOverTime={damageOverTime}
-              playerStats={playerStats}
-              healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
-              manaRegen={manaRegen}
-              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
-              functionSkillBonusText={functionSkillBonusText}
-            />
-            <SkillHandlingMulti
-              numberOfSkill={2}
-              handlingSkillButtons={handlingSkillButtons}
-              buttonValue={secondButton}
-              setButtonValue={setSecondButton}
-              skillNumber={"skill2"}
-              skill={skillsToBattle.secondSkill}
-              setManaPlayer={setManaPlayer}
-              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
-              setHpEnemy={setHpEnemy}
-              hpEnemy={hpEnemy}
-              hpPlayer={hpPlayer}
-              setHpPlayer={setHpPlayer}
-              functionNormalPlayerHeal={functionNormalPlayerHeal}
-              intervalEnemyDamage={intervalEnemyDamage}
-              intervalPlayerDamage={intervalPlayerDamage}
-              sleep={sleep}
-              damageOverTime={damageOverTime}
-              playerStats={playerStats}
-              healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
-              manaRegen={manaRegen}
-              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
-              functionSkillBonusText={functionSkillBonusText}
-            />
-            <SkillHandlingMulti
-              numberOfSkill={3}
-              handlingSkillButtons={handlingSkillButtons}
-              buttonValue={thirdButton}
-              setButtonValue={setThirdButton}
-              skillNumber={"skill3"}
-              skill={skillsToBattle.thirdSkill}
-              setManaPlayer={setManaPlayer}
-              manaPlayer={rooms.players[memberPartyId].heroPower.currentManaPoints}
-              setHpEnemy={setHpEnemy}
-              hpEnemy={hpEnemy}
-              hpPlayer={rooms.players[memberPartyId].heroPower.currentHealthPoints}
-              setHpPlayer={setHpPlayer}
-              functionNormalPlayerHeal={functionNormalPlayerHeal}
-              intervalEnemyDamage={intervalEnemyDamage}
-              intervalPlayerDamage={intervalPlayerDamage}
-              sleep={sleep}
-              damageOverTime={damageOverTime}
-              playerStats={playerStats}
-              healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
-              manaRegen={manaRegen}
-              functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
-              functionSkillBonusText={functionSkillBonusText}
-            />
-          </div>
+          <div className="skills"></div>
         </div>
       </div>
     </div>

@@ -86,6 +86,7 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("incMpPlayer", randomNember, mp);
   });
   socket.on("increaseHealth", (roomName, randomNember, hp) => {
+    console.log("bla");
     console.log("Regp Hp to " + randomNember + "off value " + hp);
     io.in(roomName).emit("incHpPlayer", randomNember, hp);
   });
