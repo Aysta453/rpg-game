@@ -52,7 +52,7 @@ io.on("connection", function (socket) {
     if (nick === roomName) {
       do {
         randomNember = Math.floor(Math.random() * 2);
-      } while (data.players[randomNember].heroPower.currentHealthPoints === 0);
+      } while (data.players[randomNember].heroPower.currentHealthPoints > 0);
 
       let hit = Math.random() * 100 + 1;
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
