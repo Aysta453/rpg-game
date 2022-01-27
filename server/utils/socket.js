@@ -79,8 +79,14 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("dechpPlayer", randomNember, damage);
   });
   socket.on("dechp", (damage, roomName) => {
-    console.log(damage);
     io.in(roomName).emit("decreasehpenemy", damage);
+  });
+
+  socket.on("increaseMana", (roomName, randomNember, mp) => {
+    io.in(roomName).emit("incMpPlayer", randomNember, damage);
+  });
+  socket.on("increaseHealth", (roomName, randomNember, mp) => {
+    io.in(roomName).emit("incHpPlayer", randomNember, mp);
   });
 
   console.log(`A user connected ${socket.id}`);

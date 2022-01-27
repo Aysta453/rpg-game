@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Player = ({ player }) => {
-  const [playerBattleHpBar, setPlayerBattleHpBar] = useState(player.heroPower.healthPoints);
-  const [playerBattleMpBar, setPlayerBattleMpBar] = useState(player.heroPower.manaPoints);
+  const [playerBattleHpBar, setPlayerBattleHpBar] = useState(player.heroPower.currentHealthPoints);
+  const [playerBattleMpBar, setPlayerBattleMpBar] = useState(player.heroPower.currentManaPoints);
   let playerImage;
   let widthOfMainHealthPointsBar = 7.5;
   let widthOfMainManaPointsBar = 5.2;
@@ -35,7 +35,7 @@ const Player = ({ player }) => {
     }
     setPlayerBattleHpBar(changeBarHpPlayer);
     // eslint-disable-next-line
-  }, [player.heroPower.healthPoints]);
+  }, [player.heroPower.currentHealthPoints]);
 
   useEffect(() => {
     let changeBarHpPlayer = (player.heroPower.currentManaPoints / player.heroPower.manaPoints) * widthOfMainManaPointsBar;
@@ -46,7 +46,7 @@ const Player = ({ player }) => {
     }
     setPlayerBattleMpBar(changeBarHpPlayer);
     // eslint-disable-next-line
-  }, [player.heroPower.manaPoints]);
+  }, [player.heroPower.currentManaPoints]);
 
   return (
     <div className="player">

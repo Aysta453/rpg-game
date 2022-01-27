@@ -266,9 +266,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const manaRegen = () => {
     setIntervalPlayerMana(
       setInterval(() => {
-        rooms.players[memberPartyId].heroPower.currentManaPoints = rooms.players[memberPartyId].heroPower.currentManaPoints + rooms.players[memberPartyId].heroPower.regMp;
-        dispatch(sendupdateroomingame(rooms));
-        //  socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
+        let mp = rooms.players[memberPartyId].heroPower.regMp;
+        socket.emit("increaseMana", rooms.roomName, memberPartyId, mp);
       }, 1 * 1000)
     );
   };
@@ -276,10 +275,9 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const healthRegen = () => {
     setIntervalPlayerHealth(
       setInterval(() => {
-        rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + rooms.players[memberPartyId].heroPower.regHp;
-        dispatch(sendupdateroomingame(rooms));
-        //socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
-      }, 1 * 3000)
+        let hp = rooms.players[memberPartyId].heroPower.regHp;
+        socket.emit("increaseHealth", rooms.roomName, memberPartyId, hp);
+      }, 1 * 1000)
     );
   };
   const damageOverTime = (delay, numberOfAttack, valueOfDotValue) => {
@@ -334,25 +332,19 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
             console.log(rooms.players[memberPartyId].heroPower.chanceOnCritHit);
             if (critHit <= rooms.players[memberPartyId].heroPower.chanceOnCritHit) {
               damage = damage * 1.5;
-              dispatch(sendupdateroomingame(rooms));
               socket.emit("dechp", damage, rooms.roomName);
               functionNormalEnemyAttack(damage, 1);
             } else {
               functionNormalEnemyAttack(damage, 0);
-              dispatch(sendupdateroomingame(rooms));
               socket.emit("dechp", damage, rooms.roomName);
             }
           } else {
             functionNormalEnemyAttack(0, 3);
-            dispatch(sendupdateroomingame(rooms));
             socket.emit("dechp", 0, rooms.roomName);
-            console.log("dmg: 0");
           }
         } else {
           functionNormalEnemyAttack(0, 3);
-          dispatch(sendupdateroomingame(rooms));
           socket.emit("dechp", 0, rooms.roomName);
-          console.log("dmg: 0");
         }
       }, 1 * time)
     );
@@ -385,8 +377,17 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, []);
   useEffect(() => {
     socket.on("dechpPlayer", (randomNember, damage) => {
-      console.log("player " + randomNember + " get " + damage);
-      rooms.player[randomNember].heroPower.currentHealthPoints = rooms.player[randomNember].heroPower.currentHealthPoints - damage;
+      rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints - damage;
+    });
+  }, []);
+  useEffect(() => {
+    socket.on("incHpPlayer", (randomNember, hp) => {
+      rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + hp;
+    });
+  }, []);
+  useEffect(() => {
+    socket.on("incMpPlayer", (randomNember, mp) => {
+      rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints + mp;
     });
   }, []);
 
@@ -459,6 +460,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     }
     // eslint-disable-next-line
   }, [rooms.players[memberPartyId].heroPower.currentManaPoints]);
+
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && rooms.monster.currentMonsterHealtPoints > 0) {
       clearInterval(intervalPlayerDamage);
