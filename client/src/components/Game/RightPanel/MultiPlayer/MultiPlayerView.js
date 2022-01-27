@@ -24,6 +24,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   const [firstModeButton, setFirstModeButton] = useState(true);
   const [secondModeButton, setSecondModeButton] = useState(false);
   const [thirdModeButton, setThirdModeButton] = useState(true);
+  const [afkMode, setAfkMode] = useState(false);
 
   const handleModeButtons = (numberOfMode) => {
     switch (numberOfMode) {
@@ -295,8 +296,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     if (numberOfHealing > 0) {
       sleep(delay).then(() => {
         if (rooms.players[memberPartyId].heroPower.currentHealthPoints >= 0) {
-          rooms.players[memberPartyId].heroPower.currentHealthPoints = rooms.players[memberPartyId].heroPower.currentHealthPoints + valueOfHotValue;
-          // socket.emit("updateBattle", rooms, rooms.roomName, hero.nick);
+          socket.emit("increaseHealth", rooms.roomName, memberPartyId, valueOfHotValue);
           functionNormalPlayerHeal(Math.floor(valueOfHotValue), 0);
           damageOverTime(delay, numberOfHealing - 1, valueOfHotValue);
         }
@@ -390,36 +390,105 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
-    console.log("before");
-    console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
-    socket.on("changedStats", (randomNember, typeOfBuff, value) => {
-      if (typeOfBuff === 1) {
-        rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge + value;
-        console.log("after +");
-        console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
-      }
-      if (typeOfBuff === 2) {
-        rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge - value;
-        console.log("after -");
-        console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
+    socket.on("changedStats", (randomNember, typeOfBuff, statement, value) => {
+      switch (typeOfBuff) {
+        case 1: //dodge
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.chanceOnDodge = rooms.players[randomNember].heroPower.chanceOnDodge - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        case 2: //block
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.chanceOnBlock = rooms.players[randomNember].heroPower.chanceOnBlock + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.chanceOnBlock = rooms.players[randomNember].heroPower.chanceOnBlock - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        case 3: //crit
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.chanceOnCritHit = rooms.players[randomNember].heroPower.chanceOnCritHit + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.chanceOnCritHit = rooms.players[randomNember].heroPower.chanceOnCritHit - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        case 4: //defense
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.defensePoints = rooms.players[randomNember].heroPower.defensePoints + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.defensePoints = rooms.players[randomNember].heroPower.defensePoints - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        case 5: //healthPoints
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + value;
+              rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        case 6: //ManaPoints
+          switch (statement) {
+            case 1:
+              rooms.players[randomNember].heroPower.currentManaPoints = rooms.players[randomNember].heroPower.currentManaPoints + value;
+              rooms.players[randomNember].heroPower.manaPoints = rooms.players[randomNember].heroPower.manaPoints + value;
+              break;
+            case 2:
+              rooms.players[randomNember].heroPower.manaPoints = rooms.players[randomNember].heroPower.manaPoints - value;
+              break;
+            default:
+              break;
+          }
+          break;
+        default:
+          break;
       }
     });
   }, []);
-  console.log(rooms.players[0].heroPower.chanceOnDodge, rooms.players[1].heroPower.chanceOnDodge);
   useEffect(() => {
-    socket.on("changedStatsHp", (randomNember, typeOfBuff, value) => {
-      if (typeOfBuff === 1) {
-        console.log("bla");
-        rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints + value;
-        rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints + value;
+    //attack buff
+    socket.on("changedStatsAttack", (randomNember, statement, attackMin, attackMax) => {
+      if (statement === 1) {
+        rooms.players[randomNember].heroPower.minAttack = rooms.players[randomNember].heroPower.minAttack + attackMin;
+        rooms.players[randomNember].heroPower.maxAttack = rooms.players[randomNember].heroPower.maxAttack + attackMax;
       }
-      if (typeOfBuff === 2) {
-        console.log("bla");
-
-        rooms.players[randomNember].heroPower.healthPoints = rooms.players[randomNember].heroPower.healthPoints - value;
+      if (statement === 2) {
+        rooms.players[randomNember].heroPower.minAttack = rooms.players[randomNember].heroPower.minAttack - attackMin;
+        rooms.players[randomNember].heroPower.maxAttack = rooms.players[randomNember].heroPower.maxAttack - attackMax;
       }
     });
   }, []);
+  useEffect(() => {
+    if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0) {
+      setAfkMode((afkMode) => (afkMode = true));
+    }
+  }, [rooms.players[memberPartyId].heroPower.currentHealthPoints]);
 
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints < rooms.players[memberPartyId].heroPower.healthPoints && intervalPlayerHealthID === false) {
@@ -472,7 +541,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     } else if (changeBarHpMonster <= 0) {
       changeBarHpMonster = 0;
     }
-
     setMonsterHpBar(changeBarHpMonster);
     // eslint-disable-next-line
   }, [hpEnemy]);
@@ -494,18 +562,23 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
   useEffect(() => {
     if (rooms.players[memberPartyId].heroPower.currentHealthPoints <= 0 && rooms.monster.currentMonsterHealtPoints > 0) {
-      clearInterval(intervalPlayerDamage);
       clearInterval(intervalEnemyDamage);
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
+      if (hero.owner === rooms.owner) {
+        clearInterval(intervalPlayerDamage);
+      }
       sleep(2000).then(() => {
         setLosePopup(true);
       });
     } else if (rooms.monster.currentMonsterHealtPoints <= 0 && rooms.players[memberPartyId].heroPower.currentHealthPoints > 0) {
       clearInterval(intervalEnemyDamage);
-      clearInterval(intervalPlayerDamage);
+
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
+      if (hero.owner === rooms.owner) {
+        clearInterval(intervalPlayerDamage);
+      }
       sleep(2000).then(() => {
         setWinPopup(true);
       });
@@ -569,7 +642,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
         <div className="actions">
           <div className="attackModes">
             <div className="mode atk1">
-              {firstModeButton ? (
+              {firstModeButton && !afkMode ? (
                 <button
                   onClick={() => {
                     handleModeButtons(1);
@@ -604,7 +677,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               </div>
             </div>
             <div className="mode atk2">
-              {secondModeButton ? (
+              {secondModeButton && !afkMode ? (
                 <button
                   onClick={() => {
                     handleModeButtons(2);
@@ -639,7 +712,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               </div>
             </div>
             <div className="mode atk3">
-              {thirdModeButton ? (
+              {thirdModeButton && !afkMode ? (
                 <button
                   onClick={() => {
                     handleModeButtons(3);
@@ -697,6 +770,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               functionSkillBonusText={functionSkillBonusText}
               memberPartyId={memberPartyId}
               socket={socket}
+              afkMode={afkMode}
             />
             <SkillHandlingMulti
               numberOfSkill={2}
@@ -720,6 +794,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               functionSkillBonusText={functionSkillBonusText}
               memberPartyId={memberPartyId}
               socket={socket}
+              afkMode={afkMode}
             />
             <SkillHandlingMulti
               numberOfSkill={3}
@@ -743,6 +818,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               functionSkillBonusText={functionSkillBonusText}
               memberPartyId={memberPartyId}
               socket={socket}
+              afkMode={afkMode}
             />
           </div>
         </div>

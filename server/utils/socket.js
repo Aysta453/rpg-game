@@ -90,11 +90,11 @@ io.on("connection", function (socket) {
   socket.on("increaseHealth", (roomName, randomNember, hp) => {
     io.in(roomName).emit("incHpPlayer", randomNember, hp);
   });
-  socket.on("changeStats", (roomName, randomNember, typeOfBuff, value) => {
-    io.in(roomName).emit("changedStats", randomNember, typeOfBuff, value);
+  socket.on("changeStats", (roomName, randomNember, typeOfBuff, statement, value) => {
+    io.in(roomName).emit("changedStats", randomNember, typeOfBuff, statement, value);
   });
-  socket.on("changeStatsHp", (roomName, randomNember, typeOfBuff, value) => {
-    io.in(roomName).emit("changedStatsHp", randomNember, typeOfBuff, value);
+  socket.on("changeStatsAttack", (roomName, randomNember, typeOfBuff, minValue, maxValue) => {
+    io.in(roomName).emit("changedStatsAttack", randomNember, typeOfBuff, minValue, maxValue);
   });
 
   console.log(`A user connected ${socket.id}`);
