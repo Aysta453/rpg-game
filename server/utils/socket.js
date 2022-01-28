@@ -48,7 +48,7 @@ io.on("connection", function (socket) {
   socket.on("decreaseHpPlayer", (data, roomName, nick) => {
     let randomNember = 0;
     let damage = 0;
-    console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
+    //console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
     if (nick === roomName) {
       if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0) {
         randomNember = Math.floor(Math.random() * 2);
@@ -57,7 +57,7 @@ io.on("connection", function (socket) {
       } else {
         randomNember = 1;
       }
-      console.log(randomNember);
+      // console.log(randomNember);
       let hit = Math.random() * 100 + 1;
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
       } else {
@@ -82,6 +82,7 @@ io.on("connection", function (socket) {
     io.in(roomName).emit("dechpPlayer", randomNember, damage);
   });
   socket.on("dechp", (damage, roomName) => {
+    console.log(damage);
     io.in(roomName).emit("decreasehpenemy", damage);
   });
 

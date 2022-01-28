@@ -5,6 +5,12 @@ import "./MultiPlayerView.css";
 import Player from "./Player";
 import SkillHandlingMulti from "./SkillHandlingMulti";
 import { sendupdateroomingame, downloadupdateroomingame } from "../../../../actions/rooms.js";
+import CombatEnemyTextMulti from "./CombatEnemyTextMulti.js";
+import MultiGamePopupLose from "./MultiGamePopupLose";
+import MultiGamePopupWin from "./MultiGamePopupWin";
+import CombatEnemySkillTextMulti from "./CombatEnemySkillTextMulti";
+import CombatPlayerHealTextMulti from "./CombatPlayerHealTextMulti";
+import CombatSkillBonusTextMulti from "./CombatSkillBonusTextMulti";
 
 const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyId }) => {
   //const game = useSelector((state) => state.game);
@@ -366,6 +372,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   }, [playerHealCounter]);
   useEffect(() => {
     socket.on("decreasehpenemy", (mess) => {
+      rooms.monster.currentMonsterHealtPoints = rooms.monster.currentMonsterHealtPoints - mess;
       setHpEnemy((hpEnemy) => hpEnemy - mess);
     });
   }, []);
@@ -590,6 +597,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
 
   return (
     <div className="multiContener">
+      <MultiGamePopupLose valueOfPopup={losePopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
+      <MultiGamePopupWin valueOfPopup={winPopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} />
       <div className="playersView">
         <MainPlayer
           currentHp={rooms.players[memberPartyId].heroPower.currentHealthPoints}
@@ -608,6 +617,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               )
             )
           : ""}
+        <CombatPlayerHealTextMulti value={valueOfNormalPlayerHealText} id={normalHealPlayerID} type={typeOfNormalPlayerHeal} />
+        <CombatSkillBonusTextMulti value={valueOfBonusSkillText} id={bonusSkillID} />
       </div>
       <div className="enemy">
         <div className="avatar">
@@ -615,6 +626,8 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
           <div className="background">
             <div className="nick">{rooms.monster.monsterName}</div>
             <div className="level">Poziom {rooms.monster.monsterLevel}</div>
+            <CombatEnemyTextMulti value={valueOfNormalEnemyAttackText} id={normalAttackEnemyID} type={typeOfNormalEnemyAttack} attackMode={attackMode} />
+            <CombatEnemySkillTextMulti value={valueSkillDamageEnemyText} id={enemySkillDamageID} />
           </div>
         </div>
         <div className="healthPoints">
