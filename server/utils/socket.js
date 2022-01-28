@@ -48,6 +48,7 @@ io.on("connection", function (socket) {
   socket.on("decreaseHpPlayer", (data, roomName, nick) => {
     let randomNember = 0;
     let damage = 0;
+    let typeOfCombatText = 0;
     //console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
     if (nick === roomName) {
       if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0) {
@@ -60,32 +61,40 @@ io.on("connection", function (socket) {
       // console.log(randomNember);
       let hit = Math.random() * 100 + 1;
       if (hit <= data.players[randomNember].heroPower.chanceOnDodge) {
+        damage = 0;
+        typeOfCombatText = 3;
       } else {
         if (hit <= data.players[randomNember].heroPower.chanceOnBlock) {
           damage =
             Math.floor(
               Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
             ) * 0.25;
+
+          typeOfCombatText = 2;
         } else {
           damage = Math.floor(
             Math.floor(Math.random() * data.monster.monsterMaxAttack - data.monster.monsterMinAttack + 1) + data.monster.monsterMinAttack - data.players[randomNember].heroPower.defensePoints
           );
 
           if (damage > 0) {
-            damage = damage;
+            typeOfCombatText = 1;
           } else {
+            typeOfCombatText = 4;
             damage = 0;
           }
         }
       }
     }
-    io.in(roomName).emit("dechpPlayer", randomNember, damage);
+
+    io.in(roomName).emit("dechpPlayer", randomNember, damage, typeOfCombatText);
   });
   socket.on("dechp", (damage, roomName) => {
     console.log(damage);
     io.in(roomName).emit("decreasehpenemy", damage);
   });
-
+  socket.on("endBattle", (roomName, value) => {
+    io.in(roomName).emit("endedBattle", value);
+  });
   socket.on("increaseMana", (roomName, randomNember, mp) => {
     io.in(roomName).emit("incMpPlayer", randomNember, mp);
   });

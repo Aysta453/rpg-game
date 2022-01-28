@@ -1,6 +1,6 @@
 import React from "react";
 
-const CombatPlayerAttackText = ({ value, id, type }) => {
+const CombatPlayerAttackTextMulti = ({ value, id, type }) => {
   let check;
   if (value === 0 && (type === 1 || type === 0)) {
     check = false;
@@ -54,5 +54,4 @@ const CombatPlayerAttackText = ({ value, id, type }) => {
     </div>
   );
 };
-
-export default CombatPlayerAttackText;
+export default CombatPlayerAttackTextMulti;

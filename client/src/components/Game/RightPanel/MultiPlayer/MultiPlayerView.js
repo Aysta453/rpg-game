@@ -11,6 +11,7 @@ import MultiGamePopupWin from "./MultiGamePopupWin";
 import CombatEnemySkillTextMulti from "./CombatEnemySkillTextMulti";
 import CombatPlayerHealTextMulti from "./CombatPlayerHealTextMulti";
 import CombatSkillBonusTextMulti from "./CombatSkillBonusTextMulti";
+import CombatPlayerAttackTextMulti from "./CombatPlayerAttackTextMulti";
 
 const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyId }) => {
   //const game = useSelector((state) => state.game);
@@ -377,8 +378,11 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     });
   }, []);
   useEffect(() => {
-    socket.on("dechpPlayer", (randomNember, damage) => {
+    socket.on("dechpPlayer", (randomNember, damage, typeOfCombatText) => {
       rooms.players[randomNember].heroPower.currentHealthPoints = rooms.players[randomNember].heroPower.currentHealthPoints - damage;
+      if (randomNember === memberPartyId) {
+        functionNormalPlayerAttack(damage, typeOfCombatText);
+      }
     });
   }, []);
   useEffect(() => {
@@ -572,28 +576,39 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
       clearInterval(intervalEnemyDamage);
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
-      if (hero.owner === rooms.owner) {
-        clearInterval(intervalPlayerDamage);
-      }
-      sleep(2000).then(() => {
-        setLosePopup(true);
-      });
     } else if (hpEnemy <= 0 && rooms.players[memberPartyId].heroPower.currentHealthPoints > 0) {
       clearInterval(intervalEnemyDamage);
-
       clearInterval(intervalPlayerHealth);
       clearInterval(intervalPlayerMana);
-      console.log(hero.owner, rooms.owner);
-      if (hero.owner === rooms.owner) {
-        console.log("test");
-        clearInterval(intervalPlayerDamage);
-      }
-      sleep(2000).then(() => {
-        setWinPopup(true);
-      });
     }
     // eslint-disable-next-line
   }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, hpEnemy]);
+  useEffect(() => {
+    if (hero.owner === rooms.owner) {
+      if ((rooms.players[0].heroPower.currentHealthPoints > 0 || rooms.players[1].heroPower.currentHealthPoints > 0) && hpEnemy < 0) {
+        console.log("test");
+        clearInterval(intervalPlayerDamage);
+        sleep(2000).then(() => {
+          socket.emit("endBattle", rooms.roomName, 0);
+        });
+      } else if (rooms.players[0].heroPower.currentHealthPoints <= 0 && rooms.players[1].heroPower.currentHealthPoints <= 0 && hpEnemy > 0) {
+        console.log("test");
+        clearInterval(intervalPlayerDamage);
+        sleep(2000).then(() => {
+          socket.emit("endBattle", rooms.roomName, 1);
+        });
+      }
+    }
+  }, [rooms.players[0].heroPower.currentHealthPoints, rooms.players[1].heroPower.currentHealthPoints, hpEnemy]);
+  useEffect(() => {
+    socket.on("endedBattle", (value) => {
+      if (value === 0) {
+        setLosePopup(true);
+      } else if (value === 1) {
+        setWinPopup(true);
+      }
+    });
+  }, []);
 
   return (
     <div className="multiContener">
@@ -617,6 +632,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               )
             )
           : ""}
+        <CombatPlayerAttackTextMulti value={valueOfNormalPlayerAttackText} id={normalAttackPlayerID} type={typeOfNormalPlayerAttack} />
         <CombatPlayerHealTextMulti value={valueOfNormalPlayerHealText} id={normalHealPlayerID} type={typeOfNormalPlayerHeal} />
         <CombatSkillBonusTextMulti value={valueOfBonusSkillText} id={bonusSkillID} />
       </div>

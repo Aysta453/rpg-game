@@ -178,7 +178,7 @@ const SkillHandlingMulti = ({
             rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill
         );
         setTimeout(() => {
-          socket.on("dechp", damage, rooms.roomName);
+          socket.emit("dechp", damage, rooms.roomName);
           functionSkillDamageEnemyAttack(damage);
         }, 1 * skill.castTime);
 
