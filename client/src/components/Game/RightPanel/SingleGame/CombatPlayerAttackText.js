@@ -42,7 +42,7 @@ const CombatPlayerAttackText = ({ value, id, type }) => {
   }
 
   return (
-    <div className="combatDivEnemyNormalAttack">
+    <div className="singleCombatDivPlayerAttack">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`combatTextNormal`}>
           {" "}

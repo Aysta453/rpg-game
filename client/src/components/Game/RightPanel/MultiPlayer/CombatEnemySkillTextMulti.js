@@ -12,7 +12,7 @@ const CombatEnemySkillTextMulti = ({ value, id }) => {
   let colorOfText = "#00A2C7";
 
   return (
-    <div className="combatDivPlayerSkillAttack">
+    <div className="multiCombatDivPlayerSkillAttack">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`skillAttack`}>
           {" "}

@@ -5,8 +5,10 @@ import { addrewardsaftermission, increasediamond } from "../../../../actions/her
 import { newmissions } from "../../../../actions/missions";
 import { assignitemtoinventory } from "../../../../actions/inventory";
 import { addnewavailablepoint } from "../../../../actions/skills";
+import { newdungeons } from "../../../../actions/dungeons";
+import { deleteroom } from "../../../../actions/rooms";
 
-const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup }) => {
+const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup, socket }) => {
   const rooms = useSelector((state) => state.rooms);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
@@ -16,7 +18,6 @@ const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, chan
   if (diamondChance <= 10) {
     diamondReward = 1;
   }
-
   const handleSubmit = () => {
     let exp = hero.expStart + rooms.dungeonRewardExp;
     if (exp >= hero.expStop && (hero.level + 1) % 6 === 0) {
@@ -28,9 +29,13 @@ const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, chan
     } else {
     }
     dispatch(addrewardsaftermission({ owner: hero.owner, amountOfGold: rooms.dungeonRewardGold, Exp: rooms.dungeonRewardExp }));
-    dispatch(newmissions({ owner: hero.owner, level: hero.level }));
-    // dispatch(assignitemtoinventory({ owner: hero.owner, item: game.item }));
+    dispatch(newdungeons({ owner: hero.owner, level: hero.level }));
 
+    // dispatch(assignitemtoinventory({ owner: hero.owner, item: game.item }));
+    socket.emit("leaveRoom", rooms.roomName);
+    if (hero.owner === rooms.owner) {
+      dispatch(deleteroom({ id: rooms._id }));
+    }
     setButtons();
     changePopup(1);
     setWindowOfElements(1);

@@ -1,13 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { newdungeons } from "../../../../actions/dungeons";
+import { deleteroom } from "../../../../actions/rooms";
 
-const MultiGamePopupLose = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup }) => {
+const MultiGamePopupLose = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup, socket }) => {
   const rooms = useSelector((state) => state.rooms);
-
+  const hero = useSelector((state) => state.hero);
+  const dispatch = useDispatch();
   const handleSubmit = () => {
     setButtons();
     changePopup(0);
     setWindowOfElements(1);
+    dispatch(newdungeons({ owner: hero.owner, level: hero.level }));
+    socket.emit("leaveRoom", rooms.roomName);
+    if (hero.owner === rooms.owner) {
+      dispatch(deleteroom({ id: rooms._id }));
+    }
   };
 
   return valueOfPopup ? (

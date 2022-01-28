@@ -42,7 +42,7 @@ const CombatPlayerAttackTextMulti = ({ value, id, type }) => {
   }
 
   return (
-    <div className="combatDivEnemyNormalAttack">
+    <div className="multiCombatDivPlayerNormalAttack">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`combatTextNormal`}>
           {" "}

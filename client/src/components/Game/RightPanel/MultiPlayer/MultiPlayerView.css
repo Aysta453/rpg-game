@@ -543,7 +543,7 @@
   position: relative;
   visibility: hidden;
   opacity: 0;
-  height: 11vh;
+  height: 14vh;
   width: 15.6vw;
   top: -23vh;
   left: -5vw;
@@ -882,7 +882,7 @@
   height: 2vh !important;
 }
 
-.combatDivEnemyNormalAttack {
+.multiCombatDivEnemyNormalAttack {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -890,15 +890,34 @@
   z-index: 1;
   top: -5vh;
 }
-.combatDivPlayerSkillBonus {
+.multiCombatDivPlayerNormalAttack {
   margin: 0;
   text-align: center;
   width: 15.8vw;
   position: relative;
   z-index: 1;
-  top: -30vh;
+  top: 35vh;
+  left: 22vw;
 }
-.combatDivPlayerSkillRestore {
+.multiCombatDivPlayerSkillBonus {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: 20vh;
+  left: 29vw;
+}
+.multiCombatDivPlayerSkillRestore {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: 20vh;
+  left: 29vw;
+}
+.multiCombatDivPlayerSkillAttack {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -906,15 +925,7 @@
   z-index: 1;
   top: -23.5vh;
 }
-.combatDivPlayerSkillAttack {
-  margin: 0;
-  text-align: center;
-  width: 15.8vw;
-  position: relative;
-  z-index: 1;
-  top: -23.5vh;
-}
-.combatDivPlayerSkillBonus .skillBonus {
+.multiCombatDivPlayerSkillBonus .skillBonus {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -924,7 +935,7 @@
   font-size: 2.5rem;
   font-size: 2.5rem;
 }
-.combatDivPlayerSkillRestore .skillRestore {
+.multiCombatDivPlayerSkillRestore .skillRestore {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -933,7 +944,7 @@
   animation-duration: 7s;
   font-size: 2.5rem;
 }
-.combatDivPlayerSkillAttack .skillAttack {
+.multiCombatDivPlayerSkillAttack .skillAttack {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -942,7 +953,7 @@
   animation-duration: 3s;
   font-size: 2.5rem;
 }
-.combatDivEnemyNormalAttack .combatTextFast {
+.multiCombatDivEnemyNormalAttack .combatTextFast {
   position: relative;
   top: -16vh;
   font-size: 2.5rem;
@@ -952,7 +963,7 @@
   animation-name: example;
   animation-duration: 2s;
 }
-.combatDivEnemyNormalAttack .combatTextNormal {
+.multiCombatDivEnemyNormalAttack .combatTextNormal {
   position: relative;
   top: -16vh;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
@@ -963,9 +974,39 @@
   font-size: 2.5rem;
 }
 
-.combatDivEnemyNormalAttack .combatTextHard {
+.multiCombatDivEnemyNormalAttack .combatTextHard {
   position: relative;
   top: -16vh;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 3.6s;
+  font-size: 2.5rem;
+}
+.multiCombatDivPlayerNormalAttack .combatTextFast {
+  position: relative;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.multiCombatDivPlayerNormalAttack .combatTextNormal {
+  position: relative;
+
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2.4s;
+  font-size: 2.5rem;
+}
+
+.multiCombatDivPlayerNormalAttack .combatTextHard {
+  position: relative;
+
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
   opacity: 0;
@@ -977,7 +1018,7 @@
 @keyframes example {
   0% {
     opacity: 1;
-    top: -26vh;
+    top: -10vh;
   }
   100% {
     top: -45vh;

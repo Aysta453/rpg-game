@@ -37,6 +37,13 @@ const GroupsView = ({ setButtons, setWindowOfElements, socket }) => {
         Grupy
       </div>
       <div className="groups">
+        <div className="groupsInfo">
+          <div className="leaderGroupLabel">Właściciel Grupy</div>
+          <div className="nameGroupLabel">Nazwa Wyprawy</div>
+          <div className="descriptionGroupLabel">Informacje</div>
+          <div className="countGroupHerosLabel">Ilość Graczy</div>
+          <div className="joinGroupLabel">Zarządzaj</div>
+        </div>
         {rooms.length
           ? rooms.map((room) => (
               <div key={room._id}>

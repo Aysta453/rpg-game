@@ -81,12 +81,55 @@
 
 .groupsView .groups {
   margin-top: 1vh;
+
   float: left;
   width: 100%;
   max-height: 85vh;
   padding: 2vh;
   border: 1px solid rgba(126, 50, 0, 0.5);
   overflow: auto;
+}
+.groupsView .groups .groupsInfo {
+  padding: 2vh;
+  width: 100%;
+  height: 10vh;
+  float: left;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 3vh;
+}
+.groupsView .groups .groupsInfo .leaderGroupLabel {
+  width: 13vw;
+  height: 100%;
+  float: left;
+  padding-top: 1vh;
+}
+.groupsView .groups .groupsInfo .nameGroupLabel {
+  width: 23vw;
+  height: 100%;
+  float: left;
+
+  padding-top: 1vh;
+}
+.groupsView .groups .groupsInfo .descriptionGroupLabel {
+  width: 13vw;
+  height: 100%;
+
+  float: left;
+  padding-top: 1vh;
+}
+.groupsView .groups .groupsInfo .countGroupHerosLabel {
+  width: 10vw;
+  height: 100%;
+  float: left;
+  padding-top: 1vh;
+}
+.groupsView .groups .groupsInfo .joinGroupLabel {
+  width: 10vw;
+  height: 100%;
+  float: left;
+  padding-left: 0.5vw;
+  padding-top: 1vh;
 }
 
 .groups::-webkit-scrollbar {
@@ -118,7 +161,7 @@
 }
 .groupsView .groups .groupView .groupLeader {
   height: 100%;
-  width: 17vw;
+  width: 13vw;
   float: left;
   font-size: 1.5rem;
   padding-top: 1.5vh;
@@ -126,7 +169,7 @@
 }
 .groupsView .groups .groupView .groupMissionName {
   height: 100%;
-  width: 25vw;
+  width: 24vw;
   float: left;
   padding-top: 1.5vh;
   font-size: 1.5rem;
@@ -163,7 +206,7 @@
 
 .groupsView .groups .groupView .groupSize {
   height: 100%;
-  width: 5vw;
+  width: 9vw;
   float: left;
   padding-top: 1.5vh;
   font-size: 1.5rem;
@@ -171,7 +214,7 @@
 }
 .groupsView .groups .groupView .actionJoinButton {
   height: 100%;
-  width: 10vw;
+  width: 12vw;
   float: left;
   padding-top: 1vh;
   font-size: 1.5rem;

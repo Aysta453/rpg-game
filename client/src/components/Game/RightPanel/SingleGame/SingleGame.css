@@ -212,21 +212,13 @@
   float: left;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .playerValues
-  .healtPoints-div
-  .progressPlayerHealthPoints {
+.singleGameView .playerViewBattleController .playerValues .healtPoints-div .progressPlayerHealthPoints {
   background-color: rgba(0, 255, 100, 0.7);
   height: 5.3vh;
   transition: 1s linear;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .playerValues
-  .healtPoints-div
-  .progress-div-playerHealthPointsText {
+.singleGameView .playerViewBattleController .playerValues .healtPoints-div .progress-div-playerHealthPointsText {
   position: relative;
   height: 5.3vh;
   width: 15.8vw;
@@ -250,21 +242,13 @@
   float: right;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .playerValues
-  .manaPoints-div
-  .progressPlayerManaPoints {
+.singleGameView .playerViewBattleController .playerValues .manaPoints-div .progressPlayerManaPoints {
   background-color: rgba(75, 214, 255, 0.95);
   height: 5.3vh;
   transition: 1s linear;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .playerValues
-  .manaPoints-div
-  .progress-div-playerManaPointsText {
+.singleGameView .playerViewBattleController .playerValues .manaPoints-div .progress-div-playerManaPointsText {
   position: relative;
   height: 5.3vh;
   width: 15.8vw;
@@ -312,23 +296,11 @@
   border: none;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .attackModes
-  .mode
-  button
-  .imageMode {
+.singleGameView .playerViewBattleController .actions .attackModes .mode button .imageMode {
   display: inline-block;
   z-index: 1;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .attackModes
-  .mode
-  button:disabled
-  .imageMode {
+.singleGameView .playerViewBattleController .actions .attackModes .mode button:disabled .imageMode {
   background-color: transparent;
   display: inline-block;
   z-index: 1;
@@ -455,12 +427,7 @@
   border: none;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .progress-div {
+.singleGameView .playerViewBattleController .actions .skills .skill .progress-div {
   margin-top: 4vh;
   margin-left: 2.5vw;
   position: relative;
@@ -476,40 +443,23 @@
   transition: 1s linear;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  button
-  .imageSkill {
+.singleGameView .playerViewBattleController .actions .skills .skill button .imageSkill {
   background-color: transparent;
   display: inline-block;
   z-index: 1;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  button:disabled
-  .imageSkill {
+.singleGameView .playerViewBattleController .actions .skills .skill button:disabled .imageSkill {
   background-color: transparent;
   display: inline-block;
   z-index: 1;
   filter: grayscale(90%);
   cursor: no-drop;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skillTooltip {
+.singleGameView .playerViewBattleController .actions .skills .skill .skillTooltip {
   position: relative;
   visibility: hidden;
   opacity: 0;
-  height: 11vh;
+  height: 14vh;
   width: 15.6vw;
   top: -23vh;
   left: -5vw;
@@ -521,21 +471,11 @@
   z-index: 4;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill:hover
-  .skillTooltip {
+.singleGameView .playerViewBattleController .actions .skills .skill:hover .skillTooltip {
   visibility: visible;
   opacity: 1;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .attackModes
-  .mode
-  .attackTooltip {
+.singleGameView .playerViewBattleController .actions .attackModes .mode .attackTooltip {
   position: relative;
   visibility: hidden;
   opacity: 0;
@@ -551,12 +491,7 @@
   z-index: 4;
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .attackModes
-  .mode:hover
-  .attackTooltip {
+.singleGameView .playerViewBattleController .actions .attackModes .mode:hover .attackTooltip {
   visibility: visible;
   opacity: 1;
 }
@@ -789,13 +724,7 @@
 
 /* */
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill1
-  .showingTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill1 .showingTime {
   position: relative !important;
   top: 5.5vh;
   left: 1.25vw;
@@ -803,35 +732,17 @@
   z-index: 1;
   border: 1px solid black;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill1
-  .progressSkillTime-div {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill1 .progressSkillTime-div {
   height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill1
-  .progressSkillTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill1 .progressSkillTime {
   background-color: rgb(235, 200, 62);
   height: 2.8vh;
   transition: 1s linear;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill2
-  .showingTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill2 .showingTime {
   position: relative !important;
   top: -54.5vh;
   left: 1.25vw;
@@ -839,35 +750,17 @@
   z-index: 1;
   border: 1px solid black;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill2
-  .progressSkillTime-div {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill2 .progressSkillTime-div {
   height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill2
-  .progressSkillTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill2 .progressSkillTime {
   background-color: rgb(62, 122, 235);
   height: 2.8vh;
   transition: 1s linear;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill3
-  .showingTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill3 .showingTime {
   position: relative !important;
   top: 5.5vh;
   left: 1.25vw;
@@ -875,24 +768,12 @@
   z-index: 1;
   border: 1px solid black;
 }
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill3
-  .progressSkillTime-div {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill3 .progressSkillTime-div {
   height: 2.8vh;
   background-color: rgb(233, 233, 233);
 }
 
-.singleGameView
-  .playerViewBattleController
-  .actions
-  .skills
-  .skill
-  .skill3
-  .progressSkillTime {
+.singleGameView .playerViewBattleController .actions .skills .skill .skill3 .progressSkillTime {
   background-color: rgb(62, 122, 235);
   height: 2.8vh;
   transition: 1s linear;
@@ -917,7 +798,7 @@
   height: 2vh !important;
 }
 
-.combatDivEnemyNormalAttack {
+.singleCombatDivEnemyNormalAttack {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -925,7 +806,15 @@
   z-index: 1;
   top: -5vh;
 }
-.combatDivPlayerSkillBonus {
+.singleCombatDivPlayerAttack {
+  margin: 0;
+  text-align: center;
+  width: 15.8vw;
+  position: relative;
+  z-index: 1;
+  top: -5vh;
+}
+.singleCombatDivPlayerSkillBonus {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -933,7 +822,7 @@
   z-index: 1;
   top: -30vh;
 }
-.combatDivPlayerSkillRestore {
+.singleCombatDivPlayerSkillRestore {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -941,7 +830,7 @@
   z-index: 1;
   top: -23.5vh;
 }
-.combatDivPlayerSkillAttack {
+.singleCombatDivEnemySkillAttack {
   margin: 0;
   text-align: center;
   width: 15.8vw;
@@ -949,7 +838,7 @@
   z-index: 1;
   top: -23.5vh;
 }
-.combatDivPlayerSkillBonus .skillBonus {
+.singleCombatDivPlayerSkillBonus .skillBonus {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -959,7 +848,7 @@
   font-size: 2.5rem;
   font-size: 2.5rem;
 }
-.combatDivPlayerSkillRestore .skillRestore {
+.singleCombatDivPlayerSkillRestore .skillRestore {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -968,7 +857,7 @@
   animation-duration: 7s;
   font-size: 2.5rem;
 }
-.combatDivPlayerSkillAttack .skillAttack {
+.singleCombatDivEnemySkillAttack .skillAttack {
   position: relative;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
   z-index: 1;
@@ -977,7 +866,7 @@
   animation-duration: 3s;
   font-size: 2.5rem;
 }
-.combatDivEnemyNormalAttack .combatTextFast {
+.singleCombatDivEnemyNormalAttack .combatTextFast {
   position: relative;
   top: -16vh;
   font-size: 2.5rem;
@@ -987,7 +876,7 @@
   animation-name: example;
   animation-duration: 2s;
 }
-.combatDivEnemyNormalAttack .combatTextNormal {
+.singleCombatDivEnemyNormalAttack .combatTextNormal {
   position: relative;
   top: -16vh;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
@@ -998,7 +887,38 @@
   font-size: 2.5rem;
 }
 
-.combatDivEnemyNormalAttack .combatTextHard {
+.singleCombatDivEnemyNormalAttack .combatTextHard {
+  position: relative;
+  top: -16vh;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 3.6s;
+  font-size: 2.5rem;
+}
+.singleCombatDivPlayerAttack .combatTextFast {
+  position: relative;
+  top: -16vh;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2s;
+}
+.singleCombatDivPlayerAttack .combatTextNormal {
+  position: relative;
+  top: -16vh;
+  text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);
+  z-index: 1;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 2.4s;
+  font-size: 2.5rem;
+}
+
+.singleCombatDivPlayerAttack .combatTextHard {
   position: relative;
   top: -16vh;
   text-shadow: 2px 2px 3px rgb(0, 0, 0), 2px 2px 3px rgb(0, 0, 0);

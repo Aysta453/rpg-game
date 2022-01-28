@@ -1,22 +1,27 @@
-import React from 'react'
+import React from "react";
 
-const CombatSkillBonusText = ({ value, id}) => {
-        let check;
-    if (value === 0 ) {
-        check = false;
-    } else {
-        check = true;
-    } 
-    let text = value;
-    let colorOfText = '#672480';
+const CombatSkillBonusText = ({ value, id }) => {
+  let check;
+  if (value === 0) {
+    check = false;
+  } else {
+    check = true;
+  }
+  let text = value;
+  let colorOfText = "#672480";
 
-
-    return (
-        <div className="combatDivPlayerSkillBonus">
-         {check ? (<div key={id} style={{color:colorOfText}} className={`skillBonus`}> {text}</div>):('')}
-         
+  return (
+    <div className="singleCombatDivPlayerSkillBonus">
+      {check ? (
+        <div key={id} style={{ color: colorOfText }} className={`skillBonus`}>
+          {" "}
+          {text}
         </div>
-    )
-}
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
 
-export default CombatSkillBonusText
+export default CombatSkillBonusText;

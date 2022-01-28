@@ -11,7 +11,7 @@ const CombatSkillBonusTextMulti = ({ value, id }) => {
   let colorOfText = "#672480";
 
   return (
-    <div className="combatDivPlayerSkillBonus">
+    <div className="multiCombatDivPlayerSkillBonus">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`skillBonus`}>
           {" "}

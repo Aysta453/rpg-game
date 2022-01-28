@@ -108,7 +108,7 @@ const CombatEnemyTextMulti = ({ value, id, attackMode, type }) => {
   }
 
   return (
-    <div className="combatDivEnemyNormalAttack">
+    <div className="multiCombatDivEnemyNormalAttack">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`combatText${typeOfText}`}>
           {" "}

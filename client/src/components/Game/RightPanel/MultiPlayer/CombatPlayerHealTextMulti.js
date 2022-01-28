@@ -28,7 +28,7 @@ const CombatPlayerHealTextMulti = ({ value, id, type }) => {
   }
 
   return (
-    <div className="combatDivPlayerSkillRestore">
+    <div className="multiCombatDivPlayerSkillRestore">
       {check ? (
         <div key={id} style={{ color: colorOfText }} className={`skillRestore`}>
           {" "}
