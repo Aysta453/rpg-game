@@ -51,12 +51,32 @@ io.on("connection", function (socket) {
     let typeOfCombatText = 0;
     //console.log(data.players[0].heroPower.currentHealthPoints, data.players[1].heroPower.currentHealthPoints);
     if (nick === roomName) {
-      if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0) {
+      // + + +
+      if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0 && data.players[2].heroPower.currentHealthPoints > 0) {
+        randomNember = Math.floor(Math.random() * 3);
+        // + + -
+      } else if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints > 0 && data.players[2].heroPower.currentHealthPoints < 0) {
         randomNember = Math.floor(Math.random() * 2);
-      } else if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints <= 0) {
+        // - + +
+      } else if (data.players[0].heroPower.currentHealthPoints < 0 && data.players[1].heroPower.currentHealthPoints > 0 && data.players[2].heroPower.currentHealthPoints > 0) {
+        randomNember = Math.floor(Math.random() * 2) + 1;
+        // + - +
+      } else if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints < 0 && data.players[2].heroPower.currentHealthPoints > 0) {
+        let randomTemp = Math.floor(Math.random() * 2);
+        if (randomTemp === 0) {
+          randomNember = 0;
+        } else if (randomTemp === 1) {
+          randomNember = 2;
+        }
+        // + - -
+      } else if (data.players[0].heroPower.currentHealthPoints > 0 && data.players[1].heroPower.currentHealthPoints < 0 && data.players[2].heroPower.currentHealthPoints < 0) {
         randomNember = 0;
-      } else {
+        // - + -
+      } else if (data.players[0].heroPower.currentHealthPoints < 0 && data.players[1].heroPower.currentHealthPoints > 0 && data.players[2].heroPower.currentHealthPoints < 0) {
         randomNember = 1;
+        // - - +
+      } else if (data.players[0].heroPower.currentHealthPoints < 0 && data.players[1].heroPower.currentHealthPoints < 0 && data.players[2].heroPower.currentHealthPoints > 0) {
+        randomNember = 2;
       }
       // console.log(randomNember);
       let hit = Math.random() * 100 + 1;

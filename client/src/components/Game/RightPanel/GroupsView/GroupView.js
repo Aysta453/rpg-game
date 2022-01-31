@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPlayerValues } from "../../../../actions/playerGame";
 import { joinroom, showrooms, showroom } from "../../../../actions/rooms";
 import playerGameValues from "../../../../functions/playerGameValues";
+import creatingItemClient from "../../../../functions/creatingItemClient";
 import GroupViewPopup from "./GroupViewPopup";
 const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
   const [popupValue, setPopupValueset] = useState(false);
   const hero = useSelector((state) => state.hero);
+  const inventory = useSelector((state) => state.inventory);
   const dispatch = useDispatch();
 
   const stats = useSelector((state) => state.stats);
@@ -26,32 +28,64 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
   let assaignToJoin = false;
   let infoTextError;
   //  infoTextError = 'Brak dostępnych miejsc.';
-  if (hero.level >= room.monster.monsterLevel - 2 && hero.level <= room.monster.monsterLevel + 2 && room.players.length < 2) {
+  if (hero.level >= room.monster.monsterLevel - 2 && hero.level <= room.monster.monsterLevel + 2 && room.players.length < 3) {
     assaignToJoin = true;
   }
   if (hero.level <= room.monster.monsterLevel - 2) {
-    infoTextError = "Za niski poziom postaci. Min :" + room.monster.monsterLevel - 2 + ".";
+    infoTextError = "Za niski poziom postaci. Min :" + (room.monster.monsterLevel - 2) + ".";
   }
   if (hero.level >= room.monster.monsterLevel + 2) {
-    infoTextError = "Za wysoki poziom postaci. Max :" + room.monster.monsterLevel + 2 + ".";
+    infoTextError = "Za wysoki poziom postaci. Max :" + (room.monster.monsterLevel + 2) + ".";
   }
   if (room.players.length === 2) {
     infoTextError = "Brak wolnych miejsc w grupie.";
   }
+  let itemChance;
+  let itemChanceRandom = Math.random() * 100 + 1;
   let styleColorText;
   switch (room.dungeonDifficult) {
     case "easy":
       styleColorText = "easy";
+      itemChance = 5;
       break;
     case "medium":
       styleColorText = "medium";
+      itemChance = 10;
       break;
     case "hard":
       styleColorText = "hard";
+      itemChance = 15;
       break;
     default:
       break;
   }
+
+  let { item } = {};
+  if (
+    inventory.firstItem.isEmpty === false ||
+    inventory.secondItem.isEmpty === false ||
+    inventory.thirdItem.isEmpty === false ||
+    inventory.forthItem.isEmpty === false ||
+    inventory.fifthItem.isEmpty === false ||
+    inventory.sixthItem.isEmpty === false ||
+    inventory.seventhItem.isEmpty === false ||
+    inventory.eigthItem.isEmpty === false ||
+    inventory.ninthItem.isEmpty === false
+  ) {
+    if (itemChanceRandom <= itemChance) {
+      let itemTemp = creatingItemClient(hero.heroClass, hero.level, 0, 0, 0);
+      item = itemTemp;
+    } else {
+      item = {
+        isEmpty: true,
+      };
+    }
+  } else {
+    item = {
+      isEmpty: true,
+    };
+  }
+
   const joinRoomFunction = (id) => {
     let { member } = {};
     let idOfRoom = id;
@@ -63,6 +97,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
       isLeader: false,
       heroPower: playerGame,
       socketId: socket.id,
+      item: item,
     };
     dispatch(joinroom({ id: idOfRoom, member: member }));
     socket.emit("joinRoom", room.roomName);
@@ -77,7 +112,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
 
   return (
     <div className="groupView">
-      <div className="groupLeader">{room.players[0].nick}</div>
+      <div className="groupLeader">{room.roomName}</div>
       <div className="groupMissionName">
         <span className={`${styleColorText}`}>{room.dungeonTitle}</span>
       </div>
@@ -91,7 +126,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
         </button>
       </div>
       <GroupViewPopup room={room} valueOfPopup={popupValue} showPopup={showPopup} />
-      <div className="groupSize">{room.players.length}/2</div>
+      <div className="groupSize">{room.players.length}/3</div>
       <div className="actionJoinButton">
         {assaignToJoin ? (
           <button

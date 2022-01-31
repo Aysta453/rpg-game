@@ -8,11 +8,11 @@ import { addnewavailablepoint } from "../../../../actions/skills";
 import { newdungeons } from "../../../../actions/dungeons";
 import { deleteroom } from "../../../../actions/rooms";
 
-const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup, socket }) => {
+const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, changePopup, socket, memberPartyId }) => {
   const rooms = useSelector((state) => state.rooms);
   const hero = useSelector((state) => state.hero);
   const dispatch = useDispatch();
-  //   let isItemAsReward = game.item.isEmpty;
+  let isItemAsReward = rooms.players[memberPartyId].item.isEmpty;
   let diamondReward = 0;
   let diamondChance = Math.random() * 100 + 1;
   if (diamondChance <= 10) {
@@ -30,8 +30,9 @@ const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, chan
     }
     dispatch(addrewardsaftermission({ owner: hero.owner, amountOfGold: rooms.dungeonRewardGold, Exp: rooms.dungeonRewardExp }));
     dispatch(newdungeons({ owner: hero.owner, level: hero.level }));
-
-    // dispatch(assignitemtoinventory({ owner: hero.owner, item: game.item }));
+    if (isItemAsReward === false) {
+      dispatch(assignitemtoinventory({ owner: hero.owner, item: rooms.players[memberPartyId].item }));
+    }
     socket.emit("leaveRoom", rooms.roomName);
     if (hero.owner === rooms.owner) {
       dispatch(deleteroom({ id: rooms._id }));
@@ -41,19 +42,11 @@ const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, chan
     setWindowOfElements(1);
   };
 
-  //   let image;
-  //   if (isItemAsReward === false) {
-  //     image = showingEquipmentImage(hero.heroClass, game.item.typeOfItem, game.item.numberOfItem);
-  //   }
-  // {
-  //   isItemAsReward ? (
-  //     <div className="item"></div>
-  //   ) : (
-  //     <div className="item">
-  //       <img className="imageSkill" src={`/images/eq${image}.png`} alt="" />
-  //     </div>
-  //   );
-  // }
+  let image;
+  if (isItemAsReward === false) {
+    image = showingEquipmentImage(hero.heroClass, rooms.players[memberPartyId].item.typeOfItem, rooms.players[memberPartyId].item.numberOfItem);
+  }
+
   return valueOfPopup ? (
     <div className="popup-win">
       <div className="win-inner">
@@ -81,7 +74,15 @@ const MultiGamePopupWin = ({ valueOfPopup, setButtons, setWindowOfElements, chan
           <div className="expoints">
             Punkty doświadczenia: <span className={"xp"}>{rooms.dungeonRewardExp}</span>
           </div>
-          <div className="itemBox"></div>
+          <div className="itemBox">
+            {isItemAsReward ? (
+              <div className="item"></div>
+            ) : (
+              <div className="item">
+                <img className="imageSkill" src={`/images/eq${image}.png`} alt="" />
+              </div>
+            )}
+          </div>
         </div>
         <div className="submitButtonBox">
           <button

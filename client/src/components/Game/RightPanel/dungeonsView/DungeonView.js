@@ -1,13 +1,69 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import creatingItemClient from "../../../../functions/creatingItemClient";
 import { createroom } from "../../../../actions/rooms";
 const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocket, socket }) => {
   const hero = useSelector((state) => state.hero);
   const playerGame = useSelector((state) => state.playerGame);
+  const inventory = useSelector((state) => state.inventory);
   let { playerInfo } = {};
 
   let { createDungeonGroup } = {};
   const dispatch = useDispatch();
+  let itemChance;
+  let itemChanceRandom = Math.random() * 100 + 1;
+
+  let styleColorText;
+  let text;
+  let text2;
+  switch (dungeon.dungeonDifficult) {
+    case "easy":
+      styleColorText = "easy";
+      text = "łatwy";
+      text2 = "Szansa na przedmiot: 5%";
+      itemChance = 5;
+      break;
+    case "medium":
+      styleColorText = "medium";
+      text = "średni";
+      text2 = "Szansa na przedmiot: 10%";
+      itemChance = 10;
+      break;
+    case "hard":
+      styleColorText = "hard";
+      text = "trudny";
+      text2 = "Szansa na przedmiot: 15%";
+      itemChance = 15;
+      break;
+    default:
+      break;
+  }
+  let { item } = {};
+  if (
+    inventory.firstItem.isEmpty === false ||
+    inventory.secondItem.isEmpty === false ||
+    inventory.thirdItem.isEmpty === false ||
+    inventory.forthItem.isEmpty === false ||
+    inventory.fifthItem.isEmpty === false ||
+    inventory.sixthItem.isEmpty === false ||
+    inventory.seventhItem.isEmpty === false ||
+    inventory.eigthItem.isEmpty === false ||
+    inventory.ninthItem.isEmpty === false
+  ) {
+    if (itemChanceRandom <= itemChance) {
+      let itemTemp = creatingItemClient(hero.heroClass, hero.level, 0, 0, 0);
+      item = itemTemp;
+    } else {
+      item = {
+        isEmpty: true,
+      };
+    }
+  } else {
+    item = {
+      isEmpty: true,
+    };
+  }
+
   createDungeonGroup = {
     roomName: hero.nick,
     dungeonTitle: dungeon.dungeonTitle,
@@ -17,6 +73,7 @@ const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocke
     dungeonDifficult: dungeon.dungeonDifficult,
     monster: dungeon.monster,
   };
+
   playerInfo = {
     heroPower: playerGame,
     heroClass: hero.heroClass,
@@ -25,29 +82,9 @@ const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocke
     owner: hero.owner,
     isLeader: true,
     socketId: socket.id,
+    item: item,
   };
-  let styleColorText;
-  let text;
-  let text2;
-  switch (dungeon.dungeonDifficult) {
-    case "easy":
-      styleColorText = "easy";
-      text = "łatwy";
-      text2 = "Szansa na przedmiot: 5%";
-      break;
-    case "medium":
-      styleColorText = "medium";
-      text = "średni";
-      text2 = "Szansa na przedmiot: 10%";
-      break;
-    case "hard":
-      styleColorText = "hard";
-      text = "trudny";
-      text2 = "Szansa na przedmiot: 15%";
-      break;
-    default:
-      break;
-  }
+  console.log(item);
   return (
     <>
       <div className="dungeonView">

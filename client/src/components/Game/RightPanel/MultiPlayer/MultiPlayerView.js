@@ -584,20 +584,20 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     // eslint-disable-next-line
   }, [rooms.players[memberPartyId].heroPower.currentHealthPoints, hpEnemy]);
   useEffect(() => {
-    if ((rooms.players[0].heroPower.currentHealthPoints > 0 || rooms.players[1].heroPower.currentHealthPoints > 0) && hpEnemy < 0) {
+    if ((rooms.players[0].heroPower.currentHealthPoints > 0 || rooms.players[1].heroPower.currentHealthPoints > 0 || rooms.players[2].heroPower.currentHealthPoints) && hpEnemy < 0) {
       console.log("test");
       clearInterval(intervalPlayerDamage);
       sleep(2000).then(() => {
         socket.emit("endBattle", rooms.roomName, 1);
       });
-    } else if (rooms.players[0].heroPower.currentHealthPoints <= 0 && rooms.players[1].heroPower.currentHealthPoints <= 0 && hpEnemy > 0) {
+    } else if (rooms.players[0].heroPower.currentHealthPoints <= 0 && rooms.players[1].heroPower.currentHealthPoints && rooms.players[2].heroPower.currentHealthPoints <= 0 && hpEnemy > 0) {
       console.log("test");
       clearInterval(intervalPlayerDamage);
       sleep(2000).then(() => {
         socket.emit("endBattle", rooms.roomName, 0);
       });
     }
-  }, [rooms.players[0].heroPower.currentHealthPoints, rooms.players[1].heroPower.currentHealthPoints, hpEnemy]);
+  }, [rooms.players[0].heroPower.currentHealthPoints, rooms.players[1].heroPower.currentHealthPoints, rooms.players[2].heroPower.currentHealthPoints, hpEnemy]);
   useEffect(() => {
     socket.on("endedBattle", (value) => {
       if (value === 0) {
@@ -611,7 +611,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
   return (
     <div className="multiContener">
       <MultiGamePopupLose valueOfPopup={losePopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />
-      <MultiGamePopupWin valueOfPopup={winPopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} />
+      <MultiGamePopupWin valueOfPopup={winPopup} changePopup={changePopup} setButtons={setButtons} setWindowOfElements={setWindowOfElements} socket={socket} memberPartyId={memberPartyId} />
       <div className="playersView">
         <MainPlayer
           currentHp={rooms.players[memberPartyId].heroPower.currentHealthPoints}
