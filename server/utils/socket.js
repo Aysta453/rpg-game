@@ -1,11 +1,11 @@
 import { Server } from "socket.io";
 export const io = new Server({
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://aystagame.netlify.app",
     methods: ["GET", "POST"],
   },
 });
-//    origin: "https://aystagame.netlify.app",
+// origin: "http://localhost:3000",
 export var Socket = {
   emit: function (event, data) {
     console.log(event, data);
