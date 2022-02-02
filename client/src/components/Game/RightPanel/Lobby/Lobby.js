@@ -27,7 +27,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
       isRoomOwner = false;
     }
 
-    if (players.length === 2) {
+    if (players.length === 3) {
       isEnoughPlayers = true;
     } else {
       isEnoughPlayers = false;
@@ -134,7 +134,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
             showPopup();
           }}
         >
-          Szczegóły misji
+          Szczegóły wyprawy
         </button>
         <LobbyInfoPopup showPopup={showDestroyPopup} moveToGroups={moveToGroups} valueOfPopup={popupDestroyGroupValue} playerInfoError={playerInfoError} />
         <LobbyDungeonInfo room={rooms} showPopup={showPopup} valueOfPopup={popupValue} />
@@ -162,7 +162,7 @@ const Lobby = ({ setButtons, setWindowOfElements, socket, memberPartyId, setMemb
               startingGame();
             }}
           >
-            Rozpocznij misję
+            Rozpocznij wyprawe
           </button>
         ) : (
           ""

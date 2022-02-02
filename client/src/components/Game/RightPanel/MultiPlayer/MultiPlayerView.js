@@ -173,7 +173,6 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
     default:
       break;
   }
-  const [playerStats, setPlayerStats] = useState(rooms.players[memberPartyId].heroPower);
 
   //players main Stats
   // eslint-disable-next-line
@@ -796,9 +795,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               functionNormalPlayerHeal={functionNormalPlayerHeal}
               sleep={sleep}
               damageOverTime={damageOverTime}
-              playerStats={playerStats}
               healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
               manaRegen={manaRegen}
               functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
               functionSkillBonusText={functionSkillBonusText}
@@ -820,9 +817,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               intervalPlayerDamage={intervalPlayerDamage}
               sleep={sleep}
               damageOverTime={damageOverTime}
-              playerStats={playerStats}
               healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
               manaRegen={manaRegen}
               functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
               functionSkillBonusText={functionSkillBonusText}
@@ -844,9 +839,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
               intervalPlayerDamage={intervalPlayerDamage}
               sleep={sleep}
               damageOverTime={damageOverTime}
-              playerStats={playerStats}
               healOverTime={healOverTime}
-              setPlayerStats={setPlayerStats}
               manaRegen={manaRegen}
               functionSkillDamageEnemyAttack={functionSkillDamageEnemyAttack}
               functionSkillBonusText={functionSkillBonusText}

@@ -25,8 +25,7 @@ const SkillHandlingMulti = ({
   setHpEnemy,
   sleep,
   damageOverTime,
-  playerStats,
-  setPlayerStats,
+
   memberPartyId,
   socket,
   afkMode,
@@ -43,7 +42,7 @@ const SkillHandlingMulti = ({
   // eslint-disable-next-line
   const [backgroundColor, setBackgroundColor] = useState(casting);
   const [timeBar, setTimeBar] = useState(0);
-  let playerStatsTemporary;
+
   const [secondValue, setSecondValue] = useState(0);
   // eslint-disable-next-line
   const [firstSkill, setFirstSkill] = useState({
@@ -353,13 +352,13 @@ const SkillHandlingMulti = ({
     }
   };
 
-  const showValueOfSkillFunction = (playerStats, skill) => {
+  const showValueOfSkillFunction = (playerStat, skill) => {
     let value;
 
     switch (skill.typeOfSkill) {
       case 0:
         value =
-          Math.floor(playerStats.minAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill) + " - " + Math.floor(playerStats.maxAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill);
+          Math.floor(playerStat.minAttack + playerStat.bonusToSpecialAttack * skill.valueOfSkill) + " - " + Math.floor(playerStat.maxAttack + playerStat.bonusToSpecialAttack * skill.valueOfSkill);
         break;
       case 1:
         switch (skill.targetOfSkill) {
@@ -371,10 +370,10 @@ const SkillHandlingMulti = ({
             value = "+ " + skill.valueOfSkill * 100 + "%";
             break;
           case 6:
-            value = "+ " + Math.floor(playerStats.healthPoints * skill.valueOfSkill) + " HP";
+            value = "+ " + Math.floor(playerStat.healthPoints * skill.valueOfSkill) + " HP";
             break;
           case 7:
-            value = "+ " + Math.floor(playerStats.manaPoints * skill.valueOfSkill) + " MP";
+            value = "+ " + Math.floor(playerStat.manaPoints * skill.valueOfSkill) + " MP";
             break;
           default:
             break;
@@ -382,7 +381,7 @@ const SkillHandlingMulti = ({
         break;
       case 2:
         value =
-          Math.floor(playerStats.minAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill) + " - " + Math.floor(playerStats.maxAttack + playerStats.bonusToSpecialAttack * skill.valueOfSkill);
+          Math.floor(playerStat.minAttack + playerStat.bonusToSpecialAttack * skill.valueOfSkill) + " - " + Math.floor(playerStat.maxAttack + playerStat.bonusToSpecialAttack * skill.valueOfSkill);
         break;
       default:
         break;

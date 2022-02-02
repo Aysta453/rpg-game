@@ -112,7 +112,7 @@ const DungeonView = ({ dungeon, setWindowOfElements, setButtons, createRoomSocke
               setButtons();
             }}
           >
-            Stwórz pokój
+            Utwórz grupę
           </button>
         </div>
       </div>

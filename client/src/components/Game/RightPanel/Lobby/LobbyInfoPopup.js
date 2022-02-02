@@ -14,7 +14,7 @@ const LobbyInfoPopup = ({ valueOfPopup, showPopup, moveToGroups, playerInfoError
               showPopup();
             }}
           >
-            Okey
+            Zamknij
           </button>
         </div>
       </div>
