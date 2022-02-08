@@ -932,7 +932,10 @@
 @keyframes example {
   0% {
     opacity: 1;
-    top: -26vh;
+    top: -10vh;
+  }
+  90% {
+    opacity: 1;
   }
   100% {
     top: -45vh;
@@ -950,6 +953,7 @@
   }
   90% {
     top: -10vh;
+    opacity: 1;
   }
   100% {
     opacity: 0;
