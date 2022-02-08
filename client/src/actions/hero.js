@@ -1,7 +1,6 @@
-import { CREATE, HERO_FETCH,HERO_GOLD_DE,HERO_AFTER_MISSION,HERO_DIAMOND_DE,HERO_DIAMOND_INC } from '../constants/actionTypes';
+import { CREATE, HERO_FETCH, HERO_GOLD_DE, HERO_AFTER_MISSION, HERO_DIAMOND_DE, HERO_DIAMOND_INC } from "../constants/actionTypes";
 
-import * as api from '../api/index.js';
-
+import * as api from "../api/index.js";
 export const createnewhero = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createNewHero(formData);
@@ -61,8 +60,3 @@ export const addrewardsaftermission = (formData) => async (dispatch) => {
     console.log(error);
   }
 };
-
-
-
-
-

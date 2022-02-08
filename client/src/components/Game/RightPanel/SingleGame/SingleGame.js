@@ -15,7 +15,6 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
   const hero = useSelector((state) => state.hero);
   const playerGame = useSelector((state) => state.playerGame);
   const skillsToBattle = useSelector((state) => state.skillsToBattle);
-  console.log(game);
   const [firstButton, setFirstButton] = useState(true);
   const [secondButton, setSecondButton] = useState(true);
   const [thirdButton, setThirdButton] = useState(true);
@@ -98,7 +97,7 @@ const SingleGame = ({ setButtons, setWindowOfElements }) => {
             setFirstButton((firstButton) => !firstButton);
             setThirdButton((thirdButton) => !thirdButton);
           });
-        } else if (secondButton === true) {
+        } else if (firstButton === true) {
           setFirstButton((firstButton) => !firstButton);
           sleep(time).then(() => {
             setFirstButton((firstButton) => !firstButton);

@@ -103,7 +103,7 @@ const MultiPlayerView = ({ setButtons, setWindowOfElements, socket, memberPartyI
             setFirstButton((firstButton) => !firstButton);
             setThirdButton((thirdButton) => !thirdButton);
           });
-        } else if (secondButton === true) {
+        } else if (firstButton === true) {
           setFirstButton((firstButton) => !firstButton);
           sleep(time).then(() => {
             setFirstButton((firstButton) => !firstButton);

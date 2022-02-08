@@ -35,8 +35,8 @@ const SkillHandlingMulti = ({
   const duration = "rgba(199,4,4,0.9)";
   const cooldown = "rgba(85,85,85,0.9)";
   const [testValue, setTestValue] = useState(false);
+  const [widthTest, setWidthTest] = useState(125);
   const rooms = useSelector((state) => state.rooms);
-  let width = 120;
 
   const [color, setColor] = useState(casting);
   // eslint-disable-next-line
@@ -53,18 +53,22 @@ const SkillHandlingMulti = ({
   const convertPXToVW = (px) => {
     return px * (100 / document.documentElement.clientWidth);
   };
-  let progress = parseInt(width / (firstSkill.castTime / 1000));
+  let progress = parseInt(widthTest / (firstSkill.castTime / 1000));
   const [timeSkillBar, setTimeSkillBar] = useState(0);
 
   const showingDiv = () => {
     setTestValue(!testValue);
   };
   useEffect(() => {
+    let tempWidth = document.documentElement.clientWidth * 0.934;
+    setWidthTest((widthTest) => document.documentElement.clientWidth - tempWidth);
+  });
+  useEffect(() => {
     if (secondValue === 1) {
       setColor(duration);
       setBackgroundColor("");
       // eslint-disable-next-line
-      progress = parseInt(width / (firstSkill.durationTime / 1000));
+      progress = parseInt(widthTest / (skill.durationTime / 1000));
       setTimeSkillBar(
         setInterval(() => {
           setTimeBar((timeBar) => timeBar - progress);
@@ -75,7 +79,7 @@ const SkillHandlingMulti = ({
       setColor(cooldown);
       setBackgroundColor("");
       // eslint-disable-next-line
-      progress = parseInt(width / ((skill.recastTime - 2000) / 1000));
+      progress = parseInt(widthTest / (skill.recastTime / 1000));
       setTimeSkillBar(
         setInterval(() => {
           setTimeBar((timeBar) => timeBar + progress);
@@ -96,12 +100,12 @@ const SkillHandlingMulti = ({
   }, [testValue]);
 
   useEffect(() => {
-    if (timeBar === width && secondValue === 0) {
-      sleep(1000).then(() => {
+    if ((timeBar === widthTest || timeBar >= widthTest) && secondValue === 0) {
+      sleep(0).then(() => {
         clearInterval(timeSkillBar);
 
         if (skill.durationTime !== 0 && secondValue === 0) {
-          setTimeBar(width);
+          setTimeBar(widthTest);
           setSecondValue(1);
         } else {
           setTimeBar(0);
@@ -110,7 +114,7 @@ const SkillHandlingMulti = ({
       });
     }
     if (timeBar <= 0 && secondValue === 1) {
-      sleep(500).then(() => {
+      sleep(0).then(() => {
         clearInterval(timeSkillBar);
         setTimeBar(0);
         if (skill.durationTime !== 0 && secondValue === 1) {
@@ -120,8 +124,8 @@ const SkillHandlingMulti = ({
         }
       });
     }
-    if (timeBar >= width && secondValue === 2) {
-      sleep(500).then(() => {
+    if (timeBar >= widthTest && secondValue === 2) {
+      sleep(0).then(() => {
         clearInterval(timeSkillBar);
         setTimeBar(0);
         showingDiv();
@@ -130,8 +134,8 @@ const SkillHandlingMulti = ({
         setSecondValue(0);
       });
     }
-    if (timeBar >= width && secondValue === 3) {
-      sleep(1000).then(() => {
+    if (timeBar >= widthTest && secondValue === 3) {
+      sleep(0).then(() => {
         clearInterval(timeSkillBar);
         setTimeBar(0);
         showingDiv();
@@ -165,7 +169,7 @@ const SkillHandlingMulti = ({
     switch (skill.typeOfSkill) {
       //attack
       case 0:
-        handlingSkillButtons(numberOfSkill, skill.castTime);
+        handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
         let damage = Math.floor(
           Math.random() *
             (rooms.players[memberPartyId].heroPower.maxAttack +
@@ -176,62 +180,61 @@ const SkillHandlingMulti = ({
             rooms.players[memberPartyId].heroPower.minAttack +
             rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill
         );
-        setTimeout(() => {
+        sleep(skill.castTime + 1000).then(() => {
           socket.emit("dechp", damage, rooms.roomName);
           functionSkillDamageEnemyAttack(damage);
-        }, 1 * skill.castTime);
-
-        sleep(skill.recastTime).then(() => {
-          setButtonValue((buttonValue) => !buttonValue);
+          sleep(skill.recastTime + 1000).then(() => {
+            setButtonValue((buttonValue) => !buttonValue);
+          });
+          if (skill.countOfDots > 0) {
+            sleep(2000).then(() => {
+              damageOverTime(2000, skill.countOfDots, damage * skill.dotValue);
+            });
+          }
         });
 
-        if (skill.countOfDots > 0) {
-          sleep(2000).then(() => {
-            damageOverTime(2000, skill.countOfDots, damage * skill.dotValue);
-          });
-        }
         break;
       //bonus
       case 1:
         switch (skill.targetOfSkill) {
           case "dodge":
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% unik");
               socket.emit("changeStats", rooms.roomName, memberPartyId, 1, 1, skill.valueOfSkill);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% unik");
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 1, 2, skill.valueOfSkill);
 
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
             });
             break;
           case "block":
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% blok");
               socket.emit("changeStats", rooms.roomName, memberPartyId, 2, 1, skill.valueOfSkill);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% blok");
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 2, 2, skill.valueOfSkill);
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
             });
             break;
           case "crit":
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% kryt");
               socket.emit("changeStats", rooms.roomName, memberPartyId, 3, 1, skill.valueOfSkill);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% kryt");
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 3, 2, skill.valueOfSkill);
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
@@ -240,14 +243,14 @@ const SkillHandlingMulti = ({
           case "defense":
             let defensePointsStatic = rooms.players[memberPartyId].heroPower.defensePoints;
             let increaseDefensePointsTemporary = defensePointsStatic * skill.valueOfSkill;
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% obrona");
               socket.emit("changeStats", rooms.roomName, memberPartyId, 4, 1, increaseDefensePointsTemporary);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% obrona");
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 4, 2, increaseDefensePointsTemporary);
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
@@ -256,14 +259,14 @@ const SkillHandlingMulti = ({
           case "attack":
             let minAttackStatic = rooms.players[memberPartyId].heroPower.minAttack * skill.valueOfSkill;
             let maxAttackStatic = rooms.players[memberPartyId].heroPower.maxAttack * skill.valueOfSkill;
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + 100 * skill.valueOfSkill + "% atak");
               socket.emit("changeStatsAttack", rooms.roomName, memberPartyId, 1, minAttackStatic, maxAttackStatic);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + 100 * skill.valueOfSkill + "% atak");
                 socket.emit("changeStatsAttack", rooms.roomName, memberPartyId, 2, minAttackStatic, maxAttackStatic);
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
@@ -272,14 +275,14 @@ const SkillHandlingMulti = ({
           case "healthPoints":
             let healthPointsStatic = rooms.players[memberPartyId].heroPower.healthPoints;
             let increaseHealthPointsTemporary = healthPointsStatic * skill.valueOfSkill;
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               socket.emit("changeStats", rooms.roomName, memberPartyId, 5, 1, increaseHealthPointsTemporary);
               functionSkillBonusText("+ " + Math.floor(increaseHealthPointsTemporary) + " hp");
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 5, 2, increaseHealthPointsTemporary);
                 functionSkillBonusText("- " + Math.floor(increaseHealthPointsTemporary) + " hp");
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
@@ -288,14 +291,14 @@ const SkillHandlingMulti = ({
           case "manaPoints":
             let manaPointsStatic = rooms.players[memberPartyId].heroPower.manaPoints;
             let increaseManaPointsTemporary = manaPointsStatic * skill.valueOfSkill;
-            handlingSkillButtons(numberOfSkill, skill.castTime);
-            sleep(skill.castTime).then(() => {
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
+            sleep(skill.castTime + 1000).then(() => {
               functionSkillBonusText("+ " + Math.floor(increaseManaPointsTemporary) + " mana");
               socket.emit("changeStats", rooms.roomName, memberPartyId, 6, 1, increaseManaPointsTemporary);
-              sleep(skill.durationTime).then(() => {
+              sleep(skill.durationTime + 1000).then(() => {
                 functionSkillBonusText("- " + Math.floor(increaseManaPointsTemporary) + " mana");
                 socket.emit("changeStats", rooms.roomName, memberPartyId, 6, 2, increaseManaPointsTemporary);
-                sleep(skill.recastTime).then(() => {
+                sleep(skill.recastTime + 1000).then(() => {
                   setButtonValue((buttonValue) => !buttonValue);
                 });
               });
@@ -309,13 +312,13 @@ const SkillHandlingMulti = ({
       case 2:
         switch (skill.targetOfSkill) {
           case "restoreHealthPoints":
-            handlingSkillButtons(numberOfSkill, skill.castTime);
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
             let valueOfHeal = Math.floor(
               Math.random() * (rooms.players[memberPartyId].heroPower.maxAttack - rooms.players[memberPartyId].heroPower.minAttack + 1) +
                 rooms.players[memberPartyId].heroPower.minAttack +
                 rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill
             );
-            sleep(skill.castTime).then(() => {
+            sleep(skill.castTime + 1000).then(() => {
               socket.emit("increaseHealth", rooms.roomName, memberPartyId, valueOfHeal);
               functionNormalPlayerHeal(valueOfHeal, 0);
               if (skill.countOfDots > 0) {
@@ -323,22 +326,22 @@ const SkillHandlingMulti = ({
                   healOverTime(2000, skill.countOfDots, valueOfHeal * skill.dotValue);
                 });
               }
-              sleep(skill.recastTime).then(() => {
+              sleep(skill.recastTime + 1000).then(() => {
                 setButtonValue((buttonValue) => !buttonValue);
               });
             });
             break;
           case "restoreManaPoints":
-            handlingSkillButtons(numberOfSkill, skill.castTime);
+            handlingSkillButtons(numberOfSkill, skill.castTime + 1000);
             let valueOfMana = Math.floor(
               Math.random() * (rooms.players[memberPartyId].heroPower.maxAttack - rooms.players[memberPartyId].heroPower.minAttack + 1) +
                 rooms.players[memberPartyId].heroPower.minAttack +
                 rooms.players[memberPartyId].heroPower.bonusToSpecialAttack * skill.valueOfSkill
             );
-            sleep(skill.castTime).then(() => {
+            sleep(skill.castTime + 1000).then(() => {
               socket.emit("increaseMana", rooms.roomName, memberPartyId, valueOfMana);
               functionNormalPlayerHeal(valueOfMana, 1);
-              sleep(skill.recastTime).then(() => {
+              sleep(skill.recastTime + 1000).then(() => {
                 setButtonValue((buttonValue) => !buttonValue);
               });
             });
@@ -446,7 +449,7 @@ const SkillHandlingMulti = ({
       )}
       {testValue ? (
         <div className={`showingTime bar${skillNumber}`}>
-          <div className={`progress-div p${skillNumber}`} style={{ width: `${convertPXToVW(width)}vw` }}>
+          <div className={`progress-div p${skillNumber}`} style={{ width: `${convertPXToVW(widthTest)}vw` }}>
             <div style={{ width: `${convertPXToVW(timeBar)}vw`, backgroundColor: color }} className="progress" />
           </div>
         </div>

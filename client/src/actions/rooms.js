@@ -1,7 +1,6 @@
 import { CREATE_ROOM, DELETE_ROOM, JOIN_ROOM, LEAVE_ROOM, SHOW_ROOM, SHOW_ROOMS, SHOW_ROOM_BY_NAME, SEND_UPDATE_ROOM_IN_GAME, DOWNLOAD_UPDATE_ROOM_IN_GAME } from "../constants/actionTypes";
 
 import * as api from "../api/index.js";
-
 export const showrooms = () => async (dispatch) => {
   try {
     const { data } = await api.showRooms();

@@ -37,7 +37,7 @@ const GroupView = ({ room, setButtons, setWindowOfElements, socket }) => {
   if (hero.level >= room.monster.monsterLevel + 2) {
     infoTextError = "Za wysoki poziom postaci. Max :" + (room.monster.monsterLevel + 2) + ".";
   }
-  if (room.players.length === 2) {
+  if (room.players.length === 3) {
     infoTextError = "Brak wolnych miejsc w grupie.";
   }
   let itemChance;
