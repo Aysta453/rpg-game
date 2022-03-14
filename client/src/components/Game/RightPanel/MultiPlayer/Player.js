@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const Player = ({ player }) => {
-  const [playerBattleHpBar, setPlayerBattleHpBar] = useState(player.heroPower.currentHealthPoints);
-  const [playerBattleMpBar, setPlayerBattleMpBar] = useState(player.heroPower.currentManaPoints);
+  const [playerBattleHpBar, setPlayerBattleHpBar] = useState(0);
+  const [playerBattleMpBar, setPlayerBattleMpBar] = useState(0);
   let playerImage;
   let widthOfMainHealthPointsBar = 7.5;
   let widthOfMainManaPointsBar = 5.2;

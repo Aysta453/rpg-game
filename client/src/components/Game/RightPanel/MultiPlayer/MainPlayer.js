@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 const MainPlayer = ({ currentHp, hp, currentMp, mp }) => {
-  const [hpBar, setHp] = useState(currentHp);
-  const [mpBar, setMp] = useState(currentMp);
+  const [hpBar, setHp] = useState(0);
+  const [mpBar, setMp] = useState(0);
   const hero = useSelector((state) => state.hero);
 
   let playerImage;
@@ -47,6 +47,8 @@ const MainPlayer = ({ currentHp, hp, currentMp, mp }) => {
     setMp(changeBarMpPlayer);
     // eslint-disable-next-line
   }, [currentMp]);
+  console.log(widthOfMainHealthPointsBar,widthOfMainManaPointsBar,"static");
+  console.log(hpBar,mpBar,"dynamic")
   return (
     <div className="mainPlayer">
       <div className="avatarBox">
