@@ -2,7 +2,9 @@
 
  # <p align="center"> Magic World RPG Game</p>
   
-  https://aystagame.netlify.app
+ ## https://aystagame.netlify.app
+    
+ ![Animation1](https://user-images.githubusercontent.com/58811103/162998619-2e983dae-00bd-4e0e-9c1f-97caff683c0c.gif)
     
  ### <p align="center"> Purpose of the project </p>
   
@@ -17,6 +19,7 @@ The player, through the available missions in single and multi-man modes, has th
 ![image](https://user-images.githubusercontent.com/58811103/162996495-8a478943-1321-40ea-ae60-77b99af944df.png)
 ![image](https://user-images.githubusercontent.com/58811103/162996518-bf6042d7-c505-480b-b5f4-b9c78dfc893c.png)
 ![image](https://user-images.githubusercontent.com/58811103/162996599-ffcd23a6-e7f6-4eb1-98c9-37ace288748e.png)
+
 
   
   
