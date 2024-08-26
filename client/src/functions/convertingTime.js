@@ -1,4 +1,5 @@
 export default function convertingTime(time){
+    console.log('test')
         let newTime;
         let tempTime = time;
         let minutes;
